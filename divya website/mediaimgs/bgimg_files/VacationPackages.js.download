@@ -1,0 +1,903 @@
+﻿var ajaxLoadPackage;
+var ajaxIs_PC_UserPackages;
+$(".sx_contrytitle").click(function (e) {
+    $(this).next('div').slideToggle();
+
+    if ($(this).hasClass("contrytitleactive")) {
+        $(this).removeClass("contrytitleactive");
+        $(this).parent().removeClass("contrytitleactivechecked");
+        $(this).find("#chkSeriesCountry").removeClass("contrylistcheckactive");
+        $(this).css({ "padding-right": "16px", "color": "#616161" });
+    } else {
+        $(this).addClass("contrytitleactive");
+        $(this).parent().addClass("contrytitleactivechecked");
+        $(this).find("#chkSeriesCountry").addClass("contrylistcheckactive");
+        $(this).next().next().css("display", "block");
+        $(this).css({ "padding-right": "40%", "color": "#0c3051" });
+        $(this).parent().css("border", "none");
+        var id = $(this).attr("seriesid");
+        var type = $(this).attr("seriestype");
+        $(this).parent().css("display", "block");
+    }
+
+})
+$(".changetitle").click(function () {
+    $(".sx_countrylist").css("display", "block");
+    //$(this).css("display", "none");
+    $(".filterbox").removeAttr("style");
+    $(this).prev().slideUp();
+    $(this).prev().prev().removeClass("contrytitleactive");
+    $(this).prev().prev().css({ "padding-right": "16px", "color": "#616161" });
+
+})
+
+function buildFilterObject(year) {
+    const filter = {
+        SelectedYear: 0,
+        SelectedRegion_CountryIds: [],
+        SelectedTripTypes: [],
+        MultiCountry: false,
+        DealPrices: [],
+        DealCountryIds: [],
+        GroupTour: false,
+        PrivateTour: false,
+    };
+
+    filter.SelectedYear = parseInt(year) || 0;
+
+    if ($("input[name='chkPrivate']").is(":checked")) {
+        filter.PrivateTour = true;
+    }
+    if ($("input[name='chkGroup']").is(":checked")) {
+        filter.GroupTour = true;
+    }
+    const regionMap = new Map();
+
+    $("input[name='chkSeriesCountry']:checked").each(function () {
+        const $checkbox = $(this);
+        const availableYears = $checkbox.data('year').toString();
+
+        if (availableYears.includes(filter.SelectedYear.toString())) {
+            const regionId = $checkbox.data('seriesid');
+            const countryId = $checkbox.data('countryid');
+            const regionType = $checkbox.data('seriestype');
+
+            if (!regionMap.has(regionId)) {
+                regionMap.set(regionId, {
+                    regionType: regionType,
+                    CountryIds: []
+                });
+            }
+
+            regionMap.get(regionId).CountryIds.push(countryId);
+        }
+    });
+
+    for (const [regionId, value] of regionMap.entries()) {
+        filter.SelectedRegion_CountryIds.push({
+            regionId: regionId,
+            regionType: value.regionType,
+            CountryIds: value.CountryIds
+        });
+    }
+
+    console.log("Generated Filter:", filter);
+    return filter;
+}
+function filterPackages(page, selSeriesId, selSeriesType, isPhone, destination) {
+
+    $("#packageCount").val(1);
+
+    var sortType = $("[name='SortFilterPackage']").attr('id');
+    var $year = $("input[type='radio'][name='rdoYear']:checked");
+    var year = $year.val();
+    var $series = $("input[type='checkbox'][name='chkSeriesCountry']");
+    var filterJson = buildFilterObject(year);
+    var ishotdeal = $("input[id='ishotdeal']").val();
+
+    $.each($(".sx_contrytitle"), function (i, data) {
+        $(data).parent().hide();
+    });
+    $.each($series, function (i, e) {
+        var $this = $(this);
+        seriesType = $this.data('seriestype');
+        var years = $this.data('year');
+        if (years.indexOf(year) > 0) {
+            $this.parents("#seriesLeftWidgetDiv").find(".sx_contrytitle").parent().show();
+            $this.parents('label').removeClass("sx_disableclick");
+
+        } else {
+            $this.parents('label').addClass("sx_disableclick");
+        }
+    })
+    $.each($(".sx_contrytitle"), function (i, data) {
+        if ($(data).parent().is(":hidden") && $(data).hasClass("contrytitleactive")) {
+            $(data).click();
+        }
+    });
+    $.each($series, function (i, e) {
+        var $this = $(this);
+        seriesType = $this.data('seriestype');
+        var years = $this.data('year');
+        if (years.indexOf(year) > 0) {
+            var checked = $this.prop("checked");
+            if (checked) {
+                if ((!$this.parents("#seriesLeftWidgetDiv").find(".sx_contrytitle").parent().is(":hidden")) && (!$this.parents("#seriesLeftWidgetDiv").find(".sx_contrytitle").hasClass("contrytitleactive"))) {
+                    $this.parents("#seriesLeftWidgetDiv").find(".sx_contrytitle").click();
+                }
+            }
+        }
+    });
+    $('.newlayout__innersxtitle').next().show();
+    var height = 0;
+    if (isPhone == 1) {
+        height = $(".phonemorebtn").offset().top;
+    }
+    if (ajaxLoadPackage != undefined) {
+        ajaxLoadPackage.abort();//停止上一次ajax请求
+    }
+    var destination = getUrlParamString("destination");
+    if (destination == "" || destination == null || destination == undefined) {
+        var destinations = [""];
+    }
+    else {
+        var destinations = destination.split("-");
+    }
+
+    ajaxLoadPackage = $.ajax({
+        url: "/Home/FilterPackages",
+        type: "post",
+        //data: { 'filterJson': JSON.stringify(filterJson), 'sortType': sortType, 'year': year, 'series': series, 'seriesType': seriesType, 'option': op2, 'isPhone': isPhone, 'page': page, 'isHotDeal': ishotdeal, 'destination': destinations },
+        data: { 'filterJson': JSON.stringify(filterJson), 'sortType': sortType, 'year': year, 'page': page, 'isHotDeal': ishotdeal, 'destination': destinations },
+        success: function (res) {
+            $('#filterdiv').html(res);
+            $("#packageseriesId").val(selSeriesId);
+            if (selSeriesId != undefined) {
+                selSeriesId = selSeriesId != null ? selSeriesId : 0;
+                var seriersIdList = $("#seriersIdList").val();
+                $.ajax({
+                    url: "/Home/_PartialDestinationsVideo",
+                    type: "post",
+                    data: {
+                        'seriesId': selSeriesId, seriersIdList: seriersIdList
+                    },
+                    success: function (data) {
+                        $('#_PartialDestinationsVideo').removeClass("ritzlifetimevideobox")
+                        $('#_PartialDestinationsVideo').html(data);
+                        if (!ishotdeal) {
+                            getSeries(selSeriesId);
+                        }
+                    }
+                })
+            }
+            else {
+                $.ajax({
+                    url: "/Home/_PartialDestinationsVideo",
+                    type: "post",
+                    data: {
+                        'seriesId': 0
+                    },
+                    success: function (data) {
+                        $('#_PartialDestinationsVideo').removeClass("ritzlifetimevideobox")
+                        $('#_PartialDestinationsVideo').html(data);
+                        if (!ishotdeal) {
+                            getSeries(selSeriesId);
+                        }
+                    }
+                })
+            }
+
+
+
+        },
+        beforeSend: function () {
+            //$("#divcover").show();
+            $('#filterdiv').html('<img style="width:50px;height:50px;margin:auto;margin-top: 10%;" src="/asset/img/ajax-loader.gif"/>');
+            $("html,body").animate({ scrollTop: $('#topset').offset().top }, 700);
+        },
+        complete: function () {
+            //$("#divcover").hide();
+
+            if (isPhone == 1 && height > 0) {
+                $("body,html").scrollTop(height - 60);
+            }
+        }
+    })
+
+    const newUrl = generateUrl(filterJson);
+    history.pushState({}, "filterpackage", newUrl);
+}
+
+function generateUrl(filterJson) {
+    const queryParts = [];
+    var ishotdeal = $("input[id='ishotdeal']").val();
+    // 直接从 DOM 中读取所有勾选的国家名称，因为 filterJson 中只有 ID
+    const destinationCountries = [];
+    $("input[name='chkSeriesCountry']:checked").each(function () {
+        const countryName = $(this).data('countryname');
+        if (countryName) {
+            destinationCountries.push(countryName);
+        }
+    });
+
+    if (destinationCountries.length > 0) {
+        // 将国家名称用连字符连接
+        queryParts.push("destination=" + destinationCountries.join("-") + "_");
+    }
+
+    // year
+    if (filterJson.SelectedYear && filterJson.SelectedYear !== 0) {
+        queryParts.push("year=" + filterJson.SelectedYear + "_");
+    }
+
+    // option
+    const tourOptions = [];
+    if (filterJson.PrivateTour) {
+        tourOptions.push("Private");
+    }
+    if (filterJson.GroupTour) {
+        tourOptions.push("Group");
+    }
+
+    if (tourOptions.length > 0) {
+        queryParts.push("option=" + tourOptions.join("-") + "_");
+    }
+
+    const queryObj = queryParts.join("");
+
+    // 勾选框路径
+    let url = location.href.split('?')[0];
+    const $seriesLeftWidgetDiv = $('div[name="seriesLeftWidgetDiv"]');
+    const selSeriesId = window.selSeriesId || ''; // 确保 selSeriesId 可用
+    const oriSeriesCode = $seriesLeftWidgetDiv.find(`p.sx_contrytitle.contrytitleactive[seriesid='${selSeriesId}'][seriestype='P']`).attr("seriescode");
+
+    // 获取URL的最后一部分作为当前的 series code
+    const pathParts = url.split('/');
+    const currentUrlCode = pathParts.pop(); // 如 "Asia" 或 "Europe"
+    const basePath = pathParts.join('/'); // 基础路径，如 "https://domain.com/tours"
+
+    let finalSeriesCode = currentUrlCode;
+
+    // 如果找到了当前激活的series code，并且它和URL中的不匹配，则替换它
+    if (oriSeriesCode && currentUrlCode !== oriSeriesCode) {
+        finalSeriesCode = oriSeriesCode;
+    } else if (!oriSeriesCode && currentUrlCode !== "All") {
+        // 如果找不到激活的 code，则默认为 All
+        finalSeriesCode = "All";
+    }
+    if (ishotdeal) {
+        finalSeriesCode = "Offers";
+    }
+    // 拼接成不带 query 的基础 URL
+    let finalUrl = basePath + "/" + finalSeriesCode;
+
+    if (queryObj) {
+        finalUrl += "?query=" + queryObj;
+    }
+    finalUrl = finalUrl.replace(/_+$/, '');
+    console.log("Generated URL:", finalUrl);
+    return finalUrl;
+}
+function filterPackagesByNavBar(page, selSeriesId, selSeriesType, isPhone, isNavSeries = false) {
+    var sortType = $("[name='SortFilterPackage']").attr('id');
+    var $year = $("input[type='radio'][name='rdoYear']:checked");
+    var year = $year.val();
+    var $series = $("input[type='checkbox'][name='chkSeriesCountry']");
+    var queryObj = "";
+    var $private = $("input[type='checkbox'][name='chkPrivate']").prop("checked");
+    var $group = $("input[type='checkbox'][name='chkGroup']").prop("checked");
+    var series = [];
+    var seriesType = "";
+    var op2 = [];
+    if ($private) {
+        op2.push("Private");
+    }
+    if ($group) {
+        op2.push("Group");
+    }
+    var ishotdeal = $("input[id='ishotdeal']").val();
+    if (year == null || year == "") {
+        year = 0;
+    }
+
+    //点系列走的逻辑
+    //点系列下面的国家走的逻辑
+    $.each($(".sx_contrytitle"), function (i, data) {
+        $(data).parent().hide();
+    });
+    $.each($series, function (i, e) {
+        var $this = $(this);
+        seriesType = $this.data('seriestype');
+        var seriesId = $this.data('seriesid');
+        var countryId = $this.data('countryid');
+        var years = $this.data('year');
+        if (years.indexOf(year) > 0) {
+            $this.parents("#seriesLeftWidgetDiv").find(".sx_contrytitle").parent().show();
+            $this.parents('label').removeClass("sx_disableclick");
+            var checked = false;
+            if (isNavSeries && seriesId == selSeriesId) {
+                checked = true;
+            }
+            else {
+                checked = $this.prop("checked");
+            }
+            if (checked)
+                if (series.find(e => e.SeriesType == seriesType && e.SeriesId == seriesId) != null) {
+                    var obj = series.find(e => e.SeriesType == seriesType && e.SeriesId == seriesId);
+
+                    var country = {};
+                    country.CountryId = countryId;
+                    obj.SeriesCountry.push(country);
+                } else {
+                    var obj = new Object();
+                    obj.SeriesType = seriesType;
+                    obj.SeriesId = seriesId;
+                    obj.SeriesCountry = [];
+
+                    var country = {};
+                    country.CountryId = countryId;
+                    obj.SeriesCountry.push(country);
+
+                    series.push(obj);
+                }
+        } else {
+            $this.parents('label').addClass("sx_disableclick");
+            //$this.prop("checked", false);
+        }
+    })
+    $.each($(".sx_contrytitle"), function (i, data) {
+        if ($(data).parent().is(":hidden") && $(data).hasClass("contrytitleactive")) {
+            $(data).click();
+        }
+    });
+    if (selSeriesId > 0  && series.length == 0) {
+        var obj = new Object();
+        //obj.SeriesType = selSeriesType;
+        obj.SeriesId = selSeriesId;
+        obj.SeriesCountry = [];
+        series.push(obj);
+    }
+
+    ////如果没有选中国家，不显示clear all
+    //if (series != null && series.length > 0 && series[0].SeriesCountry != null && series[0].SeriesCountry.length > 0 || $private) {
+    //    $('.newlayout__innersxtitle').next().show();
+    //} else {
+    //    $('.newlayout__innersxtitle').next().hide();
+    //}
+    var height = 0;
+    if (isPhone == 1) {
+        height = $(".phonemorebtn").offset().top;
+    }
+    var filterJson = buildFilterObject(year);
+    $.ajax({
+        url: "/Home/FilterPackages",
+        type: "post",
+        data: { 'filterJson': JSON.stringify(filterJson), 'sortType': sortType, 'year': year, 'series': series, 'seriesType': seriesType, 'option': op2, 'isPhone': isPhone, 'page': page, 'isHotDeal': ishotdeal },
+        success: function (res) {
+            $('#filterdiv').html(res);
+            if (!ishotdeal) {
+                getSeries(selSeriesId);
+            }
+        },
+        beforeSend: function () {
+            //$("#divcover").show();
+            $('#filterdiv').html('<img style="width:50px;height:50px;margin:auto;margin-top: 10%;" src="/asset/img/ajax-loader.gif"/>');
+            $("html,body").animate({ scrollTop: $('#topset').offset().top }, 700);
+        },
+        complete: function () {
+            //$("#divcover").hide();
+
+            if (isPhone == 1 && height > 0) {
+                $("body,html").scrollTop(height - 60);
+            }
+        }
+    });
+}
+
+function getSeries(seriesId) {
+    if (seriesId > 0) {
+        $.ajax({
+            url: "/Home/GetSeriesById",
+            type: "post",
+            data: { 'seriesId': seriesId },
+            success: function (res) {
+                $('.reduce').html(res.Name);
+                $('#scioncontent').html(res.Content);
+            }
+        })
+    } else {
+        var memo = $('#hidSeriesType').val() == "C" ? "City Packages" : "destinations";
+        $('.reduce').html(memo);
+        $('#scioncontent').html("");
+    }
+}
+
+
+
+$(function () {
+    //query此处指判断是否是NavBar来的还是Package来的
+    var query = (getQueryString('query') != "" && getQueryString('query') != null) ? getQueryString('query') : getQueryString('destination');
+    var url = $(location).attr('href');
+    if (query == null) {
+        query = url.indexOf("query=");
+        if (query == -1) {
+            query = null;
+        }
+    }
+    var Id = getQueryString('Id');
+    var ishotdeal = $("input[id='ishotdeal']").val();
+    //var base64regex = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/; 现在网页搜索不做加密，所以这块逻辑暂时不用，并且太冗余先拿掉
+    if (query != null && query != undefined && query != "") {
+        if (url.includes("year") || url.includes("query")) {
+            var regSpace = /\%20| /g;
+            var regAnd = /\%26\%26/g;
+            //head包含seriesType和seriesCode俩个参数, parameter包含destination等键值
+            if (!location.href.includes("?query=")) {
+                url = url.replace("query=", "?query=")
+            }
+            history.pushState({}, "filterpackage", url);
+            var urlhead = url.split('?')[0];
+            var urlparameter = url.split('?')[1];
+            urlhead = urlhead.replace(regSpace, " ").replace(regAnd, "-");
+            urlparameter = urlparameter.replace(regSpace, " ").replace(regAnd, "-");
+            if (urlparameter.includes("Private")) {
+                $("input[type='checkbox'][name='chkPrivate']").prop("checked", true);
+            }
+            if (urlparameter.includes("Group")) {
+                $("input[type='checkbox'][name='chkGroup']").prop("checked", true);
+            }
+            var seriesCode = urlhead.substring(urlhead.lastIndexOf('/') + 1);
+            var seriesType = urlhead.substring(urlhead.lastIndexOf('/') - 1, urlhead.lastIndexOf('/'));
+            seriesCode = decodeURIComponent(seriesCode);
+            //根据seriesCode取得该seriesId
+            var $seriesLeftWidgetDiv = $('div[name="seriesLeftWidgetDiv"]');
+            var seriesId = $seriesLeftWidgetDiv.find("p[class='sx_contrytitle'][seriescode='" + seriesCode + "']" + "[seriestype='" + seriesType + "']").attr("seriesid");
+            //取url中的year
+            var year = getUrlParamString("year");
+            // 从series跳转时，year并不在url中，导致取不到变为了默认的当前时间 
+            // 页面加载时候已经在hidden中存了 如果url中没有就找hidden
+            var defaultYear = $('#defaultYear').val();
+            if (year == undefined && defaultYear != undefined) {
+                year = defaultYear;
+            }
+            if (year == undefined) {
+                year = new Date().getFullYear();
+            }
+            //取url中的destination，然后整理为数组判断
+            var destination = getUrlParamString("destination");
+            if (destination == "" || destination == null || destination == undefined) {
+                var destinations = [""];
+            }
+            else {
+                var destinations = destination.split("-");
+            }
+            //获取sort Type
+            var sortType = getUrlParamString("sortType") == "NaN" ? 0 : getUrlParamString("sortType");
+            if (sortType == "" || sortType == null || sortType == undefined || Object.is(sortType, NaN)) {
+                sortType = 0;
+            }
+            else {
+                sortType = parseInt(sortType);
+            }
+            //获取option
+            var opt = getUrlParamString("option");
+            if (opt == "" || opt == null || opt == undefined) {
+                opt = 0;
+            }
+            //查找year选项勾选
+            if (year != null && year != undefined && year != "") {
+                $("input[type='radio'][name='rdoYear'][value=" + year + "]").prop('checked', true);
+            }
+            //查找sortType
+            if (sortType != null && sortType != undefined && sortType != "") {
+                $("[name='SortFilterPackage']").attr("id", sortType);
+                switch (sortType) {
+                    case 1:
+                        $("[name='SortFilterPackage']").val("Price - low to high");
+                        break;
+                    case 2:
+                        $("[name='SortFilterPackage']").val("Price - high to low");
+                        break;
+                    case 3:
+                        $("[name='SortFilterPackage']").val("Duration - longest to shortest");
+                        break;
+                    case 4:
+                        $("[name='SortFilterPackage']").val("Duration - shortest to longest");
+                        break;
+                    case 5:
+                        $("[name='SortFilterPackage']").val("Newest");
+                        break;
+                    default:
+                        $("[name='SortFilterPackage']").val("Most popular");
+                }
+            }
+            //查找勾选对应的series和destination
+            var $series = $("input[type='checkbox'][name='chkSeriesCountry']");
+            $.each($series, function (i, e) {
+                var $this = $(this);
+                var thisSeriesType = $this.data('seriestype');
+                var thisSeriesId = $this.data('seriesid');
+                var thisCountryName = $this.data('countryname');
+                var years = $this.data('year');
+                if ((!years.indexOf(year) > 0) && seriesType != "C") {
+                    $this.parents('label').addClass("sx_disableclick");
+                }
+                else {
+                    $this.parents('label').removeClass("sx_disableclick");
+                }
+                //为Citypackage查找时直接跳到countryName查找
+                var country = 0;
+                for (country = 0; country <= destinations.length; country++) {
+                    if (destinations[country] == thisCountryName) {
+                        if (years.indexOf(year) > 0) {
+                            DefaultCss(thisSeriesId, seriesType);
+                        }
+                        $this.prop("checked", true);
+                        break;
+                    } else {
+                        $this.prop("checked", false);
+                    }
+                }
+            });
+            //是否私人团
+            var $private = $("input[type='checkbox'][name='chkPrivate']").prop("checked");
+            if (seriesId != null && seriesId > 0 && destination != null || $private) {
+                $('.newlayout__innersxtitle').next().show();
+            } else {
+                $('.newlayout__innersxtitle').next().hide();
+            }
+
+            if (opt == "Private") {
+                $("input[type='checkbox'][name='chkPrivate'][value=" + year + "]").prop('checked', true);//默认选中
+            }
+            filterPackages(1, seriesId, opt);
+        }
+        else {
+            //为NavBar的时候判断
+            var urlparameter = location.href.split('?')[0];
+            var seriesCode = urlparameter.substring(urlparameter.lastIndexOf('/') + 1);
+            var countryName = query;
+            var sortType = 0;
+            var year = new Date().getFullYear();
+            seriesCode = decodeURIComponent(seriesCode);
+            countryName = decodeURIComponent(countryName);
+            var $seriesLeftWidgetDiv = $('div[name="seriesLeftWidgetDiv"]');
+            var seriesId = $seriesLeftWidgetDiv.find("p[class='sx_contrytitle'][seriescode='" + seriesCode + "']" + "[seriestype='P']").attr("seriesid");
+            //默认选值
+            $("[name='SortFilterPackage']").val("Most popular");
+            if (seriesId != null && seriesId != undefined) {
+                var $series = $("input[type='checkbox'][name='chkSeriesCountry']");
+
+                if (countryName != null && countryName != "") {
+                    $.each($series, function (i, e) {
+                        var $this = $(this);
+                        var thisSeriesType = $this.data('seriestype');
+                        var thisSeriesId = $this.data('seriesid');
+                        var thisCountryName = $this.data('countryname');
+                        var years = $this.data('year');
+                        //if (years.indexOf(year) > 0)
+                        $this.parents('label').removeClass("sx_disableclick");
+                        if (thisCountryName == countryName) {
+                            DefaultCss(thisSeriesId, "P");
+                            $this.prop("checked", true);
+                        } else {
+                            $this.prop("checked", false);
+                        }
+                    });
+                }
+            }
+            DefaultCss(seriesId, "P");
+            filterPackagesByNavBar(1, seriesId, "P");
+        }
+    }
+    else {
+        var url = location.href;
+        var urlparameter = location.href.split('?')[0];
+        var seriesCode = urlparameter.substring(urlparameter.lastIndexOf('/') + 1);
+        seriesCode = decodeURIComponent(seriesCode);
+        var isTrue = seriesCode.substring(seriesCode.lastIndexOf('series='));
+        var isNavSeries = false;
+        if (isTrue.includes("series=")) {
+            isNavSeries = true;
+            seriesCode = seriesCode.replace("series=", "");
+            //history.pushState({}, "filterpackage", url = url.replace("series=", ""));
+        }
+        if (seriesCode != null || seriesCode != "") {
+            var $seriesLeftWidgetDiv = $('div[name="seriesLeftWidgetDiv"]');
+            var seriesId = $seriesLeftWidgetDiv.find("p[class='sx_contrytitle'][seriescode='" + seriesCode + "']" + "[seriestype='P']").attr("seriesid");
+
+            DefaultCss(seriesId, "P");
+            if (isNavSeries) {
+                var $series = $("input[type='checkbox'][name='chkSeriesCountry']");
+                $.each($series, function (i, e) {
+                    var $this = $(this);
+                    var thisSeriesId = $this.data('seriesid');
+                    //为Citypackage查找时直接跳到countryName查找
+                    if (seriesId == thisSeriesId) {
+                        $this.prop("checked", true);
+                    }
+                });
+            }
+
+            filterPackagesByNavBar(1, seriesId, "P", false, isNavSeries);
+        }
+        else {
+            //进此页面重新请求分页数据
+            filterPackages();
+        }
+    }
+
+});
+
+function DefaultCss(sid, stype) {
+    if (sid > 0 && stype != "C") {//只有一进来系列才有背景图展开效果，destination显示所有合上没有效果,citypackage
+        var $title = $(".sx_contrytitle");
+        //$(".sx_countrylist").css("display", "none");
+        if ($title.length > 0) {
+            $.each($title, function (i, e) {
+                var $this = $(this);
+                if ($this.attr("seriesid") == sid && $this.attr("seriestype") == stype) {
+                    $(this).addClass("contrytitleactive");
+                    $(this).parent().css("border", "none");
+                    $(this).find("#chkSeriesCountry").addClass("contrylistcheckactive");
+                    $(this).next().next().css("display", "block");
+                    $(this).css({ "padding-right": "40%", "color": "#00424E" });
+                    //$(".filterbox").css("border", "none");
+                    $(this).parent().css("display", "block");
+                    $(this).next().css("display", "block");
+                }
+
+            });
+        }
+    }
+}
+
+//function ClearCountry(seriesId,seriesType)
+//{
+//    if (seriesId != null && seriesId > 0) {
+//        $("input[type='checkbox'][name='chkSeriesCountry'][data-seriesid=" + seriesId + "]").prop("checked", false);
+//        filterPackages(1, 0, seriesType);
+//    }
+//}
+
+//获取url上传递的参数值
+function getUrlParamString(name) {
+    let reg = new RegExp("(^|)" + name + "=([^_]*)", "i");
+    let r = location.search.substr(1).match(reg);
+    if (r != null) {
+        return decodeURIComponent(r[2]);
+    };
+    return null;
+}
+
+
+function NextPaget(page, isPhone) {
+    var query = getQueryString('query');
+    var urlhead = location.href.split('?')[0];
+    var seriesCode = urlhead.substring(urlhead.lastIndexOf('/') + 1);
+    var seriesType = urlhead.substring(urlhead.lastIndexOf('/') - 1, urlhead.lastIndexOf('/'));
+    seriesCode = decodeURIComponent(seriesCode);
+    var aa = $("input[type='checkbox'][name='chkSeriesCountry']").prop("checked");
+
+    var $seriesLeftWidgetDiv = $('div[name="seriesLeftWidgetDiv"]');
+    var seriesId = $seriesLeftWidgetDiv.find("p[class='sx_contrytitle contrytitleactive'][seriescode='" + seriesCode + "']" + "[seriestype='" + seriesType + "']").attr("seriesid");
+    if (query != null && query != undefined && query != "") {
+        if (!(seriesId != null && seriesId != undefined && seriesId != "")) {
+            //如果系列没有就差seriestype所有的
+            if (seriesType == "C")//cp那边勾选全部取消然后点下一页
+                seriesId = 0;
+            if (seriesType == "P")
+                seriesId = 0;
+        }
+    }
+    filterPackages(page, seriesId, seriesType, isPhone);
+}
+
+
+function clearAll() {
+    var query = location.href.split('?')[0];
+
+    if (query != null && query != undefined && query != "") {
+        //if (query.includes("query")) {
+        //    var atob = window.atob(query);
+        //    var queryObj = JSON.parse(atob);
+        //    var series = queryObj.series;
+        //    $("input[type='checkbox'][name='chkSeriesCountry']").prop("checked", false);
+        //    $("input[type='checkbox'][name='chkPrivate']").prop('checked', false);
+        //    if (series != null && series != undefined && series != "" && series.length > 0) {
+
+        //        filterPackages(1, series[0].SeriesId, series[0].SeriesType);
+
+        //    } else {
+        //        //location.href = "/Vacation-Packages/P/All";
+        //        filterPackages(1, 0, $('#hidSeriesType').val());
+        //    }
+        //}
+        //else {
+        var urlparameter = location.href.split('?')[0];
+        var seriesCode = urlparameter.substring(urlparameter.lastIndexOf('/') + 1);
+        var countryName = query;
+        //url参数先解码
+        seriesCode = decodeURIComponent(seriesCode);
+        countryName = decodeURIComponent(countryName);
+        var $seriesLeftWidgetDiv = $('div[name="seriesLeftWidgetDiv"]');
+        var seriesId = $seriesLeftWidgetDiv.find("p[class='sx_contrytitle contrytitleactive'][seriescode='" + seriesCode + "']").attr("seriesid");
+        $("input[type='checkbox'][name='chkSeriesCountry']").prop("checked", false);
+        $("input[type='checkbox'][name='chkPrivate']").prop('checked', false);
+        $("input[type='checkbox'][name='chkGroup']").prop('checked', false);
+        hideDestinationCountries($('p.sx_contrytitle.contrytitleactive'));
+
+        filterPackages(1, 0);
+        //}
+    }
+}
+
+function hideDestinationCountries(contrytitle) {
+    $(contrytitle).next('div').slideToggle();
+    $(contrytitle).removeClass("contrytitleactive");
+    $(contrytitle).next().next().css("display", "none");
+    $(".filterbox").removeAttr("style");
+    $(contrytitle).css({ "padding-right": "16px", "color": "#616161" });
+    var $title = $(".sx_contrytitle");
+    //$(".sx_countrylist").css("display", "none");
+    if ($title.length > 0) {
+        $.each($title, function (i, e) {
+            var $this = $(this);
+            $(this).parent().removeAttr("style", "border:none");
+        });
+    }
+    ////清空这个destination下面选中的country
+    //$(contrytitle).next('div').find("input[name='chkregioncountry']:checked").prop('checked', false);
+}
+function Is_PC_UserPackages(page, selSeriesId, selSeriesType, isPhone) {
+    $("#packageCount").val(1);
+
+    var sortType = $("[name='SortFilterPackage']").attr('id');
+    var $year = $("input[type='radio'][name='rdoYear']:checked");
+    var year = $year.val();
+    var $series = $("input[type='checkbox'][name='chkSeriesCountry']");
+    var filterJson = buildFilterObject(year);
+    var queryObj = "";
+    var $private = $("input[type='checkbox'][name='chkPrivate']").prop("checked");
+    var $group = $("input[type='checkbox'][name='chkGroup']").prop("checked");
+    var series = [];
+    var seriesType = "";
+    // op2为Trip Type，故作List<string>处理
+    var op2 = [];
+    if ($private) {
+        op2.push("Private");
+    }
+    if ($group) {
+        op2.push("Group");
+    }
+    //if ($private == false && selSeriesType == "Private") { selSeriesType = '@seriesType'; }//取消private classic tour
+    var ishotdeal = $("input[id='ishotdeal']").val();
+    if (year == null || year == "") {
+        year = 0;
+    }
+
+    //if (selSeriesType == "Private" && $private) {
+    //    if (selSeriesId == 0 || selSeriesId == null) {
+    //        seriesType = '@seriesType';
+    //    }
+    //}
+    $.each($(".sx_contrytitle"), function (i, data) {
+        $(data).parent().hide();
+    });
+    //点系列下面的国家走的逻辑
+    $.each($series, function (i, e) {
+        var $this = $(this);
+        seriesType = $this.data('seriestype');
+        var seriesId = $this.data('seriesid');
+        var countryId = $this.data('countryid');
+        var countryName = $this.data('countryname');
+        //var isSeriesActivated = $this.parents(".contrytitleactivechecked").length > 0;
+        var years = $this.data('year');
+        if (years.indexOf(year) > 0) {
+            $this.parents("#seriesLeftWidgetDiv").find(".sx_contrytitle").parent().show();
+            $this.parents('label').removeClass("sx_disableclick");
+            var checked = $this.prop("checked");
+            if (checked)
+                if (series.find(e => e.SeriesType == seriesType && e.SeriesId == seriesId) != null) {
+                    var obj = series.find(e => e.SeriesType == seriesType && e.SeriesId == seriesId);
+
+                    var country = {};
+                    country.CountryId = countryId;
+                    country.countryName = countryName;
+                    obj.SeriesCountry.push(country);
+                } else {
+                    var obj = new Object();
+                    obj.SeriesType = seriesType;
+                    obj.SeriesId = seriesId;
+                    obj.SeriesCountry = [];
+
+                    var country = {};
+                    country.CountryId = countryId;
+                    country.countryName = countryName;
+                    obj.SeriesCountry.push(country);
+
+                    series.push(obj);
+                }
+        } else {
+            $this.parents('label').addClass("sx_disableclick");
+            //$this.prop("checked", false);
+        }
+    })
+    $.each($(".sx_contrytitle"), function (i, data) {
+        if ($(data).parent().is(":hidden") && $(data).hasClass("contrytitleactive")) {
+            $(data).click();
+        }
+    });
+    $.each($series, function (i, e) {
+        var $this = $(this);
+        seriesType = $this.data('seriestype');
+        var seriesId = $this.data('seriesid');
+        var countryId = $this.data('countryid');
+        var countryName = $this.data('countryname');
+        //var isSeriesActivated = $this.parents(".contrytitleactivechecked").length > 0;
+        var years = $this.data('year');
+        if (years.indexOf(year) > 0) {
+            var checked = $this.prop("checked");
+            if (checked) {
+                if ((!$this.parents("#seriesLeftWidgetDiv").find(".sx_contrytitle").parent().is(":hidden")) && (!$this.parents("#seriesLeftWidgetDiv").find(".sx_contrytitle").hasClass("contrytitleactive"))) {
+                    $this.parents("#seriesLeftWidgetDiv").find(".sx_contrytitle").click();
+                }
+            }
+        }
+    });
+    if (selSeriesId > 0 && series.length == 0) {
+        var obj = new Object();
+        //obj.SeriesType = selSeriesType;
+        obj.SeriesId = selSeriesId;
+        obj.SeriesCountry = [];
+        series.push(obj);
+    }
+
+    $('.newlayout__innersxtitle').next().show();
+    var height = 0;
+    if (isPhone == 1) {
+        height = $(".phonemorebtn").offset().top;
+    }
+    if (ajaxIs_PC_UserPackages != undefined) {
+        ajaxIs_PC_UserPackages.abort();//停止上一次ajax请求
+    }
+    if (page != 1) {
+        ajaxIs_PC_UserPackages = $.ajax({
+            url: "/Home/FilterPackages",
+            type: "post",
+            data: { 'filterJson': JSON.stringify(filterJson), 'sortType': sortType, 'year': year, 'series': series, 'seriesType': seriesType, 'option': op2, 'isPhone': isPhone, 'page': page, 'isHotDeal': ishotdeal, 'showmore': true },
+            success: function (data) {
+                if (page != 1) {
+                    $(".packagelistpage").remove();
+                    $("#ModelCount").remove();
+                    $('#filterdiv').append(data);
+                    if (!ishotdeal) {
+                        getSeries(selSeriesId);
+                    }
+                }
+               
+
+            },
+            beforeSend: function () {
+                //$("#divcover").show();
+                $('#Showmoreloader').html('<img style="width:30px;height:30px;margin:auto;margin-top: 10%;" src="/asset/img/ajax-loader.gif"/>');
+
+            },
+            complete: function () {
+                //$("#divcover").hide();
+                $('#Showmoreloader').find("img").remove();
+
+            }
+        })
+    } else {
+
+        $(".packagelistpage").text("Showing 1 - 6 of  " + $("#totalCount").val() + "  Trips")
+        /*  < input type="hidden" id="ModelCount" value="6" /> */
+        $("#ModelCount").val(6);
+        $('#filterdiv>.layout__item:eq(5)').nextAll(".layout__item").remove();
+        if (!ishotdeal) {
+            getSeries(selSeriesId);
+        }
+    }
+   
+}

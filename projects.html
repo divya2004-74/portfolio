@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divya Balraj - Portfolio | My Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="top-nav">
+    <a href="index.html" class="brand">Divya Balraj</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <div class="page-header">
+      <h2 class="section-title">My Projects</h2>
+      <p class="page-subtitle">Interactive web applications, featured client concepts, and front-end utilities</p>
+    </div>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects" style="padding-top: 10px;">
+      <div class="projects-grid">
+
+        <!-- ==========================================
+             PROJECT 1: CALCULATOR (MINI PROJECT)
+             ========================================== -->
+        <div class="project-card featured-project">
+          <div class="project-img-box">
+            <div class="screenshot-frame">
+              <img src="calc-dark.png" id="calculator-screenshot-img" alt="Calculator App Screenshot"
+                class="project-preview-img">
+            </div>
+            <div class="screenshot-theme-switcher">
+              <span class="theme-switch-label">Live Preview:</span>
+              <button type="button" class="theme-preview-pill active" onclick="switchPreviewTheme('dark')">🌙 Dark</button>
+              <button type="button" class="theme-preview-pill" onclick="switchPreviewTheme('light')">☀️ Light</button>
+              <button type="button" class="theme-preview-pill" onclick="switchPreviewTheme('retro')">🎨 Retro</button>
+              <button type="button" class="theme-preview-pill" onclick="switchPreviewTheme('default')">✨ Colorful</button>
+            </div>
+          </div>
+          <div class="project-details">
+            <span class="project-badge"><i class="fa-solid fa-calculator"></i> Mini Project</span>
+            <h3>Calculator</h3>
+            <p>A simple and user-friendly calculator built using HTML, CSS, and JavaScript.</p>
+            <div class="tech-tags-group">
+              <span class="tech-tag"><i class="fa-brands fa-html5"></i> HTML</span>
+              <span class="tech-tag"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+              <span class="tech-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+            </div>
+
+            <!-- Key Features Section -->
+            <div class="project-features-container">
+              <h4 class="features-heading"><i class="fa-solid fa-wand-magic-sparkles"></i> Key Features:</h4>
+              <div class="features-grid">
+                <div class="feature-item feat-dark" onclick="switchPreviewTheme('dark')"
+                  title="Click to preview Dark Theme">
+                  <span class="feat-icon">🌙</span>
+                  <span class="feat-text">Dark Theme</span>
+                </div>
+                <div class="feature-item feat-light" onclick="switchPreviewTheme('light')"
+                  title="Click to preview Light Theme">
+                  <span class="feat-icon">☀️</span>
+                  <span class="feat-text">Light Theme</span>
+                </div>
+                <div class="feature-item feat-retro" onclick="switchPreviewTheme('retro')"
+                  title="Click to preview Retro Theme">
+                  <span class="feat-icon">🎨</span>
+                  <span class="feat-text">Retro Theme</span>
+                </div>
+                <div class="feature-item feat-math">
+                  <span class="feat-icon">➕</span>
+                  <span class="feat-text">Basic Arithmetic Operations</span>
+                </div>
+                <div class="feature-item feat-numpad">
+                  <span class="feat-icon">🔢</span>
+                  <span class="feat-text">User-Friendly Number Pad</span>
+                </div>
+                <div class="feature-item feat-clear">
+                  <span class="feat-icon">🧹</span>
+                  <span class="feat-text">AC (Clear) Function</span>
+                </div>
+                <div class="feature-item feat-del">
+                  <span class="feat-icon">⌫</span>
+                  <span class="feat-text">DEL (Delete) Function</span>
+                </div>
+                <div class="feature-item feat-responsive">
+                  <span class="feat-icon">📱</span>
+                  <span class="feat-text">Responsive Calculator Design</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-action-wrap">
+              <a href="calproject.html" target="_blank" rel="noopener noreferrer"
+                class="btn primary-btn project-view-btn">
+                <span>View Project</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             PROJECT 2: TRIPPY EXPERIENCE (TRAVEL & TOURISM)
+             ========================================== -->
+        <div class="project-card featured-project trippy-featured-card">
+          <div class="trippy-img-container">
+            <img src="assets/images/trippy-preview.jpg" alt="Trippy Experience Website Screenshot" class="trippy-cover-img"
+              onerror="this.src='trippy-preview.jpg'">
+            <div class="trippy-img-overlay">
+              <span class="status-indicator-dot"></span>
+              <span>Local Web Project (<code>mediaweb.html</code>)</span>
+            </div>
+          </div>
+          <div class="project-details">
+            <span class="project-badge"><i class="fa-solid fa-plane-departure"></i> Travel &amp; Tourism Website</span>
+            <h3>Trippy Experience</h3>
+            <p>An interactive travel and tourism website designed to explore worldwide destinations and discover memorable holiday experiences with curated travel packages, interactive image lightbox galleries, customer testimonials, and an integrated tour booking system.</p>
+
+            <div class="tech-tags-group">
+              <span class="tech-tag"><i class="fa-brands fa-html5"></i> HTML5</span>
+              <span class="tech-tag"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+              <span class="tech-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+              <span class="tech-tag"><i class="fa-solid fa-code"></i> jQuery</span>
+              <span class="tech-tag"><i class="fa-solid fa-font-awesome"></i> Font Awesome</span>
+            </div>
+
+            <!-- Key Features Section -->
+            <div class="project-features-container">
+              <h4 class="features-heading"><i class="fa-solid fa-wand-magic-sparkles"></i> Key Features:</h4>
+              <div class="features-grid">
+                <div class="feature-item feat-math" title="Curated vacation packages for China, Japan, Maldives, Paris, Dubai & more">
+                  <span class="feat-icon">🌍</span>
+                  <span class="feat-text">Curated Destinations &amp; Packages</span>
+                </div>
+                <div class="feature-item feat-del" title="Interactive modal lightbox to view full-screen destination photos">
+                  <span class="feat-icon">🖼️</span>
+                  <span class="feat-text">Interactive Image Lightbox Modal</span>
+                </div>
+                <div class="feature-item feat-numpad" title="Trip search with destination input and departure date picker">
+                  <span class="feat-icon">📅</span>
+                  <span class="feat-text">Trip Search &amp; Date Filter</span>
+                </div>
+                <div class="feature-item feat-retro" title="Integrated trip booking form with destination selection and guest count">
+                  <span class="feat-icon">📝</span>
+                  <span class="feat-text">Online Trip Booking Form</span>
+                </div>
+                <div class="feature-item feat-dark" title="Authentic customer reviews with traveler profile pictures">
+                  <span class="feat-icon">⭐</span>
+                  <span class="feat-text">Traveler Reviews &amp; Testimonials</span>
+                </div>
+                <div class="feature-item feat-clear" title="Mobile slide-toggle navigation powered by jQuery">
+                  <span class="feat-icon">🍔</span>
+                  <span class="feat-text">Responsive Hamburger Menu</span>
+                </div>
+                <div class="feature-item feat-light" title="Dynamic keyframe blur-in text focus animation on hero banner">
+                  <span class="feat-icon">✨</span>
+                  <span class="feat-text">Hero Text Focus Animations</span>
+                </div>
+                <div class="feature-item feat-responsive" title="Tailored media queries for desktop, tablet, and mobile screens">
+                  <span class="feat-icon">📱</span>
+                  <span class="feat-text">Multi-Device Responsive Design</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-action-wrap">
+              <a href="mediaweb.html" target="_blank" rel="noopener noreferrer"
+                class="btn primary-btn project-view-btn">
+                <span>View Project</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             PROJECT 3: BMI CALCULATOR (HEALTH & FITNESS TOOL)
+             ========================================== -->
+        <div class="project-card featured-project bmi-featured-card">
+          <div class="bmi-img-container">
+            <img src="assets/images/bmi-preview.png" alt="BMI Calculator App Screenshot" class="bmi-cover-img"
+              onerror="this.src='bmi-preview.png'">
+            <div class="bmi-img-overlay">
+              <span class="status-indicator-dot"></span>
+              <span>Local Web Tool (<code>bmicalc.html</code>)</span>
+            </div>
+          </div>
+          <div class="project-details">
+            <span class="project-badge" style="background: rgba(13, 148, 136, 0.2); color: #2dd4bf; border-color: rgba(45, 212, 191, 0.4);"><i class="fa-solid fa-heart-pulse"></i> Health &amp; Fitness Tool</span>
+            <h3>BMI Calculator</h3>
+            <p>A responsive health utility web application designed to compute Body Mass Index with dynamic Metric (kg/cm) and Imperial (lbs/inches) unit systems, pediatric age verification, and categorized health classifications.</p>
+
+            <div class="tech-tags-group">
+              <span class="tech-tag"><i class="fa-brands fa-html5"></i> HTML5</span>
+              <span class="tech-tag"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+              <span class="tech-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+              <span class="tech-tag"><i class="fa-solid fa-sliders"></i> Responsive Form</span>
+            </div>
+
+            <!-- Key Features Section -->
+            <div class="project-features-container">
+              <h4 class="features-heading"><i class="fa-solid fa-wand-magic-sparkles"></i> Key Features:</h4>
+              <div class="features-grid">
+                <div class="feature-item feat-math" title="Dynamic dropdown toggle between Metric (kg/cm) and Imperial (lbs/inches)">
+                  <span class="feat-icon">⚖️</span>
+                  <span class="feat-text">Dual Unit System (Metric &amp; Imperial)</span>
+                </div>
+                <div class="feature-item feat-numpad" title="Precision mathematical computation rounded to 1 decimal place">
+                  <span class="feat-icon">🧮</span>
+                  <span class="feat-text">Precision BMI Calculation Formula</span>
+                </div>
+                <div class="feature-item feat-clear" title="Pediatric classification handling for users under 20 years of age">
+                  <span class="feat-icon">👶</span>
+                  <span class="feat-text">Pediatric &amp; Minor Age Guidance</span>
+                </div>
+                <div class="feature-item feat-dark" title="Instant health classification: Underweight, Healthy, Overweight, Obese">
+                  <span class="feat-icon">📊</span>
+                  <span class="feat-text">Instant Health Category Matrix</span>
+                </div>
+                <div class="feature-item feat-retro" title="Comprehensive reference table with standard WHO health ranges">
+                  <span class="feat-icon">📋</span>
+                  <span class="feat-text">Built-In WHO BMI Reference Table</span>
+                </div>
+                <div class="feature-item feat-del" title="Real-time validation preventing negative or empty values">
+                  <span class="feat-icon">🛡️</span>
+                  <span class="feat-text">Client-Side Form Validation</span>
+                </div>
+                <div class="feature-item feat-light" title="Deep teal-to-indigo gradient styling with modern rounded cards">
+                  <span class="feat-icon">🎨</span>
+                  <span class="feat-text">Deep Teal &amp; Indigo Modern UI</span>
+                </div>
+                <div class="feature-item feat-responsive" title="Seamless responsiveness for mobile, tablet, and desktop viewports">
+                  <span class="feat-icon">📱</span>
+                  <span class="feat-text">Multi-Device Responsive Layout</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-action-wrap">
+              <a href="bmicalc.html" target="_blank" rel="noopener noreferrer"
+                class="btn primary-btn project-view-btn" style="background: linear-gradient(135deg, #0d9488, #2dd4bf);">
+                <span>View Project</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             PROJECT 4: ONGOING CREATIVE WEB PROJECT
+             ========================================== -->
+        <div class="project-card">
+          <h3>Ongoing Creative Web Project</h3>
+          <p>An upcoming modern website project currently under active development.</p>
+          <span class="tech-used">Web Design / UI</span>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Divya Balraj. All Rights Reserved.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

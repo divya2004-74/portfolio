@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         1.String Conversion: Write a JavaScript program that accepts a string and 
+// uses the predefined functions toUpperCase() and toLowerCase() to display 
+// the string in uppercase and lowercase.
+  /*
+    let a=prompt("enter a string")
+    let upper=a.toUpperCase()
+    console.log("Uppercase"+upper);
+    
+    let lower=a.toLowerCase()
+    console.log("Lowercase"+lower);
+*/
+
+// 2.String Search: Write a JavaScript program that accepts a sentence and 
+// a word and uses the predefined includes() function to check whether the 
+// word is present in the sentence.
+/*
+let a=prompt("enter a sentences")
+let b=prompt("enter a word")
+if(a.includes(b)){
+    console.log("word is present");
+
+}else{
+    console.log("word is not present");
+    
+}
+    */
+
+//     3.Number Calculation: Write a JavaScript program that accepts a decimal number
+// and uses the predefined Math.round(), Math.floor(), and Math.ceil() functions
+// to display the rounded, floor, and ceiling values.
+
+/*
+let a=parseFloat(prompt("enter a number"))
+console.log(Math.round(a)); //it gives rounded number
+console.log(Math.floor(a)); //it cuts the .number
+console.log(Math.ceil(a));// it rounded the number
+*/
+
+// 4.Random Number Generator: Write a JavaScript program that uses the predefined 
+// Math.random() and Math.floor() functions to generate and display a random number
+// between 1 and 10.
+
+// let b=Math.floor(Math.random()*10) 
+// console.log(b);
+
+// 5.Array Processing: Write a JavaScript program that stores five numbers 
+// in an array and uses predefined methods such as push(), pop(), and sort() to add a number, 
+// remove the last number, and sort the array.
+
+/*
+let a=[10,20,30,40,50]
+console.log(a)
+a.push(70)
+console.log(a)
+a.pop()
+console.log(a);
+a.sort()
+console.log(a)
+*/
+
+// 6. Even or Odd Function: Write a JavaScript program that defines a function 
+// checkEvenOdd(num) which accepts a number and uses if...else to return whether
+// the number is even or odd.
+/*
+function  checkEvenOdd(num){ //n=num
+     
+    if(num%2==0){
+        console.log("it is  a even number");
+    }
+    else{
+        console.log("it is a odd number")
+    }
+}
+let n=Number(prompt("enter a  number"))//20
+checkEvenOdd(n)//20
+*/
+
+
+// 7. Largest Number Function: Write a JavaScript program that defines a function 
+// findLargest(a, b, c) which accepts three numbers and uses conditional statements
+// to find and return the largest number.
+
+/*
+function fun(a,b,c){
+if((a>b)  && (a>c) ) {
+    console.log("a is largest number");
+    
+}else if((b>a) && (b>c) ){
+    console.log("b is largest number");
+    
+}else if((c>a) && (c>b)){
+    console.log("c is a largest number");
+    
+}
+else{
+    console.log("invalid number");
+    
+}
+}
+let a=Number(prompt("enter a number"))
+let b=Number(prompt("enter a number"))
+let c=Number(prompt("enter a number"))
+fun(a,b,c)
+
+*/
+
+// 8. Factorial Function: Write a JavaScript program that defines a function factorial(n)
+// which accepts a positive integer and uses a loop to calculate and return its factorial.
+/*
+function fun(v){
+// fact
+let fact=1  //initial=1
+//3!=3*2*1
+for(let i=1; i<=v; i++){
+    fact*=i  //fact=1*2*3=6
+}
+console.log(fact);//6
+}
+let v=parseInt(prompt("enter a number"))
+
+fun(v)
+
+*/
+
+//  9. Simple Calculator Function: Write a JavaScript program that defines a function
+// calculate(a, b, operator) which accepts *two numbers and an operator (+, -, , /) 
+// and uses conditional branching to perform and return the appropriate calculation.
+/*
+ function calc(a,b,operator){
+if(operator=='+'){
+    return a+b;
+}
+    else if(operator=='-'){
+        return a-b;
+    }
+    else if(operator=='*'){
+        return a*b;
+    }
+    else if(operator=='/'){
+        return a/b;
+    }
+    else{
+        console.log("invalid operator");
+    }
+}   
+let a=parseInt(prompt("enter a number"))
+let b=parseInt(prompt("enter a number"))
+let op=prompt("enter a operator(+,-,*,/)")
+
+console.log(calc(a,b,op))
+*/
+
+// 10. Grade Function: Write a JavaScript program that defines a function 
+// findGrade(mark) which accepts a student's mark and uses if...else if...else 
+// to return the grade A, B, C, D, or F based on the mark.
+
+
+function findmark(mark) {
+if(mark>=90){
+    console.log("GRADE A: "+mark)
+}
+else if(mark>=70){
+    console.log("GRADE B :"+mark);
+}
+else if(mark>=50){
+    console.log("GRADE C :"+mark);
+}
+else if(mark>=30){
+    console.log("GRADE D :"+mark);
+}
+else if(mark>=20){
+    console.log("GRADE E :"+mark);
+    
+}
+else if(mark>=10){
+    console.log("GRADE F :"+mark);
+}
+else{
+    console.log("FAIL");
+    
+}
+}
+
+let mark=(Number(prompt("enter a mark")))
+console.log(findmark(mark));
+
+    </script>
+
+</body>
+</html>

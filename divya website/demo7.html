@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ball{
+            width: 150px;
+            height: 150px;
+            border: 2px solid black;
+            border-radius: 50%;
+            background-color: magenta;
+            margin: 40px;
+            padding: 40px;
+            animation: myanime 3s alternate infinite;
+            
+        }
+          @keyframes myanime{
+            0%{
+                background-color: red;
+                transform: translatey(0px)scale(1.5);
+            }
+            100%{
+                background-color: aqua;
+                transform: translatey(-145)scale(1.5);
+            }
+          }
+    </style>
+</head>
+<body>
+    <div class="ball"></div>
+</body>
+</html>

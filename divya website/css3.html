@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mainbox{
+            background-color: aqua;
+            height: 650px;
+            width: 650px;
+            padding: 70px;
+            margin: 30px;
+            justify-content: center;
+            display: flex;
+            position: relative;
+            left: 650px;
+            top: 100px;
+        }
+         .red{
+            width: 250px;
+            height: 500px;
+            background-color: red;
+            border: 4px solid black;
+            flex: 1;
+            /* display: flex; */
+            /* gap: 10px; */
+            /* flex-direction: column; */ 
+        }
+        .topbox{
+            display: flex;
+            gap: 30px;
+            /* flex-direction: column; */
+        }
+        .right side{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 1.5;
+        }
+         .yellow{
+            width:400px ;
+            height:200px ;
+            background-color: yellow;
+            border: 4px solid black; 
+            gap: 10px;
+            /* display: flex;
+            flex-direction: column;
+            padding: 20px; */
+            /* margin-top: 500px; */
+            /* margin-right: 200px; */ 
+        
+        }
+        .pink{
+            height: 120px;
+            background-color: magenta;
+            width: 400px;
+            border: 4px solid black;
+            gap: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mainbox">
+        <div class="topbox">
+        <div class="red"></div>
+        <div class="rightside">
+        <div class="yellow"></div>
+        <div class="pink"></div>
+        </div>
+        </div>
+    
+</body>
+</html>

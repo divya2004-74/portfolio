@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 300px;
+            height: 300px;
+            margin: 30px;
+        }
+        img:hover{
+            transform: translate(100px);
+            transform: rotatez(200deg);
+            transform: scale(1.2);
+            transform: skewy(-45deg);
+            transition: transform 3s;
+            transform: translatex(200px) translatey(200px) rotate(300deg) scale(1.2) skew(45deg);
+            transition: transform 4s ease;
+        }
+    </style>
+</head>
+<body>
+    <img src="./cube.jpg" alt="">
+</body>
+</html>

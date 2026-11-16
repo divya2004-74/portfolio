@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+           box-sizing: border-box;
+        }
+     img{
+        height: 600px;
+        width: 400px;
+     }
+     .gallery{
+        display: flex;
+        flex-wrap: wrap;
+     }
+     .gallery-item{
+        border: 2px solid red;
+        margin: 5px;
+        width: calc(25%-20px);
+     }
+     .gallery-item:hover{
+        border: 2px solid royalblue;
+     }
+     .gallery-item img{
+        height: auto;
+        width: 100%;
+     }
+     div.gallery-item div.title{
+        border: 2px solid red;
+        text-align: center;
+        padding: 15px;
+     }
+     @media screen and (max-width:800px) {
+        div.gallery-item{
+            width:calc(50% - 20px);
+        }
+     }
+      @media screen and (max-width:480px) {
+        div.gallery-item{
+            width:calc(100% - 20px);
+        }
+     }
+    </style>
+</head>
+<body>
+    <h2>responsive image gallery</h2>
+    <h4>resize the browser window to see the effect</h4>
+    <div class="gallery">
+        <div class="gallery-item">
+            <a  target="_blank" href="./beauty5.jpg">
+                <img src="./beauty5.jpg" alt="" >
+            </a>
+            <div class="title">beauty5</div>
+        </div>
+        <div class="gallery-item">
+            <a target="_blank" href="./beauty4.jpg">
+                <img src="./beauty4.jpg" alt="">
+            </a>
+           <div class="title">beauty4</div>
+        </div>
+        <div class="gallery-item">
+            <a target="_blank" href="./beauty3.jpg">
+                <img src="./beauty3.jpg" alt="">
+            </a>
+            <div class="title">beauty3</div>
+        </div>
+        <div class="gallery-item">
+            <a target="_blank" href="./beauty6.jpg">
+                <img src="./beauty6.jpg" alt="">
+            </a>
+            <div class="title">beauty6</div>
+        </div>
+    </div>
+</body>
+</html>

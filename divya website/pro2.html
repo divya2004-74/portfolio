@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divya Balraj | Portfolio</title>
+  <style>
+/* ==========================================
+   GENERAL & RESET
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #0f172a;
+  color: #f8fafc;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   NAVIGATION BAR (Flexbox)
+   ========================================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  background-color: #1e293b;
+  border-bottom: 2px solid #334155;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #f8fafc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #38bdf8;
+}
+
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 90px 20px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.hero-content h3 {
+  color: #38bdf8;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.hero-content h2 {
+  font-size: 24px;
+  color: #94a3b8;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  color: #cbd5e1;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: #0284c7;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0369a1;
+}
+
+/* ==========================================
+   SECTIONS GENERAL
+   ========================================== */
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #38bdf8;
+}
+
+.about, .skills, .projects, .contact {
+  padding: 70px 8%;
+}
+
+/* ABOUT SECTION */
+.about-card {
+  background-color: #1e293b;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid #334155;
+}
+
+.about-card p {
+  margin-bottom: 15px;
+  color: #cbd5e1;
+}
+
+/* SKILLS SECTION (Flexbox) */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.skill-box {
+  background-color: #1e293b;
+  padding: 15px 25px;
+  border-radius: 8px;
+  border: 1px solid #38bdf8;
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+/* PROJECTS SECTION (Flexbox Layout) */
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.project-card {
+  background-color: #1e293b;
+  width: 31%;
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card h3 {
+  color: #38bdf8;
+  margin-bottom: 12px;
+}
+
+.project-card p {
+  color: #cbd5e1;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.tech-stack {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: bold;
+}
+
+/* CONTACT SECTION */
+.contact-box {
+  text-align: center;
+  background-color: #1e293b;
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #334155;
+}
+
+.contact-box p {
+  margin-bottom: 25px;
+  color: #cbd5e1;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 25px;
+  background-color: #0f172a;
+  border-top: 1px solid #334155;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+
+/* ==========================================
+   MEDIA QUERIES (1200px, 950px, 650px)
+   ========================================== */
+
+/* 1. Large Screen / Small Laptops (Max Width: 1200px) */
+@media screen and (max-width: 1200px) {
+  .hero-content h1 {
+    font-size: 42px;
+  }
+  .project-card {
+    width: 48%; /* 2 Cards per row */
+  }
+}
+
+/* 2. Tablets (Max Width: 950px) */
+@media screen and (max-width: 950px) {
+  .navbar {
+    padding: 15px 5%;
+  }
+  .hero-content h1 {
+    font-size: 36px;
+  }
+  .hero-content h2 {
+    font-size: 20px;
+  }
+  .about, .skills, .projects, .contact {
+    padding: 50px 5%;
+  }
+  .project-card {
+    width: 48%;
+  }
+}
+
+/* 3. Mobile Devices (Max Width: 650px) */
+@media screen and (max-width: 650px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .hero {
+    padding: 60px 15px;
+  }
+  .hero-content h1 {
+    font-size: 30px;
+  }
+  .projects-container {
+    flex-direction: column;
+  }
+  .project-card {
+    width: 100%; /* 1 Card per row on mobile */
+  }
+  .skill-box {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="logo">Divya Balraj</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h3>Hello, I'm</h3>
+      <h1>Divya Balraj</h1>
+      <h2>Web Designer & Aspiring UI/UX Designer</h2>
+      <p>Diploma Graduate in CS (2024). Passionate about crafting modern, responsive, and user-friendly web experiences.</p>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-card">
+      <p>I completed my Diploma in Computer Science Engineering in 2024. During my initial career gap, I dedicated my time to primary tuition teaching, honing my communication and leadership skills.</p>
+      <p>Currently, I have mastered Web Designing using HTML5, CSS3, JavaScript, and jQuery, and I am actively expanding my skillset into UI/UX Design to craft pixel-perfect digital experiences.</p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-container">
+      <div class="skill-box">HTML5</div>
+      <div class="skill-box">CSS3 & Flexbox</div>
+      <div class="skill-box">Media Queries</div>
+      <div class="skill-box">JavaScript</div>
+      <div class="skill-box">jQuery</div>
+      <div class="skill-box">Bootstrap</div>
+      <div class="skill-box">UI/UX Design (Learning)</div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <h2 class="section-title">My Projects</h2>
+    <div class="projects-container">
+
+      <div class="project-card">
+        <h3>Trippy Experience</h3>
+        <p>A comprehensive single-page travel website featuring pure Flexbox layout, interactive media queries, dynamic design, and responsive elements.</p>
+        <span class="tech-stack">HTML5 • CSS3 • JS • jQuery</span>
+      </div>
+
+      <div class="project-card">
+        <h3>BMI Calculator</h3>
+        <p>A functional Web App that calculates Body Mass Index with dynamic JavaScript calculations and responsive layout styling.</p>
+        <span class="tech-stack">HTML5 • CSS3 • JavaScript</span>
+      </div>
+
+      <div class="project-card">
+        <h3>Web Calculator</h3>
+        <p>An interactive web-based calculator performing fundamental arithmetic calculations using JavaScript logic and jQuery updates.</p>
+        <span class="tech-stack">HTML5 • CSS3 • JS • jQuery</span>
+      </div>
+
+      <div class="project-card">
+        <h3>Beauty Single Page Site</h3>
+        <p>An elegant, stylish single-page frontend web template showcasing modern design aesthetics for beauty and lifestyle services.</p>
+        <span class="tech-stack">HTML5 • CSS3 • JavaScript</span>
+      </div>
+
+      <div class="project-card">
+        <h3>Wix-Inspired Home Page</h3>
+        <p>A clean front-end homepage project inspired by modern Wix templates, currently being structured with semantic HTML and custom CSS.</p>
+        <span class="tech-stack">HTML5 • CSS3</span>
+      </div>
+
+      <div class="project-card">
+        <h3>Intrusion Detection System</h3>
+        <p>Diploma Academic Capstone Project focusing on mobile network security and intrusion detection mechanisms.</p>
+        <span class="tech-stack">Academic Capstone • Network Security</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="contact-box">
+      <p>I am looking for opportunities in Web Design and UI/UX Design. Feel free to connect with me!</p>
+      <a href="mailto:divyabalraj@example.com" class="btn">Send Email</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Divya Balraj. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

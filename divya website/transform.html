@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+          perspective: 1000px;  
+        }
+        img{
+            width: 180px;
+            height: 160px;
+            margin: 130px;
+            /* transition: transform 4s cubic-bezier(0.755, 0.05, 0.855, 0.06); */
+    
+        }
+        img:hover{
+            transform: rotate(45deg) scaleZ(1.2) translateZ(50px);
+            transition: transform 4s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        }
+    </style>
+</head>
+<body>
+    <img src="./cloud.jpg" alt="">
+</body>
+</html>

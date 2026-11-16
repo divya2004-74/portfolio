@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trippy Experience</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+}
+/* */
+/* Header */
+.header {
+  background-color: #1A2B4C;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 15px;
+  font-size: 14px;
+  padding: 5px 8px;
+  border: 1px solid red; /* Temp border */
+  border-radius: 4px;
+}
+
+.nav a:hover {
+  color: #ffb703;
+}
+
+/* Banner */
+.banner {
+  position: relative;
+  height: 70vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  border: 2px solid red; /* Temp border */
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1600&auto=format&fit=crop') center/cover;
+  animation: zoomBg 15s infinite alternate linear;
+}
+
+@keyframes zoomBg {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+.banner-text {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-text h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+/* About Us Styles */
+.about-box {
+  background: #fff;
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto 30px;
+  padding: 25px;
+  text-align: center;
+  border-radius: 8px;
+  border: 2px solid red; /* Temp border */
+}
+
+.about-box h2 {
+  color: #1A2B4C;
+  margin-bottom: 12px;
+}
+
+.about-box p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* Booking Form Styles */
+.booking-box {
+  background: #fff;
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto 30px;
+  padding: 25px;
+  text-align: center;
+  border-radius: 8px;
+  border: 2px solid red; /* Temp border */
+}
+
+.booking-box h2 {
+  color: #1A2B4C;
+  margin-bottom: 20px;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.booking-form input,
+.booking-form select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+}
+
+.booking-form button {
+  padding: 12px;
+  background: #1A2B4C;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.booking-form button:hover {
+  background: #ffb703;
+  color: #1A2B4C;
+}
+
+/* Search Box */
+.search-box {
+  background: #fff;
+  width: 80%;
+  max-width: 900px;
+  margin: -40px auto 30px;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  border: 2px solid red; /* Temp border */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.form button {
+  padding: 10px 20px;
+  background: #1A2B4C;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Contact Box */
+.contact-box {
+  background: #fff;
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto 30px;
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+  border: 2px solid red; /* Temp border */
+}
+
+/* Customer Reviews Styles */
+.reviews-box {
+  background: #fff;
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto 30px;
+  padding: 25px;
+  text-align: center;
+  border-radius: 8px;
+  border: 2px solid red; /* Temp border */
+}
+
+.reviews-box h2 {
+  color: #1A2B4C;
+  margin-bottom: 20px;
+}
+
+.reviews-grid {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.review-card {
+  flex: 1;
+  min-width: 200px;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.review-card p {
+  font-size: 13px;
+  color: #444;
+  font-style: italic;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.review-card h4 {
+  font-size: 14px;
+  color: #1A2B4C;
+  text-align: right;
+}
+
+/* Title Section */
+.main-title {
+  text-align: center;
+  width: 80%;
+  margin: 0 auto 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px solid red; /* Temp border */
+}
+
+/* Places Grid */
+.places-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 80%;
+  margin: 0 auto 50px;
+}
+
+.box {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid red; /* Temp border */
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+}
+
+.img-box {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.box:hover .img-box img {
+  transform: scale(1.1);
+}
+
+.info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 43, 76, 0.85);
+  color: #fff;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  text-align: center;
+  transition: opacity 0.3s;
+}
+
+.box:hover .info {
+  opacity: 1;
+}
+
+.rate {
+  margin-top: 10px;
+  color: #ffb703;
+  font-weight: bold;
+}
+
+.box h4 {
+  text-align: center;
+  padding: 12px;
+  color: #1A2B4C;
+}
+
+/* Popup */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup img {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 6px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .places-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .places-grid {
+    grid-template-columns: 1fr;
+  }
+  .header {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+  </style>
+
+
+
+
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="header">
+    <div class="logo">Trippy Experience</div>
+    <nav class="nav">
+      <a href="#home">Home</a>">
+      <a href="#About us">About us</a>
+      <a href="#search">Search</a>
+      <a href="#Review">Review</a>
+      <a href="#contact">Contact</a>
+      <a href="#trips">Trips</a>
+      <a href="#bookingform">Booking form</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="banner" id="home">
+    <div class="banner-text">
+      <h1>Escape the Ordinary Explore the World</h1>
+      <p>Your ultimate guide to unforgettable adventures</p>
+    </div>
+  </section>
+   <br>
+   <!-- About Us Section -->
+  <section class="about-box" id="about">
+    <h2>About Us</h2>
+    <p>Welcome to Trippy Experience! We are dedicated to creating unforgettable travel experiences for wanderers around the world. From luxury stays to budget-friendly adventures, our customized packages ensure your dream vacation becomes a reality with seamless planning and 24/7 support.</p>
+  </section>
+  <br>
+  <!-- Search Section -->
+  <section class="search-box" id="search">
+    <h3>Search for a trip</h3>
+    <form class="form" onsubmit="event.preventDefault();">
+      <input type="text" placeholder="Where do you want to go?" required>
+      <input type="date" required>
+      <button type="submit">Search</button>
+    </form>
+  </section>
+
+  <!-- Vacation Section -->
+  <section class="main-title" id="trips">
+    <h2>Find your dream vacation</h2>
+    <p>Explore amazing places around the world with our customized travel packages.</p>
+  </section>
+
+  <!-- Destination Cards Section -->
+  <section class="places-grid">
+    
+    <!-- Card 1 -->
+    <div class="box" onclick="showImage('https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=1200&auto=format&fit=crop')">
+      <div class="img-box">
+        <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=800&auto=format&fit=crop" alt="China">
+        <div class="info">
+          <h3>China</h3>
+          <p>Explore the iconic Great Wall and ancient culture.</p>
+          <span class="rate">From $1,200</span>
+        </div>
+      </div>
+      <h4>China</h4>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="box" onclick="showImage('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200&auto=format&fit=crop')">
+      <div class="img-box">
+        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=800&auto=format&fit=crop" alt="Japan">
+        <div class="info">
+          <h3>Japan</h3>
+          <p>Experience Mount Fuji and cherry blossoms.</p>
+          <span class="rate">From $1,500</span>
+        </div>
+      </div>
+      <h4>Japan</h4>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="box" onclick="showImage('https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=1200&auto=format&fit=crop')">
+      <div class="img-box">
+        <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=800&auto=format&fit=crop" alt="Singapore">
+        <div class="info">
+          <h3>Singapore</h3>
+          <p>Discover Marina Bay Sands and modern gardens.</p>
+          <span class="rate">From $990</span>
+        </div>
+      </div>
+      <h4>Singapore</h4>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="box" onclick="showImage('https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1200&auto=format&fit=crop')">
+      <div class="img-box">
+        <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=800&auto=format&fit=crop" alt="Maldives">
+        <div class="info">
+          <h3>Maldives</h3>
+          <p>Relax in ocean waters and luxury villas.</p>
+          <span class="rate">From $1,800</span>
+        </div>
+      </div>
+      <h4>Maldives</h4>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="box" onclick="showImage('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200&auto=format&fit=crop')">
+      <div class="img-box">
+        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=800&auto=format&fit=crop" alt="Paris">
+        <div class="info">
+          <h3>Paris</h3>
+          <p>Visit Eiffel Tower, museums, and cafes.</p>
+          <span class="rate">From $1,400</span>
+        </div>
+      </div>
+      <h4>Paris</h4>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="box" onclick="showImage('https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=1200&auto=format&fit=crop')">
+      <div class="img-box">
+        <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=800&auto=format&fit=crop" alt="Switzerland">
+        <div class="info">
+          <h3>Switzerland</h3>
+          <p>Enjoy Alpine mountains and scenic views.</p>
+          <span class="rate">From $2,100</span>
+        </div>
+      </div>
+      <h4>Switzerland</h4>
+    </div>
+
+  </section>
+
+  <!-- Popup Modal -->
+  <div class="popup" id="imgPopup" onclick="hideImage()">
+    <span class="close-btn">&times;</span>
+    <img id="popupImg" src="" alt="Full View">
+  </div>
+   
+  <!-- Customer Reviews Section -->
+  <section class="reviews-box" id="reviews">
+    <h2>What Our Travelers Say</h2>
+    <div class="reviews-grid">
+      
+      <div class="review-card">
+        <p>"Trippy Experience made our Paris trip absolutely magical! Everything was perfectly organized."</p>
+        <h4>- Priya Sharma</h4>
+      </div>
+
+      <div class="review-card">
+        <p>"Best travel agency! The Japan tour package was smooth, hassle-free, and very affordable."</p>
+        <h4>- Rahul Verma</h4>
+      </div>
+
+      <div class="review-card">
+        <p>"Unforgettable Maldives vacation! The customer service team was always helpful throughout."</p>
+        <h4>- Anitha Raman</h4>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-box" id="contact">
+    <h3>Contact Us</h3>
+    <p>Email: support@trippyexperience.com | Phone: +91 6756793906</p>
+  </section>
+
+   <!-- Booking Form Section -->
+  <section class="booking-box" id="booking">
+    <h2>Book Your Trip</h2>
+    <form class="booking-form" onsubmit="event.preventDefault(); alert('Booking request submitted!');">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <select required>
+        <option value="" disabled selected>Select Destination</option>
+        <option value="china">China</option>
+        <option value="japan">Japan</option>
+        <option value="singapore">Singapore</option>
+        <option value="maldives">Maldives</option>
+        <option value="paris">Paris</option>
+        <option value="switzerland">Switzerland</option>
+      </select>
+      <input type="number" placeholder="Number of Guests" min="1" required>
+      <button type="submit">Book Now</button>
+    </form>
+  </section>
+
+
+  <script>
+    function showImage(src) {
+  var popup = document.getElementById('imgPopup');
+  var popupImg = document.getElementById('popupImg');
+  
+  popup.style.display = 'flex';
+  popupImg.src = src;
+}
+
+function hideImage() {
+  document.getElementById('imgPopup').style.display = 'none';
+}
+  </script>
+</body>
+</html>

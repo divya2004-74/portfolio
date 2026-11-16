@@ -1,0 +1,68 @@
+*{
+  margin: 0px;
+  padding: 0px;
+} 
+h2 {
+  font-family: "Dancing Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+  /* margin-left: 20px; */
+  font-size: 2em;
+    /* border:2px solid red; */
+    margin-left: 10px;
+
+}
+
+nav{
+  display: flex;
+  /* border:2px solid red; */
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;   
+   padding: 10px 30px;
+
+}
+.ph1{
+  border: 10px solid red;
+   display: flex;
+  flex-direction:row; 
+  margin: 20px; 
+  border-bottom: 40px solid red;
+  transform: skewy(15deg) skewX(-10deg);
+  /* padding: 10px; */
+  /* align-items:center; */
+  border-radius: 5px;
+}
+.ph2{
+  border: 10px solid red;
+   display: flex;
+  flex-direction:row; 
+  margin: 60px; 
+  border-bottom: 40px solid red;
+  margin-top: 80px;
+  transform: skewx(15deg);
+}
+.ph3{
+  border: 10px solid red;
+   display: flex;
+  flex-direction:row; 
+  margin: 20px; 
+  border-bottom: 40px solid red;}
+/* .ph{
+  width: 150px;
+  height: 150px;
+  border: 2px solid solid red;
+  /* display: flex;  */
+
+/* }  */
+.parent{
+  display: flex;
+  flex-direction: row;
+  border: 2px solid black;
+  margin-top: 90px;
+  justify-content: space-around;
+}
+img{
+  width: 180px;
+  height: 200px;
+}

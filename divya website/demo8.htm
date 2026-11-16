@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .but{
+            background-color: blue;
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 10px;
+            animation: anime 3s infinite alternate ease-in;
+            margin: 40px;
+        }
+        @keyframes anime{
+            0%{
+                transform: scale(1);
+                background-color: #fff;
+            }
+            100%{
+                transform: scale(1.2);
+                background-color: purple;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="but">click me</button>
+</body>
+</html>

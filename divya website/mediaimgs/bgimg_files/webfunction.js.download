@@ -1,0 +1,1835 @@
+var ReformatUrl = function (name, char) {
+    var reg = /\W+/gi;
+    var newName = name.replace(reg, char);
+    var lastIndex = newName.length - 1;
+    if (checkValidUrl(newName.charCodeAt(0))) {
+        newName = newName.slice(1, lastIndex + 1);
+    }
+    if (checkValidUrl(newName.charCodeAt(lastIndex))) {
+        newName = newName.slice(0, lastIndex);
+    }
+    return newName;
+};
+
+var checkValidUrl = function (char) {
+    if (char < 48 || char > 57 && char < 65 || char > 90 && char < 97 || char > 122) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+var showSubscribe = function () {
+    $("#divSubcribe_bg").show();
+    $("#divSubcribe").show();
+};
+var closeSubscribe = function () {
+    $("#divSubcribe_bg").hide();
+    $("#divSubcribe").hide();
+}
+
+$('select[name="SortPackage"]').on('change', function () {
+    var countryId = $(this).data('countryid');
+    var type = $(this).data('vacationtype');
+    var cities = $(this).data('cities');
+    if (countryId === '') {
+        countryId = 0;
+    }
+    if (type === '') {
+        type = '-1';
+    }
+    if (cities === '') {
+        cities = '0';
+    }
+    var culture = $('input[name="hidculture"]').val();
+    $.ajax({
+        url: '/Home/SortedVacationPackage',
+        type: 'GET',
+        data: {
+            countryId: countryId,
+            vacationType: type,
+            cities: cities,
+            sortType: $(this).val(),
+            culture: culture
+        },
+        success: function (result) {
+            $('#loading').hide();
+            $('div[name="PackageList"]').html(result);
+        },
+        beforeSend: function () {
+            $('#loading').show();
+            $('div[name="PackageList"]').html('');
+        }
+    });
+});
+
+$('select[name="SortSearchPackage"]').on('change', function (e) {
+    var type = $('[name="Type"]').val();
+    var country = $('[name="Country"]').val();
+    var departure = $('[name="Departure"]').val();
+    var key = $('[name="Key"]').val();
+    //ritz 不区分语言版本也没有小系列
+    //var culture = $('input[name="hidculture"]').val();
+    //var smallSeriesCode = $('select[name="SortSearchPackage"]').data("smallseriescode");
+    var $lis = $('ul[role="tablist"]').find('li[name!="SortList"]');
+    //var year = $('a[aria-selected="true"]').attr("aria-controls");
+    var year = 0;
+    $.each($lis, function (i) {
+        if ($lis.eq(i).hasClass('is-active')) {
+            year = $(this).attr("year");
+        }
+    });
+    $.ajax({
+        url: '/Home/SortedSearchVacationPackage',
+        type: 'GET',
+        data: {
+            region: $('[name="Region"]').val(),
+            country: country,
+            destination: country,
+            searchType: type,
+            departure: departure,
+            key: key,
+            sortType: $(this).val(),
+            year: year
+        },
+        success: function (result) {
+            $('#loading').hide();
+            $("#" + year + "TRIPS").html(result);
+        },
+        beforeSend: function () {
+            $('#loading').show();
+            $("#" + year + "TRIPS").html("");
+        }
+    });
+});
+
+$(document).on('click', '[data-modal-target="reviewsGalleryModal"]', function (e) {
+    e.preventDefault();
+    var $btn = $(this);
+    var reviewId = $btn.data('review-id');
+    var reviewIndex = parseInt($btn.data('review-index')) || 0;
+    $.get('/Home/GetReviewPopUp', { reviewId: reviewId }, function (html) {
+        var $modal = $('#reviewsGalleryModal');
+        $modal.html(html);
+
+        // Initialize Swiper for the reviews gallery
+        if ($('.reviews-gallery-swiper').length) {
+            var slideCount = $('.reviews-gallery-swiper .swiper-slide').length;
+            var isSingleSlide = slideCount <= 1;
+            new Swiper('.reviews-gallery-swiper', {
+                loop: false,
+                initialSlide: reviewIndex,
+                spaceBetween: 20,
+                allowTouchMove: !isSingleSlide,
+                pagination: isSingleSlide ? false : {
+                    el: '.reviews-gallery-pagination',
+                    clickable: true,
+                },
+                navigation: isSingleSlide ? false : {
+                    nextEl: '.reviews-gallery-next',
+                    prevEl: '.reviews-gallery-prev',
+                },
+                keyboard: {
+                    enabled: !isSingleSlide,
+                },
+                a11y: {
+                    enabled: true,
+                },
+            });
+            if (isSingleSlide) {
+                $('.reviews-gallery-next, .reviews-gallery-prev, .reviews-gallery-pagination').hide();
+            }
+        }
+    });
+});
+
+// Handle vote buttons in review modal
+$(document).on('click', '[data-vote]', function () {
+    var $btn = $(this);
+    var $cta = $btn.closest('.reviews-gallery-modal__helpful-cta');
+    var $buttons = $cta.find('.buttons');
+    var $thankYou = $cta.find('.thank-you');
+    var $question = $cta.find('.question');
+
+    $buttons.hide();
+    $question.hide();
+    $thankYou.addClass('is-visible');
+    $btn.addClass('is-voted');
+
+    console.log('Vote recorded:', $btn.data('vote'));
+});
+var searchPackages = function () {
+    var country = $('select[name="destination"]').val();
+    var departureDate = $('input[name="departure"]').val();
+    $.ajax({
+        url: '/Home/SearchResults',
+        type: 'GET',
+        data: {
+            country: country,
+            date: departureDate
+        },
+        success: function () {
+
+        }
+    });
+};
+var GetSmallserieInfo = function (e) {
+    var smallSeriesCode = $(e).data("key");
+    var seriescode = $(e).data("seriescode");
+    var seriestype = $(e).data("seriestype");
+    var culture = $("[name='hidculture']").val();
+    $.ajax({
+        type: "GET",
+        url: "/Home/GetPackageForSmallseries",
+        data: {
+            seriesType: seriestype,
+            seriescode: seriescode,
+            smallSeriesCode: smallSeriesCode,
+            culture: culture
+        },
+        beforeSend: function () {
+            $('#loading').show();
+            $("[name='PackageList']").html('');
+        },
+        success: function (result) {
+            $('#loading').hide();
+            $("[name='PackageList']").html(result);
+        },
+    });
+};
+var changeAirlineSelector = function () {
+    //var $currentGateway = $('select[name="selectGateway"] option:selected');
+    var $currentGateway = $('[name="listGateway"]');
+    var airlineCodes = $currentGateway.data('airlinecodes').split(',');
+    var airlineNames = $currentGateway.data('airlinenames').split(',');
+
+    var moreThanOneAirline = airlineCodes.length > 1;
+
+    var html = $currentGateway.attr('data-value') !== 'Land Only' && moreThanOneAirline ? '<option value="*" selected>Cheapest airline</option>' : '';
+    if (airlineCodes.length === airlineNames.length && airlineCodes.length > 0 && airlineNames.length > 0) {
+        $.each(airlineCodes, function (i) {
+            html += '<option value="' + airlineCodes[i] + '">' + airlineNames[i] + '</option>';
+        });
+    }
+    $('select[name="selectAirline"]').html(html);
+};
+
+$('select[name="selectNumber"]').on('change', function () {
+
+    let gateway = $('input[name="listGateway"]').attr('data-value');
+    displayDate(gateway);
+});
+//$('select[name="selectGateway"]').on('change', function () {
+//    let gateway = $('input[name="listGateway"]').attr('data-value');
+//    //changeAirlineSelector();
+//    displayDate(gateway);
+//});
+
+$('[name="listGateway"]').on('change', function () {
+    let gateway = $('[name="listGateway"]').attr('data-value');
+    //changeAirlineSelector();
+    displayDate(gateway);
+});
+
+//$('select[name="selectAirline"]').on('change', function () {
+//    displayDate();
+//});
+
+var currentRequest = null;
+var instance;
+var displayDate = function (gateway, tourType) {
+    instance?.destroy();
+    var seriesCode = $('input[name="packageSeries"]').val();
+    var culture = $('input[name="hidculture"]').val();
+    var id = $('input[name="packageId"]').val();
+    if (seriesCode !== "usa" && seriesCode !== "citypackage") {
+        //var gateway = $('select[name="selectGateway"] option:selected').val();
+        // var gateway = $('[name="listGateway"]').attr('data-value');
+
+        var selectedMonth = $('a.date-price.is-active').eq(0).data('monthid');
+
+        if (tourType === 'Tour') {
+            currentRequest = $.ajax({
+                url: '/Home/GetAvailableDatePrice',
+                type: 'GET',
+                data: {
+                    gateway: gateway,
+                    airline: "*",
+                    packageId: id,
+                    lastSelectedMonth: selectedMonth,
+                    culture: culture,
+                    peopleCountFrom: 0,
+                    peopleCountTo: 0,
+                },
+                success: function (result) {
+                    const {Price: price, IsSales: isSales, IsAgency: isAgency, IsAgent: isAgent, AgentActive: agentActive, Gateways: gatewayText, Airlines: airlineText} = result;
+                    const priceContent = document.querySelector('#price-content');
+                    const priceGateways = priceContent.querySelector('.gateway_select');
+                    if (priceGateways) {
+                        const displayGatewayNote = priceGateways.style.display !== 'none' && priceGateways.querySelector('input').dataset.value !== 'Land Only';
+                        if (displayGatewayNote) {
+                            priceContent.querySelector('.date_price_note').innerText = `Displaying prices departing from ${gatewayText}, ${airlineText}. To view more airports, select from the dropdown menu.`;
+                            priceContent.querySelector('.date_price_note').style.display = 'block';
+                            priceContent.querySelector('.datepricewithmessage').style.display = 'block';
+                        } else {
+                            const wrapper = priceContent.querySelector('.datepricewithmessage');
+                            const note = priceContent.querySelector('.date_price_note');
+
+                            // 先隐藏 note
+                            note.style.display = 'none';
+                            note.innerText = '';
+
+                            // 判断 WithDatePriceMessage 是否有内容
+                            let hasRawMessage = false;
+
+                            // 只检查 wrapper 里「不是 date_price_note 的内容」
+                            wrapper.childNodes.forEach(node => {
+                                if (
+                                    node.nodeType === Node.TEXT_NODE &&
+                                    node.textContent.trim() !== ''
+                                ) {
+                                    hasRawMessage = true;
+                                }
+                            });
+
+                            // 如果两个都没内容，隐藏父容器
+                            if (!hasRawMessage && note.innerText.trim() === '') {
+                                wrapper.style.display = 'none';
+                            } else {
+                                wrapper.style.display = '';
+                            }
+                        }
+                        const priceSection = document.querySelector('section[name="price"]');
+                        instance = new DatePricePicker(priceSection, price, PackageType.Package, isSales, isAgency, isAgent, agentActive);   
+                    } else {
+                        priceContent.querySelector('.date_price_note').style.display = 'none';
+                    }
+                    $('#price-content .loading').hide();
+                },
+                beforeSend: function () {
+                    if (currentRequest != null) {
+                        currentRequest.abort();
+                    }
+                    $('#price-content .loading').show();
+                    $('section[name="price"]').html('');
+                }
+            });   
+        } else if (tourType === 'PrivateTour') {
+            // const travelerInput = document.querySelector('input[name="traveler-input"]');
+            const travelerInput = document.querySelector('select[name="traveler-select"] option:checked');
+            const peopleFrom = parseInt(travelerInput.dataset.travelerFrom);
+            const peopleTo = parseInt(travelerInput.dataset.travelerTo);
+            currentRequest = $.ajax({
+                url: '/Home/GetAvailableDatePrice',
+                type: 'GET',
+                data: {
+                    gateway: gateway,
+                    airline: "*",
+                    packageId: id,
+                    lastSelectedMonth: selectedMonth,
+                    culture: culture,
+                    peopleCountFrom: peopleFrom,
+                    peopleCountTo: peopleTo,
+                },
+                success: function (result) {
+                    const {Price: price, IsSales: isSales, IsAgency: isAgency, IsAgent: isAgent, AgentActive: agentActive, Gateways: gatewayText, Airlines: airlineText, PrivateTourEstimatePrice: estimatePrice} = result;
+                    const privatePriceContent = document.querySelector('#private-price-content');
+                    const privatePriceGateways = privatePriceContent.querySelector('.gateway_select');
+                    if (privatePriceGateways) {
+                        const displayGatewayNote = privatePriceGateways.style.display !== 'none' && privatePriceGateways.querySelector('input').dataset.value !== 'Land Only';
+                        if (displayGatewayNote) {
+                            privatePriceContent.querySelector('.date_price_note').innerText = `Displaying prices departing from ${gatewayText}, ${airlineText}. To view more airports, select from the dropdown menu.`;
+                            privatePriceContent.querySelector('.date_price_note').style.display = 'block';
+                            privatePriceContent.querySelector('.datepricewithmessage').style.display = 'block';
+                        } else {
+                            const wrapper = privatePriceContent.querySelector('.datepricewithmessage');
+                            const note = privatePriceContent.querySelector('.date_price_note');
+
+                            // 先隐藏 note
+                            note.style.display = 'none';
+                            note.innerText = '';
+
+                            // 判断 WithDatePriceMessage 是否有内容
+                            let hasRawMessage = false;
+
+                            // 只检查 wrapper 里「不是 date_price_note 的内容」
+                            wrapper.childNodes.forEach(node => {
+                                if (
+                                    node.nodeType === Node.TEXT_NODE &&
+                                    node.textContent.trim() !== ''
+                                ) {
+                                    hasRawMessage = true;
+                                }
+                            });
+
+                            // 如果两个都没内容，隐藏父容器
+                            if (!hasRawMessage && note.innerText.trim() === '') {
+                                wrapper.style.display = 'none';
+                            } else {
+                                wrapper.style.display = '';
+                            }
+                        }
+                        const priceSection = document.querySelector('section[name="private-price"]');
+                        instance = new DatePricePicker(priceSection, price, PackageType.Package, isSales, isAgency, isAgent, agentActive, estimatePrice);   
+                    } else {
+                        privatePriceContent.querySelector('.date_price_note').style.display = 'none';
+                    }
+                    $('#private-price-content .loading').hide();
+                },
+                beforeSend: function () {
+                    if (currentRequest != null) {
+                        currentRequest.abort();
+                    }
+                    $('#private-price-content .loading').show();
+                    $('section[name="private-price"]').html('');
+                }
+            });
+        }
+    } else {
+        displayDateSpecial(id, seriesCode, culture, tourType);
+    }
+};
+var search = {
+    searchKeyword: function () {
+        var nWord = $(".search-input").val();
+        //var temarray = nWord.split(""); //分割
+        var array = nWord.split("");//this.unique(nWord.split(""));//关键词分割字符array
+        var dsa = $(".search").find("ul li a div[name='keywords']");//获取全部列表
+        var linumber = 0;
+
+        $(".search ul li").show();
+        for (var t = 0; t < dsa.length; t++) {
+            $(dsa[t]).html($(dsa[t]).text());
+            var temstr = ($(dsa[t]).text().toUpperCase().trim()).split("");//转成大写用于匹配
+            var tempstr = ($(dsa[t]).text()).split("");//显示时还是用原来的字符
+            var yes = false;
+            var matchCharCount = 0;//匹配到的字符个数
+            for (var i = 0; i < array.length; i++) {
+                var posarr = this.findAll(temstr, array[i].toUpperCase());//匹配每个字符
+                if (posarr.length > 0) {
+                    //yes = true;
+                    matchCharCount++;
+                    for (var j = 0; j < posarr.length; j++) {
+                        tempstr[posarr[j]] = "<em style='color:#C2977B;'>" + tempstr[posarr[j]] + "</em>";
+                    }
+                }
+                if (matchCharCount == array.length) {
+                    yes = true;//当前匹配到的字符数 与 输入的关键字的字符数 相等 代表匹配 //之后的循环再匹配到 表示匹配的字符数>输入字符数 不影响匹配结果
+                }
+            }
+            if (!yes) {
+                $(dsa[t]).closest("li").hide();
+            }
+            else {
+                linumber++;
+                var htmlstr = "";
+                for (var m = 0; m < tempstr.length; m++) {
+                    htmlstr += tempstr[m];
+                }
+                $(dsa[t]).html(htmlstr);
+            }
+
+        }
+        if (linumber == 0) {
+            $(".search ul li").show();
+            $(".search ul").slideDown(200);
+        }
+    },
+    findAll: function (arr, str) {
+        var results = [],
+            len = arr.length,
+            pos = 0;
+        while (pos < len) {
+            pos = arr.indexOf(str, pos);
+            if (pos === -1) {
+                break;
+            }
+            results.push(pos);
+            pos++;
+        }
+        return results;
+    },
+    unique: function (arr) {
+        var new_arr = [];
+        for (var i = 0; i < arr.length; i++) {
+            var items = arr[i];
+            //判断元素是否存在于new_arr中，如果不存在则插入到new_arr的最后
+            if ($.inArray(items, new_arr) == -1) {
+                new_arr.push(items);
+            }
+        }
+        return new_arr;
+    },
+    showOptions: function (obj) {
+        var ul = $(obj).find('ul');
+        if (!ul.is(':visible')) {
+            $(".search-input").val('');//点击时清除选中项
+            ul.slideDown('fast');
+        } else {
+            ul.slideUp('fast');
+            //如果客人没有更改选择 input仍为空 input value设为place holder中上一次选中的项
+            if ($(".search-input").val() == '') {
+                $(".search-input").val($(".search-input").attr("placeholder"));
+            }
+        }
+    },
+    changeValue: function (obj) {
+        $('.dropdown ul').slideUp(200);
+        
+        $(obj).parent().addClass('active');
+        var input = $(obj).parent().parent().prev();
+        //var li = $(this).parent();
+        //input.data("value", li.data("value"));
+        //input.data("airlinecodes", li.data("airlinecodes"));
+        //input.data("airlinenames", li.data("airlinenames"));
+        //input.data("statecode", li.data("statecode"));
+        input.val($(obj).data("gatewayfullname"));
+        input.attr("value", $(obj).data("gatewayfullname"));
+        input.attr("data-value", $(obj).data("value"));
+        input.attr("data-airlinecodes", $(obj).data("airlinecodes"));
+        input.attr("data-airlinenames", $(obj).data("airlinenames"));
+        input.attr("data-statecode", $(obj).data("statecode"));
+        input.attr('placeholder', $(obj).data("gatewayfullname"));
+
+        $(obj).parent().siblings().removeClass('active')
+        $(obj).closest('ul').slideUp(200);
+        const tourType = input.parent().attr('name');
+        displayDate($(obj).data("value"), tourType);
+        
+        var e = this.getEvent();
+        window.event ? e.cancelBubble = true : e.stopPropagation();
+    },
+    _init: function () {
+        $(".search").on("click", "ul li a", function () {
+            $(this).children().val($(this).text().trim());
+            $(this).parent().addClass('active');
+            $(this).parent().siblings().removeClass('active')
+            $(this).closest('ul').slideUp(200);
+            return false;
+        })
+    },
+    getEvent: function () {
+        if (window.event) {
+            return window.event;
+        }
+        var f = arguments.callee.caller;
+        do {
+            var e = f.arguments[0];
+            if (e && (e.constructor === Event || e.constructor === MouseEvent || e.constructor === KeyboardEvent)) {
+                return e;
+            }
+        } while (f = f.caller);
+    }
+
+}
+
+
+search._init();
+var clicked = false;//由于进booking的click事件放在label上会触发2次 所以设置一个全局变量clicked来控制, 如果已经进了CreateNewTourOrder方法 clicked = true
+$(document).ready(function () {
+    $('.search').on('click', function () {
+        search.showOptions(this);
+        search.searchKeyword();
+
+    });
+    $('.search-input').on("keyup", function (e) {
+        search.searchKeyword();
+        if (e.key === 'Enter' || e.keyCode === 13) {
+            // todo: 如果有符合keyword的项, 选中第一项
+        }
+    });
+    $('.search ul li a').on('click', function () {
+        search.changeValue(this);
+    });
+});
+var displayDateSpecial = function (id, series, culture, tourType) {
+    if (tourType === 'Tour') {
+        currentRequest = $.ajax({
+            url: '/Home/GetAvailableSpecialPrice',
+            type: 'GET',
+            data: {
+                packageId: id,
+                series: series,
+                culture: culture,
+                peopleCountFrom: 0,
+                peopleCountTo: 0
+            },
+            success: function (result) {
+                const priceSection = document.querySelector('section[name="price"]');
+                const { Price: price } = result;
+                instance = new DatePricePicker(priceSection, price, PackageType.CityPackage, false, false);
+                $('#price-content .loading').hide();
+            },
+            beforeSend: function () {
+                if (currentRequest != null) {
+                    currentRequest.abort();
+                }
+                $('#price-content .loading').show();
+                $('section[name="price"]').html('');
+            }
+        });
+    } else if (tourType === 'PrivateTour') {
+        const travelerInput = document.querySelector('select[name="traveler-select"] option:checked');
+        const peopleFrom = parseInt(travelerInput.dataset.travelerFrom);
+        const peopleTo = parseInt(travelerInput.dataset.travelerTo);
+        currentRequest = $.ajax({
+            url: '/Home/GetAvailableSpecialPrice',
+            type: 'GET',
+            data: {
+                packageId: id,
+                series: series,
+                culture: culture,
+                peopleCountFrom: peopleFrom,
+                peopleCountTo: peopleTo,
+            },
+            success: function (result) {
+                const priceSection = document.querySelector('section[name="private-price"]');
+                const { Price: price, PrivateTourEstimatePrice: estimatePrice } = result;
+                instance = new DatePricePicker(priceSection, price, PackageType.CityPackage, false, false, estimatePrice);
+                $('#private-price-content .loading').hide();
+            },
+            beforeSend: function () {
+                if (currentRequest != null) {
+                    currentRequest.abort();
+                }
+                $('#private-price-content .loading').show();
+                $('section[name="price"]').html('');
+            }
+        });
+    }
+    
+}
+
+var changeMonth = function (obj) {
+    var month = $(obj).data('monthid');
+    var year = $(obj).data('yearid');
+
+    $(obj).addClass('is-active');
+    var $monthTable = $('a.date-price');
+    $.each($monthTable, function (i) {
+        var $month = $monthTable.eq(i);
+        if ($month.data('monthid') !== month || $month.data('yearid') !== year) {
+            $month.removeClass('is-active');
+        }
+    });
+
+
+
+    var $priceTable = $('table.date-price-table').find('tbody');
+    $.each($priceTable, function (i) {
+        var $tbody = $priceTable.eq(i);
+        if ($tbody.data('month') === month && $tbody.data('year') === year) {
+            $tbody.show();
+        } else {
+            $tbody.hide();
+        }
+    });
+
+    if (month === "all" && year === "all") {
+        datePriceFlickity();
+    }
+}
+
+// lock table header to the top of the screen
+function lockPriceTable() {
+    var $datePriceOverlay = $('.dates-prices-overlay');
+    var resized = false;
+    if ($datePriceOverlay.length) {
+
+        var $priceTable = $('.date-price-table'),
+            compensateContainerScroll = $datePriceOverlay.scrollTop(),
+            $tableHead = $priceTable.find('thead'),
+            tableTop = $priceTable.offset().top - $datePriceOverlay.offset().top + compensateContainerScroll,
+            tableHeight = $priceTable.outerHeight(),
+            tableBottom = (tableTop + tableHeight) - $tableHead.outerHeight(),
+            overlayScroll = $datePriceOverlay.scrollTop();
+        datepricewinwidth = $(window).width();
+
+
+        $(window).on('resize', function () {
+
+            $tableHead.attr('style', ''),
+                resized = true;
+            datePriceFlickity();
+
+            compensateContainerScroll = $datePriceOverlay.scrollTop();
+            // has been resized BUST cache/vars
+            tableTop = $priceTable.offset().top - $datePriceOverlay.offset().top + compensateContainerScroll,
+                tableHeight = $priceTable.outerHeight(),
+                tableBottom = (tableTop + tableHeight) - $tableHead.outerHeight(),
+                overlayScroll = $datePriceOverlay.scrollTop();
+        });
+
+
+
+
+        $datePriceOverlay.scroll(function () {
+            if (resized == true) {
+                resized = false;
+            }
+
+            overlayScroll = $datePriceOverlay.scrollTop();
+
+            if (overlayScroll >= tableTop && overlayScroll <= tableBottom) {
+                var transformThead = overlayScroll - tableTop;
+                $tableHead.css({
+                    '-webkit-transform': 'translateY(' + transformThead + 'px)',
+                    '-moz-transform': 'translateY(' + transformThead + 'px)',
+                    '-ms-transform': 'translateY(' + transformThead + 'px)',
+                    '-o-transform': 'translateY(' + transformThead + 'px)',
+                    'transform': 'translateY(' + transformThead + 'px)'
+                });
+                //$('td em[data-tooltip]').addClass('no-tip');
+                $(".pullbackclose").css("display", "block");
+            } else {
+                //$('td em[data-tooltip]').removeClass('no-tip');
+                $tableHead.attr('style', '');
+                $(".pullbackclose").css("display", "none");
+            }
+        });
+    }
+};
+
+
+function datePriceFlickity() {
+    if ($('.date-price-list').length) {
+        $('.date-price-list').flickity({}).flickity('destroy');
+        var datePriceWidth = $('.date-price-list').css('width').replace('px', ''),
+            dateItem = $('.date-price-list__item'),
+            dateItemWidth = dateItem.css('width').replace('px', ''),
+            dateItems = dateItem.length;
+
+        if ((dateItemWidth * dateItems) > datePriceWidth) {
+
+            var selectedIndex = $('a.date-price').index($('a.date-price.is-active')) + 1;
+            var initialIndex = Math.ceil(selectedIndex / 3) - 1;
+            $('.date-price-list').flickity({
+                pageDots: false,
+                prevNextButtons: true,
+                cellAlign: 'left',
+                imagesLoaded: true,
+                groupCells: 1,
+                initialIndex: $('a.date-price[data-yearid="2019"]').length,//为了select date 表定位在2020的日期 上面groupcells也要改成1
+                //count: Math.floor(datePriceWidth / dateItemWidth),
+                arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z"
+            });
+        }
+
+    }
+};
+var modalhotels = [];
+var viewNext = function (e) {
+    var hotelType = e.value;
+    var nowIndexOf = $("#nowHotel").text();
+    var nextIndexOf = nowIndexOf - 1;
+    nextIndexOf = nextIndexOf + 1;
+    if (nextIndexOf <= modalhotels.length) {
+        var nextHotel = modalhotels[nextIndexOf];
+        // var typeid = nextHotel.Type != "A" ? 1 : 0;
+        showHotelRoomInfo(nextHotel.HotelId, nextHotel.IsUpgradeHotel, nextHotel.HotelRoomId, nextHotel.Lowest, nextHotel.PackageId, hotelType, nextHotel.Type, nextHotel.DayOrder, nextHotel.Night, nextHotel.isRoomUp)
+    }
+}
+var previousHotel = function (e) {
+    var hotelType = e.value;
+    var nowIndexOf = $("#nowHotel").text();
+    var nextIndexOf = nowIndexOf - 1;
+    nextIndexOf = nextIndexOf - 1;
+    if (nextIndexOf >= 0) {
+        var nextHotel = modalhotels[nextIndexOf];
+        // var typeid = nextHotel.Type != "A" ? 1 : 0;
+        showHotelRoomInfo(nextHotel.HotelId, nextHotel.IsUpgradeHotel, nextHotel.HotelRoomId, nextHotel.Lowest, nextHotel.PackageId, hotelType, nextHotel.Type, nextHotel.DayOrder, nextHotel.Night, nextHotel.isRoomUp)
+    }
+}
+var clickhotel = [];
+var showHotelRoomInfo = function (hotelId, isUpgradeHotel, hotelRoomId, lowest, packageId, hotelType, type, dayOrder, night, isRoomUp, firstclickhotel) {
+    var ishotelType = 0;
+    var day = 0;
+    var nights = 0;
+    var typestring = 0;
+    if (hotelType != undefined) {
+        ishotelType = hotelType;
+    }
+    if (type != undefined) {
+        typestring = type;
+    }
+    if (dayOrder != undefined) {
+        day = dayOrder;
+    }
+    if (night != undefined && night != 0) {
+        nights = night;
+    }
+    if (hotelType == 6) {
+        $('#star').show();
+        $('.gallery').show();
+        $('#hidAddress').show();
+        $('#hidTel').show();
+        if (firstclickhotel == 1) {
+            clickhotel.HotelId = hotelId;
+            clickhotel.IsUpgradeHotel = isUpgradeHotel;
+            clickhotel.HotelRoomId = hotelRoomId;
+            clickhotel.Lowest = lowest;
+            clickhotel.PackageId = packageId;
+            clickhotel.Type = type;
+            clickhotel.DayOrder = dayOrder;
+            clickhotel.Night = night;
+            clickhotel.isRoomUp = isRoomUp;
+        }
+    }
+    $.get('/Home/SearchHotelRoomDescription?hotelId=' + hotelId + '&isUpgradeHotel=' + isUpgradeHotel + '&roomId=' + hotelRoomId + '&packageId=' + packageId + '&hotelType=' + ishotelType + '&type=' + typestring + '&dayOrder=' + day + '&night=' + nights + '&isRoomUp=' + isRoomUp, function (result) {
+        $('#title').html(result.HotelName);
+        $("#hotel_cityname").html(result.CityName+" - ");
+        $(".arrowIvyotfL").val(hotelType);
+        $(".arrowIvyotfR").val(hotelType);
+        if (hotelType != undefined && hotelType != 0) {
+            $(".cityhotel").show();
+            var hotels = result.cityHotels;
+            if (hotels == undefined) {
+                hotels = modalhotels;
+            }
+            var needAdd = true;
+            if (hotelType == 6 && clickhotel != undefined && clickhotel.length>0) {
+                for (var i = 0; i < hotels.length; i++) {
+                    if (hotels[i].HotelId == clickhotel.HotelId && hotels[i].HotelRoomId == clickhotel.HotelRoomId) {
+                        clickhotel.Night = hotels[i].Night;
+                        needAdd = false;
+                    }
+                }
+                if (needAdd) {
+                    var list = [];
+                    list.push(clickhotel);
+                    for (var i = 0; i < hotels.length; i++) {
+                        list.push(hotels[i]);
+                    }
+                    hotels = list;
+                }
+            }
+
+            $('#amountHotel').html(hotels.length);
+            if (hotels.length == 1) {
+                $(".cityhotel").hide();
+            }
+            if (hotels.length > 1) {
+                $(".modalIvyffe").find("div").eq(0).addClass("prenexIvyszf");
+            } else {
+                $(".modalIvyffe").find("div").eq(0).removeClass("prenexIvyszf");
+            }
+            //var indexOf = hotels.map(h => h.HotelId).indexOf(hotelId);//报错  但是方法是正确的
+            var indexOf = -1;
+            for (var i = 0; i < hotels.length; i++) {
+                if (night != undefined && night != 0) {
+                    if (hotels[i].HotelId == hotelId && hotels[i].HotelRoomId == hotelRoomId && hotels[i].Night == night) {
+                        indexOf = i;
+                    }
+                } else {
+                    if (hotels[i].HotelId == hotelId && hotels[i].HotelRoomId == hotelRoomId) {
+                        indexOf = i;
+                    }
+                }
+
+            }
+            if (indexOf == -1) {
+                $(".cityhotel").hide();
+            }
+            $(".arrowIvyotfL").css("opacity", "1");
+            $(".arrowIvyotfR").css("opacity", "1");
+            if (indexOf == 0) {
+                $(".arrowIvyotfL").css("opacity", ".66");
+                $(".arrowIvyotfR").css("opacity", "1");
+            }
+            if (indexOf == (hotels.length - 1)) {
+                $(".arrowIvyotfL").css("opacity", "1");
+                $(".arrowIvyotfR").css("opacity", ".66");
+            }
+
+            var olhtml = "";
+            for (var i = 0; i < hotels.length; i++) {
+                if (i == indexOf) {
+                    olhtml += '<li class="dot is-selected"></li>';
+                    lowest = hotels[indexOf].Lowest;
+                } else {
+                    olhtml += '<li class="dot"></li>'
+                }
+
+            }
+            $(".flickity-page-dotsIvyotfL").html(olhtml);
+            $('#nowHotel').html(indexOf + 1);
+            modalhotels = hotels;
+        } else {
+            $(".cityhotel").hide();
+        }
+        if (result.HotelImages.length > 1) {
+
+            var galleryOptions = {
+                pageDots: result.HotelImages.length !== 1,
+                prevNextButtons: result.HotelImages.length !== 1,
+                cellAlign: 'left',
+                imagesLoaded: true,
+                arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z"
+            };
+
+            $('[name="hotelGallery"]').find('img').remove();
+
+            $(result.HotelImages).each(function (i) {
+                $('[name="hotelGallery"]').append('<img src="' + result.HotelImages[i].ImageUrl + '" />');
+            });
+
+            // 先销毁
+            $('[name="hotelGallery"]').flickity('destroy', true);
+
+            // 重新初始化
+            var $gallery = $('[name="hotelGallery"]').flickity(galleryOptions);
+            var flkty = $gallery.data('flickity');
+
+            // 等待图片加载完成后 resize
+            setTimeout(function () {
+                if (flkty) flkty.resize();
+            }, 100);
+
+            // 防止重复绑定事件
+            $(window).off('resize.flickityResize').on('resize.flickityResize', function () {
+                if (flkty) flkty.resize();
+            });
+        } else {
+            $('[name="hotelGallery"]').find('img').remove();
+            $(result.HotelImages).each(function (i) {
+                $('[name="hotelGallery"]').append('<img src="' + result.HotelImages[i].ImageUrl + '" />');
+            });
+            $('[name="hotelGallery"]').flickity('destroy', true);
+            
+            
+            var $gallery = $('[name="hotelGallery"]').flickity({
+                pageDots: false,
+                prevNextButtons: false,
+                cellAlign: 'left',
+                imagesLoaded: true,
+               
+            });
+
+        }
+
+
+
+        var starhtml = "";
+        for (var i = 0; i < result.Star; i++) {
+            starhtml += "&#9733;";
+        }
+        $('#star').html(starhtml);
+        if (isUpgradeHotel === 1 || isUpgradeHotel === 2) {
+            $('#hotelPrice').html(lowest);
+            $('.pppr').html($("#pppr").val());
+            $('#hotelLowestPrice').show();
+        } else {
+            $('#hotelPrice').html('');
+            $('#hotelLowestPrice').hide();
+        }
+
+        $('#RoomDescription').html(result.Content);
+        $('#HotelDescription').html(result.HotelDescription);
+
+        $('#address').html(result.Address);
+        if (result.Tel == "" || result.Tel == null) {
+            $("#teltitle").hide();
+            $("#hotelWebsite").css("margin-left", "0px");
+        } else {
+            $("#hotelWebsite").css("margin-left", "0px");
+            $("#teltitle").show();
+            $('#tel').html(result.Tel);
+        }
+        if (result.Website != null && result.Website != "") {
+            var websiteHtml = "<a target='_blank'  href='" + result.Website + "'>Visit website</a>"
+            $('#hotelWebsite').html(websiteHtml);
+        }
+        var starhtml = "";
+        for (var i = 0; i < result.Star; i++) {
+            starhtml += "&#9733;";
+        }
+        $(".newmodal_start").html(starhtml);
+        $('.gallery').show();
+        $('#hidAddress').show();
+        $('#hidTel').show();
+        //$('#fax').html(result.Fax);
+    });
+};
+
+var showCombo = function (comboId) {
+    $.get('/Home/GetComboInfos?comboId=' + comboId, function (result) {
+        $('#combo').html(result);
+
+        $('[name="comboHotelGallery"]').flickity({
+            pageDots: true,
+            prevNextButtons: true,
+            cellAlign: 'left',
+            imagesLoaded: true,
+            //count: 1,
+            arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z"
+        });
+    });
+
+}
+
+var showDatePriceHotelRoomInfo = function (hotelId, isUpgradeHotel, hotelRoomId, lowest, packageId, hotelType, type) {
+    var ishotelType = 0;
+    var day = 0;
+    var nights = 0;
+    var typestring = 0;
+    if (hotelType != undefined) {
+        ishotelType = hotelType;
+    }
+    if (type != undefined) {
+        typestring = type;
+    }
+    $.get('/Home/SearchHotelRoomDescription?hotelId=' + hotelId + '&isUpgradeHotel=' + isUpgradeHotel + '&roomId=' + hotelRoomId + '&packageId=' + packageId + '&hotelType=' + ishotelType + '&type=' + typestring, function (result) {
+        $('[name="hotelcityname"]').html(result.CityName + " - ");
+        $('[name="hotelTitle"]').html(result.HotelName);
+        if (result.HotelImages.length > 0) {
+            $('[name="hotelGallery"]').find('img').remove();
+            $(result.HotelImages).each(function (i) {
+                $('[name="hotelGallery"]').append('<img src="' + result.HotelImages[i].ImageUrl + '" style=""/>');
+            });
+
+            $('[name="hotelGallery"]').flickity({}).flickity('destroy');
+
+            //如果就一张图片，就不要显示图片下面的点和左右箭头
+            if (result.HotelImages.length === 1) {
+                $('[name="hotelGallery"]').flickity({
+                    pageDots: false,
+                    prevNextButtons: false,
+                    cellAlign: 'left',
+                    imagesLoaded: true,
+                    arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z"
+                });
+            } else {
+                $('[name="hotelGallery"]').flickity({
+                    pageDots: true,
+                    prevNextButtons: true,
+                    cellAlign: 'left',
+                    imagesLoaded: true,
+                    arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z"
+                });
+            }
+
+        } else {
+            $('[name="hotelGallery"]').find('img').remove();
+
+            $('[name="hotelGallery"]').append('<img src="' + "/Image/defaultLogo/PackagesMoren.webp" + '" style="width: 800px; height: 402px;"/>');
+
+
+            $('[name="hotelGallery"]').flickity({}).flickity('destroy');
+
+            //如果就一张图片，就不要显示图片下面的点和左右箭头
+
+            $('[name="hotelGallery"]').flickity({
+                pageDots: false,
+                prevNextButtons: false,
+                cellAlign: 'left',
+                imagesLoaded: true,
+                arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z"
+            });
+            //$('[name="hotelGallery"]').find('img').remove();
+            //$('[name="hotelGallery"]').flickity({}).flickity('destroy');
+        }
+
+        $('[name="hotelRoomDescription"]').html(result.Content);
+
+        $('[name="hoteladdress"]').html(result.Address);
+        if (result.Tel == "" || result.Tel == null) {
+            $('[name="hotelteltitle"]').hide();
+            $('[name="hotelWebsite"]').css("margin-left", "0px");
+        } else {
+            $('[name="hotelWebsite"]').css("margin-left", "0px");
+            $('[name="hotelteltitle"]').show();
+            $('[name="hoteltel"]').html(result.Tel);
+        }
+        if (result.Website != null && result.Website != "") {
+            var websiteHtml = "<a target='_blank'  href='" + result.Website + "'>Visit website</a>"
+            $('[name="hotelWebsite"]').html(websiteHtml);
+        }
+    });
+}
+
+
+var showOptionalTourInfo = function (opId, day, price, userIsFrom, isUsaSeries, inBooking, key, packagePrice, isRateZero) {
+    //var culture = location.pathname.split('/')[1];
+    $('[name="opPrice"]').html('');
+    $('[name="opPriceOnSite"]').html('');
+    $('[name="opCode"]').html('');
+    $('[name="opTime"]').html('');
+    $('[name="opDuration"]').html('');
+    $('[name="optionalRating"]').html('');
+    $('[name="optionalDescription"]').html('');
+    $('[name="optionalActivity"]').html('');
+    $('[name="optionalMeal"]').html('');
+    $('[name="optionalAttractions"]').html('');
+    $('[name="usa-price"]').html('');
+    $('div.extra-price').show();
+
+    $('.modal__body').scrollTop(0);
+    $.get('/Home/GetOptionalTourModal?optionalTourId=' + opId + '&day=' + day +'&isUsa=' + isUsaSeries.toLowerCase() + '&inBooking=' + inBooking + '&key=' + key, function (result) {
+        var $article = $('div[data-modal-target-id="optional"]').find('article');
+        $article.removeClass('card card--best-seller card--pre-book');
+        var optionalTour = result.OptionalTour;
+        $('#opName').text(optionalTour.OptionTourName);
+        if (optionalTour.ImageUrl !== '') {
+            $('#opBanner').prop('src', optionalTour.ImageUrl);
+            $article.addClass('card');
+            if (optionalTour.IsBestSelling) {
+                $article.addClass('card--best-seller');
+            }
+            if (optionalTour.IsPreBooking) {
+                $article.addClass('card--pre-book');
+            }
+            $('figure[name="opBannerFigure"]').show();
+        } else {
+            $('#opBanner').prop('src', "/Image/defaultLogo/PackagesMoren.webp");
+            $article.addClass('card');
+            if (optionalTour.IsBestSelling) {
+                $article.addClass('card--best-seller');
+            }
+            if (optionalTour.IsPreBooking) {
+                $article.addClass('card--pre-book');
+            }
+            $('figure[name="opBannerFigure"]').show();
+            /*$('figure[name="opBannerFigure"]').hide();*/
+        }
+        var devFee = 0;//差价
+        if (price != undefined && price > 0) {
+            devFee = price - optionalTour.Price;
+        }
+        if (packagePrice==undefined) {
+            if (optionalTour.Price !== 0) {
+                if (optionalTour.IsFrom && userIsFrom != undefined && userIsFrom == true) {
+                    $('[name="opPrice"]').html('From ' + optionalTour.PriceUnit + (optionalTour.Price + devFee) + ' PP');
+                } else {
+                    $('[name="opPrice"]').html(optionalTour.PriceUnit + (optionalTour.Price + devFee) + ' PP');
+                }
+            }
+        } else {
+            if (optionalTour.IsFrom && userIsFrom != undefined && userIsFrom == true) {
+                $('[name="opPrice"]').html('From ' + packagePrice + ' PP');
+            } else {
+                $('[name="opPrice"]').html(packagePrice + ' PP');
+            }
+        }
+        if (isRateZero != undefined) {
+            optionalTour.IsRateZero = isRateZero;
+        }
+        if (!optionalTour.IsRateZero && optionalTour.PriceOnSite != "0" && !optionalTour.IsPreBooking) {
+            $('[name="opPriceOnSite"]').html(optionalTour.PriceOnSiteUnit + (optionalTour.PriceOnSite) + ' per person if purchased on site (cash only)');
+        }
+
+        if (isUsaSeries.toLowerCase() === 'true' && optionalTour.OptionalTourAges !== null && optionalTour.OptionalTourAges.length > 0) {
+            $('[name="opPrice"]').html('');
+            $('[name="opPriceOnSite"]').html('');
+            var colspan = 1 + optionalTour.OptionalTourAges.length;
+            var usaPrice =
+                '<table class="review-table review-table--generic review-table--genericIvystt review-table--restrict-width rooms-table"><thead><tr><th colspan="' + colspan + '" style="min-width: 200px;border-top-right-radius: 0em;border-top-left-radius: 0em;font-size:1.0rem;">Optional Tour</th></tr></thead><tbody>';
+            usaPrice += '<tr class="line-item line-break">';
+            usaPrice += '<td><b>Age Range</b></td>';
+            $.each(optionalTour.OptionalTourAges, function (i) {
+                if (i === optionalTour.OptionalTourAges.length - 1) {
+                    usaPrice += '<td><b>' +
+                        optionalTour.OptionalTourAges[i].AgeFrom + '+</b></td>';
+                } else {
+                    usaPrice += '<td><b>' +
+                        optionalTour.OptionalTourAges[i].AgeFrom +
+                        ' ~ ' +
+                        optionalTour.OptionalTourAges[i].AgeTo +
+                        '</b></td>';
+                }
+
+            });
+            usaPrice += '</tr>';
+
+            usaPrice += '<tr class="line-item line-break">';
+            usaPrice += '<td class="a-l">Price</td>';
+            $.each(optionalTour.OptionalTourAges, function (i) {
+                usaPrice += '<td class="a-l">' + optionalTour.PriceUnit +
+                    optionalTour.OptionalTourAges[i].AddFee + '</td>';
+            });
+            usaPrice += '</tr>';
+            usaPrice += '</tbody></table>';
+            $('[name="usa-price"]').html(usaPrice);
+            $('div.extra-price').hide();
+        }
+
+        $('[name="opCode"]').html('Tour Code : ' + optionalTour.OptionalTourCode);
+
+        //20220426
+        $('[name="opPresellNote"]').html("");
+        if (optionalTour.AllowOnlineBooking == false) {
+            $('[name="opPresellNote"]').html("<strong>*Please note:</strong> This optional tour is not available to purchase before departure. If the schedule permits, please purchase this tour on-site by paying the tour manager.");
+        }
+
+
+        if (optionalTour.Duration !== '') {
+            $('[name="opTime"]').html(optionalTour.TimeStart + ' - ' + optionalTour.TimeEnd);
+            $('[name="opDuration"]').html('Duration (' + optionalTour.Duration.toLowerCase().trim() + ').');
+        }
+
+        //if (optionalTour.AllowOnlineBooking) {
+        //    $('#optionAvailableOnSite').hide();
+        //}
+
+        //if (optionalTour.Rating !== '') {
+        //    $('[name="optionalRating"]').html('<b style="color: #1D2E37;">Rating: </b>' + optionalTour.Rating);            
+        //}
+
+        if (optionalTour.Description !== '') {
+            $('[name="optionalDescription"]').html(optionalTour.Description);
+            if (optionalTour.Type != "AMBPackageUpgrades")//如果是Package Upgrades类型optional tours, pop-up窗口里的"itinerary"文字不显示
+                $('[name="optionalDescription"]').prepend('<p><b style="color: #1D2E37;">Itinerary: </b></p>');
+        }
+
+        if (optionalTour.Activities.length > 0) {
+            var activityHtml = '';
+            $.each(optionalTour.Activities, function (i) {
+                activityHtml += optionalTour.Activities[i] + '<br/>';
+            });
+            if (activityHtml !== '') {
+                $('[name="optionalActivity"]').html(activityHtml);
+                $('[name="optionalActivity"]').prepend('<p><b style="color: #1D2E37;">Activity Includes: </b></p>');
+            }
+
+        }
+
+        if (optionalTour.Meals.length > 0) {
+            var mealHtml = '';
+            $.each(optionalTour.Meals, function (i) {
+                mealHtml += optionalTour.Meals[i] + '<br/>';
+            });
+            if (mealHtml !== '') {
+                $('[name="optionalMeal"]').html(mealHtml);
+                $('[name="optionalMeal"]').prepend('<p><b style="color: #1D2E37;">Meals: </b></p>');
+            }
+
+        }
+
+
+
+        var attractions = optionalTour.Attractions;
+        if (attractions.length > 0) {
+            var attractionHtml = '';
+            $.each(attractions, function (i) {
+                var eachAttraction = attractions[i];
+                attractionHtml += '<h2 class="sub-section-heading" style="font-size: 17px;">' + eachAttraction.AttractionName + '</h2>';
+                if (eachAttraction.ImageUrl !== '') {
+                    attractionHtml += '<img src="' + eachAttraction.ImageUrl + '" class="align-right" width="300" alt=" " />';
+                }
+                attractionHtml += '<p style="font-size: 13px;">' + eachAttraction.AttractionDescription + '</p>';
+            });
+            $('[name="optionalAttractions"]').html(attractionHtml);
+        }
+    });
+};
+
+
+var showExtensionInfo = function (extensionId) {
+    $.get('/Home/GetExtensionInfo?extId=' + extensionId, function (result) {
+        console.log(result);
+        var html = template('extensionInfo', result.Extension);
+        document.getElementById('modal-extension').innerHTML = html;
+    });
+};
+
+var showInsuranceCoverageDetails = function (id) {
+    $.get('/Home/GetInsuranceCoverageDetails?id=' + id, function (result) {
+        console.log(result);
+        $("#title").html(result.title);
+        $("#content").html(result.content);
+    });
+}
+
+var searchIndexPageInfo = function (page, whichPage) {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+    var cultureName = $("#hidCultureName").val();
+    $.get('/Info/SearchIndexPageInfo',
+        { page: page, cultureName: cultureName, whichPage: whichPage },
+        function (result) {
+            $('div.outer[name="divIndexPageInfoList"]').html(result);
+        });
+};
+
+function NameJudge(e, error) {
+    var txt = $(e).val().trim();
+    var bool = NameCheck(txt);
+    if (txt == null || txt === "") {
+        $(e).css("border-color", "#b6363b");
+        $(e).parent().prev().find("label").css("color", "#b6363b");
+        return false;
+    } else if (!bool) {
+        $(e).css("border-color", "#b6363b");
+        $(e).parent().prev().find("label").css("color", "#b6363b");
+        return false;
+    }
+    $(e).parent().prev().find("label").removeAttr("style");
+    $(e).removeAttr("style");
+    return true;
+}
+
+function NameCheck(name) {
+    if (name.length > 30)
+        return false;
+    var s = /^[ A-Za-z]+$/;
+    return s.test(name);
+}
+
+
+function EmailCheck(email) {
+    //var s = /^(\w+[_|\_|\.|\-]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.|\-]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+
+    var s = new RegExp(/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/);
+    return s.test(email.toLowerCase());
+}
+
+
+function RetypeEmailJudge(e, str) {
+    $(e).next().html("");
+    $('#retypeEmail').next().html("");
+    var txt = $(e).val().trim();
+    var email = $("#" + str).val().trim();
+    var bool = EmailCheck(txt);
+    var result = true;
+    if (txt == null || txt === "") {
+        $(e).css("border-color", "#b6363b");
+        $(e).parent().prev().find("label").css("color", "#b6363b");
+        result = false;
+    } else if (!bool) {
+        $(e).css("border-color", "#b6363b");
+        $(e).parent().prev().find("label").css("color", "#b6363b");
+        result = false;
+    }
+
+    if (email !== "") {
+        if (email.toLowerCase() !== txt.toLowerCase()) {
+            $("#ss").show();
+            result = false;
+        }
+    }
+
+    if (result) {
+        $(e).removeAttr("style");
+        $(e).parent().prev().find("label").removeAttr("style");
+        $("#ss").hide();
+        return true;
+    }
+}
+
+
+function Reference1(obj) {
+
+    if ($(obj).val().trim() === "") {
+        $(obj).addClass("field-error");
+        $(obj).parent().prev().find("label").css("color", "#b6363b");
+        $(obj).css("border-color", "#b6363b");
+        return false;
+    } else {
+        $(obj).removeClass();
+        $(obj).parent().prev().find("label").removeAttr("style");
+        $(obj).removeAttr("style");
+        return true;
+    }
+}
+
+
+function textCounter(obj, number) {
+
+    var charcnt = $(obj).val().length;
+    if (charcnt > number) {
+        $(obj).val($(obj).val().substring(0, number));
+    }
+
+}
+
+function blurnullphone(obj) {
+    var result = false;
+    if ($(obj).val().trim() !== "") {
+        var s = /^\((\d{3})\)(\d{3})-(\d)+$/;
+        var ts = s.test($(obj).val());
+        if (!ts) {
+            $(obj).css("border-color", "#b6363b");
+            $(obj).parent().prev().find("label").css("color", "#b6363b");
+        } else {
+            result = true;
+        }
+    } else {
+        result = true;
+    }
+
+    if (result) {
+        $(obj).removeAttr("style");
+        $(obj).parent().prev().find("label").removeAttr("style");
+    }
+    return result;
+}
+
+
+var CheckConfirmationId = function (e) {
+    var id = $(e).val().trim();
+    console.log(id);
+    if ($('[name="emailType"] :selected').data('showconfirmation')) {
+        if (id === '') {
+            $(e).css("border-color", "#b6363b");
+            $(e).parent().prev().find("label").css("color", "#b6363b");
+            return false;
+        } else {
+            if (id.length === 7 && id.slice(0, 2).toUpperCase() === 'RA' && !isNaN(id.slice(2, 7))) {
+                $(e).removeAttr("style");
+                $(e).parent().prev().find("label").removeAttr("style");
+                return true;
+            } else {
+                $(e).css("border-color", "#b6363b");
+                $(e).parent().prev().find("label").css("color", "#b6363b");
+                return false;
+            }
+        }
+    } else {
+        return true;
+    }
+}
+
+function HtmlEncode(value) {
+    return $('<div/>').text(value).html();
+}
+//function btnSubmitClick() {
+//    var name = $("#name").val().trim();
+//    var phone = $("#phone").val().trim();
+//    var email = $("#email").val().trim();
+//    var emailType = $("#emailType").val().trim();
+//    var message = HtmlEncode($("#message").val().trim());
+//    var confirmationId = $('#ConfirmationId').val().trim();
+//    var testName = NameJudge($("#name"), "Name");
+//    var testphone = blurnullphone($("#phone"));
+//    var testEmail = RetypeEmailJudge($("#email"), 'retypeEmail');
+//    var testRetypeEmail = RetypeEmailJudge($("#retypeEmail"), 'email');
+//    var testMessage = Reference1($("#message"));
+//    var testConfirmationId = CheckConfirmationId($('#ConfirmationId'));
+
+
+//    if (testName && testphone && testEmail && testRetypeEmail && testMessage && testConfirmationId) {
+//        $.ajax({
+//            type: 'POST',
+//            url: "/Home/AddContactUs",
+//            data: {
+//                UserId: email,
+//                UserName: name,
+//                UserPhone: phone,
+//                UserMail: email,
+//                EmailType: emailType,
+//                Message: message,
+//                ConfirmationId: confirmationId
+//            },
+//            dataType: "text",
+//            success: function (data) {
+//                if (data === 'Save successfully!') {
+//                    $("#name").val("");
+//                    $("#email").val("");
+//                    $("#retypeEmail").val("");
+//                    $("#message").val("");
+//                    $("#phone").val("");
+//                    $('#ConfirmationId').val('');
+//                    $("#divShowContactInfo").show();
+//                    window.location.hash = "";
+//                    window.location.hash = "loc";
+//                    setTimeout(function () { $("#divShowContactInfo").hide(); }, 5000);
+//                    //alert(
+//                    //    "Thank you for contacting Affordable World. We will get back to you within 1 to 2 business days.");
+//                } else {
+
+//                    alert("submit failure.");
+//                }
+//            }
+//        });
+//    }
+
+//}
+
+// 解析 URL 并忽略查询参数名称的大小写
+function getNewUrlParam(paramName) {
+    let urlObj = new URL(window.location.href);
+    let params = new URLSearchParams(urlObj.search);
+
+    // 遍历所有参数，找到与目标参数名大小写无关的匹配项
+    for (let [key, value] of params.entries()) {
+        if (key.toLowerCase() === paramName.toLowerCase()) {
+            return value;
+        }
+    }
+    return null;
+}
+//返回url参数
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]); return null;
+}
+function getQuery(key) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(key);
+}
+function CreateNewTourOrder(costId, airline, gateway, packageGroup, englishSpeaking, salesBooking, costLandOptionId, hotelId, roomCategoryId, dayDiff) {
+    var url = window.location.href;
+    var user = getQuery("User");        // Sales
+    var salesName = getQuery("SalesName");
+    var uniqueKey = getQuery("uniqueKey"); 
+    $("#divcover").show();
+    $.ajax({
+        url: "/Booking/CheckAgent",
+        type: 'POST',
+        data: {
+            User: user,
+            SalesName: salesName,
+            uniqueKey: uniqueKey
+        },
+        success: function (result) {
+            if (!result.agent) {
+                //if (result.language == "zh-CN") {
+                //    window.open("/zh/Agent/SignIn");
+                //    return;
+                //} else {
+                //    window.open("/en/Agent/SignIn");
+                //    return;
+                //}
+                window.location.href = "/Agent/SignIn";
+                return;
+            }
+            else {
+                var uniqueKey = getNewUrlParam("uniqueKey"); //如果参数有值说明在VacationInfo页面，覆盖掉session内的TourOrder对象
+                var packageId = $('input[name="packageId"]').val();
+                var branchcode = getNewUrlParam("branchcode");
+                var salesName = getNewUrlParam("SalesName");
+                var peopleFrom = 0;
+                var peopleTo = 0;
+                var option = $(".datepricetabactive").attr("option");
+                if (option == 2) {
+                    peopleFrom = $('select[name="selectNumber"] option:selected').attr('data-peoplecountfrom');
+                    peopleTo = $('select[name="selectNumber"] option:selected').attr('data-peoplecountto');
+                }
+                salesBooking = salesName != null;
+                $.ajax({
+                    url: "/Booking/InitialTourOrder",
+                    type: 'POST',
+                    data: {
+                        packageId: packageId,
+                        dateId: costId,
+                        airline: airline,
+                        gateway: gateway,
+                        hotelCategory: packageGroup,
+                        englishSpeaking: englishSpeaking,
+                        uniqueKey: uniqueKey,
+                        salesBooking: salesBooking,
+                        branchcode: branchcode,
+                        salesName: salesName,
+                        packageOptionType: costLandOptionId > 0 ? "Optional2" : "Optional1",
+                        costLandOptionId: costLandOptionId,
+                        peopleCountFrom: peopleFrom,
+                        peopleCountTo: peopleTo,
+                        dayDiff,
+                    },
+                    success: function (result) {
+                        
+                        if (result.IsSuccess) {
+                            if (hotelId != null && hotelId != undefined && roomCategoryId != null && roomCategoryId != undefined) {
+                                
+                                location.href = "/Booking/CityPackage?uniqueKey=" + result.UniqueKey;
+                            }else {
+                                if (getQueryString("year") == null) {
+                                    location.href = "/Booking/VacationPackage?uniqueKey=" + result.UniqueKey;
+                                }
+                                else {
+                                    location.href = "/Booking/VacationPackage?uniqueKey=" + result.UniqueKey + "&year=" + getQueryString("year");
+                                }
+                            }
+                            
+
+                            sessionStorage.setItem("Language", $("#hidCulture").val());
+                        }
+                        //else {
+                        //    alert(result.IsSuccess);
+                        //}
+                    },
+                    complete: function () {
+                        setTimeout(() => {
+                            $("#divcover").hide();
+                        }, 5000);
+                    }
+                });
+            }
+        }
+    });
+}
+
+$(document).ready(function () {
+    $('[name="emailType"]').on('change',
+        function () {
+            var isShowConfirmationId = $('[name="emailType"] :selected').data('showconfirmation');
+            if (isShowConfirmationId) {
+                $('#ConfirmationDiv').show();
+            } else {
+                $('#ConfirmationDiv').hide();
+                $('#ConfirmationId').val('');
+            }
+        });
+    var url = window.location.href;
+    if (url.indexOf("/Booking/") > 0 && url.indexOf("/Booking/FinalConfirmation") == 0) {
+        $.ajax({
+            url: "/Booking/CheckAgent",
+            type: 'POST',
+            success: function (result) {
+                if (!result.agent) {
+                    window.location.href = "/Agent/SignIn";
+                }
+            }
+        });
+    }
+    //var descriptionHeight = $('#spanDescription').height();
+    //var lineHeight = parseInt($('#spanDescription').css('line-height'));
+    //if (Math.round(descriptionHeight / lineHeight) >= 5) {
+    //    $('#spanDescription').addClass('comment_innerIvysof');
+    //    $('#btnShowmore').show();
+    //}
+});
+
+function ShowMore(targetSpanId, className, button) {
+    $("#" + targetSpanId).removeClass(className);
+    $(button).hide();
+    $('#btnShowless').show();
+}
+
+function showLess(targetSpanId, className, button) {
+    $("#" + targetSpanId).addClass(className);
+    $(button).hide();
+    $('#btnShowmore').show();
+}
+
+
+$(window).on('scroll', function () {
+    var st = $(document).scrollTop();
+    if (st > 700) {
+        $('.dingbu2').fadeIn(300);
+    } else {
+        $('.dingbu2').fadeOut(300);
+    }
+});
+$(".dingbu2").click(function () {
+    if (scroll == "off") {
+        return;
+    }
+    $("html,body").animate({ scrollTop: 0 }, 600);
+});
+
+//Ivy Ye start
+$(window).on('scroll', function () {
+    var st = $(document).scrollTop();
+    if (st > 150) {
+        $('.dingbu3').fadeIn(300);
+    } else {
+        $('.dingbu3').fadeOut(300);
+    }
+});
+$(".dingbu3").click(function () {
+    if (scroll == "off") {
+        return;
+    }
+    $("html,body").animate({ scrollTop: 0 }, 600);
+});
+//Ivy Ye end
+$(".dates-prices-overlay").on('scroll', function () {
+    var st = $(".dates-prices-overlay").scrollTop();
+    $(".dingbu").animate({ bottom: -st + 50 }, 0);
+    if (st > 150) {
+        $('.dingbu').show();
+    } else {
+        $('.dingbu').hide();
+    }
+
+});
+$(".dingbu").click(function () {
+    if (scroll == "off") {
+        return;
+    }
+    $(".dates-prices-overlay").animate({ scrollTop: 0 }, 600);
+});
+
+function printPackage() {
+    $('#overview').show();
+    $('#itinerary').show();
+    $('#inclusions').show();
+    $('#hotels').show();
+    $('#optional-excursions').show();
+    $('nav.tab-nav').hide();
+    $('.dingbu2').hide();
+    $("#forPrint").jqprint();
+
+    switch (location.hash.toLowerCase()) {
+        case '#overview':
+        case '':
+            $('#overview').show();
+            $('#itinerary').hide();
+            $('#inclusions').hide();
+            $('#hotels').hide();
+            $('#optional-excursions').hide();
+            break;
+        case '#itinerary':
+            $('#overview').hide();
+            $('#itinerary').show();
+            $('#inclusions').hide();
+            $('#hotels').hide();
+            $('#optional-excursions').hide();
+            break;
+        case '#inclusions':
+            $('#overview').hide();
+            $('#itinerary').hide();
+            $('#inclusions').show();
+            $('#hotels').hide();
+            $('#optional-excursions').hide();
+            break;
+        case '#hotels':
+            $('#overview').hide();
+            $('#itinerary').hide();
+            $('#inclusions').hide();
+            $('#hotels').show();
+            $('#optional-excursions').hide();
+            break;
+        case '#optional-excursions':
+            $('#overview').hide();
+            $('#itinerary').hide();
+            $('#inclusions').hide();
+            $('#hotels').hide();
+            $('#optional-excursions').show();
+            break;
+
+    }
+
+    $('.dingbu2').show();
+    $('nav.tab-nav').show();
+}
+
+//Package Detail Inclusion Tab在手机端默认打开第一个Tab。
+var openInclusionFirstTab = function () {
+    if (navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i)) {
+        var $inclusionTabs = $('[name="inclusion"]');
+        if ($inclusionTabs.length > 0) {
+            $.each($inclusionTabs, function (i) {
+                $inclusionTabs.eq(i).attr('data-state', 'close');
+            });
+            $inclusionTabs.eq(0).attr('data-state', 'open');
+        }
+    }
+
+};
+openInclusionFirstTab();
+
+function SharePackage(e) {
+    $(e).attr("disabled", "true");
+    var packageName = $(e).data('packagename');
+    if (packageName != undefined && packageName != "") {
+        var url = document.URL;
+        //验证字符串是否是Preview
+        var isReview = false;
+        if (url.indexOf("Preview") != -1) {
+            isReview = true;
+        }
+        //var $name = $(e).parent().parent().find("#txtName");
+        //var $nameOfYourFriend = $(e).parent().parent().find("#txtNameOfYourFriend");
+        var $emailOfYourFriend = $(e).parent().parent().find("#txtEmailOfYourFriend");
+        var flag = true;
+        //flag &= InputValidation($name, 'Name', 'letter');
+        //flag &= InputValidation($nameOfYourFriend, 'Name', 'letter');
+        flag &= InputValidation($emailOfYourFriend, 'EmailOfYourFriend', 'email');
+        if (flag) {
+            var culture = $(e).data('culture');
+            //var name = trim($name.val());
+            //var nameOfYourFriend = trim($nameOfYourFriend.val());
+            var emailOfYourFriend = trim($emailOfYourFriend.val());
+            $.ajax({
+                type: "post",
+                url: "/Home/SharePackage",
+                data: {
+                    packageName: packageName,
+                    //name: name,
+                    //nameOfYourFriend: nameOfYourFriend,
+                    emailOfYourFriend: emailOfYourFriend,
+                    culture: culture,
+                    isReview: isReview,
+                },
+                success: function (result) {
+                    var $spMsg = $(e).next();
+                    $spMsg.html(result);
+                    $spMsg.show();
+                    setTimeout(function () { $spMsg.hide() }, 5000);
+                    //$name.val("");
+                    //$nameOfYourFriend.val("");
+                    $emailOfYourFriend.val("");
+                    $(e).removeAttr('disabled');
+                },
+            });
+        } else {
+            $(e).removeAttr('disabled');
+        }
+    }
+}
+
+function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]); return null;
+}
+function GetAirfareInformation(type) {
+    if (type != undefined && type != '') {
+        $('#title').html('');
+        $('#content').html('');
+        var url = '/BookingAjax/GetAirfareInformation?type=' + type;
+        $.get(url, function (result) {
+            $('#title').html(result.AirfareLable);
+            $('#content').html(result.Introduction);
+        });
+    }
+}
+
+// Wait for the document to be ready
+$(document).ready(function () {
+    // Hide the rectangle initially
+    $('.chatbox-rectangle-container').delay(2000).fadeOut(500, function () {
+        // Show the circle after the rectangle is hidden
+        $('.chatbox-circle-container').fadeIn(500);
+    });
+
+    // Hover event for both elements
+    $('.chatbox-circle-container, .chatbox-rectangle-container').hover(
+        function () {
+            // Toggle the elements on hover
+            toggleChatElements(true);
+        },
+        function () {
+            // Toggle the elements on hover out
+            toggleChatElements(false);
+        }
+    );
+
+    // Function to toggle between rectangle and circle
+    function toggleChatElements(isHovered) {
+        if (isHovered) {
+            $('.chatbox-rectangle-container').show();
+            $('.chatbox-circle-container').hide();
+        } else {
+            $('.chatbox-rectangle-container').hide();
+            $('.chatbox-circle-container').show();
+        }
+    }
+
+    // Handle click to toggle chatbox elements on mobile
+    var isToggled = false; // Initially, it's not toggled
+
+    $('.chatbox').click(function () {
+        isToggled = !isToggled; // Toggle the state
+
+        // Call the toggleChatElements function with the updated state
+        toggleChatElements(isToggled);
+    });
+});

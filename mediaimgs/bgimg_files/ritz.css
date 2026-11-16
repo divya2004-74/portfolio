@@ -1,0 +1,8067 @@
+/*AA英文字体 start*/
+@import url("//hello.myfonts.net/count/3586ec");
+@import url("https://use.typekit.net/wkl2pkn.css");
+
+@font-face {
+    font-family: 'Manus';
+    src: url("../webfonts/3586EC_0_0.eot");
+    src: url("../webfonts/3586EC_0_0.eot?#iefix") format("embedded-opentype"), url("../webfonts/3586EC_0_0.woff2") format("woff2"), url("../webfonts/3586EC_0_0.woff") format("woff"), url("../webfonts/3586EC_0_0.ttf") format("truetype")
+}
+/*AA英文字体end*/
+@font-face {
+    font-family: PingFangMediumMR;
+    src: url( ../webfonts/PingFangMediumMR.ttf)format("truetype");
+}
+
+@font-face {
+    font-family: mirador regular;
+    src: url(../webfonts/mirador-regular.ttf)format("truetype");
+}
+
+@font-face {
+    font-family: ReneMirador;
+    src: url(../webfonts/ReneBieder-Mirador-Regular.otf)format("truetype");
+}
+
+@font-face {
+    font-family: PingFangRegularMR;
+    src: url( ../webfonts/PingFangRegularMR.ttf)format("truetype");
+}
+
+@font-face {
+    font-family: PingFang-SC-SemiboldMR;
+    src: url(../webfonts/webfonts/PingFang-SC-SemiboldMR.ttf)format("truetype");
+}
+
+@font-face {
+    font-family: DIN-BoldMR;
+    src: url(../webfonts/webfonts/DIN-BoldMR.ttf)format("truetype");
+}
+
+@font-face {
+    font-family: DIN-LightMR;
+    src: url(../webfonts/webfonts/DIN-LightMR.ttf)format("truetype");
+}
+
+@font-face {
+    font-family: DIN-RegularMR;
+    src: url(../webfonts/webfonts/DIN-RegularMR.ttf)format("truetype");
+}
+
+@font-face {
+    font-family: DINCondensedC; /*新AA的未找到位置*/
+    src: url(../webfonts/webfonts/DINCondensedC.ttf)format("truetype");
+}
+/**newritz start*/
+@font-face {
+    font-family: Bebas Neue Bold;
+    src: url(../webfonts/BebasNeue-Bold.ttf)format("truetype");
+}
+
+@font-face {
+    font-family: Bebas Neue Boldotf;
+    src: url(../webfonts/BebasNeue-Bold.otf)format("truetype");
+}
+
+@font-face {
+    font-family: Bebas Neue Light;
+    src: url(../webfonts/BebasNeue-Light.ttf)format("truetype");
+}
+
+@font-face {
+    font-family: Bebas Neue Lightotf;
+    src: url(../webfonts/BebasNeue-Light.otf)format("truetype");
+}
+
+@font-face {
+    font-family: Bebas Neue;
+    src: url(../webfonts/BebasNeue-Regular.ttf)format("truetype");
+}
+
+@font-face {
+    font-family: Bebas Neue Ivyotf;
+    src: url(../webfonts/BebasNeue-Regular.otf)format("truetype");
+}
+
+@font-face {
+    font-family: Bebas Neue Thin;
+    src: url(../webfonts/BebasNeue-Thin.ttf)format("truetype");
+}
+
+@font-face {
+    font-family: Bebas Neue Thinotf;
+    src: url(../webfonts/BebasNeue-Thin.otf)format("truetype");
+}
+
+@font-face {
+    font-family: Karla;
+    src: url( ../webfonts/Karla-Regular.ttf)format("truetype");
+}
+
+@font-face {
+    font-family: Mirador SemiBold;
+    src: url(../webfonts/ReneBieder-Mirador-SemiBold.otf)format("truetype");
+}
+@font-face {
+    font-family: 'Mirador Regular';
+    src: url('../webfonts/ReneBieder-Mirador-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family: IBM Plex Sans;
+    src: url(../webfonts/IBMPlexSans-Bold.otf)format("truetype");
+}
+
+/**newritz end*/
+.Mirador-SemiBold {
+    font-family: Mirador SemiBold !important;
+}
+
+.scionindexpcshowbr {
+    display: none
+}
+/*修改内容 */
+
+@media screen and (min-width: 75em) {
+    .page-logo {
+        width: 118px;
+        height: 100px;
+        margin-left: 3.4em;
+        background-image: url(../img/ritzimg/ritzlogo.svg);
+        background-repeat: no-repeat;
+    }
+
+    .primary-nav a {
+        padding: 0em 2.25em;
+    }
+}
+
+@media screen and (min-width: 60em) {
+    .newtab-nav a {
+        padding: 1.25em 3.2em;
+        padding-bottom: 0.85rem;
+    }
+
+    .form.form--free-search {
+        max-width: 100%;
+    }
+
+    .scionritztab-nav a {
+        padding: 1.25em 0em;
+        padding-bottom: 0.93rem;
+    }
+    .sliderzhezhaoleftbox {
+        position: absolute;
+        top: 0;
+        left: -50vw;
+        width: 50vw;
+        height: 410px;
+        background-color: white;
+    }
+
+    .sliderzhezhaorightbox {
+        position: absolute;
+        top: 0;
+        right: -83vw;
+        /*width: 700px;*/
+        height: 410px;
+        /*background-color: white;
+        opacity: .88;*/
+        display: flex
+    }
+    .rightbox_left {
+        width: 14vw;
+        background-color: white;
+        height: 410px;
+        opacity: .88;
+    }
+    .rightbox_right {
+        width: 75vw;
+        height: 410px;
+        background-color: white;
+    }
+}
+.header__top {
+    display: none;
+}
+.modalIvyffe .modal_bodyIvynfe .flickity-slider img, .modal__body .card figure img {
+    width: 100%;
+    max-width: 600px;
+    max-height: 360px;
+    object-fit: cover;
+}
+.modalIvyffe .modal_bodyIvynfe, .modal__body .card {
+    max-width: 600px;
+    /*overflow-y: scroll;*/
+}
+@media screen and (max-width:56.25em) {
+    .modalIvyffe .modal_bodyIvynfe .flickity-slider img, .modal__body .card figure img {
+        max-width: initial;
+        max-height: initial;
+        width: 100%;
+        height: auto;
+    }
+}
+@media screen and (min-width: 56.25em) {
+    .primary-nav__inner ul li a {
+        color: white;
+        font-size: clamp(12px, calc(12px + (100vw - 900px) * 0.00392156), 16px);
+        /*text-align: center;*/
+        letter-spacing: 2.5px;
+    }
+    .primary-nav .primary-nav__inner > ul {
+        flex-direction: row;
+        justify-content: center;
+        
+    }
+    .primary-nav li.primary-nav__primary > a {
+        padding: 15px 40px;
+        /* padding: .7em clamp(12px, calc(12px + (100vw - 900px) * 0.00392156), 16px); */ 
+        color: #00424E;
+        font-family: Bebas Neue Bold;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px; /* 137.5% */
+        letter-spacing: 2px;
+    }
+
+    .primary-nav__primary {
+        /*margin-left: clamp(0px, calc(0px + (100vw - 900px) * 0.015686), 16px) !important;*/
+        align-items: center;
+        display: flex;
+    }
+
+    .scionmycount_btn a {
+        color: white;
+    }
+    .page-logo {
+        background-image: url(../img/ritzimg/ritzlogo.svg);
+        width: 228px;
+        height: 77px;
+        margin-top: 20px;
+        background-repeat: no-repeat;
+    }
+
+    .primary-nav .sub-menu {
+        position: absolute;
+        top: 100%;
+        /*left:184%;*/
+        -webkit-transform: translateX(-37.5%);
+        -ms-transform: translateX(-37.5%);
+        transform: translateX(-37.5%);
+        background-color: #fff;
+        padding-left: 0;
+        overflow-x: auto;
+        width: 27rem;
+        border-top: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        display: none;
+        border-radius: 5px;
+        box-shadow: 0 0.25em 0.75em rgba(29, 46, 55, 0.4);
+    }
+    /*.primary-nav .flexendmenu ul {
+        justify-content: flex-end;
+    }*/
+
+    .primary-nav .has-sub > a:after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid #fff;
+        opacity: 0;
+        position: absolute;
+        bottom: -11px;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+
+
+    .primary-nav li.primary-nav__primarybackground:hover > a, .content-page__nav li.primary-nav__primarybackground:hover > a {
+        color: white;
+        background-color: #00424E !important;
+    }
+
+
+    .scionindexpaddingtop {
+        margin-top: 52px;
+        margin-bottom: 30px;
+    }
+
+    .scionindexonepadding {
+        padding-top: 40px;
+    }
+
+    .scionindextwopadding {
+        margin-top: 9px;
+        padding-bottom: 1em !important;
+    }
+
+    .scionindexpcshowbr {
+        display: block
+    }
+
+    .indexprivatetoursonebox {
+        text-align: left !important;
+        padding-left: 3%;
+    }
+
+    .scionherophonenone {
+        padding-top: 80px;
+    }
+
+    .scionvppaddingone {
+        padding-top: 10px;
+    }
+
+    .scionvppaddingtwo {
+        padding-top: 48px;
+    }
+
+    .scionvppaddingthree {
+        padding-top: 40px;
+    }
+
+    
+    .header__login ul {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+    .agentheader_btn {
+        border-radius: 8px;
+        border: 1px solid #C2977B;
+        display: flex;
+        height: 40px;
+        padding: 12px 25px 10px 25px;
+        justify-content: center;
+        align-items: center;
+        color: #00424E;
+        text-align: center;
+        font-family: 'Bebas Neue Bold';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 26px; /* 162.5% */
+        letter-spacing: 1.8px;
+    }
+    .primary-nav__primarybackground a {
+        display: flex;
+        height: 40px;
+        padding: 12px 25px 10px 25px;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        border-radius: 8px;
+        background: #00424E;
+        color: #FFF;
+        text-align: center;
+        font-family: 'Bebas Neue Bold';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 26px; /* 162.5% */
+        letter-spacing: 1.8px;
+    }
+
+    .blogpaddingone {
+
+        padding-top: 45px;
+    }
+
+    #starLevel {
+        padding-top: 15px;
+    }
+
+    .siciondestinationtIvyfn span {
+        font-size: 36px !important;
+    }
+
+    .hero_serchinfoleft {
+        width: 69.38em;
+        margin: auto;
+    }
+
+    .hero_serchinfoleft .reduce {
+        text-align: left;
+    }
+
+    .siciondestinationinfo span {
+        width: 748px;
+    }
+
+    .scionfooterlinkwidth {
+        width: 69.38em;
+        margin: auto;
+    }
+
+    .scionfooterlinkwidth h1 {
+        text-align: left;
+    }
+
+    .onlinepayment_herowidth {
+        width: 940px;
+        margin: auto;
+    }
+
+    .onlinepayment_herowidth h1 {
+        text-align: left;
+    }
+
+    .scionhotelbbottomheight {
+        display: block;
+        height: 77px;
+    }
+
+    .scionreviewswidth {
+        width: 74em;
+    }
+
+    .page-wrapIvyooe a.fullystIvynfo {
+        width: 41%;
+    }
+
+    .scionindexbottomhover img {
+        width: 100% !important;
+        /*height: 350px*/
+    }
+
+ /*   .modalIvyffe .modal_bodyIvynfe .flickity-slider img {
+        height: 360px !important;
+        width:100%!important;
+    }*/
+
+    .blogdetailmodule {
+        padding-top: 13.125em;
+        padding-bottom:0px;
+    }
+
+    .scionhomenewbtn .flickity-viewport {
+        overflow: initial;
+    }
+    .new_title {
+        padding-bottom: 74px;
+    }
+    /* .sciondivcolor .sliderzhezhaoleftbox, .sciondivcolor .sliderzhezhaorightbox {
+        background-color: #FCFAF8;
+    }
+    .inclusionszhezhao .sliderzhezhaorightbox {
+        background-color: #FCFAF8;
+        right:-680px;
+        width:680px;
+    }
+    .inclusionszhezhao .sliderzhezhaoleftbox {
+        background-color: #FCFAF8;
+        left: -680px;
+        width: 680px;
+    }
+    .opupgradeszhezhao .sliderzhezhaoleftbox, .opupgradeszhezhao .sliderzhezhaorightbox {
+        background-color: #FCFAF8;
+    }*/
+    .opupgradeszhezhao .sliderzhezhaoleftbox {
+        position: absolute;
+        top: 0;
+        left: -700px;
+        width: 700px;
+        background-color: #FCFAF8;
+    }
+
+    .opupgradeszhezhao .sliderzhezhaorightbox {
+        position: absolute;
+        top: 0;
+        right: -700px;
+        width: 700px;
+        background-color: #FCFAF8;
+        opacity: .88;
+    }
+    .inclusionszhezhao .sliderzhezhaoleftbox {
+        position: absolute;
+        top: 0;
+        left: -700px;
+        width: 700px;
+        background-color: #FCFAF8;
+    }
+    .inclusionszhezhao .sliderzhezhaorightbox {
+        position: absolute;
+        top: 0;
+        right: -700px;
+        /*        width: 700px;*/
+        /*background-color: #FCFAF8;
+        opacity: .88;*/
+    }
+
+    .inclusionszhezhao .sliderzhezhaorightbox .rightbox_left {
+        width: 200px;
+        background-color: #FCFAF8;
+        opacity: .88;
+    }
+    .inclusionszhezhao .sliderzhezhaorightbox .rightbox_right {
+        width: 500px;
+        background-color: #FCFAF8;
+    }
+
+
+    .sciondivcolor .sliderzhezhaoleftbox {
+        position: absolute;
+        top: 0;
+        left: -750px;
+        width: 750px;
+        background-color: #FCFAF8;
+    }
+
+    .sciondivcolor .sliderzhezhaorightbox {
+        position: absolute;
+        top: 0;
+        right: -750px;
+        width: 750px;
+        background-color: #FCFAF8;
+        opacity: .88;
+    }
+
+
+    /* .primary-nav__inner .scioncitylistmenu .sub-menusp ul {
+         display: block;
+     }*/
+
+    .primary-nav__inner .scioncitylistmenu .sub-menusp .menucitylist li {
+        width: 100%;
+        /*white-space: nowrap;*/
+    }
+
+    /* .primary-nav__inner .scioncitylistmenu .sub-menusp .sub-menuleft:nth-child(odd) {
+             float:left;
+     }
+     .primary-nav__inner .scioncitylistmenu .sub-menusp .sub-menuleft:nth-child(even) {
+         float: right;
+     }*/
+    .primary-nav__inner .scioncitylistmenu .sub-menu .sub-menuleft {
+        width:100%;
+    }
+    .primary-nav__inner .scioncitylistmenu .sub-menu {
+        width: 37rem;
+    }
+    .primary-nav__inner .scioncitylistmenu .sub-menusp .sub-menuleft a {
+        /*        color: #00424e;*/
+        font-weight: bold;
+        /*        font-family: 'Karla', sans-serif;*/
+        text-transform: capitalize;
+        letter-spacing: 0;
+        padding: .0em 2em;
+        letter-spacing: 2px;
+        font-size: 18px;
+        padding: 0px !important;
+        width: 118px;
+    }
+    .primary-nav__inner .scioncitylistmenu .sub-menusp .sub-menuleft .menucitylist a {
+        color: #616161;
+        font-weight: initial;
+        padding: .0em 2em;
+        font-family: 'Karla';
+        letter-spacing:0;
+        font-size:16px;
+    }
+    .primary-nav__inner .scioncitylistmenu .sub-menusp .menucitylist {
+        display: block;
+        padding-top: 0em;
+        padding-bottom: .5em;
+    }
+
+    .menuleft_unline {
+        padding: .25em 1.8em!important;
+    }
+    .menuleft_unline:hover {
+        text-decoration: none !important;
+    }
+
+    .phoneagentlogin, .phoneaccountlogin {
+        display: none;
+    }
+}
+
+
+
+.destination__item {
+    border-radius: 6px;
+}
+
+.btnIvysgtf {
+    width: 108px;
+}
+
+@media screen and (min-width: 43.75em) {
+    .newtab-nav li.check-dates-prices {
+        width: 15.6rem;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .content-sidebar__content {
+        width: 47%;
+    }
+
+    .scionminwidthselect select {
+        max-width:250px;
+    }
+    .layout--trip-cards:not(.layout--slider) .layout__inner {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+}
+th.pullbackclose {
+    display: none;
+}
+
+.pullbackclosenone {
+    display: none !important;
+}
+@media screen and (min-width: 37.5em) {
+    .layout--trip-cards .layout__inner.flickity-enabled .flickity-slider {
+        /*margin-left: 60px;*/
+    }
+
+    .scionsplayout--trip-cards .layout__inner .layout__item {
+        width: 27%;
+        margin-left: .9375em;
+        margin-right: .9375em;
+        margin-bottom: 1.875em;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+    }
+
+    .ritztitlephonebr {
+        display: none;
+    }
+
+    .section-heading, .sub-section-heading {
+        font-size: 24px;
+        color: #242424 !important;
+    }
+
+    p.noteIvytff {
+
+        color: rgba(36,36,36,0.8);
+        font-size: 13px;
+    }
+
+    h3.moudule-title-Ivytfe {
+        font-size: 16px;
+    }
+
+    .scionhomenewbtn .layout__item:nth-child(odd) {
+        margin-left: 0em !important;
+        margin-right: 30px !important;
+    }
+
+    .scionhomenewbtn .layout__item:nth-child(even) {
+        margin-left: 0em !important;
+        margin-right: 30px !important;
+    }
+
+    #optional-excursions .layout--trip-cards .layout__inner .layout__item {
+        margin-bottom: 1em;
+    }
+
+    .Brochurepicsp {
+        margin-left: 30px;
+    }
+    .newlayout__inner .newlayout__innerlist {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        width: 75%;
+        /*        justify-content: center;*/
+        align-content: flex-start;
+    }
+
+    /* .newlayout__inner {
+         display:table!important;
+     }*/
+    .newlayout__innersx {
+        width: 18%;
+        margin: -64px 6.5% 0 0%;
+        position: sticky;
+        height: 100%;
+        top: 0;
+        /* height: 615px;
+        overflow-y: auto;
+        overflow-x: hidden;*/
+    }
+
+}
+
+.newtab-nav .is-active a {
+    background-color: transparent;
+    border-bottom-color: #C2977B;
+    opacity: 1;
+}
+
+.newtab-nav a {
+    border-top: 6px solid transparent;
+    border-bottom: 4px solid transparent;
+    font-size: 1.25em;
+    /*letter-spacing: 0.1em;*/
+}
+
+.sort-select {
+    padding: 0.55em 1em;
+    font-size: 16px;
+    height: 44px;
+    border: 2px solid #DDE3E8;
+    box-shadow: 1px 3px 4px 0px rgba(204, 204, 204, 0.2) inset !important;
+    border-radius: 6px !important;
+}
+
+.newtab-nav li {
+    text-transform: none;
+}
+
+.card:before {
+    content: none;
+}
+
+.tab-nav {
+    background: transparent;
+}
+
+.tab-nav .is-active a {
+    background-color: transparent;
+    opacity: 1;
+}
+
+.tab-nav a {
+    border-bottom: 4px solid transparent;
+}
+
+.flickity-page-dots .dot {
+    display: inline-block;
+    width: 20px;
+    height: 5px;
+    margin: 0 4px;
+    background: #ffffff;
+    border-radius: inherit;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+
+.spindexol .flickity-page-dots {
+    bottom: 6em;
+}
+
+.layout img {
+    border-radius: 6px;
+}
+/*.accordion:after, .accordion:before{
+	content: none;
+}*/
+.fixed-search {
+    background-color: #F6F4F4;
+}
+
+.newscioncontrol {
+    width: 44% !important;
+}
+
+.newscioncontroltwo {
+}
+
+.newscioncontroltwo input {
+    border-radius: 6px;
+}
+
+.form--dark input, .form--dark select {
+    background-color: white;
+    color: #616161;
+    border-radius: 6px;
+}
+
+.form--dark .free-search {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #D8D8D8;
+}
+
+.scionplaceholdercolor input::-webkit-input-placeholder {
+    color: #616161;
+    font-size: 16px;
+}
+
+.scionplaceholdercolor input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #616161;
+    font-size: 16px;
+}
+
+.scionplaceholdercolor input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #616161;
+    font-size: 16px;
+}
+
+.scionplaceholdercolor input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #616161;
+    font-size: 16px;
+}
+
+.destination__item a:before {
+    border-radius: 6px;
+}
+
+.sciondreamspanone {
+    position: absolute;
+    z-index: 2;
+    text-transform: uppercase;
+    left: 15px;
+    top: 15px;
+    color: white;
+    opacity: 0.66;
+
+}
+
+.sciondreamspantwo {
+    position: absolute;
+    bottom: 15px;
+    /*left: 15px;*/
+    z-index: 2;
+    color: white;
+    font-size: 28px;
+    line-height: 34px;
+    width: 100%;
+    padding: 0px 15px;
+}
+
+.scionhomenewbtn .flickity-prev-next-button {
+    /*position: relative;*/
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background: #FCFAF8 !important;
+    border-radius: 50%;
+    z-index: 9;
+    /*margin-top:2rem;*/
+}
+
+.scionhomenewbtn .previous {
+    /*margin-right: 2em;*/
+    left: -6%;
+}
+
+.scionhomenewbtn .flickity-prev-next-button:last-child {
+    /*margin-right: -2em;*/
+    right: -6%;
+}
+
+
+
+.newscioncontrol .dark {
+    background-image: url(../img/ritzimg/Arrow.svg) !important;
+    padding-left: 45px;
+    background-position: right 0.75em center;
+}
+
+.newscioncontrol .darkIvyfzf {
+    padding: 1em 30px 1em 40px;
+}
+
+.newscioncontrol .control__field {
+    position: relative;
+}
+
+.newscioncontrol .control__field:after {
+    content: '';
+    background-image: url(../img/ritzimg/Map-pin.svg);
+    width: 22px;
+    height: 25px;
+    display: inline-block;
+    position: absolute;
+    top: 17px;
+    left: 15px;
+    background-repeat: no-repeat;
+}
+
+.newscioncontrolimg .control__field:after {
+    content: '';
+    background-image: url(../img/ritzimg/Calendar.svg);
+    width: 22px;
+    height: 25px;
+    display: inline-block;
+    position: absolute;
+    top: 17px;
+    left: 12px;
+    background-repeat: no-repeat;
+}
+
+
+.siconhero_infobox {
+    display: flex;
+    justify-content: center;
+    width: 700px;
+    background-color: #00424E;
+    color: white;
+    margin: auto;
+    border-radius: 46px;
+    margin-top: 23px;
+    margin-bottom: 57px;
+}
+
+.scionhero_infoboxone {
+    width: 280px;
+}
+
+.scionhero_infoboxone span:last-child {
+    color: #c2977b;
+    font-size: 30px;
+}
+
+.scionhero_infoboxtwo {
+    border-right: 1px solid #01323B;
+    border-left: 1px solid #01323B;
+    font-size: 20px;
+    width: 198px;
+    position: relative;
+}
+
+.scionhero_infoboxthree {
+    width: 220px;
+}
+
+.scionhero_infoboxthree span:last-child {
+    font-size: 20px;
+}
+
+.siconhero_infobox div {
+    /*width:33.3%;*/
+    text-align: center;
+    line-height: 50px;
+    /*padding:15px 0px;*/
+    /*align-self: center;*/
+}
+
+.scionhero_infobtn {
+    display: inline-block;
+    background-color: #c2977b;
+    color: white;
+    padding: 13px 36px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: 'Bebas Neue Ivyotf';
+    letter-spacing: 2.5px;
+}
+
+.scionindexbottomhover a:before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    border-radius: 6px;
+    background-color: rgba(0, 66, 78, 0.8);
+    opacity: 0;
+    -webkit-transition: opacity 0.4s;
+    -o-transition: opacity 0.4s;
+    transition: opacity 0.4s
+}
+
+.scionindexbottomhover a:hover:before {
+    opacity: 1
+}
+
+.scionhero_icon {
+    position: absolute;
+    opacity: 1 !important;
+    top: 15%;
+    right: 20%;
+}
+
+.ritzsuper-bgstyleone:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    background-color: #00424E;
+    opacity: .7;
+    height: 100%;
+    width: 50%;
+}
+
+#optional-excursions .layout__item {
+    align-items: unset;
+}
+
+.siconhero_infoboxtwo {
+    display: flex;
+    justify-content: center;
+    width: 505px;
+    background-color: #00424E;
+    color: white;
+    margin: auto;
+    border-radius: 46px;
+    margin-top: 23px;
+    margin-bottom: 6px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.scionhero_infoboxtwoone {
+    width: 280px;
+}
+
+.scionhero_infoboxtwoone span:last-child {
+    color: #c2977b;
+    font-size: 30px;
+}
+
+.scionhero_infoboxtwotwo {
+    border-left: 1px solid #01323B;
+    font-size: 20px;
+    width: 224px;
+    position: relative;
+}
+
+.scionhero_infoboxtwoinfo {
+    font-size: 12px !important;
+    opacity: 1;
+    margin-bottom: 26px;
+}
+/*新添加内容*/
+/*index newpageAdd start*/
+@media screen and (max-width: 56.25em) {
+    .scionsearchbtn {
+        display: none;
+    }
+
+    .newscioncontrol {
+        width: 100% !important;
+    }
+}
+
+.scionbannerinfo {
+    width: 100%;
+    text-align: center;
+}
+
+.scionbannerinfo h1, .scionbannerinfo h2 {
+    font-size: 68px;
+    letter-spacing: -0.04rem;
+    text-transform: capitalize;
+    /*width: 860px;*/
+    margin: 0px auto;
+    display: block;
+    word-break: break-word;
+}
+
+.scionbannerinfo p {
+    font-size: 20px;
+    color: white;
+    opacity: 0.8;
+}
+
+.scionmodule-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4.27rem;
+}
+
+.scionmodule-title-name {
+    width: 40%;
+}
+
+.scionmodule-title-name:after {
+    content: '';
+    width: 16%;
+    display: block;
+    height: 16px;
+    border-bottom: .2rem solid #c2977b;
+}
+
+.scionmodule-title-name h2 {
+    font-size: 36px;
+    color: #242424;
+    letter-spacing: 0em;
+}
+
+.scionmodule-title-info {
+    width: 50%;
+}
+
+.scionmodule-title-info p {
+    font-size: 20px;
+    color: #616161;
+}
+
+.scionindextoptab {
+    display: flex;
+    justify-content: space-between;
+}
+
+.scionindextoptab a {
+    width: 48.6%;
+}
+
+.buildyourprivatetour, .enquiretody {
+    /*width: 48%;*/
+    border: 2px solid #D7CEC7;
+    border-radius: 6px;
+    padding: 26px 40px 26px 25px;
+    position: relative;
+    cursor: pointer;
+}
+
+.buildyourprivatetour p, .enquiretody p {
+    margin-bottom: 0;
+}
+
+.buildyourprivatetour p:first-child {
+    font-size: 20px;
+}
+
+.buildyourprivatetour p:last-child {
+    font-size: 16px;
+}
+
+.enquiretody p:first-child {
+    font-size: 20px;
+}
+
+.enquiretody p:last-child {
+    font-size: 16px;
+}
+
+.buildyourprivatetour:after, .enquiretody:after {
+    content: ' ';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-image: url(../img/ritzimg/scionarror.png);
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    background-size: 18px;
+}
+
+.buildyourprivatetour:hover:after, .enquiretody:hover:after {
+    content: ' ';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-image: url(../img/ritzimg/scionarrorwhite.png);
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    background-size: 18px;
+}
+
+.buildyourprivatetour:hover, .enquiretody:hover {
+    background-color: #00424E;
+    color: white !important;
+    border: none;
+    border: 2px solid #00424E;
+}
+
+.buildyourprivatetour p:first-child, .enquiretody p:first-child {
+    color: #141414;
+}
+
+.buildyourprivatetour:hover p, .enquiretody:hover p {
+    background-color: #00424E;
+    color: white !important;
+    border: none;
+}
+
+.indexcontactus {
+    font-size: 48px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0;
+    letter-spacing: 0.02rem;
+    color: #fff;
+    text-align:center;
+}
+
+.contactusbtn {
+    text-align: center;
+    margin-top: 2.65rem;
+}
+
+.contactusbtn a span {
+    color: white;
+    text-transform: uppercase;
+    padding: 12px 44px;
+    border-radius: 6px;
+    background-color: #00424e;
+    font-size: 16px;
+    letter-spacing: 0.12rem;
+}
+
+.scioncustomerssay {
+    text-align: center;
+    padding: 4em 0;
+}
+
+.scioncustomerssay .scionprivatebigtitle {
+    font-size: 48px;
+    display: block;
+}
+/*.scioncustomerssay span:last-child{
+	font-size: 20px;
+	color: #616161;
+}*/
+.scionrightinner {
+    width: 100%;
+    padding-left: 29em;
+}
+
+.scionrightinner .flickity-prev-next-button {
+    position: relative;
+}
+
+/*index newpageAdd end*/
+
+/*desitinationPageAdd start*/
+
+.siciondestinationtitle:after {
+    content: '';
+    width: 63px;
+    display: block;
+    height: 22px;
+    border-bottom: 4px solid #c2977b;
+    margin: auto;
+    margin-top: -12px;
+}
+
+.siciondestinationtitle span {
+    font-size: 48px;
+}
+
+.siciondestinationinfo {
+    margin-top: 22px;
+}
+
+.siciondestinationinfo p {
+    font-size: 20px;
+}
+
+.card_imgradius img {
+    border-radius: 6px;
+}
+
+.newritzcard_body {
+    border-bottom-left-radius: 6px!important;
+    border-bottom-right-radius: 6px!important;
+}
+
+.newritzcard_body h2 {
+    color: #242424;
+    font-size: 28px;
+    text-align: left;
+    font-family: 'Mirador SemiBold';
+    letter-spacing: -1px;
+    text-transform: capitalize;
+    /*margin-bottom: 0.3em;*/
+}
+
+.newritzcard_body p {
+    font-size: 16px;
+    line-height: 1.6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.info_monthtomonth {
+    color: #00424E;
+    font-weight: bold;
+    letter-spacing: 0.04rem;
+}
+.newritzcard_body .scioncard_day {
+    color: #616161;
+    font-weight: bold;
+    letter-spacing: 0rem;
+}
+
+.newritzcard_body .scioncard_price {
+    color: #00424E;
+    font-weight: bold;
+}
+
+.scionritztours {
+    margin: 1.5em 0;
+    padding: 4em 0em;
+}
+
+.scionritztours span:first-child {
+    color: #c2977b;
+    font-size: 36px !important;
+    font-family: 'Mirador SemiBold';
+}
+
+.scionritztab-nav ul li {
+    flex: 1;
+    text-transform: capitalize;
+}
+
+.scionritztab-nav {
+    position: sticky;
+    z-index: 8;
+    top: 0;
+    margin-top: -90px;
+}
+
+.scionritztab-nav ul li a {
+    color: #00424e;
+    opacity: 0.7;
+    text-transform: initial;
+    letter-spacing:0px;
+        font-family: 'karla';
+    }
+
+.scionritztab-nav li + li {
+    margin-left: 0;
+}
+
+.scionritztab-nav .inner {
+    box-shadow: 0 14px 16px -12px rgba(29, 46, 55, 0.2);
+    background-color: white;
+}
+
+.scionritztab-nav .is-active a {
+    background-color: transparent;
+    border-bottom-color: #c2977b;
+    font-family: 'Karla Bold';
+}
+
+#itinerary .sub-section-heading {
+    font-size: 24px;
+    text-transform: inherit;
+}
+
+.scionritzdiscovery {
+    border-bottom: 2px solid #F9F9F9;
+}
+
+.scionritzdiscovery li {
+    padding: 1.25em;
+    align-self: center
+}
+
+.scionritzdiscovery li:last-child {
+    border-right: none !important;
+}
+
+.scionritzdiscovery li span {
+    display: block;
+}
+
+.scionritzdiscovery #date-price-toggle {
+    background-color: #00424E;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    letter-spacing: 0.15rem;
+    padding: 0.4rem 0px;
+    font-size: 18px;
+    width: 95%;
+    margin: auto;
+    font-family: 'Bebas Neue Boldotf';
+}
+
+.spsciontabprice {
+    padding: 0 !important;
+    display: inline !important;
+    font-size: 30px;
+    font-weight: bold;
+    color: #00424E;
+}
+
+.sciontabprice {
+    font-size: 16px;
+    color: #C2977B;
+    text-transform: none !important;
+    font-weight: bold;
+}
+
+.sciontabdata {
+    font-size: 24px;
+    color: #00424E;
+    border-right: 2px solid #F9F9F9 !important;
+    border-left: 2px solid #F9F9F9 !important;
+    font-weight: bold;
+    text-transform: none !important;
+}
+/*desitinationPageAdd end*/
+
+
+
+/*destination-cityPage Add Start*/
+.scionritzcitypackages {
+    background-color: #00424E;
+    padding: 5em 0em;
+}
+
+.scionritzcitypackages p {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.scionritzinfobox {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.scionritzinfo_list {
+    text-align: center;
+    flex: 1;
+}
+
+.scionritzinfo_list img {
+    margin: auto;
+    width: 60px;
+}
+/*destination-cityPage Add End*/
+
+/*Inspiration NewAdd Strat*/
+.inspirationlist {
+    border-bottom: 2px dotted #DCDCDC;
+    padding-bottom: 2em;
+}
+
+.inspirationlisttile:after {
+    content: '';
+    width: 100px;
+    display: block;
+    height: 22px;
+    border-bottom: 4px solid #c2977b;
+    margin: auto;
+}
+
+.inspirationlisttile {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.inspirationlisttile p:first-child {
+    font-size: 36px;
+    margin-bottom: 0;
+    color: #141414;
+}
+
+.inspirationlisttile p:last-child {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.inspirationlisttile p:last-child span {
+    color: #C2977B;
+}
+
+.inspirationlistimg img {
+    border-radius: 6px;
+}
+
+.inspirationlist_titletwo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3em;
+}
+
+.inspirationlist_titletwo .scion_titletwoname p {
+    margin-bottom: 0;
+}
+
+.scion_titletwoname p:first-child {
+    font-size: 22px;
+    color: #141414;
+}
+
+.scion_titletwoname p:last-child {
+    font-size: 16px;
+}
+
+.scion_titletwoname span {
+    color: #C2977B;
+}
+
+.scion_titletwobtn {
+    padding: .4em 3.5em;
+    background-color: #00424E;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 20px;
+}
+
+.inspirationlistcontent {
+    margin-top: 2em;
+}
+
+.inspirationreadmore a {
+    text-decoration: none;
+    color: #C2977B;
+}
+
+.scionhero__item {
+    position: relative;
+    width: 100%;
+}
+
+.scionhero .super-bg {
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+}
+
+@media screen and (min-width: 90em) {
+    .scionhero img {
+        opacity: 0;
+    }
+
+    .upgradespadding {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+@media screen and (max-width: 60em) {
+    .scionhero img {
+        opacity: 0;
+    }
+}
+
+.scion_spotherinput {
+    width: 35%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.scionPc_nohave {
+    display: none;
+}
+
+.scionprivatetours .accordion__body-inner {
+    padding-bottom: 1.25em !important;
+}
+
+.contactusbtnsend {
+    border-radius: 6px;
+    padding: .6em 4.55em;
+    font-family: 'Bebas Neue Boldotf';
+    letter-spacing: 0.1rem;
+    outline: none;
+}
+
+.scionprivatetours .accordion__trigger a {
+    font-size: 36px;
+    text-transform: none;
+}
+
+.scionprivatetours .accordion:after, .scionprivatetours .accordion:before {
+    content: none;
+}
+
+.ritzreviews {
+    margin-bottom: 6em;
+}
+
+.scionprivatetours .ptf__dates input {
+    background-image: none;
+    width: 33%;
+    max-width: none;
+}
+
+.scionritzinfo_list p {
+    padding: 19px;
+}
+
+.scionritzcitypackages p {
+    padding: 0em 3em;
+}
+
+.timeline__itemIvystz {
+    padding-bottom: 2.2rem;
+    margin-bottom: 0;
+}
+.timeline__itemIvystz:last-child {
+    padding-bottom:0px;
+}
+.Ritzoverviewphoneshow {
+    display: none;
+}
+
+.ritzscionmiaoshu {
+    color: white;
+}
+
+.scionhotelsdetail {
+    font-size: 20px !important;
+    text-transform: inherit;
+}
+
+#itinerary .timeline__bodyIvysto {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
+.scionhometypebanner .destination__item h1 {
+    padding: 0px;
+}
+
+.indexcontactus {
+    text-transform: inherit !important;
+}
+
+.scionritzltineraryinfobox {
+    border-bottom: 1px dashed #c2977b;
+    border-top: 1px dashed #c2977b;
+    padding-top: 20px;
+    margin-top: 30px;
+    padding-bottom: 6px;
+}
+
+.scionritzheaderphoneshow {
+    display: none;
+}
+
+#optional-excursions .card__body {
+    /*padding-left: 0px;
+    padding-right: 0px;*/
+    border-radius:6px;
+}
+
+.Overviewphoneshow {
+    display: none;
+}
+
+.Overviewphoneshowimg {
+    display: none !important;
+}
+
+.table-block a {
+    border-radius: 8px;
+    padding: 10px;
+    
+}
+
+.scionritzdatepricetitle {
+    text-align: center;
+}
+
+.scionritzdatepricetitle h3 {
+    font-family: 'Bebas Neue Boldotf';
+    color: #C2977B;
+}
+
+.scionritzdatepricetitle h2 {
+    font-family: 'Bebas Neue Boldotf';
+}
+
+.scionritzdatepricetitle .section-heading:after {
+    content: none;
+}
+
+.sciondatepricetabbox {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2.3em;
+    border-bottom: 2px solid #ECECEC;
+}
+
+.sciondatepricetabbox .datepricetablist {
+    width: 33.3%;
+    text-align: center;
+    padding: 1.05em 0;
+    opacity: .7;
+}
+
+.sciondatepricetabbox div span {
+    display: block;
+}
+
+.sciondatepricetabbox .optiontitle {
+    color: #C2977B;
+    font-size: 15px;
+    font-family: 'Bebas Neue Boldotf';
+    letter-spacing: 0.06rem;
+}
+
+.sciondatepricetabbox .optionname {
+    color: #00424e;
+    font-size: 19px;
+    font-family: 'Karla', sans-serif;
+    letter-spacing: 0.02rem;
+    font-weight: bold;
+}
+
+.sciondatepricetabbox .optioninfo {
+    font-size: 15px;
+    color: #616161;
+}
+
+.datepricetabactive {
+    border-bottom: 4px solid #C2977B;
+    margin-bottom: -2px;
+    opacity: 1 !important;
+}
+
+.sicondatepricetabinfo {
+    display: none;
+}
+.sicondatepricetabinfo1 {
+    display: none;
+}
+
+.scionritzdatepricetitle .section-heading {
+    text-transform: capitalize;
+    padding-top: 6px;
+}
+
+.popOut iframe {
+    min-width: 400px;
+}
+
+.scioncontactusboxshadow .accordion__label {
+    text-transform: capitalize;
+}
+
+.ritztourslunbobox .flickity-prev-next-button {
+    background-color: transparent !important;
+}
+
+.indexonpage-search {
+    background-color: #F6F4F4;
+}
+
+.indexonpage-search legend {
+    color: #c2977b;
+    font-family: 'Mirador SemiBold';
+    text-transform: initial;
+}
+
+.form.form--free-search legend:before {
+    content: '';
+    display: inline-block;
+    width: 33px;
+    border: 1px solid #c2977b;
+    vertical-align: middle;
+    margin-right: .4em;
+}
+
+.form.form--free-search legend:after {
+    content: '';
+    display: inline-block;
+    width: 33px;
+    border: 1px solid #c2977b;
+    vertical-align: middle;
+    margin-left: .4em;
+}
+
+.copyright {
+    color: #c1c1c1 !important;
+}
+
+.scionprivatetours h3 {
+    letter-spacing: -1px;
+}
+
+.indexonpage-search {
+    width: 65%;
+    margin: auto;
+    border-radius: 6px;
+    margin-top: -4em;
+    z-index: 8;
+    position: relative;
+    padding: 1.5rem .8rem;
+    box-shadow: 0 14px 16px -12px rgba(29, 46, 55, 0.2);
+}
+
+.indexonpage-searchIvyoof {
+    width: 69.625em !important;
+    max-width: 100% !important;
+    padding: 1.5rem 1.5rem;
+}
+
+.indexprivatetours {
+    display: flex;
+    justify-content: space-around;
+    width: 900px;
+    margin: auto;
+    margin-top: .63rem;
+    margin-bottom: 4.65rem;
+}
+
+.indexprivatetours div {
+    width: 30.3%;
+    text-align: center;
+    font-size: 20px;
+    color: #242424;
+}
+
+.goprivatetoursbtnbox {
+    text-align: center;
+    margin-bottom: 5em;
+}
+
+.goprivatetoursbtn {
+    padding: 1em 9em;
+    background-color: #00424e;
+    border-radius: 6px;
+    color: white;
+    font-family: 'Bebas Neue Ivyotf';
+    cursor: pointer;
+    font-size: 18px;
+    letter-spacing: 0.12rem;
+}
+
+.scionprivatetoursphoneshow {
+    display: none;
+}
+
+.scionthanksyoubtn {
+    width: 45%;
+    background-color: #00424e;
+    border-radius: 6px;
+    color: white;
+    font-family: 'Bebas Neue Ivyotf' !important;
+    cursor: pointer;
+    letter-spacing: .2rem;
+    margin: auto;
+    text-align: center;
+    padding: .72rem 1rem;
+    font-size: 20px;
+}
+
+.scioncustomerssay a {
+    color: #C2977B;
+    text-decoration: underline;
+}
+
+.sciononeimgshow {
+    position: absolute;
+    bottom: 7em;
+    left: 0;
+    z-index: 5;
+    right: 0;
+    bottom: 75px;
+}
+
+.sciononeimgshow img {
+    opacity: 1;
+}
+
+.sciononeimgshowtwo {
+    position: absolute;
+    bottom: 3em;
+    left: 0;
+    z-index: 5;
+    right: 0;
+}
+
+.sciononeimgshowtwo img {
+    opacity: 1 !important;
+}
+
+.hero {
+    position: relative;
+}
+
+.hero .super-bg:after {
+    content: '';
+    background-color: #001538;
+    /*opacity: .2;*/
+    opacity: 0;
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.scionhero .super-bg:after {
+    content: '';
+    background-color: #001538;
+    opacity: .2;
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.buttonIvyzzz {
+    background-image: url('../img/ritzimg/search20191025.svg');
+    background-repeat: no-repeat;
+    background-position: right .125em center;
+    min-width: 30px;
+    min-height: 32px;
+    outline: none;
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 10px;
+}
+
+.scionbigphotobox img {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0px;
+}
+
+.hero__contenttextleft {
+    width: 59.25rem;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero__contenttextleft h1 {
+    text-align: left;
+}
+.sciontourcodedown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    bottom: 28px;
+    left: 0;
+    padding: 0 1.31em;
+}
+.newritzcard_body .info_topmargin {
+    /*    margin-top: 0.658rem;*/
+}
+
+#inclusions .section-heading:after {
+    background-size: 76px;
+    width: 40px;
+    margin-top: 8px;
+}
+
+#inclusions .accordion__triggerIvyfte {
+    padding-top: 1.25rem;
+}
+
+#inclusions .scioninclusionflex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#inclusions .scionnewaccordion {
+    width: 47%;
+}
+
+#hotels .scionhotelcityname {
+    color: #20626E;
+}
+
+.ritzreviewsphoneblock {
+    display: none;
+}
+
+.privatetourssyapadding {
+    padding: 15px;
+}
+
+.scionprivatetours select {
+    background-image: url('../img/ritzimg/select-toggle.minye.svg');
+    background-size: 12px;
+}
+
+.trustpilot-widget {
+    margin: 60px 0;
+}
+
+.privatetoursdownbtn {
+    position: absolute;
+    bottom: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.siciondestinationinfo span {
+    font-size: 20px;
+    color: #616161;
+    display: block;
+    word-break: break-word;
+    margin: 0px auto;
+}
+
+.upgradesbannerbox {
+    padding-top: 26px;
+}
+
+.upgradesbannerbox img {
+    border-radius: 6px;
+}
+
+.upgradesbannerbox .flickity-page-dots {
+    bottom: -20px;
+}
+
+.searchsiciondestinationtitle {
+    margin-bottom: 55px;
+}
+
+.scionplaceholdercolor input {
+    border-radius: 0px;
+    font-size: 22px;
+    padding-left: 0px;
+}
+
+.itinerarylunboimg .flickity-page-dots {
+    bottom: -25px;
+}
+
+.itinerarylunboimg .flickity-page-dots .dot {
+    height: 4px;
+}
+
+#itinerary .timeline__item {
+    overflow: initial;
+}
+
+.blogpaddingone h2.card__titlefz {
+    font-size: 24px;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.scionbloglistinfo {
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-height: 1.8;
+}
+
+.scionblogherospan {
+    color: white;
+    font-size: 18px;
+    display: block;
+    padding-top: 10px;
+}
+
+/*.layout__item article a:after {
+    content: '';
+    background: #001538;
+    opacity: .2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    border-radius: 6px;
+}*/
+
+#itinerary .timeline__img .itinerarylunboimg {
+    position: relative;
+}
+
+#itinerary .timeline__img .itinerarylunboimg div:after {
+    content: '';
+    background: #001538;
+    opacity: .2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    border-radius: 6px;
+}
+
+
+.blogpaddingone .tzsg-img-container:after {
+    content: '';
+    background: #001538;
+    opacity: .2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    border-radius: 6px;
+}
+.blogdetail_lunbo {
+    margin-bottom: 50px;
+}
+.tripimglunbo {
+    position: relative;
+}
+
+.tripimglunbolist {
+    display: block;
+    width: 100%;
+}
+
+.tripimglunbolist:after {
+    content: '';
+    background: #001538;
+    opacity: .2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    border-radius: 6px;
+}
+
+#starLevel img {
+    float: left;
+}
+/*.scionnewinclusion ul {
+    padding-left:0px;
+    line-height: 1.9;
+    color:#A8A8A8;
+    margin-left:27px;
+}
+.scionnewinclusion ul li{
+    text-indent:-27px;
+}
+.scionnewinclusion ul li:before{
+    content: " ";
+    background-image: url(../img/dots.svg);
+    background-size: cover;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    position: relative;
+    top: -0.125em;
+    margin-right: 20px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    opacity:.6;
+}*/
+.inoverviewpaddingone {
+    padding: .9em 0px 1.25em 0px;
+}
+
+.inclusionpaddingone {
+    padding-top: 35px;
+}
+
+.upgradettrip {
+    width: 32%;
+    margin-right: 18px;
+}
+
+.upgradettrip .tripimglunbo img {
+    border-radius: 6px;
+    width: 100%;
+}
+
+.upgradettrip .upgradettripinfotitle {
+    color: #00424E;
+    display: block;
+    padding-bottom: 5px;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+.upgradettrip p {
+    color: #8e8e8e;
+}
+
+.upgradestitle {
+    padding-top: 5px;
+    padding-bottom: 33px;
+}
+
+.scionupgradesflight {
+    margin-top: 58px;
+}
+
+.upgradetriplunbo .flickity-prev-next-button .arrow {
+    fill: #333333;
+}
+
+.upgradetriplunbo .flickity-prev-next-button svg {
+    width: 45%;
+    height: 45%;
+    left: 25%;
+    top: 25%;
+}
+
+.upgradetriplunbo .flickity-prev-next-button.previous {
+    transform: translateX(-200%) translateY(-215%);
+}
+
+.upgradetriplunbo .flickity-prev-next-button.next {
+    transform: translateX(200%) translateY(-215%);
+}
+
+.upgradetriplunbo .flickity-prev-next-button {
+    background-color: white !important;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+}
+
+.upgradetriplunbo .flickity-page-dots .dot {
+    background: white;
+    opacity: .7;
+}
+
+.scionprivatetoursphoneshow .flickity-page-dots .dot {
+    background: #333;
+    opacity: 0.25;
+}
+
+.flickity-page-dots .dot.is-selected {
+    opacity: .8;
+    background: #C2977B;
+}
+
+.tripimglunbo .flickity-prev-next-button.previous {
+    transform: translateX(40%) translateY(-50%) !important;
+}
+
+.tripimglunbo .flickity-prev-next-button.next {
+    transform: translateX(-40%) translateY(-50%) !important;
+}
+
+.scionhovericon {
+    display: block;
+    position: absolute;
+    z-index: 4;
+    top: 45% !important;
+    right: 25% !important;
+    /*background-color: lightblue;*/
+    /*padding: 5px 14px;*/
+    /*border-radius: 50%;*/
+}
+
+.scionnewinclusion ul li p {
+    display: initial;
+    color: #A8A8A8;
+}
+
+.hotelpophead {
+    position: relative;
+    margin-bottom: 21px;
+}
+
+.hotelpophead h1 {
+    display: block;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    font-size: 22px;
+    line-height: 1.5;
+    color: #324d59;
+    font-family: "Mirador SemiBold";
+    letter-spacing: 0.02rem;
+}
+.hotelpophead #star {
+    position: absolute;
+    right: 0px;
+    top: 4px;
+}
+
+.hotelpophead h1 span {
+    font-size: 22px !important;
+}
+#hotelWebsite a{
+    background-color: #00424E;
+    width: 182px;
+    display: block;
+    height: 46px;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 6px;
+    font-family: 'Bebas Neue Ivyotf';
+    color: white;
+    font-size: 0.944rem;
+    letter-spacing: 2.5px;
+    margin-top: 40px;
+}
+.opmodal_info, #hidAddress, #hidTel {
+    line-height: 30px;
+    letter-spacing: -0.16px;
+    color: #4A4A4A;
+}
+.opmodal_info p{
+    line-height: 30px;
+    letter-spacing: -0.16px;
+    color: #4A4A4A;
+}
+.travelInsurancestyle a {
+    text-decoration: underline;
+}
+
+.aboutusstyle a {
+    text-decoration: underline;
+}
+
+.beforeyoutripstyle a {
+    text-decoration: underline;
+}
+
+.ritzsuper_sanjiao:before {
+    content: "";
+    background-image: url('../img/ritzmoment/triangleIvy.svg');
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: 50%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: .8;
+}
+
+.ritzsuper_juxing:before {
+    content: "";
+    background-image: url(../img/ritzmoment/triangleIvy02.svg);
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: 94%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .8;
+    width: 100%;
+}
+
+.scioncontent-sidebar__content {
+    width: 100% !important;
+}
+
+.bannerindexicon .control__field input {
+    box-shadow: 1px 3px 4px 0px rgba(204, 204, 204, 0.2) inset !important;
+}
+
+.scionbooking-section div {
+    width: 49.5%;
+    display: inline-block;
+}
+
+.sciononlinepaymarker .marker {
+    width: 1.375em !important;
+    height: 1.375em !important;
+}
+
+.scionbooking-confirmed {
+    margin-bottom: 0px;
+}
+
+.scioncustomerssay h2{
+    letter-spacing: 0rem;
+    font-size: 48px;
+    display: block;
+}
+
+.Ritzoverviewphonehide {
+    margin-top: -17px;
+    padding-bottom: 116px;
+}
+
+#optional-excursions {
+    padding-top: 90px;
+}
+
+.scionltineraryonelinebox {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: -3px;
+}
+
+.scionltineraryoneline {
+    display: inline-block;
+    width: 95%;
+    vertical-align: top;
+}
+
+.bannerindexicon {
+    position: absolute;
+    top: 0px;
+    opacity: 1 !important;
+    z-index: 5;
+    right: -5rem;
+    top: -4.78rem;
+    transform: rotate( 65deg );
+}
+
+
+.Inclusioninfoboxleft {
+    display: inline-block;
+ 
+    vertical-align: top;
+    position: relative;
+    padding-top:9px;
+
+}
+
+.Inclusioninfoboxleft img {
+    height: 7px;
+    width: 7px;
+}
+
+.Inclusioninfoboxright {
+    display: inline-block;
+    color: #616161!important;
+    width: 90%;
+}
+
+.Inclusioninfoboxright p {
+    /*color:#A8A8A8;*/
+}
+
+.Inclusioninfoboxright ul, .Inclusioninfoboxright ol {
+    padding: 0px;
+    margin: 0px;
+}
+.Inclusioninfoboxright ul li {
+    line-height: 1.888rem;
+}
+.overlay-innerpaddingone {
+    padding-top: 77px;
+    /*margin-left: 29px;*/
+    /*    position: relative;*/
+}
+
+.vacationpackagepaddingone {
+    padding-bottom: 0px;
+}
+
+.scionvppaddingthree {
+    padding-bottom: 0px !important;
+}
+/*Itinerary outpopbox*/
+.itinerarypopboxbg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,.6);
+    display: none;
+    z-index: 10;
+}
+
+.itinerarypopbox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    overflow: hidden;
+    display: none;
+    z-index: 11;
+    width: 700px;
+    transform: translate(-50%,-50%);
+    padding: 51px 51px 118px 51px;
+}
+
+.itinerarypopbox > span {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    height: 42px;
+    line-height: 42px;
+    color: black;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.itinerarypopinfo span {
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 9px 35px 13px 35px;
+    border-radius: 50px;
+    font-size: 16px;
+    background-color: #F3EAE5;
+    color: #00424e;
+    margin-bottom: 38px;
+    font-weight: bold;
+}
+
+.itinerarypopinfo p {
+    color: #00424F;
+    letter-spacing: 0;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.itinerarytopinfo {
+    color: #00626e;
+    font-size: 16px;
+    display: block;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-family: 'karla';
+    font-weight: bold;
+    margin-top:20px;
+}
+
+.itinerarytopinfoleft {
+    text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+    padding-right: 14px;
+}
+
+.itinerarytopinforight {
+    text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+    text-decoration: underline;
+    cursor: pointer;
+    padding-left: 8px;
+}
+
+.itinerarytopinfoleft img {
+    display: inline-block;
+    width: 11px;
+    margin-right: 6px;
+}
+
+.itinerarytopinfoleft:after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0px;
+    height: 14px;
+    width: 2px;
+    background-color: #00626e;
+    top: 5px;
+}
+
+.itinerarytopinfocenter {
+    border-radius: 50px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #F3EAE5;
+    padding: 7px 21px;
+    display: inline-block;
+}
+/*scionoverviewitinerary start*/
+.scionoverviewitinerary {
+    border-bottom: 1px dashed #c2977b;
+    margin-bottom: 0px !important;
+}
+
+.overviewitinerarylist_left {
+    display: inline-block;
+    width: 65px;
+    color: #00424F;
+    letter-spacing: 2px;
+    font-weight: bold;
+    vertical-align: middle;
+    font-family: 'IBM Plex Sans';
+    font-size: 13px;
+    line-height:18px;
+}
+
+.overviewitinerarylist_right {
+    display: inline-block;
+    padding-left: 16px;
+    width: 72%;
+    vertical-align: middle;
+}
+
+.overviewitinerarylistball {
+    display: inline-block;
+    width: 11px;
+    border-radius: 50%;
+    background-color: #C2977B;
+    height: 11px;
+    position: relative;
+    z-index: 2;
+    vertical-align: middle;
+}
+
+.overviewitinerarylistbox {
+    position: relative;
+}
+
+.overviewitinerarylistbox:before {
+    content: '';
+    width: 1px;
+    position: absolute;
+    left: 73px;
+    top: 10px;
+    bottom: 0px;
+    background: url(../img/ritzimg/leftlineIvysft.gif) repeat-y;
+    background-repeat: repeat-y;
+    z-index: 1;
+    margin-bottom: 10px;
+}
+
+
+.overviewitinerarylist {
+    margin-bottom: 14px;
+}
+
+
+
+.overviewitinerarybtn span {
+    color: white;
+    background-color: #00424E;
+    text-transform: uppercase;
+    padding: .788rem 55px;
+    border-radius: 6px;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Bebas Neue Ivyotf' !important;
+    letter-spacing: 0.13rem;
+}
+
+.optionallayout__item {
+    position: relative;
+}
+
+.optionallayout__item:after {
+    content: '';
+    background: black;
+    opacity: .6;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.optionallayout__iteminfo {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+    color: #C2977B;
+    font-size: 42px;
+    line-height: 1.2;
+}
+
+.optionallayout__iteminfo img {
+    margin: 38px auto;
+}
+
+
+
+
+#optional-excursions .upgradettrip {
+    width: 48%;
+    margin-right: 32px;
+}
+
+#optional-excursions .tripimglunbo img {
+    width: 100%;
+}
+
+#optional-excursions .upgradettrip span {
+    font-family: Mirador SemiBold;
+    font-size: 24px;
+    padding-top: 26px;
+    padding-bottom: 9px;
+}
+
+#optional-excursions .upgradettrip p {
+    line-height: 1.6;
+}
+
+
+#packageupgrade .upgradettrip {
+    width: 48%;
+    margin-right: 32px;
+}
+
+#packageupgrade .upgradettrip span {
+    font-family: Mirador SemiBold;
+    font-size: 24px;
+    padding-top: 26px;
+    padding-bottom: 9px;
+}
+
+#packageupgrade .upgradettrip p {
+    line-height: 1.6;
+}
+
+
+#scionupgradestrip .upgradettrip {
+    width: 48%;
+    margin-right: 32px;
+}
+
+#scionupgradestrip .upgradettrip .upgradettripinfotitle {
+    font-family: Mirador SemiBold;
+    font-size: 24px;
+    padding-top: 26px;
+    padding-bottom: 0px;
+}
+
+#scionupgradestrip .upgradettrip p {
+    line-height: 1.6;
+}
+
+
+
+#scionupgradestrip {
+    background-color: #FCFAF8;
+    padding-top: 77px;
+    padding-bottom: 130px;
+}
+
+#optional-excursions .section-heading:after {
+    content: ' ';
+    display: block;
+    background-image: url(../img/heading-underline.svg);
+    background-repeat: no-repeat;
+    height: 5px;
+    width: 40px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 1.25em;
+}
+
+#scionupgradestrip .scionupgradestriplistbox:last-child {
+    padding-top: 70px;
+}
+
+#optional-excursions .layout--trip-cards {
+    margin-bottom: 65px;
+}
+
+.upgradettripinfo {
+    padding-left: 10px;
+}
+
+.upgradettrip [data-tooltip]:before {
+    min-width: 60px !important;
+    width: 140px;
+}
+
+.gallery .flickity-prev-next-button {
+    background-color: rgba(255,255,255,.4) !important;
+}
+
+.sciondatapricepopbg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: rgba(0,0,0,.6);
+    display: none;
+    z-index: 12;
+}
+
+.sciondatapricepop {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    overflow: hidden;
+    display: none;
+    z-index: 12;
+    width: 700px;
+    transform: translate(-50%,-50%);
+}
+
+.sciondatapricepopclosebtn {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    height: 42px;
+    line-height: 42px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.datapricepopinfotoptitle {
+    background-color: #c2977b;
+    color: white;
+    padding: 35px 0px 22px 0px;
+    text-align: center;
+    font-family: 'Mirador SemiBold';
+    font-size: 36px;
+}
+
+.datapricepopinfolist {
+    margin: 27px 40px;
+    /*border-bottom: 1px solid #E0E0E0;*/
+    padding-bottom: 20px;
+}
+
+.datapricepopinfolist > p {
+    font-family: 'Mirador SemiBold';
+    color: #00424e;
+    font-size: 22px;
+    padding-bottom: 16px;
+}
+
+.dppoplistbox {
+    display: flex;
+}
+
+.dppoplistbox div {
+    width: 50%;
+    line-height: 1;
+}
+
+.dppoplistbox_left span {
+    color: #c2977b;
+}
+
+.dppoplistbox_left p {
+    font-size: 20px;
+    color: #9C9D9C;
+}
+
+.dppoplistbox_right span {
+    color: #c2977b;
+    opacity: .6;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.dppoplistbox_right p {
+    line-height: 1.4;
+}
+
+.datapricepopinfonote {
+    font-size: 14px;
+    text-align: center;
+}
+
+.datapricepopinfobtn {
+    margin: auto;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 19px;
+}
+
+.datapricepopinfobtn span {
+    display: inline-block;
+    background-color: #00424e;
+    color: white;
+    padding: 9px 75px 9px 75px;
+    border-radius: 6px;
+    font-family: 'Bebas Neue Ivyotf';
+    letter-spacing: 0.17rem;
+}
+
+.show-modal .modalIvyffe .flickity-viewport:after {
+    content: '';
+    background: #001538;
+    opacity: .2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+/*.scionbigphotowidth {
+    width: 655px;
+}*/
+
+.scionspbg_width img {
+    max-width: initial;
+}
+
+.scionvideocenter {
+    text-align: center;
+}
+
+h1.scionblogdetailhero_title {
+    font-size: 48px;
+    color: #ffffff;
+    line-height: 1;
+    margin-top: 0;
+    margin-bottom: 35px;
+    font-weight: 700;
+    word-break: break-word;
+    font-family: 'Mirador SemiBold';
+    /*text-transform: capitalize;*/
+    width: 50%;
+    max-width: 100%;
+}
+
+h1.scionblogdetailhero_title {
+    margin-bottom: 17px;
+    text-transform: none !important;
+}
+
+.blogdetail_lunbo button {
+    transform: translateX(-0%) translateY(-50%) !important;
+    border-radius: 50%;
+    background-color: white !important;
+    opacity: .8;
+    width: 60px;
+    height: 60px;
+}
+
+.blogdetail_lunbo .previous {
+    left: 80px;
+}
+
+.blogdetail_lunbo .next {
+    right: 80px;
+}
+
+.blogdetail_lunbo .flickity-prev-next-button .arrow {
+    display: none;
+}
+
+.blogdetail_lunbo .previous svg {
+    background-image: url(../img/ritzimg/prev-button-hoverIvyofo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 12px;
+}
+
+.blogdetail_lunbo .next svg {
+    background-image: url(../img/ritzimg/next-button-hoverIvyofo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 12px;
+}
+
+.blogdetail_height {
+    width: 100%;
+}
+
+.blogdetail_height img {
+    width: 100%;
+}
+
+.blogdetail_videobox .scionvideobox_title {
+    font-family: 'Mirador SemiBold';
+    font-size: 24px;
+    text-align: center;
+    line-height:32px;
+    letter-spacing:-0.4px;
+    color:#242424;
+    margin-bottom:0px;
+}
+
+.blogdetail_videobox video {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 56px;
+    border-radius: 8px;
+}
+.blogdetail_first, .blogdetail_second {
+    width: 730px;
+    margin: auto;
+}
+.blogdetail_first p:last-child {
+    margin-bottom:0px;
+}
+.blogdetail_second span {
+    font-size: 16px;
+    color: #4A4A4A;
+    font-family: Karla;
+    line-height: 30px;
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing:-0.16px;
+}
+.blogdetail_second {
+    /*margin-top: 67px;*/
+}
+
+.blogdetail_videobox {
+    width: 730px;
+    margin: auto;
+    margin-top: 45px;
+    /*margin-bottom: 106px;*/
+}
+
+.faqstyle .accordion__body a {
+    text-decoration: underline;
+}
+
+.sciononeimgshow img {
+    opacity: 1 !important;
+}
+
+.Mirador-SemiBoldIvyfts {
+    position: relative;
+    width: 900px;
+    max-width: 100%;
+    word-break: break-all;
+}
+
+.bannertopimgboxtre {
+    position: absolute;
+    left: 50%;
+    top: -9.5rem;
+    transform: translateX(-50%);
+}
+.bannertopimgotherbanner {
+    position: absolute;
+    left: 7%;
+    top: 15%;
+    transform: translateX(0%);
+}
+.bannernotypeicon {
+    position: absolute;
+    top: 0px;
+    opacity: 1 !important;
+    z-index: 5;
+    right: -7rem;
+    top: -5.78rem;
+}
+.scionItinerarycitylistbox {
+    background-color: #F9F4F2;
+    padding: 42px 0px;
+    text-align: center;
+    line-height: 28px;
+}
+
+.scionItinerarycitylist {
+    width: 50%;
+    margin: auto;
+}
+
+.scionItinerarycitylist span {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0px 5px;
+    color: #4a4a4a;
+}
+
+.scionItinerarycitylist img {
+    width: 11px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.privateoptablist {
+    background-color: white;
+    padding: 8px 45px;
+    border-radius: 6px;
+    border: 2px solid #c2977b;
+    color: #c2977b;
+    cursor: pointer;
+    margin-top: 11px;
+    display: inline-block;
+}
+
+.privateoptablist:not(:first-child) {
+    margin-left: 35px;
+}
+
+.privateoptablist span {
+    text-transform: uppercase;
+    font-size: 18px !important;
+    display: inline-block !important;
+    font-weight: bold;
+}
+
+.privateoptablist::after {
+    content: "";
+    background-image: url(../img/icons/select-toggle.minyellow.svg);
+    width: 14px;
+    display: inline-block;
+    height: 10px;
+    background-repeat: no-repeat;
+}
+
+.privateoptablist:hover {
+    background-color: #c2977b;
+    color: white;
+}
+
+.privateoptablist:hover::after {
+    content: "";
+    background-image: url(../img/icons/select-toggle.minwhite.svg);
+    width: 14px;
+    display: inline-block;
+    height: 10px;
+    background-repeat: no-repeat;
+}
+
+.privateopcontentlist {
+    display: inline-block;
+    border: 1px dashed #c2977b;
+    border-radius: 6px;
+    padding: 7px 9px;
+    cursor: pointer;
+    margin-top: 26px;
+}
+.private_aleft {
+    display:inline-block;
+}
+.private_aleft:not(:first-child) {
+    margin-left: 20px;
+}
+
+.privateopcontentlist p:first-child {
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+}
+
+.privateopcontentlist p:last-child {
+    font-size: 16px;
+    word-break: break-word;
+}
+
+.privateoptabactive {
+    background-color: #c2977b;
+    color: white;
+}
+
+.privateoptabactive:after {
+    content: "";
+    background-image: url(../img/icons/select-toggle.minwhite.svg);
+    width: 14px;
+    display: inline-block;
+    height: 10px;
+    background-repeat: no-repeat;
+}
+
+.sendbrochuresbox .section-heading {
+    font-size: 35px;
+}
+
+
+.scion_brotbn {
+    padding: .72rem 1rem;
+}
+
+.scion_broname {
+    font-family: 'Mirador SemiBold';
+    font-size: 20px;
+}
+
+.scion_bromarker {
+    width: 1.3em !important;
+    height: 1.3em !important;
+}
+
+.scion_broinputlist li {
+    margin-bottom: 2rem !important;
+}
+p.noteIvytff {
+    margin-top: 56px;
+}
+.infoIvyofo a {
+    color: #616161;
+}
+.hotelupgradesheight .opupgradetriplunbo:not(:last-child) {
+    margin-bottom: 3.6em;
+}
+
+.yearselect {
+    width: 13.8%;
+    text-align: center;
+    background-color: #F6F4F4;
+    padding: .72em 1em .72em;
+    display: inline-block;
+    -webkit-transition: background-color .4s;
+    -o-transition: background-color .4s;
+    transition: background-color .4s;
+    text-decoration: none;
+    font-family: 'Bebas Neue Boldotf';
+    letter-spacing: 0.1em;
+    color: rgba(0,66,78,0.7);
+    font-size: 1.125em;
+    border-radius: 12px;
+}
+.yearselecttwo {
+    width: 45%;
+}
+.yearselect:not(:first-child) {
+    margin-left: 10px;
+}
+
+.yearselect:hover {
+    background-color: #C2977B;
+    color:white;
+}
+
+.yearselectactive {
+    background-color: #C2977B;
+    color:white;
+}
+
+.scionoverflow .flickity-viewport {
+    overflow: inherit;
+}
+.scionoverflow .opupgradettrip {
+    overflow:hidden;
+}
+.scionoverflow .flickity-prev-next-button {
+    z-index:5;
+}
+.scionoverflow .flickity-prev-next-button .arrow {
+    fill: #c2977b;
+}
+.phoneouter {
+    padding: 0;
+}
+.inclusionszhezhao {
+    position: relative;
+}
+.inclusionszhezhao .flickity-viewport {
+    overflow:inherit;
+
+}
+.inclusionszhezhao .flickity-prev-next-button {
+    z-index:5;
+}
+.opupgradeszhezhao {
+    position:relative;
+}
+.opupgradeszhezhao .flickity-viewport {
+    overflow: inherit;
+}
+.opupgradeszhezhao .flickity-prev-next-button {
+    z-index: 9;
+}
+
+.scionhotelalign {
+    display: flex;
+    align-items: flex-start;
+}
+.scionhotelaligncenter {
+    display: flex;
+    align-items: center;
+}
+
+
+.newlayout__innersx .sx_region .tick-check .marker {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.newlayout__innersx .sx_region .tick-check-label, .std-radio {
+    align-items: center;
+    margin: 3px 0;
+}
+
+.newlayout__innersx .sx_year .control__field input[type="radio"]:checked + span.marker:after {
+    background: none;
+    background-color: #c2977b;
+    right: 1.1px;
+}
+
+.newlayout__innersx .sx_year .control__field input[type="radio"] + span.marker:after {
+    transform: translate(-2px, -2px);
+}
+
+.newlayout__innersx .sx_year label {
+    align-items: center;
+}
+.filterbox {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px 24px 0px;
+    margin-left: 10px;
+    margin-right:6px;
+    border-bottom: 1px solid #d8d9dd;
+}
+.blogdivflex .filterbox {
+    padding: 10px 0px 24px 0px;
+    margin-left: 9px;
+}
+.filterbox a {
+    color: #00424E;
+    font-size: 14px;
+    text-decoration-line: underline;
+}
+.newlayout__innersxtitle {
+
+    padding-bottom: 0px;
+    color:#242424;
+}
+
+.newlayout__innersxtitle {
+    font-weight: bold !important;
+    font-size: 20px;
+}
+
+.sx_regiontitle, .sx_yeartitle {
+    font-weight: bold !important;
+    padding: 10px 0;
+    /*background-image: url(../img/ritzimg/Arrow.svg);
+    background-position: right;
+    background-repeat: no-repeat;*/
+    cursor: pointer;
+    color: #0c3051;
+}
+
+.sx_year {
+    /*border-bottom: 1px solid #eee;*/
+    position: relative;
+    /*width: 90%;*/
+    margin: auto;
+    /*padding: 0px 16px;
+    margin-left: -7px;*/
+    padding-left: 11px;
+}
+.sx_yeartitle {
+    margin-left:-2px;
+}
+.sx_region {
+    text-transform: capitalize;
+    position: relative;
+    margin-left: -7px;
+}
+
+.sx_yearlist {
+    /*    padding: 0px 0px 0px 5px;*/
+}
+.sx_yearlist .bullet-radio-set--inline li {
+    /*    margin-top:5px;*/
+    margin-bottom:5px;
+}
+
+
+.sx_contrytitle {
+    cursor: pointer;
+    padding: 13px 16px;
+    border-radius: 6px;
+    line-height: 1.6;
+    position: relative;
+
+}
+.sx_contrytitle:after, .sx_yeartitle:after {
+    content: '';
+    display: inline-block;
+    background-image: url(../img/ritzimg/Arrow.svg);
+    background-repeat: no-repeat;
+    height: 10px;
+    width: 16px;
+    position: absolute;
+    right: 10px;
+    top: 21px;
+    transform: rotate(-90deg);
+    transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    -o-transition: all .3s linear;
+}
+.sx_yeartitle:after {
+    content: '';
+    display: inline-block;
+    background-image: url(../img/ritzimg/Arrow.svg);
+    background-repeat: no-repeat;
+    height: 10px;
+    width: 16px;
+    position: absolute;
+    right: 10px;
+    top: 21px;
+    transform: rotate(0deg);
+    transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    -o-transition: all .3s linear;
+}
+.sx_yeartitleactive:after {
+    transform: rotate(-90deg);
+    transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    -o-transition: all .3s linear;
+}
+
+.sx_privatebox .sx_yearicon {
+    right: 10px;
+}
+.sx_guojialist {
+    padding-left: 16px;
+    margin-bottom: 26px;
+    margin-top: 19px;
+}
+.sx_cpguojialist {
+    margin-bottom: 6px;
+    margin-top: 7px;
+}
+.sx_countrylist {
+    position: relative;
+}
+.sx_countrylist::after {
+    content: "";
+    height: 1px;
+    width: 90%;
+    display: block;
+    margin-left: 16px;
+    background-color: #d8d9dd;
+}
+.sx_privatebox:after, .sx_year:after {
+    content: "";
+    height: 1px;
+    width: 98%;
+    display: block;
+    margin-left: -2px;
+    background-color: #d8d9dd;
+}
+.sx_regionicon, .sx_yearicon {
+    position: absolute;
+    top: 20px;
+    right: 0px;
+}
+.sx_countryicon {
+    position: absolute;
+    top: 15px;
+    right: 0px;
+
+}
+.rotate1 {
+    transform: rotate(-180deg);
+    transition: all .3s linear;
+    -moz-transition: all .3s linear; /* Firefox 4 */
+    -webkit-transition: all .3s linear; /* Safari and Chrome */
+    -o-transition: all .3s linear; /* Opera */
+    -webkit-transform: rotate(-180deg);
+}
+
+.rotate {
+    transform: rotate(0);
+    transition: all .3s linear;
+    -moz-transition: all .3s linear; /* Firefox 4 */
+    -webkit-transition: all .3s linear; /* Safari and Chrome */
+    -o-transition: all .3s linear; /* Opera */
+    -webkit-transform: rotate(0);
+}
+
+.contrytitleactive {
+    background-color: #F3EAE5;
+    margin-top:-1px;
+
+}
+.contrytitleactive:after {
+    transform: rotate(0deg);
+    transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    -o-transition: all .3s linear;
+}
+.scionsort_select {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+.menu_viewall:hover {
+    text-decoration:underline!important;
+}
+
+.scionindexcovid {
+    background-color: #F5EAE4;
+    text-align: center;
+    padding: 100px 0px;
+    margin-bottom: 37px;
+    border-radius:6px;
+}
+.scionindexcovid .scionmodule-title-name {
+    width: 100%;
+    margin: auto;
+}
+.scionindexcovid .scionmodule-title-name:after {
+    width: 71.3px;
+    margin: auto;
+    height: 31px;
+}
+.scionindexcovidtitle {
+    color: #00424e;
+    letter-spacing: 0;
+    font-size: 2em;
+}
+.scionindexcovidinfo {
+    font-size: 20px;
+    color: #616161;
+    line-height: 1.888rem;
+    margin-bottom: 44px;
+    margin-top: 33px;
+
+}
+.scionindexcovidbtn {
+    font-family: 'Bebas Neue Ivyotf' !important;
+    font-weight: 400;
+    letter-spacing: 0.155rem;
+    background-color: #00424e;
+    color: #FFFFFF;
+    text-decoration: none;
+    border: none;
+    display: inline-block;
+    padding: 8px 23px;
+    font-size: 16px;
+    -webkit-transition: background-color .3s;
+    -o-transition: background-color .3s;
+    transition: background-color .3s;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 6px;
+
+    cursor:pointer;
+}
+.scionoverviewcovid {
+    background-color: #F5EAE4;
+    text-align: center;
+    padding: 73px 0px;
+    border-radius: 6px;
+    margin-top:60px;
+}
+.scionoverviewcovidtitle {
+    color: #00424e !important;
+    letter-spacing: 0;
+    font-size: 24px;
+    line-height: 1.4 !important;
+}
+.scionoverviewcovidinfo {
+    font-size: 18px;
+    color: #616161 !important;
+    line-height: 1.888rem !important;
+    margin-bottom: 44px;
+    margin-top: 33px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    padding: 0px 60px;
+}
+
+
+.card:hover:before, .card:focus:before {
+    opacity: 1;
+}
+
+.card:before {
+    content: ' ';
+    display: block;
+    -webkit-box-shadow: 0 4px 12px rgb(29 46 55 / 40%);
+    box-shadow: 0 4px 12px rgb(29 46 55 / 40%);
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    opacity: 0;
+    -webkit-transition: opacity 0.4s ease-in-out;
+    -o-transition: opacity 0.4s ease-in-out;
+    transition: opacity 0.4s ease-in-out;
+    border-radius:6px;
+}
+.newlayout__innerlist {
+    position:relative;
+}
+.packagelistpage {
+    position:absolute;
+    top:-53px;
+    color:#4a4a4a;
+
+}
+.blogdivflex .sx_countrylist {
+    border:none;
+}
+.blogdivflex .sx_contrytitle {
+    padding: 10px 16px;
+}
+.blogdivflex .newlayout__innersx .sx_region .tick-check-label, .std-radio {
+    margin: 8px 0px;
+}
+
+.scionindexpaddingtop .layout__item {
+    border:none!important;
+}
+.phonebtnshow {
+    display:none;
+}
+.leftwidgetphoneshow {
+    display: none;
+}
+.sx_privatetitle {
+    line-height: 1.4;
+    white-space: nowrap;
+}
+.sx_privatebox {
+    /*border-bottom: 1px solid #d8d9dd;*/
+    /*padding: 8px 0px;*/
+    margin-bottom: 16px;
+    /*margin-left: 9px;*/
+    padding-left: 18px;
+}
+.sx_regiontitle {
+    display:none;
+}
+.phoneleftwidgetbtn {
+    display:none;
+}
+.scionwidgetinner {
+    width: 73em;
+}
+.phoneleftwidgetbtn {
+    display:none;
+}
+
+.phonemorebtn{
+    display:none;
+}
+
+.nice-select {
+    width: 17.6rem;
+    height: 44px;
+    position: relative;
+    background: url(../img/icons/select-toggle.min.svg) no-repeat right .625em center;
+    background-size: 12px;
+    border: 1px solid #d8d8d8;
+    box-shadow: 1px 3px 4px 0px rgb(204 204 204 / 20%) inset !important;
+    border-radius: 6px !important;
+    color: #4a4a4a;
+}
+
+.nice-select input {
+    display: block;
+    width: 95%;
+    height: 44px;
+    line-height: 38px \9;
+    border: 0;
+    outline: 0;
+    background: none;
+    padding: 0.55em 1em;
+    color:#616161;
+}
+
+.nice-select ul {
+    width: 100%;
+    display: none;
+    position: absolute;
+    left: -1px;
+    top: 50px;
+    overflow: hidden;
+    background-color: #fff;
+    overflow-y: auto;
+    border: 1px solid #d8d8d8;
+    box-shadow: 1px 3px 4px 0px rgb(204 204 204 / 20%) inset !important;
+    z-index: 9999;
+    border-radius: 6px;
+    padding: 10px 0px;
+    margin:0px!important;
+}
+
+.nice-select ul li {
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    padding: 0 1em;
+    cursor: pointer;
+    text-align: left;
+    margin-left: 0;
+    width: 100%;
+    border: none;
+    word-break: break-all;
+}
+
+.nice-select ul li.on {
+    background-color: #1E90FF;
+}
+#optional-excursions .layout__item .card {
+    -webkit-box-align:  flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+}
+.card__imgbackground {
+    position: absolute;
+    height: 100%;
+    background-color: #001538;
+    width: 100%;
+    top: 0;
+    opacity: .2;
+}
+.card__bodybottom {
+    padding-bottom: 5.2rem;
+}
+.accesscodebox .tick-check-label p {
+    color: #242424;
+}
+.accesscodebox .tick-check .marker {
+    height:25px;
+    width:25px;
+}
+.accesscodebox .control__field {
+    width: 31.5%!important;
+}
+.pullbackclose {
+    position: absolute;
+    top: 0%;
+    right: 1%;
+    /*display: none;*/
+    color: white;
+    height: 20px;
+    font-size: 35px;
+    background-color: none !important;
+    padding: 0 !important;
+}
+
+.ritzheadphonenum {
+    align-self: center;
+}
+
+.ritzheadphonenum a {
+    margin-bottom: 10px;
+    padding: 0px 10px !important;
+    cursor: context-menu;
+}
+
+.ritzheadphonenum a:before {
+    content: '';
+    background-image: url('../img/icons/free-phone-icon-1-thumb.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+/*hexi*/
+/*平板到手机的自适应*/
+.scioncontactusboxshadow input, .scioncontactusboxshadow select, .scioncontactusboxshadow textarea {
+    box-shadow: rgb(204, 204, 204) 0px 0px 10px;
+}
+
+@media screen and (max-width: 1770px) {
+    .indexsuper-bgheight {
+        height: 766px;
+    }
+
+    .ritzsuper_juxing:before {
+        height: 82%;
+    }
+
+    .hero img {
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 780px) {
+
+    .bannertopimgboxtre {
+        position: absolute;
+        left: 50%;
+        top: -7.88rem;
+        transform: translateX(-50%);
+    }
+    .bannertopimgotherbanner {
+        position: absolute;
+        left: 7%;
+        top: 15%;
+        transform: translateX(0%);
+    }
+}
+
+@media screen and (max-width: 75em) {
+    .indexonpage-search {
+        width: 90%;
+    }
+
+    .ritzsuper_juxing:before {
+        height: 62%;
+    }
+
+    .hero img {
+        opacity: 0;
+    }
+
+    .indexsuper-bgheight {
+        /*height: calc( 73vw);*/
+    }
+
+    .scionhomenewbtn .flickity-prev-next-button:last-child {
+        right: -6% !important;
+    }
+
+    .scionhomenewbtn .previous {
+        left: -6% !important;
+    }
+    .phoneouter {
+        padding: 1.25em;
+    }
+}
+
+@media screen and (max-width: 60em) {
+    .indexonpage-search {
+        width: 100%;
+        margin-top: 0px;
+    }
+
+    .newscioncontrol {
+        width: 100% !important;
+    }
+
+    .sciononeimgshow {
+        bottom: 1.5em;
+    }
+
+    .sciononeimgshowtwo {
+        bottom: 1.5em;
+    }
+
+    .ritzsuper_juxing:before {
+        height: 48%;
+    }
+
+    .hero img {
+        opacity: 0;
+    }
+
+    .indexsuper-bgheight {
+        /*height: calc( 73vw);*/
+    }
+
+    .bannertopimgboxtre {
+        position: absolute;
+        left: 50%;
+        top: -6.5rem;
+        transform: translateX(-50%);
+    }
+    .bannertopimgotherbanner {
+        position: absolute;
+        left: 7%;
+        top: 15%;
+        transform: translateX(0%);
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .ritzsuper_sanjiao:before {
+        height: 38%;
+    }
+
+    .bannertopimgboxtre {
+        position: absolute;
+        left: 50%;
+        top: -7.5rem;
+        transform: translateX(-50%);
+    }
+    .bannertopimgotherbanner {
+        position: absolute;
+        left: 4%;
+        top: 6%;
+        transform: translateX(0%);
+    }
+}
+
+@media screen and (max-width: 56.25em) {
+    .page-header {
+        padding: 2px 20px;
+        border-bottom: 1px solid #d8d8d8;
+    }
+
+    .searchsiciondestinationtitle span {
+        font-size: 18px !important;
+    }
+
+    .fixed-search .fixed-search__inner {
+        margin: initial;
+    }
+
+    .searchsiciondestinationtitle:after {
+        content: none;
+    }
+
+    .page-logo {
+        background-image: url(../img/ritzimg/ritzlogoMm.svg);
+        width: 123px;
+        height: 55px;
+        background-repeat: no-repeat;
+        
+    }
+
+    .scionindextoptab {
+        display: block;
+    }
+
+    .upgradespadding {
+        padding-top: 3.2rem !important;
+    }
+
+    .section-heading:after {
+        height: .4125em !important;
+    }
+
+
+    .buildyourprivatetour, .enquiretody {
+        width: auto;
+    }
+
+    .overlay-innerpaddingone {
+        margin-left: 0px;
+    }
+
+    .Inclusioninfoboxleft {
+        padding-top: 7px;
+    }
+
+    .buildyourprivatetour {
+        margin-bottom: 2em;
+    }
+
+    .buildyourprivatetour p:last-child {
+        display: none;
+    }
+
+    .enquiretody p:last-child {
+        display: none;
+    }
+
+    .newscioncontroltwo .control__field .btn {
+        /*font-size:1em;*/
+        font-size: 16px;
+        padding: 13px 15px;
+    }
+
+    .scioncontactusboxshadow input, select, textarea {
+        box-shadow: none;
+        /*background-color:#F6F4F5!important;*/
+    }
+
+    .scionbannerinfo h1, .scionbannerinfo h2 {
+        font-size: 40px;
+    }
+
+    .newritzcard_body .scioncard_price {
+        font-size: 16px;
+        letter-spacing: 0rem;
+    }
+
+    .newritzcard_body .scioncard_day {
+        font-size: 16px;
+    }
+
+    .scionritzheaderphoneshow {
+        display: block;
+    }
+
+    .newscioncontrol .dark {
+        background-color: white !important;
+        border-radius: 6px;
+    }
+
+    .tab-nav a {
+        font-size: 14px;
+    }
+
+    .siciondestinationtitle:after {
+        width: 50px;
+    }
+
+    .indexonpage-search {
+        width: 100%;
+        margin-top: 0px;
+    }
+
+    .spindexol .flickity-page-dots {
+        bottom: 20px;
+    }
+
+    .indexprivatetours {
+        width: auto;
+    }
+
+    .sub-open {
+        border-bottom: 1px solid #dfe0e1;
+    }
+
+    .scionritzcitypackages .inner p {
+        font-size: 16px;
+    }
+
+    .scionritzcitypackages {
+        padding: 58px 0px 70px 0px;
+    }
+
+    .hero__contenttextleft h1 {
+        text-align: center;
+    }
+
+    .buildyourprivatetour, .enquiretody {
+        padding: 15px 40px 15px 25px;
+    }
+
+    .card__img:before {
+        background-position-x: 90%!important;
+    }
+
+    .ritzsuper_sanjiao:before {
+        height: 44%;
+    }
+
+    .ritzsuper_juxing:before {
+        height: 55%;
+    }
+
+    .bannerindexicon {
+        right: 15%;
+        top: 4em;
+    }
+
+    .scionvideocenter video {
+        width: 100%;
+    }
+
+    h1.scionblogdetailhero_title {
+        font-size: 37px;
+    }
+
+    .blogdetailstyle h2, .pressdetailstyle h2 {
+        font-size: 26px;
+        line-height: 1.2;
+    }
+
+    .blogdetail_height {
+
+        height: 400px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .blogdetail_height img {
+        opacity: 0;
+    }
+
+    .blogdetail_lunbo button {
+        width: 45px;
+        height: 45px;
+    }
+
+    .blogdetail_lunbo .previous svg {
+        background-size: 8px;
+    }
+
+    .blogdetail_lunbo .next svg {
+        background-size: 8px;
+    }
+
+    .blogdetail_lunbo .next {
+        right: 13px;
+    }
+
+    .blogdetail_lunbo .previous {
+        left: 13px;
+    }
+
+    .scionItinerarycitylist {
+        width: 80%;
+    }
+
+    .inoverviewpaddingone {
+        padding: .9em 1.25em 1.25em 1.25em
+    }
+    .innerIvysff {
+        padding-left: 1.25em;
+        padding-right: 1.25em;
+    }
+
+
+    .primary-nav__inner .scioncitylistmenu .sub-menusp .sub-menuleft a {
+        font-weight: bold;
+        /*   font-family: 'Karla', sans-serif;
+           text-transform: capitalize;*/
+    }
+    .primary-nav__inner .scioncitylistmenu .sub-menusp .sub-menuleft .menucitylist a {
+        font-weight: initial;
+        padding: .4em 1.25em;
+    }
+
+    .newlayout__innersx {
+        margin: 0px 5% 0 0%;
+    }
+
+    .blogdetailstyle p {
+        margin-bottom:0px;
+    }
+    .blogdetail_second {
+        margin-top: 35px;
+    }
+    .blogdetail_videobox {
+        margin-bottom:0px;
+    }
+    .blogdetail_videobox video {
+        margin-bottom:0;
+    }
+    .newlayout__innerlist {
+        margin-top:62px;
+    }
+    .card__bodybottom {
+        padding-bottom: 6rem;
+    }
+    .accesscodebox .control__field {
+        width:auto!important;
+    }
+    .ritzheadphonenum {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 43.75em) {
+    .scionmodule-title {
+        display: block;
+    }
+
+    .scionmodule-title-name {
+        width: 70%;
+    }
+
+    .scionmodule-title-info {
+        width: 100%;
+    }
+
+    .scionritzdiscovery li:last-child {
+        display: block;
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+        padding: 0;
+        left: 0px;
+    }
+
+    .scionritzdiscovery li:last-child span {
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    .scionritzinfo_list {
+        width: 50%;
+        flex: auto;
+        margin-top: 1.3em;
+    }
+
+    .scionmodule-title-name h2 {
+        font-size: 26px;
+        line-height: 1.3;
+    }
+
+    .scionmodule-title-info p {
+        font-size: 13px;
+        color: #616161;
+    }
+
+    .indexcontactus {
+        font-size: 26px !important;
+        line-height: 1.3 !important;
+    }
+
+    .sciondreamspanone {
+        font-size: 12px;
+    }
+
+    .newritzcard_body p {
+        font-size: 13px;
+        line-height: 1.53rem; /**Ivy Ye 已用*/
+    }
+
+    .newtab-nav a {
+        font-size: 16px;
+    }
+
+    .sort-select {
+        padding-top: 0.87rem;
+        padding-bottom: 0.87rem;
+        font-size: 20px;
+        box-shadow: 1px 3px 4px 0px rgba(204,204,204,0.2) inset;
+    }
+
+    .scionritztab-nav li {
+        border: none;
+    }
+
+    .scionritztab-nav li:nth-of-type(odd) {
+        border: none;
+    }
+
+    .scionritzdiscovery #date-price-toggle {
+        width: 100%;
+        border-radius: 0;
+        padding: 10px 0px;
+        font-size: 16px;
+    }
+
+    .tab-nav a:hover {
+        color: #c2977b;
+    }
+
+    .scionritztab-nav ul li {
+        flex: none;
+    }
+
+    .timeline__bodyIvysto {
+        padding: 0;
+    }
+
+
+    .scionritztab-nav #tab-navnewstyle li {
+        border-bottom: 1px solid #ebebeb;
+    }
+
+    .scionritztab-nav #tab-navnewstyle li:nth-child(even) {
+        border-right: 1px solid #ebebeb;
+    }
+
+    .scionhotelsline {
+        border-bottom: 1px dashed rgb(194, 151, 123);
+        border-top: 1px dashed rgb(194, 151, 123);
+        padding-top: 2em;
+        margin-top: 1em;
+    }
+
+    .overlay-pull-back {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+
+    .overlay-pull-back table th, table td {
+        padding: 1.25em .5em;
+        text-align: left;
+    }
+
+    .scionmodule-title-info {
+        padding-top: 1em;
+    }
+
+    .scioncustomerssay {
+        /*padding:0em 1.25em;*/
+    }
+
+    .ritzreviews {
+        margin-bottom: 0;
+    }
+
+    .scionherophonenone {
+        display: none;
+    }
+
+    .scionphonelinethree {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+    }
+
+    .Overviewphoneshow {
+        display: inline-block;
+        color: #c2977b;
+        font-weight: bold;
+
+
+        color: #4A4A4A;
+
+        font-size: 13px;
+        font-style: normal;
+
+        line-height: 22px;
+        text-decoration-line: underline;
+        cursor:pointer;
+        
+    }
+
+    .Overviewphoneshowimg {
+        display: inline-block !important;
+        transform: translateY(25%) rotate(-360deg);
+    }
+
+    .card-body-meta li {
+        font-size: 16px !important;
+    }
+
+    .sciondatepricetabbox .optionname {
+        display: none;
+    }
+
+    .sciondatepricetabbox .optioninfo {
+        display: none;
+    }
+
+    .sciondatepricetabbox {
+        border-bottom: none;
+    }
+
+    .sciondatepricetabbox .datepricetablist {
+        width: 28%;
+        padding: 6px 0px 6px 0px;
+    }
+
+    .sciondatepricetabbox .optiontitle {
+        line-height: 1.1;
+        transform: translateY(.1rem);
+    }
+
+    .datepricetabactive {
+        border: 2px solid #C2977B;
+        border-radius: 6px;
+    }
+
+    .sicondatepricetabinfo {
+        display: block;
+        text-align: center;
+        border-bottom: 3px solid #C2977B;
+        padding-bottom: 1em;
+        margin-bottom: 1em;
+        margin-left: -1.875em;
+        margin-right: -1.875em;
+        border-bottom:none;
+    }
+
+    .sicondatepricetabinfo p:first-child {
+        font-size: 16px;
+        color: #00424e;
+        font-weight: bold;
+        margin-bottom: -3px;
+    }
+
+    .sicondatepricetabinfo p:last-child {
+        font-size: 14px;
+    }
+
+    .sicondatepricetabinfo1 {
+        display: block;
+        text-align: center;
+        border-bottom: 3px solid #C2977B;
+        padding-bottom: 1em;
+        margin-bottom: 1em;
+        margin-left: -1.875em;
+        margin-right: -1.875em;
+    }
+
+    .sicondatepricetabinfo1 p:first-child {
+        font-size: 16px;
+        color: #00424e;
+        font-weight: bold;
+        margin-bottom: -3px;
+    }
+
+    .sicondatepricetabinfo1 p:last-child {
+        font-size: 14px;
+    }
+
+    .popOut iframe {
+        min-width: initial;
+    }
+
+    .indexprivatetours div {
+        font-size: 16px;
+    }
+
+    #inclusions .scioninclusionflex {
+        display: block;
+    }
+
+    #inclusions .scionnewaccordion {
+        width: 100%;
+    }
+
+    .newtab-nav li.check-dates-prices {
+        bottom: 0px;
+        margin-left: 1.25em;
+        margin-right: 1.25em;
+    }
+
+    .newtab-nav li {
+        border-bottom: 2px solid #dbdbdb;
+    }
+
+    .newtab-nav ul {
+        margin-left: -1.25em;
+        margin-right: -1.25em;
+    }
+
+    .tab-nav .is-active a {
+        color: #c2977b;
+    }
+
+    #overview .secheathirIvynfo {
+        justify-content: space-between;
+    }
+
+    #overview .secheathirIvynfo li {
+        width: 33.3%;
+        text-align: center;
+        margin-left: 0;
+        padding-left: 0px;
+    }
+
+    .scionritztab-nav ul li a {
+        color: #616161;
+        opacity: 1;
+        letter-spacing: 0;
+        font-weight: bold;
+    }
+
+    .ritzscionmiaoshu {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-top: 9px;
+    }
+
+    .sciontabdata {
+        font-size: 20px;
+    }
+
+    .infoIvyofo {
+        margin-bottom: 25px;
+    }
+
+    #hotels .scionritzltineraryinfobox {
+        margin-top: 14px;
+    }
+
+    #hotels .addressIvystf {
+        padding-top: 7px;
+    }
+
+    #hotels .scionhotelsdetail {
+        letter-spacing: 0;
+    }
+
+    #optional-excursions .card__body {
+        padding-top: 22px;
+    }
+
+    div.clamp-line > p:first-child {
+        font-size: 14px;
+    }
+
+    #optional-excursions .card-body-meta li {
+        font-size: 14px !important;
+    }
+    .card-newulli li {
+        font-size: 13px !important;
+    }
+
+    .card-newulli li + li:before {
+        height: 14px !important;
+        top: 3px !important;
+    }
+
+    #optional-excursions .scioncustomerssay span:first-child:after {
+        height: 7px;
+    }
+
+    #optional-excursions .card-body-meta li + li:before {
+        height: 14px;
+        top: 3px;
+    }
+
+    .sciondatepricetabbox {
+        margin-bottom: 13px;
+    }
+
+    .scionritzdatepricetitle .scion-otherheading {
+        margin-bottom: 7px;
+    }
+
+    .scionspenfont select {
+        padding: 1.5em 1em 1.5em;
+    }
+
+    .card__img:before {
+        background-position-x: 88%!important;
+    }
+
+    .siconhero_infobox {
+        display: block;
+        margin-bottom: 25px;
+        width: 90%;
+        padding: 15px 0px;
+        border-radius:46px;
+    }
+
+    .siconhero_infobox div {
+        line-height: 30px;
+    }
+
+    .scionhero_infoboxone {
+        width: auto;
+    }
+
+    .scionhero_infoboxtwo {
+        width: 50%;
+        border: none;
+        float: left;
+        font-size: 16px;
+        text-align: right !important;
+        padding-right: 2%;
+    }
+
+    .scionhero_infoboxthree {
+        width: 50%;
+        float: left;
+        font-size: 14px;
+        text-align: left !important;
+        padding-left: 6%;
+    }
+
+    .scionhero_infoboxthree span:last-child {
+        font-size: 16px;
+    }
+
+    .scionhero_infobtn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .siconhero_infoboxtwo {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 85%;
+        padding: 10px 0px;
+        border-radius: 6px;
+    }
+
+    .scionhero_infoboxtwoone, .scionhero_infoboxtwotwo {
+        width: auto;
+        line-height: 30px;
+    }
+
+    .scionhero_infoboxtwotwo span {
+        font-size: 16px;
+    }
+
+    .scionhero_infoboxtwoinfo {
+        line-height: 16px;
+        margin-bottom: 15px;
+    }
+
+    .super-bg {
+        height: calc(120vw);
+    }
+
+    .itinerarytopinfo {
+        font-size: 14px;
+    }
+
+    .itinerarytopinfocenter {
+        padding: 4px 21px;
+    }
+
+    .itinerarytopinfoleft img {
+        display: none;
+    }
+
+    .itinerarytopinfoleft:after {
+        content: none;
+    }
+
+    .itinerarytopinfoleft {
+        padding-right: 0px;
+    }
+
+    .itinerarytopinforight {
+        padding-left: 0px;
+    }
+
+    .itinerarypopinfo span {
+        padding: 7px 15px 7px 15px;
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .itinerarypopbox {
+        width: 90%;
+        padding: 20px 25px;
+    }
+
+    .itinerarypopinfo p {
+        line-height: 1.8;
+    }
+
+    .overviewitinerarylistbox .overviewitinerarylist:first-child {
+        padding-top: 20px;
+    }
+
+
+    .overviewitinerarylist {
+        margin-bottom: 13px;
+    }
+
+    .overviewitinerarybtn span {
+        font-size: 16px;
+        padding: 7px 40px;
+    }
+
+    .overviewitinerarylistbox {
+        margin-bottom: 33px;
+    }
+
+    .overviewitinerarybtn {
+        margin-bottom: 44px;
+    }
+
+    /*#scionupgradestrip {
+        background-color:#FCFAF8;
+        padding-top: 77px;
+        padding-bottom: 130px;
+    }*/
+
+    .upgradettrip {
+        width: 95.5%;
+        margin-right: 12px;
+    }
+
+
+    #optional-excursions .upgradettrip {
+        width: 95.5%;
+        margin-right: 12px;
+    }
+
+    #packageupgrade .upgradettrip {
+        width: 95.5%;
+        margin-right: 12px;
+    }
+
+    #scionupgradestrip .upgradettrip {
+        width: 95.5%;
+        margin-right: 12px;
+    }
+
+    #scionupgradestrip {
+        background-color: #FCFAF8;
+        padding-top: 40px;
+        padding-bottom: 37px;
+    }
+
+    .innerIvysff {
+        padding-top: 40px !important;
+        padding-bottom: 37px !important;
+        padding-left: 1.25em;
+        padding-right: 1.25em;
+    }
+
+    .sciondatapricepop {
+        width: 90%;
+    }
+
+    .datapricepopinfotoptitle {
+        font-size: 22px;
+        padding: 15px 30px;
+        line-height: 1.2;
+    }
+
+    .datapricepopinfolist {
+        margin: 15px 12px;
+        padding-bottom: 10px;
+    }
+
+    .datapricepopinfolist > p {
+        font-size: 18px;
+        padding-bottom: 5px;
+    }
+
+    .dppoplistbox_left p {
+        font-size: 16px;
+    }
+
+    .datapricepopinfobtn {
+        margin-bottom: 25px;
+        margin-top: 10px;
+    }
+
+    .datapricepopinfonote {
+        line-height: 1.3;
+    }
+
+    h1.scionblogdetailhero_title {
+        font-size: 26px;
+        line-height: 2.33rem;
+        margin-bottom: 12px;
+        width: 90%;
+        word-break: break-word;
+    }
+
+    /* .note {
+         padding-left: 35px;
+         padding-right: 35px;
+     }*/
+
+    .scionItinerarycitylist {
+        width: 95%;
+    }
+    .scion_broinputlist li {
+        margin-bottom: 1rem !important;
+    }
+    .scion_broname {
+        font-family: 'Mirador SemiBold';
+        font-size: 16px;
+    }
+    .scion_bromarker {
+        width: 1.2em !important;
+        height: 1.2em !important;
+    }
+    .extra-price .extra-price__value {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+
+    .yearselect {
+        width: 47.9979%;
+        outline: none;
+    }
+    .scionindexcovidinfo {
+        padding: 0px 15px;
+    }
+    .scionindexcovid {
+        padding: 60px 0px;
+    }
+    .scionindexcovidphone {
+        display:none;
+    }
+    .scionoverviewcovidtitle {
+        font-size:20px;
+    }
+    .scionoverviewcovid {
+        padding: 35px 0px;
+        margin-top: 30px;
+    }
+    .scionoverviewcovidinfo {
+        padding: 0px 15px;
+    }
+    .scionoverviewcovidinfo {
+        font-size:16px;
+        line-height:1.7;
+    }
+    .newlayout__innersx {
+        display: none;
+    }
+
+    .phoneleftwidget {
+        display: block;
+        position: fixed;
+        background: #fff;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 10;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        overflow-y: auto;
+    }
+    .phoneleftwidget {
+        -webkit-transform: translateY(100%);
+        -ms-transform: translateY(100%);
+        transform: translateY(100%);
+        -webkit-transition: -webkit-transform .3s;
+        transition: -webkit-transform .3s;
+        -o-transition: transform .3s;
+        transition: transform .3s;
+        transition: transform .3s, -webkit-transform .3s;
+    }
+    .phoneleftwidgetactive {
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    .sort-select {
+        height: 46px;
+        font-size: 16px !important;
+        padding: 0px 1em;
+        color: #778c9e!important;
+    }
+    .leftwidgetphoneshow {
+        display:block;
+    }
+    .leftwidgetphoneshow {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        background-color: #F3EAE5;
+        padding: 13px 20px;
+        border-radius: 6px;
+        margin-bottom: 12px;
+        align-items: center;
+    }
+    .newlayout__inner .newlayout__innerlist {
+        width: 100%;
+    }
+
+    .leftwidgetimg {
+        width: 20px;
+        display: inline-block!important;
+        vertical-align: middle;
+    }
+    .leftwidgetphoneshowboxleft span {
+        vertical-align: middle;
+        color: #0c3051;
+        font-size: 17px;
+        padding-left: 7px;
+    }
+    .leftwidgetphoneshowboxright img {
+        width:17px;
+    }
+
+    .phoneleftwidget .filterbox {
+        margin-top: 24px;
+        margin-bottom: 0px;
+        border-bottom: 2px solid #eee;
+        padding: 0px 19px 15px 19px;
+        margin-left: 0px;
+        align-items: center;
+        margin-right:0px;
+    }
+    .phoneleftwidget .filterbox a {
+        padding-left: 14px;
+        color: #0c3051;
+        text-decoration:underline;
+    }
+    .phoneleftwidget .sx_contrytitle {
+
+        padding: 12px 19px;
+        border-radius:0px;
+        font-size: 17px;
+
+    }
+    .phoneleftwidget .tick-check .marker {
+        width:26px!important;
+        height:26px!important;
+    }
+    .phoneleftwidget .sx_guojialist {
+        padding-left: 20px;
+    }
+    .phoneleftwidget .changetitle {
+        top: 13px;
+        right: 5.5%;
+        text-decoration-line: underline;
+    }
+    .blogdivflex .changetitle {
+        top: 13px;
+        right: 10%;
+        text-decoration-line: underline;
+    }
+    .blogdivflex .sx_region {
+        border-bottom: 2px solid #eee;
+    }
+    .phoneleftwidget .tick-check-label, .std-radio {
+        margin-bottom: 9px;
+    }
+    .phoneleftwidgetclosebtn {
+        width:20px;
+    }
+    .phoneleftwidget .sx_region {
+        margin-left: 0px;
+        border-bottom: 1px solid #d8d9dd;
+        padding-bottom: 0px;
+    }
+    .sx_private {
+        padding: 0px 0px 0px 19px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid #d8d9dd;
+    }
+    .sx_regionicon, .sx_yearicon {
+        right: 10px;
+    }
+    .sx_private .sx_yeartitle {
+        font-size: 17px;
+        color: #0c3051;
+    }
+    .phoneleftwidget .phoneleftwidgetbtn {
+        display: block;
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        background-color: #00424E;
+        border-radius: 6px;
+        color: white;
+        padding: 12px 0px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .phoneleftwidget .sx_regiontitle {
+        font-size: 17px;
+        color: #00424E;
+        padding: 10px 19px;
+        position:relative;
+    }
+    .phoneleftwidget .sx_regiontitle:after {
+        content: '';
+        display: inline-block;
+        background-image: url(../img/ritzimg/Arrow.svg);
+        background-repeat: no-repeat;
+        height: 10px;
+        width: 16px;
+        position: absolute;
+        right: 10px;
+        top: 18px;
+        transform: rotate(0deg);
+        transition: all .3s linear;
+        -moz-transition: all .3s linear;
+        -webkit-transition: all .3s linear;
+        -o-transition: all .3s linear;
+    }
+    .phoneleftwidget .regiontitleactive {
+        /*border-bottom: 1px solid #d8d9dd;*/
+    }
+    .phoneleftwidget .regiontitleactive:after {
+        transform: rotate(-90deg);
+        transition: all .3s linear;
+        -moz-transition: all .3s linear;
+        -webkit-transition: all .3s linear;
+        -o-transition: all .3s linear;
+    }        .phoneleftwidget .sx_countrylist {
+                 border: none !important;
+             }
+    .phoneleftwidget p {
+        font-size:17px;
+    }
+    .phoneleftwidget .sx_countrylist::after {
+        content:none;
+    }
+    .phoneleftwidget .filterbox p {
+        font-size:22px;
+        padding-bottom:0px;
+    }
+    .newlayout__innerlist {
+        margin-top: 39px;
+    }
+    .cx_contrytitle {
+        padding: 12px 19px!important;
+    }
+    .packagelistpage {
+        top: -41px;
+    }
+    .sciontourcodedown {
+        display:block;
+    }
+    .info_monthtomonth {
+        font-size:16px;
+    }
+    .phonebtnshow {
+        display: block;
+        position: absolute;
+        right: 18px;
+        top: 30px;
+    }
+    .sx_year {
+        width: 100%;
+
+        border-bottom: 1px solid #d8d9dd;
+    }
+    .sx_year .sx_yeartitle {
+        padding-left: 19px;
+    }
+    .sx_year .sx_yearlist {
+        padding-top: 10px;
+    }
+    .phoneleftwidget .filterbox {
+        justify-content: start;
+    }
+    .sx_privatebox:after, .sx_year:after {
+        content:none;
+    }
+    .sx_year .sx_yeartitle {
+        padding-left: 0px;
+    }
+    .sx_year {
+        padding-left:19px;
+    }
+    .sx_regiontitle {
+        display: block;
+    }
+    .phoneleftwidgetbtn {
+        display:block;
+    }
+    .phonemorebtn {
+        display: block;
+        width: 100%;
+        margin: auto;
+        text-align: center;
+        background-color: #20626E;
+        border-radius: 6px;
+        color: white;
+        padding: 12px 0px;
+        margin-top: 20px;
+        font-size:16px;
+    }
+    .nice-select {
+        width:100%;
+    }
+    .nice-select input {
+        font-size: 16px;
+        color: #778c9e;
+    }
+    .nice-select ul li {
+        font-size:16px;
+    }
+    .button-next-ivyts, .button-previous-ivyts {
+        display: none;
+    }
+    .nice-selectsearch {
+        width: 100%;
+        margin: auto;
+    }
+    #optional-excursions .layout__inner .layout__item {
+        width: calc(100% - .625em);
+    }
+}
+
+@media screen and (max-width: 37.5em) {
+
+    .scionsplayout--trip-cards .layout__inner .layout__item {
+        width: 63.5%;
+        margin-left: 20px;
+    }
+
+    .scionhero img {
+        opacity: 0;
+    }
+
+    .scionritzdiscovery {
+        display: block !important;
+    }
+
+    .sciontabprice {
+        width: 100% !important;
+        font-size: 14px;
+    }
+
+    .sciontabdata {
+        width: 100% !important;
+        border: none !important;
+    }
+
+    .scionritztab-nav {
+        margin-top: 0;
+    }
+
+    .scionritzdiscovery li {
+        padding: 0;
+    }
+
+    .scionritzdiscovery {
+        padding: 1.3em 0em !important;
+    }
+
+    .sciontabprice {
+        line-height: 18px;
+    }
+
+    .scion_spotherinput {
+        width: 100%;
+        display: block;
+    }
+
+    .ptf hr {
+        margin: 0;
+    }
+
+    .accordion__trigger {
+        padding-top: 1.625em;
+        padding-bottom: 1.325em;
+    }
+
+    .prevnext--rule {
+        margin: 0;
+    }
+
+    .scionPc_nohave {
+        display: block;
+    }
+
+    .layout--destinations .layout__item {
+        width: 65%;
+    }
+
+    .footer-widget .btn {
+        width: 60%;
+    }
+
+    .scionprivatetours .accordion__trigger a {
+        font-size: 20px;
+        color: black;
+        font-family: Mirador SemiBold;
+        letter-spacing: 0.01rem;
+    }
+
+    .scionprivatetours .ptf__dates input {
+        width: 100%;
+    }
+
+    .siciondestinationtitle span {
+        font-size: 26px;
+    }
+
+    .scioncustomerssay .scionprivatebigtitle {
+        font-size: 26px !important;
+        line-height: 1.4;
+        width: 225px;
+        margin: 0px auto; /**Ivy Ye 已用*/
+        color: #191919;
+    }
+
+    .scioncustomerssay span:last-child {
+        font-size: 13px;
+        line-height: 1.9;
+    }
+
+    .timeline__itemIvystz {
+        padding-bottom: 1rem;
+        margin-bottom: 0;
+    }
+
+    .scionritztab-nav .scionritzdiscovery {
+        position: absolute;
+        width: 90%;
+        background-color: white;
+        top: -113px;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .secheathirIvynfo {
+        margin-bottom: 20px !important;
+    }
+
+    .citytype_box {
+        padding-bottom: 20px;
+    }
+
+    .Ritzoverviewphonehide {
+        display: none;
+    }
+
+    .Ritzoverviewphoneshow {
+        display: block;
+    }
+
+    .citytype_box {
+        border-bottom: 1px dashed rgb(194, 151, 123);
+        margin-bottom: 1.99rem;
+    }
+
+    .sectionheaseczIvynfo {
+        margin-bottom: 1em !important;
+    }
+
+    #overview .ritzreviews {
+        display: none;
+    }
+
+    .fullystIvynfo img {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .fullystIvynfo div {
+        display: inline-block;
+        vertical-align: middle;
+        padding-left: 10px;
+    }
+
+    .newritzcard_body {
+        border-top: 0px;
+        border: 1px solid #dbdbdb;
+        padding-bottom: 1.35rem;
+        margin-bottom: 2.36rem; /**Ivy Ye 已用*/
+        border-radius: 0;
+        padding-left: 18px;
+        padding-right: 18px;
+        padding-top: 14px;
+    }
+
+    .sciontourcodedown {
+        margin-top: .85rem;
+    }
+
+    .scionprivatetoursphonenone {
+        display: none;
+    }
+
+    .goprivatetourslunbobox {
+        width: 90%;
+        margin: auto;
+        padding-bottom: 30px;
+        margin-bottom: 3em;
+        margin-bottom: 3.22rem; /**Ivy Ye 已用*/
+    }
+
+    .goprivatetourslunbobox .layout__item {
+        width: 100%;
+        background-color: #f6f4f4;
+        margin: auto;
+        padding-top: 3em;
+        height: calc(130vw);
+    }
+
+    .goprivatetourslunbobox .layout__item p {
+        text-align: center;
+        font-size: 18px;
+        width: 70%;
+        margin: auto;
+        font-family: Mirador SemiBold;
+        line-height: 28px;
+    }
+
+    .goprivatetourslunbobox .layout__item img {
+        margin: auto;
+    }
+
+    .goprivatetourslunbobox .flickity-page-dots {
+        bottom: 0px;
+    }
+
+    .scioncustomerssay .scionprivatebigtitle:after {
+        content: '';
+        width: 15%;
+        display: block;
+        height: 2px;
+        margin: auto;
+        margin-bottom: 1.2rem;
+        margin-top: 0.455rem; /*Ivy Ye 已用**/
+        border-bottom: 4px solid #c2977b;
+    }
+
+    .scionprivatetoursphoneshow {
+        display: block;
+    }
+
+    .brphonenone {
+        display: none;
+    }
+
+    #hotels .scionhotelcityname {
+        display: none;
+    }
+
+    .sciononeimgshow img, .sciononeimgshowtwo img {
+        width: 55px;
+    }
+
+    #clickgo {
+        display: none;
+    }
+
+    .scionmodule-title-name:after {
+        content: '';
+        width: 16%;
+        display: block;
+        height: 10px;
+        border-bottom: 4px solid #c2977b;
+    }
+
+    .ritzreviewsphonenone {
+        display: none;
+    }
+
+    .ritzreviewsphoneblock {
+        display: block;
+    }
+
+    .scioncustomerssay {
+        padding: 4em 1em;
+        padding-top: 2.71rem; /*Ivy Ye 已用**/
+        padding-bottom: 1.5rem; /*Ivy Ye 已用**/
+    }
+
+    .scionptdeletfont span {
+        font-size: 16px !important;
+    }
+
+    .tab-nav a {
+        border-bottom: 1px solid transparent;
+    }
+
+    #scioncontent {
+        display: none;
+    }
+
+    .scionreviewsbannerheight {
+        height: calc( 80vw) !important;
+    }
+
+    .trustpilot-widget {
+        margin: auto;
+    }
+
+    .scionvacationpagebannerheight {
+        height: calc(136vw) !important;
+    }
+
+    .card__img:before {
+        background-position-x: 85% !important;
+    }
+
+    .ritzsuper_sanjiao:before {
+        height: 22%;
+    }
+
+    .ritzsuper_juxing:before {
+        height: 27.1%;
+    }
+
+    .bannerindexicon {
+        right: 15%;
+        top: -6rem;
+        width: 20%;
+    }
+
+    .scionritzphonelunbo .layout__item {
+        margin-right: 16px;
+    }
+
+    .scionthanksyoubtn {
+        width: 85%;
+        font-size: 16px;
+    }
+
+
+    .privateoptablist {
+        padding: 4px 15px;
+    }
+
+    .privateoptablist span {
+        font-size: 16px !important;
+    }
+
+    .privateoptablist:not(:first-child) {
+        margin-left: 20px;
+    }
+
+    .privateopcontentlist:not(:first-child) {
+        margin-left: 0px;
+    }
+
+    .privateopcontentlist {
+        margin-top: 10px;
+        width: 80%;
+    }
+
+    .privateopcontentlist p {
+        line-height: 24px;
+    }
+
+    .scioncustomerssay h2 {
+        font-size: 26px !important;
+    }
+
+    .scioncustomerssayIvytff span:first-child:after {
+        content: '';
+        width: 18%;
+        display: block;
+        height: 2px;
+        margin: auto;
+        margin-bottom: 1.2rem;
+        margin-top: .522rem;
+        border-bottom: 4px solid #c2977b;
+    }
+
+    .scionnewrounded-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .upgradestitle a {
+        font-size: 16px !important;
+    }
+
+    /*.yearselect {
+        width:30%;
+    }*/
+    .sx_countryicon {
+        right: 0px;
+    }
+
+    .scionnewpackagebanner {
+        height: 173px !important;
+    }
+
+    .sciononeimgshow {
+        display: none !important;
+    }
+
+    .layout--trip-cards .layout__inner .layout__item {
+        display: block;
+    }
+
+    .sciontourcodedown {
+        position: relative;
+        padding: 0px;
+        bottom: 0px;
+    }
+
+    .popOut {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 31.25em) {
+    .card-body-meta li + li:before {
+        content: ' ';
+        width: 2px;
+        height: 18px;
+        display: inline-block;
+        background-color: #c3c3c3;
+        margin: 0 .25rem;
+        position: relative;
+        top: 4px;
+    }
+}
+
+@media screen and (max-width: 1089px) {
+    .bannerindexicon {
+        position: absolute;
+        top: 0px;
+        opacity: 1 !important;
+        z-index: 5;
+        right: 2rem;
+        top: -6.78rem;
+    }
+    .bannernotypeicon {
+        right: 0rem;
+        top: -7.5rem;
+    }
+}
+
+
+.spindexol .flickity-prev-next-button svg .arrow {
+    display: none;
+}
+
+.spindexol .next svg {
+    background-image: url(../img/ritzimg/next-button-normal.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.spindexol .previous svg {
+    background-image: url(../img/ritzimg/prev-button-normal.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.spindexol .next svg:hover {
+    background-image: url(../img/ritzimg/next-button-hover.svg);
+}
+
+.spindexol .previous svg:hover {
+    background-image: url(../img/ritzimg/prev-button-hover.svg);
+}
+
+
+.scionhomenewbtn .next svg {
+    background-image: url(../img/ritzimg/next-button-hoverIvyofo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 8px;
+}
+
+.scionhomenewbtn .previous svg {
+    background-image: url(../img/ritzimg/prev-button-hoverIvyofo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 8px;
+}
+
+.scionhomenewbtn .flickity-prev-next-button svg .arrow {
+    display: none;
+}
+
+.topp {
+    font-family: 'Karla', sans-serif !important;
+    font-weight: bold !important;
+}
+
+.onpage-searchIvyfof form {
+    max-width: 71.25em !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero__content h1.reduceIvyfforf {
+    margin-top: 3.88rem !important;
+}
+
+.sciontourcode {
+    padding: 2px 7px;
+    display: inline-block;
+    background-color: #F3EAE5;
+    border-radius: 6px;
+    font-size: 15px;
+    margin: 6px 0px 11px 0px;
+}
+
+.sciontourcode_left {
+    color: #00424E;
+    font-weight: bold;
+    letter-spacing: 0rem;
+}
+
+.sciontourcode_right {
+    color: #00424E;
+    font-weight: bold;
+}
+
+.scionritzdiscountdiv {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    right: 15px;
+    z-index: 8;
+}
+
+.scionritzdiscountdiv span {
+    background-color: rgba(0,66,78,.8);
+    padding: 12px 12px;
+    display: inline-block;
+    opacity: 1;
+    color: white;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+.scionprivateoptioncontent {
+    display: none;
+}
+
+.contentblock {
+    display: block;
+}
+
+/*pageinfo tab*/
+.updatestabnewcss .updatestab {
+    padding: 0px;
+    margin: 0px;
+    position: sticky;
+    top: 54px;
+    display: block;
+    background-color:white;
+}
+.updatestabnewcss .updatestab li {
+    color: #00424e;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+    padding: .25em 2em;
+    font-size: 1.25em !important;
+    background-color: white;
+    font-family: 'Bebas Neue Ivyotf' !important;
+}
+
+.updatestabnewcss .updatecontent {
+    display: none;
+}
+
+.updatestabnewcss .updateblock {
+    display: block !important;
+}
+
+.updatestabnewcss .updateactive {
+    background: #00424e !important;
+    color: white !important;
+}
+.updatestabnewcss .updatecontent h3 {
+    font-size: 22px !important;
+    margin-top: 1.7em;
+    margin-bottom: 0em;
+    font-weight: bold;
+    letter-spacing: 0em;
+    text-transform: initial !important;
+}
+
+.updatestabnewcss .updatecontent h4 {
+    font-size: 18px !important;
+    margin-top: 0em !important;
+    margin-bottom: 1.25em;
+    font-weight: bold;
+    letter-spacing: .1em;
+    text-transform: initial !important;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+@media screen and (max-width: 43.75em) {
+    .updatestabnewcss .updatestab {
+
+        position: sticky;
+        top: 39px;
+
+    }
+    .sciondatepricetabbox {
+        justify-content: center;
+    }
+    .bannernotypeicon {
+        right: 0rem;
+        top: -6rem;
+    }
+}
+.scionspenfont {
+    margin-bottom:1em!important;
+}
+.blogdetailimg img{
+    margin:auto;
+    border-radius:6px;
+}
+.blogdetailimg {
+    margin-top: 20px;
+    margin-bottom: 42px;
+}
+.blogdetailstyle .blogdetailinfo {
+    margin-bottom:1em;
+}
+.blogdetailstyle {
+    width: 1440px;
+}
+.blogdetailstyle h1 {
+    width: 730px;
+    margin: auto;
+    margin-bottom: 1.125rem;
+}
+/*@media screen and (min-width: 2150px) {
+.scionnewinner {
+    width: 59.5% !important;
+}
+
+.scionnewinnerpackage {
+    width: 59.6% !important;
+}
+
+.scionritzphonelunbo .layout__item img {
+    width: 100%;
+}
+
+.scionsearchinner {
+    width: 58.5% !important;
+}
+
+.scionnewinnerpackagedetail {
+    width: 50.52% !important;
+}
+
+.scionnewinnerprivateinfo {
+    max-width: 85% !important;
+}
+.onpage-searchIvyfof form {
+    width:88em;
+}
+.siciondestinationinfo span{
+    width:80%;
+}
+.overlay-inner {
+    max-width: 69%;
+}
+.scionnewinnercontactus {
+    width: 59.52% !important;
+}
+}*/
+/*新banner样式*/
+.bannerstyleredyuan {
+    display: flex;
+    align-items: center;
+    width: auto !important;
+}
+.redyuan_titlebox {
+    position: relative;
+    z-index: 9;
+    line-height: 170px;
+    display: block;
+}
+.bannerstyleredyuan p {
+    margin-bottom: 0px;
+}
+.bannerstyleredyuan .redyuan_title {
+    color: white;
+    margin-bottom: 0;
+    font-family: Mirador Regular;
+    font-size: 14em;
+    letter-spacing: -0.04rem;
+    text-transform: capitalize;
+    display: inline-block;
+    line-height: 170px;
+}
+.bannerstyleredyuaninfo {
+    width: 390px;
+    height: 390px;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../img/bannercolor.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #00424e;
+    background-image: none;
+    flex-shrink: 0;
+    margin-left:-5%;
+}
+.bannerstyleredyuan .yuan_subtitle {
+    font-family: Mirador SemiBold !important;
+    font-size: 38px;
+    color: #c2977b;
+    line-height: 60px;
+}
+.bannerstyleredyuan .yuan_description, .bannerstyleotheryuan .yuan_description {
+    font-size: 18px;
+    width: 75%;
+    margin: auto;
+    color: white;
+    word-break:break-word;
+}
+
+.bannerstyleredyuan .yuan_code {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.yuan_codenum {
+    color: #c2977b;
+}
+.bannerstyleredyuan .yuan_terms, .bannerstyleotheryuan .yuan_terms {
+    font-size: 10px;
+    opacity: .7;
+    width: 67%;
+    line-height: 16px;
+    color: white;
+    margin: auto;
+    margin-top: 3px;
+}
+.bannerstyleredyuaninfo .scionhero_infobtn {
+    margin-top: 18px;
+}
+
+
+.bannerstyleotheryuan {
+    width: 487px;
+    height: 487px;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 14%;
+    /*background-color: #00424e;*/
+    background-image: url('../img/buttons/BannerBadge.png');
+    background-size: cover;
+    word-break:break-all;
+}
+.hero__contentwidthbox {
+    width:100%;
+}
+
+.bannerstyleotheryuan .yuan_title {
+    font-size: 40px;
+    font-family: Mirador SemiBold;
+    color: #c2977b;
+    line-height:initial;
+}
+.bannerstyleotheryuan .yuan_subtitle {
+    font-size: 120px;
+    font-family: Mirador SemiBold;
+    line-height: .9;
+    color: white;
+    word-break: break-word;
+}
+.bannerstyleotheryuan .yuan_code {
+    color: #c2977b !important;
+    font-size: 18px;
+    /*margin-bottom: 5px;*/
+}
+.bannerstyleotheryuan a{
+    display:block;
+    width:100%;
+}
+.bannerstyleotheryuan .yuan_description {
+    margin-top: 9px;
+}
+.bannerstyleotheryuan .scionhero_infobtn {
+    margin-top:18px;
+}
+.banneruptostyle {
+    text-align:center;
+}
+.uptotitle {
+    color:white;
+    font-size:20px;
+}
+.uptoprice {
+    font-size: 9em !important;
+    text-transform: inherit !important;
+    letter-spacing: 0.05em!important;
+}
+.banneruptostyle .siconhero_infobox {
+    display: block;
+    width: 505px;
+    padding: 8px 0px 14px 0px;
+    margin-bottom: 37px;
+    margin-top: 10px;
+}
+.banneruptostyle .yuan_terms {
+    font-size: 12px;
+    opacity: .7;
+    width: 67%;
+    line-height: 16px;
+    color: white;
+    margin: auto;
+    margin-top: 0px;
+    color:white;
+}
+.banneruptostyle .yuan_code {
+    margin-bottom: 0px;
+    font-size: 18px;
+    color: white;
+    width: 90%;
+    margin: auto;
+}
+.banneruptostyle .yuan_code span {
+    color: #c2977b;
+}
+@media screen and (max-width:56.25em) {
+    .bannerstyleredyuan .redyuan_title {
+        font-size: 9em;
+        line-height: 95px;
+    }
+    .bannerstyleredyuaninfo {
+        width:340px;
+        height:340px;
+    }
+    .bannerstyleotheryuan {
+        width:450px;
+        height:450px;
+        margin:auto;
+    }
+}
+@media screen and (max-width:43.75em) {
+    .bannerstyleredyuan {
+        display: block;
+    }
+    .bannerstyleredyuaninfo {
+        margin-left:0px;
+    }
+    .redyuan_titlebox {
+        text-align:center;
+        line-height:0px;
+    }
+    .bannerstyleredyuaninfo {
+        width: 270px;
+        height: 270px;
+        margin:auto;
+        margin-top: -18px;
+    }
+    .bannerstyleredyuan .redyuan_title {
+        font-size:7em;
+    }
+    .bannerstyleredyuan .yuan_subtitle {
+        font-size:28px;
+    }
+    .bannerstyleredyuan .yuan_description {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+    .bannerstyleredyuan .yuan_code {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+    .bannerstyleredyuan .yuan_terms {
+        width:95%;
+    }
+
+    .bannerstyleotheryuan {
+        width: 330px;
+        height: 330px;
+    }
+    .bannerstyleotheryuan .yuan_title {
+        font-size: 24px;
+    }
+    .bannerstyleotheryuan .yuan_subtitle {
+        font-size: 70px;
+        line-height:1;
+    }
+    .bannerstyleotheryuan .yuan_description {
+        font-size:16px;
+        margin-top:0px;
+        line-height:1;
+    }
+    .bannerstyleotheryuan .yuan_code {
+        font-size: 16px;
+    }
+
+    .banneruptostyle .siconhero_infobox {
+        width:100%;
+    }
+    .banneruptostyle {
+        width:100%;
+    }
+    .uptoprice {
+        font-size: 5em !important;
+    }
+    .banneruptostyle .yuan_code {
+        font-size: 16px;
+        line-height: 1.3;
+        width: 80%;
+        margin: auto;
+    }
+    .bannerstyleotheryuan .yuan_description {
+        width: 70%;
+    }
+}
+
+/*ritz 新版本改版样式*/
+.ritzlifetimevideobox .inner {
+    width: 53em;
+}
+.ritzlifetimevideobox {
+    background-color: #F3EAE5;
+    padding-bottom: 120px;
+    padding-top: 100px;
+}
+.ritzvideotitle {
+    margin-bottom: 40px;
+}
+.ritzvideotitle p {
+    font-family: 'Mirador SemiBold';
+    text-align: center;
+    color: #242424;
+    font-size: 28px;
+    letter-spacing: -1px;
+}
+.ritzvideodes {
+    font-size: 15px;
+    color: #616161;
+    text-align:center;
+}
+.ritzvideolist {
+    margin-top:60px;
+}
+.ritzvideolist iframe {
+    width: 100%;
+    height: 577px;
+    border-radius: 15px;
+}
+.ritzvideolist .flickity-viewport {
+    overflow:hidden!important;
+}
+.packagelistshowmore {
+    display:none;
+}
+
+.scionindexbottomhover a:before {
+    content: none !important;
+}
+
+.scionindexbottomhover {
+    position: relative;
+}
+
+.sciondreamspantwonone {
+    display: none;
+}
+
+.populartourshoverbox {
+    display: none;
+}
+
+.populartourshoverboxblock {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 66, 78, 0.95);
+    -webkit-transition: opacity 0.4s;
+    -o-transition: opacity 0.4s;
+    transition: opacity 0.4s;
+    z-index: 2;
+    padding: 1.25em;
+    top: 0;
+    border-radius: 6px;
+    overflow-y: auto;
+}
+
+.pthover_title {
+    color: white;
+    font-family: Mirador SemiBold !important;
+    font-size: 28px;
+    line-height: 32px;
+    margin-bottom: 20px;
+}
+
+.pthover_info {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.pthover_info_left {
+    opacity: .88;
+    text-transform: lowercase;
+    line-height:16px;
+}
+.pthover_info_right {
+    line-height: 16px;
+}
+.pthover_other p {
+    color: white;
+    font-size: 14px;
+    line-height: 18px;
+    opacity: .88;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+}
+
+.pthover_btn {
+    position: absolute;
+    bottom: 25px;
+    right: 24px;
+    color: white;
+    font-family: Mirador SemiBold !important;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.pthover_btn:after {
+    content: '';
+    background-image: url(../../asset/img/icons/down-icon.svg);
+    display: inline-block;
+    background-color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(-90deg);
+    background-size: 12px;
+    margin-left: 10px;
+}
+.sciondreamspantwoflex {
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+.sciondreamspantwo h3 {
+    display: block;
+    width: 89%;
+    color: white;
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: 0.0001rem;
+}
+.sciondreamspantwoflex div {
+    font-family: 'Karla', sans-serif;
+    font-size: 14px;
+}
+.sciondreamspantwoflex div:first-child {
+    text-transform: lowercase;
+}
+.blogheadbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+.blogprintandsharebox {
+    display:flex;
+}
+.blogprintandsharebox img {
+    margin-right:9px;
+}
+.blogshare a span, .blogprint a span{
+    color: #00424E;
+    text-decoration: underline;
+}
+.blogshare a, .blogprint a {
+    display: flex;
+}
+.blogshare {
+    margin-right: 20px;
+}
+.infoheadbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+.blogdetailback {
+    display: block;
+    color: #0C3051;
+    font-size: 16px;
+    font-family: 'Bebas Neue Ivyotf' !important;
+    letter-spacing: 2px;
+    font-weight:bold;
+}
+.blogdetailback img {
+    transform: rotate(90deg);
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 2px;
+    width: 12px;
+}
+.detailcontentbox .blogdetailback img {
+    transform: rotate(0deg);
+    width: 8px;
+}
+.visadetailcountry {
+    color: #242424 !important;
+    font-size: 32px !important;
+    font-weight: 400;
+    line-height: 38px;
+    letter-spacing: -0.5714286px;
+}
+.infoprintandsharebox {
+    display: flex;
+}
+
+.infoprintandsharebox img {
+    margin-right: 9px;
+}
+.itinerysharebox .itineryshare_title {
+    color: #0c3051;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 38px;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.75em;
+    font-family: 'Mirador SemiBold';
+}
+.itineryshare_card {
+    display: flex;
+    border-radius: 8px;
+    border: 1px solid#d8d9dd;
+    align-items: center;
+    padding: 19px;
+}
+p.is_infotitle {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.75em;
+    color: #00424F;
+}
+p.is_infotime {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+}
+.itineryshare_link {
+    margin-top: 20px;
+}
+.itineryshare_href p, .itineryshare_link p {
+    margin-bottom: 4px;
+}
+.itineryshare_link p img {
+    margin-right: 7px;
+    vertical-align: middle;
+    width: 25px;
+    display: inline-block;
+}
+.is_linkbox {
+    border-radius: 4px;
+    border: 1px solid #d8d9dd;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 7px 12px;
+}
+    .is_linkbox p {
+       
+    font-size: 14px;
+    margin: 0;
+    line-height: 30px;
+    padding-left: 12px;
+    font-family: Karla !important;
+}
+.is_linkbox button {
+    width: 79px;
+    height: 38px;
+    border-radius: 4px;
+    border: 1px solid #d8d9dd;
+    background-color: white;
+    font-size: 18px;
+    line-height: 22px;
+    color: #00424E;
+        font-family: 'Bebas Neue Bold';
+        letter-spacing: 1.8px;
+}
+
+/*infochange*/
+.infoinner {
+    width: 65em !important;
+    margin: auto;
+}
+.infomodulepadding {
+    padding-top:2em;
+}
+.infopage-header .primary-nav li.primary-nav__primary > a {
+    color: #242424;
+    font-weight: bold;
+}
+.infopage-header .page-logo {
+    background-image: url(../img/ritzimg/ritzlogoTw.svg);
+}
+.infopage-header a.trip-search:after {
+    background-image: url('../img/icons/search-icon.svg');
+}
+.infopage-header .ritzheadphonenum a {
+    color: #141414;
+    font-weight: bold;
+}
+.infopage-header .ritzheadphonenum a:before {
+    background-image: url('../img/icons/phone-icon.svg');
+    height:18px;
+}
+
+.infodetailhead {
+    text-align: left;
+    color: #00424e;
+    margin-bottom: 50px;
+}
+.infodetailhead a{
+    text-decoration:underline;
+}
+
+.aboutusotherinfo {
+    font-family: 'Mirador SemiBold';
+    font-size: 32px !important;
+    line-height: 38px;
+    display: block;
+    margin-bottom: 1.25em;
+    margin-top: 1.8em;
+    color: #242424;
+}
+.aboutusaw, .aboutusrz {
+    display: flex;
+}
+.aboutusaw .aboutusawlogo, .aboutusrz .aboutusrzlogo {
+    width: 44%;
+}
+.aboutusaw p, .aboutusrz p {
+    width: 60%;
+    border-left: 1px solid #c3c3c3;
+    padding-left: 2em;
+}
+.aboutusaw p span, .aboutusrz p span {
+    font-size: 20px;
+    line-height: 22px;
+    display: block;
+    margin-bottom: 1em;
+    color: #00424E;
+}
+.aboutusrz {
+    margin-top: 2em;
+}
+.aboutusstyle {
+    width: 44em;
+    margin: auto;
+    padding: 0;
+}
+.infocontent_title {
+    font-size: 42px!important;
+    margin-bottom: 29px!important;
+    text-align:center;
+    color:#242424!important;
+}
+.visainfo {
+    line-height:22px;
+}
+.infoaboutimage {
+    margin-bottom: 42px;
+}
+.infopagecontactus {
+    height: 185px;
+    margin: 6em 0em 1em 0em;
+    background: #f3eae5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+}
+.infopagecontactus p {
+    margin-bottom: 0;
+    font-size: 28px;
+    line-height: 30px;
+    padding: 0px 80px;
+    text-align: center;
+    color: #242424;
+    font-family: 'Mirador SemiBold';
+}
+.infopagecontactus span {
+    display: block;
+    background-color: #00424e;
+    color: white;
+    font-size: 16px;
+    width: 190px;
+    padding: 10px 0px;
+    text-align: center;
+    margin-top: 1.5em;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Bebas Neue Ivyotf';
+    border-radius: 6px;
+    letter-spacing: 0.13rem;
+}
+.travelstylebox {
+    padding:0px;
+    margin:auto;
+}
+
+p.newtravelstyleinfotitle {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 59px;
+    padding-top: 0px;
+    line-height: 22px;
+    color: #616161 !important;
+    margin-top: -5px;
+}
+.banner-container {
+    position: relative;
+    margin-bottom: 19px;
+}
+.banner-containertwo {
+    margin-top:3em;
+}
+.travel-style-banner {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    border-radius: 12px;
+    filter: brightness(0.8);
+}
+.centered-text {
+    padding: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 42px;
+    letter-spacing: 2px;
+    text-align: center;
+    white-space: nowrap;
+    font-family: 'Mirador SemiBold';
+}
+.sciontravelstyleflex {
+    display: flex;
+    justify-content: space-between;
+}
+.sciontravelstyleflextwo .sciontsinfo_left span {
+    font-size:24px;
+}
+.sciontravelstyleinfo_list {
+    padding-top: 2em;
+    width: 30%;
+}
+.sciontsinfo_left {
+    display: flex;
+    align-items: center;
+}
+.sciontsinfo_right {
+    padding-top: 1.2rem;
+}
+.sciontsinfo_left span {
+    margin-left: 30px;
+    color: #242424;
+    font-size: 28px;
+    font-family: 'Mirador SemiBold';
+}
+.sciontravelstyleinfo_list:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+.visacountrylist {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 54px;
+}
+.visalist_box {
+    width: 50%;
+}
+.visa_imgbox {
+    position: relative;
+}
+.visa_imgbox h2 {
+    position: absolute;
+    font-size: 32px;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    text-align: center;
+    letter-spacing:0;
+    font-family: 'Mirador SemiBold';
+}
+.visa_imgbox img {
+    margin: auto;
+    border-radius: 8px;
+}
+.visa_citylist {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*margin: 1.5em 0em 2em 5.5em;*/
+    margin: 1.5em 0em 2em 3em;
+    align-content: flex-start;
+    justify-content: space-between;
+}
+.visa_citylist h3 {
+    width: 48%;
+    text-align: left;
+    cursor: pointer;
+    margin-bottom: 12px;
+    font-family: "Karla", sans-serif;
+    letter-spacing: 0px;
+    line-height: 16px;
+    margin-block-start: 0rem;
+}
+.visa_citylist h3 a {
+    margin-bottom: 0px;
+    text-align: left;
+    word-break: break-word;
+    color: #00424E;
+    font-size:16px;
+}
+.newvisabox {
+    width: 863px;
+    margin: auto;
+    padding: 0px;
+}
+.infopagecontactustwo {
+    margin-top:2em;
+}
+.detailcontentbox .infodetailhead {
+    margin-bottom: 0px;
+}
+.detailcontentbox .infoheadbox {
+    margin-bottom: 0px;
+}
+.detailcontentbox .visadetailbody {
+    padding-left: 7em;
+    padding-right: 7em;
+}
+
+.faqstyle {
+    /*padding-top: 3em;*/
+}
+.faqsearchbox {
+    display: flex;
+    background: #F3EAE5;
+    padding: 41px 0px;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 53px;
+    margin-bottom: 50px;
+    border-radius: 15px;
+}
+.faqsearchbox label {
+    color: #00424e;
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: -0.5714286px;
+    font-family: 'Mirador SemiBold';
+}
+.faqsearchbox button {
+    width: 160px;
+    height: 44px;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-align: center;
+    border: none;
+    background: #00424e;
+    color: white;
+    letter-spacing: 1.8px;
+    line-height: 26px;
+    border-radius: 6px;
+    font-family: 'Bebas Neue Ivyotf';
+}
+.faqsearchbox input {
+    width: 433px;
+    height: 44px;
+    background: #ffffff;
+    background-blend-mode: normal;
+    margin: 0px 1.5em;
+    outline: none;
+    border-radius: 4px;
+}
+
+.faq_listbox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 2em;
+    justify-content: start;
+
+}
+.faq_listbox:after {
+    content: '';
+    border-bottom: 1px solid #d8d9dd;
+    display: block;
+    width: 100%;
+    margin-left: 0em;
+    margin-right: 0em;
+}
+.faq_listbox:last-child:after {
+    content: none;
+}
+.faq_listbox h2 {
+    color: #242424 !important;
+    font-size: 32px !important;
+    line-height: 38px;
+    text-transform: uppercase;
+    flex-basis: 100%;
+    text-transform: inherit;
+    letter-spacing: 0rem !important;
+}
+.faqbox {
+    width: 30%;
+    margin-bottom: 2em;
+    margin-right: 3em;
+}
+.newfaqdetailbox {
+    padding-top: 49px;
+    justify-content: space-between;
+    padding-bottom: 100px;
+}
+.faqbox:nth-child(3n+1) {
+    margin-right: 0;
+}
+h3.faqboxtitle {
+    color: #242424 !important;
+    margin-bottom: 0.75em;
+    font-weight: bold;
+    font-family: "Karla", sans-serif !important;
+    line-height: 26px;
+    margin-block-start: 0;
+    font-size: 16px !important;
+    text-transform: initial !important;
+    letter-spacing: 0;
+    margin-bottom: 0.75em !important;
+}
+.faqboxlist a {
+    text-decoration: underline;
+    text-decoration-color: #00424e;
+}
+.faqboxlist p {
+    color: #00424e !important;
+    margin-bottom: 0.75em;
+}
+.newfaqdetailbox li {
+    list-style:none;
+}
+.faqdetailcontentlist {
+    width:68%;
+}
+.faqdetailleftcolumn ul {
+    padding-left: 0px;
+    margin:0px;
+}
+.faqdetailleftcolumn .padiIvyzzt {
+    padding-left: 0px;
+}
+.faqdetailleftcolumn .padiIvyzzt li a:hover {
+    color: #c2977b !important;
+}
+.faqdetailleftcolumn .currenttitle {
+    padding-left: 0px;
+    font-size: 24px;
+    font-family: 'Mirador SemiBold';
+    color: #242424;
+}
+.faqdetailcontentlist .accordion__triggerIvyztf h2 {
+    color: #242424;
+    font-size: 16px;
+    font-family: 'Karla', sans-serif !important;
+    font-weight: bold;
+    word-break: break-word;
+}
+.faqdetailcontentlist .accordion__body .accordion__body-inner {
+    font-size: 16px !important;
+    color: #616161 !important;
+    font-family: "Karla", sans-serif !important;
+    line-height: 26px;
+    margin-top: 0px;
+}
+.padiIvyzzt li:last-child {
+    border:none;
+    padding-bottom:0px;
+}
+.phonebtnshow {
+    display:none;
+}
+.insurancebodybox {
+    width: 685px;
+    margin: auto;
+}
+.infotabbox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    position: sticky;
+    background-color: white;
+    /*z-index: 9;*/
+    /*margin: 39px 0px 0px;*/
+    padding: 23px 0px 30px;
+    gap: 10px;
+}
+.infotabbox a {
+    width: auto;
+    padding: 12px 25px 12px 23px;
+}
+.infotabactive {
+    background: #00424e;
+    color: white !important;
+    border: 1px solid #00424e!important;
+}
+.infotabbox a {
+    /*display: block;*/
+    color: #0c3051;
+    font-weight: 400;
+    line-height: 22px;
+    width: 49%;
+    text-align: center;
+    border: 1px solid #D8D9DD;
+    padding: 11px 25px 11px 23px;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-family: 'Bebas Neue Ivyotf' !important;
+    font-size: 14px;
+    letter-spacing: 0.13rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.timeline_line {
+    display:none;
+}
+
+/*indexpage css*/
+.newcontactusbox {
+    background-color: #c2977b;
+    border-radius: 8px;
+    height: 145px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 60px;
+}
+.newcontactusbox p {
+    margin-bottom:0px;
+}
+.newcu_left p:first-child {
+    font-family: 'Mirador SemiBold';
+    color: white;
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+.newcu_left p:last-child {
+    color: #242424;
+}
+.newcu_right_btn {
+    display: block;
+    color: white;
+    background-color: #00424e;
+    font-family: 'Bebas Neue Ivyotf' !important;
+    font-weight: 400;
+    letter-spacing: 0.155rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+    padding: 13px 15px;
+    cursor:pointer;
+}
+.newcu_right_phonenum {
+    display: flex;
+    align-items: center;
+}
+.newcu_right_phonenum img {
+    width: 25px;
+    margin-right: 10px;
+}
+.newcu_right_phonenum p {
+    font-family: 'Bebas Neue Ivyotf' !important;
+    font-size: 26px;
+    color: white;
+}
+.newcu_right {
+    display: flex;
+    align-items: center;
+}
+.newcu_right_phonenum:after {
+    content: '';
+    height: 45px;
+    width: 1px;
+    margin-left: 60px;
+    margin-right: 60px;
+    background-image: linear-gradient(0deg, white 100%, transparent 50%);
+}
+.indexdiscountsection {
+    background-color: #00424e;
+}
+.indexdiscountsection .outer {
+    padding:0px 1.25em;
+}
+.indexdiscountsection .inner {
+    /*height: 184px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;*/
+    padding: 25.5px 0px;
+    margin-top:0px;
+}
+.indexdiscountbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.indexdis_right {
+    text-align:right;
+}
+.indexdis_left {
+    display: flex;
+    align-items: center;
+    width:65%;
+    min-width:65%;
+}
+.dis_leftimg {
+    width: 133px;
+    margin-right: 35px;
+}
+.dis_leftinfo p:first-child {
+    color: #c2977b;
+    font-family: 'Mirador SemiBold';
+    font-size: 46px;
+    line-height:46px;
+    margin-bottom: 10px;
+}
+
+.dis_leftinfo p:last-child {
+    font-family: 'Mirador SemiBold';
+    color: white;
+    font-size: 30px;
+    line-height: 1;
+}
+
+.dis_leftinfo p:last-child a {
+    border-bottom: 1px solid white;
+    line-height: 26px;
+}
+
+.dis_righttop p {
+    display: inline-block;
+    color: white;
+    vertical-align: middle;
+}
+.dis_righttop p span {
+    color: #c2977b;
+    font-family: 'Mirador SemiBold';
+    font-size:28px;
+
+}
+.indexdiscountbtn {
+    display: inline-block;
+    font-weight: bold;
+    color: #242424;
+    background-color: #c2977b;
+    font-family: 'Bebas Neue Ivyotf' !important;
+    font-weight: 400;
+    letter-spacing: 0.155rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+    padding: 13px 15px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+.dis_rightbottom p{
+    font-size: 10px;
+    line-height: 1;
+    text-align: right;
+    color: white;
+}
+.dis_rightbottom {
+    margin-top:15px;
+}
+.bannersearchinput legend {
+    display:none;
+}
+.hero_itemnonebanner .hero__content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-top: 65px;
+}
+.bannersearchinput .indexonpage-search {
+    margin-top: 0;
+    width: 61em !important;
+    background-color: rgba(255,255,255,.4);
+}
+.hero_itemnonebanner .hero__content .contenttitlesmall {
+    color: white;
+    line-height: initial;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom:22px;
+}
+.hero_itemnonebanner .hero__content .contenttitlebig {
+    color: white;
+    font-family: 'Mirador SemiBold';
+    font-size: 68px;
+    line-height: initial;
+}
+/*.hero_itemnonebanner .super-bg {
+    height:545px;
+}*/
+.bannersearchinput .control {
+    margin-top: 0px;
+}
+.bannersearchinput .newscioncontroltwo {
+    width: auto!important;
+}
+.bannersearchinput .newscioncontroltwo .btn {
+    padding: 1em 22px 1em 42px !important;
+    background-image: url(../img/icons/search-icon.min.svg);
+    background-size: 15px;
+    background-position: 15px;
+}
+.bannersearchinput .onpageselect_box {
+    background-image: none!important;
+}
+.bannersearchinput .onpageselect_txt {
+    height: auto;
+    padding: 20px 50px;
+}
+.bannersearchinput .newscioncontrolimgIvyftf .control__field:after {
+    top: 19px !important;
+    left: 20px !important;
+}
+.bannersearchinput .newscioncontrolIvyftf .control__field:after {
+    top: 19px !important;
+    left: 20px !important;
+}
+.bannersearchphone {
+    display: none;
+}
+.bannersearchinput {
+    margin-top: 30px;
+}
+.indexonpage-search form .control {
+    margin-top: 0px;
+}
+
+.selectcitylistbox ul {
+    padding-left: 0px;
+}
+
+.selectcitylistbox ul li {
+    width: 100%;
+}
+
+.selectcitylistbox {
+    background-color: white;
+    padding: 14px 0px;
+    border-radius: 6px;
+    margin-top: 12px;
+    position: absolute;
+    z-index: 1;
+    max-height: 325px;
+    overflow-y: scroll;
+    width: -webkit-fill-available;
+}
+
+.choosescitybox {
+    background-color: #f3ece8;
+    font-family: 'Mirador SemiBold';
+    padding: 10px 3rem 10px 1rem;
+    border-radius: 6px;
+}
+
+.selectcitylistbox ul li p {
+    line-height: 44px;
+}
+
+.choosescitybox {
+    position: relative;
+}
+
+.deletechoosebox {
+    position: absolute;
+    right: 16px;
+    top: 13px;
+    font-family: "Karla", sans-serif !important;
+    outline: none;
+    border: none;
+    color: white;
+    background-color: #c2977b;
+    border-radius: 60%;
+    width: 24px;
+    height: 24px;
+    line-height: 21px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.scionclosetwo_body .ptf__controls {
+    margin-bottom: 0px;
+    justify-content: space-between;
+}
+
+.selectcityselect {
+    line-height: 30px;
+    background-image: url('../../asset/img/ritzimg/select-toggle.minye.svg');
+    background-size: 12px;
+    background-repeat: no-repeat;
+    background-position: right 1.25em center;
+}
+
+.choosescitybox .content span:after {
+    content: ',\00a0';
+    display: inline-block;
+}
+
+.choosescitybox .content span:last-child:after {
+    content: '';
+}
+
+@media screen and (max-width: 75em) {
+    .bannersearchinput .indexonpage-search {
+        width: 55em !important;
+    }
+}
+@media screen and (max-width: 60em) {
+    .bannersearchinput form.form--desktop-inline {
+        display:flex;
+    }
+    .bannersearchinput .control {
+        margin-bottom:0px;
+    }
+    .bannersearchinput .newscioncontrol {
+        width: 40% !important;
+    }
+    .bannersearchinput form.form--desktop-inline .control {
+        margin-bottom: 0;
+        margin-left: 0.625em;
+    }
+}
+@media screen and (min-width:900px) and (max-width:1030px) {
+    .pthover_title, .sciondreamspantwo {
+        font-size: 22px;
+        line-height: 22px;
+    }
+}
+@media screen and (max-width:56.25em) {
+    .scionsplayout--trip-cards .layout__inner .layout__item {
+        width: 35%;
+    }
+    .pthover_title, .sciondreamspantwo {
+        font-size: 22px;
+        line-height: 22px;
+    }
+    .sciondreamspantwo h3 {
+        display: block;
+        width: 100%;
+        font-size: 22px;
+        line-height: 22px;
+    }
+    .aboutusaw, .aboutusrz {
+        display: block;
+    }
+    .aboutusaw .aboutusawlogo, .aboutusrz .aboutusrzlogo {
+        width: 100%;
+    }
+    .aboutusaw p, .aboutusrz p {
+        width: 100%;
+        border-left: none;
+        padding-left: 0;
+    }
+    .aboutusaw p span, .aboutusrz p span {
+        margin-top: 1em;
+    }
+    .aboutusotherinfo {
+        font-size: 28px !important;
+    }
+    .visastyle p, .travelInsurancestyle p, .aboutusstyle p, .beforeyoutripstyle p, .faqstyle p, .travelstylebox p, .visadetailbody p {
+        font-size: 14px !important;
+        color: #616161 !important;
+        font-family: "Karla", sans-serif !important;
+        line-height: 22px;
+    }
+    .sciontravelstyleinfo_list {
+        width: 100%;
+    }
+    .sciontravelstyleflex {
+        display: block;
+    }
+    .sciontsinfo_left span {
+        font-size: 24px;
+    }
+    .newvisabox {
+        width: auto;
+    }
+    .visacountrylist {
+        justify-content: space-between;
+    }
+    .visalist_box {
+        width: 49%;
+    }
+    .detailcontentbox .infoheadbox {
+        margin-bottom: 30px;
+    }
+    .faqouter {
+        padding: 0em;
+    }
+    .faqsearchbox {
+        display: block;
+        padding: 2em 1.25em;
+        margin-top: 29px;
+        padding-bottom: 42px;
+        margin-bottom: 33px;
+        border-radius:0px;
+    }
+    .faqsearchbox label {
+        color: #00424e;
+        font-size: 24px;
+        letter-spacing: -0.42857143px;
+    }
+    .faqsearchbox input {
+        width: 100%;
+        border: 1px solid #d8d9dd;
+        border-radius: 0px;
+        margin: 0.8em 0em;
+        margin-bottom: 20px;
+        border-radius: 4px;
+    }
+    .faqsearchbox button {
+        width: 100%;
+        height: 46px;
+        font-size: 14px;
+        border-radius: 4px;
+    }
+    .faq_bigbox {
+        padding-left: 1.25em;
+        padding-right: 1.25em;
+    }
+    .faqbox {
+        width: 100%;
+        margin-bottom: 2em;
+        margin-right: 0;
+    }
+    h3.faqboxtitle {
+        font-size: 16px !important;
+        color: #242424 !important;
+        line-height: 22px;
+    }
+    .faqbox .faqboxlist p {
+        line-height: 20px;
+        margin-bottom: 17px;
+        color: #00424e !important;
+    }
+    .faq_listbox h2 {
+        font-size: 24px !important;
+        letter-spacing: -0.42857143px;
+        color: #242424;
+    }
+    .faqouter .infodetailhead {
+        padding-left:1.25em;
+        padding-right:1.25em;
+    }
+    .newfaqdetailbox {
+        padding-left: 1.25em;
+        padding-right: 1.25em;
+        padding-top: 0;
+    }
+    .infotabbox {
+        display: block;
+    }
+    .insurancebodybox {
+        width:auto;
+    }
+    .infotabbox a {
+        width:100%;
+    }
+    .infopage-header .primary-nav li.primary-nav__primary > a {
+        color: #616161;
+        font-weight: 300;
+    }
+    .newcu_right_phonenum:after {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .newcu_left p:first-child {
+        margin-bottom: 0;
+    }
+    .newcu_left p:last-child {
+        line-height: 1.2;
+    }
+    .dis_leftinfo p:first-child {
+
+        font-size: 38px;
+        margin-bottom: 10px;
+    }
+    .dis_leftinfo p:last-child {
+        font-size: 20px;
+    }
+    .bannersearchinput .newscioncontroltwo .btn {
+        padding: 13px 12px 13px 28px !important;
+        font-size: 13px;
+        background-position: 10px;
+    }
+    .bannersearchinput .onpageselect_txt {
+        height:auto;
+        padding: 10px 43px;
+        padding-right: 12px;
+    }
+    .bannersearchinput .newscioncontrolimgIvyftf .control__field:after {
+        top: 9px !important;
+        left: 15px !important;
+    }
+    .bannersearchinput .newscioncontrolIvyftf .control__field:after {
+        top: 9px !important;
+        left: 15px !important;
+    }
+    .bannersearchinput .indexonpage-search {
+        width: 50em !important;
+    }
+    .hero_itemnonebanner .hero__content .contenttitlesmall {
+        margin-bottom: 10px
+    }
+    .hero_itemnonebanner .hero__content .contenttitlebig {
+        font-size: 48px;
+    }
+    .blogdetail_first, .blogdetail_second, .blogdetail_videobox {
+        width: auto;
+    }
+    .blogdetailstyle h1 {
+        width:auto;
+    }
+    .page-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+    .newritzcard_body h2 {
+        font-size: 26px;
+        margin-bottom: 0.23rem;
+    }
+    .hotelpophead h1 {
+        width:65%;
+    }
+}
+@media screen and (max-width:43.75em) {
+    .ritzvideolist iframe {
+        height: 220px;
+    }
+    .ritzvideolist {
+        margin-top: 40px;
+    }
+    .ritzlifetimevideobox {
+        padding-top:70px;
+        padding-bottom:43px;
+    }
+    .ritzvideodes {
+        line-height: 1.53rem;
+    }
+
+    .packagelistshowmore {
+        display: block !important;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        border-radius: 4px;
+        border: 1px solid #D8D9DD;
+        box-sizing: border-box;
+        font-size: 14px;
+        margin: 49px 0px 20px;
+    }
+    .scionsplayout--trip-cards .layout__inner .layout__item {
+        width: 63.5%;
+        margin-left: 20px;
+    }
+    .pthover_title, .sciondreamspantwo {
+        font-size: 20px;
+        line-height: 22px;
+    }
+    .pthover_title {
+        margin-bottom: 7px;
+    }
+    .pthover_info {
+        margin-bottom: 5px;
+    }
+    .pthover_other p {
+        -webkit-line-clamp: 5;
+    }
+    .pthover_btn {
+        bottom: 13px;
+    }
+    .scionhomenewbtn .previous {
+        left:12%!important;
+    }
+    .scionhomenewbtn .flickity-prev-next-button:last-child {
+        right:12%!important;
+    }
+    #linkherf {
+        width: 74%;
+        word-break: break-all;
+        line-height: 20px;
+        padding-left:0px;
+    }
+    .aboutusstyle {
+        width:auto;
+    }
+    .infocontent_title {
+        font-size: 34px !important;
+        margin-bottom: 19px !important;
+    }
+    .infoaboutimage {
+        margin-bottom: 30px;
+    }
+    .infopagecontactus p {
+        font-size: 20px;
+        padding: 0;
+        width: 80%;
+        color: #00424E;
+        letter-spacing: -0.5px;
+    }
+    .infodetailhead {
+        margin-bottom: 40px;
+    }
+    .travel-style-banner {
+        height: 208px;
+    }
+    p.newtravelstyleinfotitle {
+        margin-top: 0px;
+        margin-bottom: 31px;
+        padding-top: 3px;
+    }
+    .centered-text {
+        font-size: 34px;
+    }
+    .visalist_box {
+        width: 100%;
+    }
+    .visa_imgbox h2 {
+        font-size:34px;
+    }
+    .banner-container {
+        position: relative;
+        margin-bottom: 7px;
+    }
+    #Leisurely {
+        margin-bottom:100px;
+    }
+    .detailcontentbox .visadetailbody {
+        padding-left: 0em;
+        padding-right: 0em;
+    }
+
+
+
+    .phoneleftwidget {
+        -webkit-transform: translateY(100%);
+        -ms-transform: translateY(100%);
+        transform: translateY(100%);
+        -webkit-transition: -webkit-transform .3s;
+        transition: -webkit-transform .3s;
+        -o-transition: transform .3s;
+        transition: transform .3s;
+        transition: transform .3s, -webkit-transform .3s;
+    }
+
+    .phoneleftwidgetactive {
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+    .phonebtnshow {
+        display: block;
+        position: absolute;
+        right: 18px;
+        top: 30px;
+        z-index: 9;
+    }
+    .faqdetailleftcolumn {
+        padding: 1.25em !important;
+    }
+    .faqdetailcontentlist {
+        width: 100%;
+    }
+    .faqdetailleftcolumn .padiIvyzzt li a{
+        font-size:16px;
+    }
+    .infotabbox {
+        padding: 0px 0px 5px;
+    }
+    .insurancebodybox .infocontent_title {
+        letter-spacing: -0.5px;
+    }
+    .faqstyle {
+        padding-top:0px;
+    }
+    .faqinfopagecontactus {
+        margin: 2em 1.25em 0;
+    }
+    
+    #newafterimg h1 {
+        padding-top: 12px;
+    }
+    .faq_listbox h2 {
+        padding-top: 12px;
+    }
+    .faq_listbox:after {
+        content: '';
+        border-bottom: 1px solid #d8d9dd;
+        display: block;
+        width: 110%;
+        margin-left: -1.25em;
+        margin-right: -1.25em;
+    }
+    .faqinfopagecontactus {
+        margin: 2em 1.25em 0;
+    }
+    .infopagecontactus {
+        height: 216px;
+    }
+    /* .infopage-footer {
+         background: url(../img/footer-logos/footer-wide-break.png) no-repeat center top;
+         background-size: 1012px auto;
+         padding-top: 4.2em;
+         margin-top: 45px;
+     }*/
+    .infopagecontactus span {
+        padding: 10px 0px;
+        margin-top: 0.5em;
+    }
+    .timeline_line {
+        width: 100%;
+        height: 110px;
+        position: relative;
+        z-index: 1;
+        display:block;
+    }
+    .timeline_line div {
+        position: absolute;
+        height: 100%;
+        left: 50%;
+        background: url(../img/ritzimg/leftlineIvysft.gif);
+        background-repeat: repeat-y;
+        width: 1px;
+    }
+    .timeline {
+        margin-bottom: 3.5em;
+        /*border-bottom: 1px dashed #c2977b;*/
+        padding-bottom: 0em!important;
+    }
+    .timeline:after {
+        margin-top: 15px;
+    }
+    .timeline__item:last-child .infoIvyofo {
+        padding-bottom: 0.875rem;
+        margin: 0;
+    }
+    .timeline {
+        border-bottom: 1px dashed #c2977b;
+        padding-bottom: 0.875rem;
+
+    }
+    scionritzltineraryinfobox {
+        border-top:0px!important;
+    }
+    .newcontactusbox {
+        display: block;
+        height: auto;
+        padding: 20px 0px;
+        text-align: center;
+    }
+    .newcu_right {
+        justify-content: center;
+        margin-top:15px;
+    }
+    .newcu_right_phonenum:after {
+        height: 30px;
+    }
+    .newcu_left p:first-child {
+        margin-bottom: 5px;
+    }
+    .newcu_right_phonenum p {
+        font-size: 20px;
+    }
+    .newcu_right_phonenum:after {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .dis_leftimg {
+        margin-right: 10px;
+        width: 100px;
+    }
+    .indexdis_right {
+        text-align: center;
+        border-top: 1px solid white;
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+    .dis_rightbottom p {
+        text-align:center;
+    }
+    .indexdis_left {
+        justify-content: center;
+        width:100%;
+    }
+    .indexdiscountsection .inner {
+        height: auto;
+        display: block;
+        padding:0px;
+    }
+    .indexdiscountbox {
+        display:block;
+    }
+    .indexdiscountsection .outer {
+        padding: 1.25em;
+    }
+    .indexdiscountbtn {
+        margin-left: 10px;
+        padding: 10px 20px;
+    }
+    .newcu_right_btn {
+        padding: 10px 20px;
+    }
+    .hero_itemnonebanner .hero__content .contenttitlesmall {
+        font-size: 18px;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+    .hero_itemnonebanner .hero__content .contenttitlebig {
+        line-height: initial;
+        font-size: 42px;
+        line-height: 42px;
+    }
+    .bannersearchphone {
+        display: flex;
+        background-color: #c2977b;
+        flex-direction: row;
+        align-items: center;
+        width: 90%;
+        position: absolute;
+        bottom: 40px;
+        justify-content: center;
+        flex-wrap: nowrap;
+        padding: 12px 9px;
+        border-radius: 18px;
+        cursor: pointer;
+    }
+    .bannersearchphone img {
+        opacity: 1;
+        display: inline-block;
+        max-width: none;
+        width: 20px;
+        margin: initial;
+    }
+    .bannersearchphone span {
+        display: block;
+        margin-left: 8px;
+        font-size: 20px;
+        color: white;
+        font-family: 'Mirador SemiBold';
+    }
+    .bannersearchinput {
+        display: none;
+    }
+    .hotelpophead #star {
+        display: block;
+        position: relative;
+    }
+    .hotelpophead h1 {
+        width:100%;
+        text-align:left;
+    }
+    .choosescitybox {
+        padding: 14px 1rem;
+    }
+}
+
+/*chatbox make the element position fixed*/
+.chatbox {
+    /*  position: fixed;
+    right: 110px;
+    bottom: 19px;
+    z-index: 10;*/
+
+    position: fixed;
+    right: 30px;
+    bottom: 19px;
+    /*right: auto;
+    left: 52.2%;
+    margin-left: 544px;*/
+    z-index: 10;
+    cursor:pointer;
+}
+
+/*chat rectangle setting*/
+.chatbox-rectangle-container {
+    background-color: #c2977b;
+    border-radius: 8px;
+    padding: 15px 25px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+    /*margin-right: 215px;*/
+    margin-left: -200px;
+}
+
+.first-line {
+    padding: 25px 0 0 10px;
+}
+
+.first-line-text {
+    margin-block-start: 0em;
+    margin-block-end: 18px;
+    font-family: "Mirador SemiBold";
+    font-size: 1.25em;
+    line-height: 0;
+    color: #242424;
+    font-weight: 600;
+}
+
+.second-line {
+    display: flex; /*Make img and text in the same line*/
+    align-items: end; /*Make img and text in the same verticle line*/
+    padding: 0 10px 30px 10px;
+}
+
+.second-line-text {
+    font-family: "Bebas Neue Ivyotf" !important;
+    letter-spacing: 1.86px;
+    margin-block-start: 18px;
+    margin-block-end: 0;
+    font-size: 1.625em;
+    margin: 18px 0 0 12px;
+    line-height: 0;
+    color: #242424;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.chat-rectangle-image {
+    height: 28px;
+    width: 28px;
+    margin-bottom: -13px;
+}
+/*chat circle setting*/
+.chatbox-circle-container {
+    background-color: #c2977b;
+    border-radius: 50%; /*Make the image container from triangle to circle*/
+    width: 44px;
+    height: 44px;
+    padding: 10px 6px 5px 9px;
+    display: none; /* Hide initially */
+    /*margin-right: 213px;*/
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5)
+}
+/* Make image circle*/
+.chat-circle-image {
+    border-radius: 50%; /*Make the image from triangle to circle*/
+    width: 26px;
+    height: 25px;
+}
+@media screen and (min-width: 1320px) {
+    .chatbox {
+        right: auto;
+        left: 52%;
+        margin-left: 544px;
+    }
+}
+@media screen and (max-width: 37.5em) {
+    .chatbox {
+        position: fixed;
+        right: 30px;
+        bottom: 20px;
+        z-index: 10;
+        left: auto;
+        margin-left: 0;
+    }
+    /*chat rectangle setting*/
+    .chatbox-rectangle-container {
+        background-color: #c2977b;
+        border-radius: 8px;
+        padding: 10px;
+        margin-right: 0;
+    }
+    /*chat circle setting*/
+    .chatbox-circle-container {
+        background-color: #c2977b;
+        border-radius: 50%; /*Make the image container from triangle to circle*/
+        width: 44px;
+        height: 44px;
+        display: none; /* Hide initially */
+        margin-right: 0;
+        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+        padding-top: 9px;
+        padding-left: 8px;
+    }
+    /* Make image circle*/
+    .chat-circle-image {
+        border-radius: 50%; /*Make the image from triangle to circle*/
+        width: 28px;
+        height: 26px;
+    }
+
+    .first-line {
+        padding: 25px 0 0 10px;
+    }
+
+    .first-line-text {
+        font-size: 1.5em ;
+    }
+
+    .second-line {
+        padding: 0 10px 30px 10px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1025px) {
+
+
+    .chatbox-circle-container {
+        margin-right: 0;
+        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5)
+    }
+}
+
+/*新增inspiration界面*/
+.inspirationhero {
+
+}
+.inspirationhero img{
+    height: clamp(300px, calc(300px + (100vw - 375px)*((533 - 300) /(1920 - 375))), 533px);
+}
+.inspirationhero .super-bg{
+    height: auto!important;
+}
+
+.inspirationhero h1.reduce {
+    font-family: 'Mirador SemiBold';
+    font-weight: 600 !important;
+    font-size: 68px;
+    line-height: 72px;
+    letter-spacing: -1.7px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.inspirationhero .hero__content p {
+    font-family: 'Karla';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: -0.2px;
+    text-align: center;
+    color: white;
+}
+
+.inspirationhero .hero__content {
+    top: 21.7%;
+}
+
+.inspiration_inner {
+    width: 58.75em;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
+.inspiration_tab {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 46px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.inspiration_tablist {
+    margin-left: 20px;
+}
+
+.inspiration_tablist:first-child {
+    margin-left: 0px;
+}
+
+.inspiration_tablist span {
+    font-family: Mirador SemiBold;
+    font-weight: 500;
+    font-size: 16px;
+    color: #0B0B0B;
+    line-height: 46px;
+    letter-spacing: 0px;
+    text-align: center;
+    background-color: #F3EAE5;
+    border-radius: 4px;
+    height: 41px;
+    display: block;
+    padding: 0px 21.1px;
+    cursor: pointer;
+    word-break: normal;
+    white-space: nowrap;
+    margin-bottom: 10px;
+}
+
+.inspiration_tabactive span {
+    color: white;
+    background-color: #00424E;
+}
+.inspiration_box {
+    border-bottom: 1px dashed #B1BDBF;
+    padding-top: 61px;
+}
+.inspiration_box:first-child {
+    padding-top: 0px;
+}
+.inspiration_title {
+    font-family: Mirador SemiBold;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 46px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #191919;
+    margin-bottom: 5px;
+    word-break: break-word;
+}
+
+.inspiration_subtitle {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.inspiration_subtitle p:first-child {
+    color: #C4987A;
+}
+
+.inspiration_subtitle p:first-child:after {
+    content: "-";
+    color: #C89A76;
+    padding: 0px 7px;
+}
+
+.inspiration_subtitle p {
+    font-family: Mirador SemiBold;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 27px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #434343;
+    word-break: normal;
+    white-space: nowrap;
+}
+
+.inspiration_subtitle p:after {
+    content: "/";
+    color: #C89A76;
+    padding: 0px 7px;
+}
+
+.inspiration_subtitle p:last-child:after {
+    content: none;
+}
+
+.inspiration_line {
+    background-color: #C2977B;
+    width: 65px;
+    height: 4px;
+    display: block;
+    margin: auto;
+    margin-bottom: 25px;
+    margin-top: 17px;
+}
+
+.inspiration_imgbanner div {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+}
+
+.inspiration_imgbanner div img {
+    border-radius: 8px;
+
+}
+
+.inspiration_imgbanner .flickity-prev-next-button svg {
+    display: none;
+}
+
+.inspiration_imgbanner .flickity-prev-next-button {
+    background-image: url('../../asset/img/ritzimg/inspirationbtn.png');
+    width: 58px;
+    height: 58px;
+    background-color: transparent !important;
+    right: -10px;
+}
+
+.inspiration_imgbanner .flickity-prev-next-button.previous {
+    transform: translateX(-100%) translateY(-50%) rotate(-180deg);
+    left: -10px;
+}
+
+.inspiration_imgbanner .previous.disabled {
+    background-image: url('../../asset/img/ritzimg/inspirationbtn_disable.png');
+    transform: translateX(-100%) translateY(-50%);
+    cursor: inherit;
+    pointer-events: none;
+}
+
+.inspiration_imgbanner .next.disabled {
+    background-image: url('../../asset/img/ritzimg/inspirationbtn_disable.png');
+    transform: translateX(100%) translateY(-50%) rotate(-180deg);
+    cursor: inherit;
+    pointer-events: none;
+}
+.inspiration_content {
+    margin-top: 83px;
+    position: relative;
+
+}
+.inspiration_contenthide main {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.inspiration_content h2 {
+    width: 74%;
+    font-family: Mirador SemiBold;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: 0px;
+    color: #252525;
+}
+.inspiration_content h3 {
+    font-family: 'Mirador SemiBold';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 27px;
+    letter-spacing: 0px;
+    color: #313131;
+    margin:0;
+    margin-bottom:19px;
+}
+.inspiration_content h3 span {
+    color: #CA9A74;
+}
+.inspiration_content p {
+    font-family: 'Karla';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    letter-spacing: -0.16px;
+    color: #60605F;
+}
+.inspiration_content a {
+    display: block;
+    font-family: Bebas Neue;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 40px;
+    letter-spacing: 1.8px;
+    text-align: center;
+    width: 160px;
+    height: 40px;
+    background-color: #00424E;
+    color: white;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    right: 10%;
+}
+.inspiration_showmore {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 110px;
+    margin-top: 36px;
+    margin-bottom: 23px;
+}
+.inspiration_showmore span {
+    font-family: Karla;
+    font-weight: 700 !important;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0.2px;
+    text-align: right;
+    color: #C69978;
+    margin-right:7px;
+    cursor: pointer;
+}
+.inspiration_showmore img{
+    cursor: pointer;
+}
+.inspiration_showmore .rotated {
+    transform: rotateZ(-180deg);
+}
+.inspiration_Reviewhide {
+    display:none;
+}
+.inspiration_Review {
+    background-color: #F3EAE5;
+    padding: 34px;
+    padding-bottom: 81px;
+    border-radius: 4px;
+    margin-top: 19px;
+}
+.inspiration_Review div, .inspiration_Review div p{
+    width: 100%;
+    display: block;
+}
+.inspiration_Review div img {
+    width:28px;
+    margin-top:10px;
+    margin-right:45px;
+
+}
+.inspiration_Review .flickity-slider div {
+    display: flex;
+    align-items: flex-start;
+}
+.inspiration_Review .flickity-slider div p {
+    color: #242424;
+}
+.inspiration_Review .flickity-page-dots {
+    bottom: 34px;
+    width: calc(100% - 68px);
+}
+.inspiration_Review .flickity-page-dots .dot {
+    width: 16px;
+    height: 4px;
+    background-color: #B1BDBF;
+}
+.inspiration_Review .flickity-page-dots .dot.is-selected {
+    opacity: .8;
+    background: #C2977B;
+}
+@media screen and (max-width:56.25em) {
+    .inspiration_content{
+        margin-top: 50px;
+    }
+    .inspiration_content a {
+        right: 0;
+    }
+    .inspiration_content h2 {
+        width: 75%;
+    }
+    .inspiration_imgbanner .flickity-prev-next-button.previous {
+        transform: translateX(100%) translateY(-50%) rotate(-180deg);
+    }
+    .inspiration_imgbanner .flickity-prev-next-button.next {
+        transform: translateX(-100%) translateY(-50%);
+    }
+    .inspiration_imgbanner .previous.disabled {
+        transform: translateX(100%) translateY(-50%);
+    }
+    .inspiration_imgbanner .flickity-prev-next-button {
+        width: 40px;
+        height: 40px;
+        background-size: cover;
+    }
+    .inspiration_imgbanner .next.disabled {
+        transform: translateX(-100%) translateY(-50%) rotate(-180deg);
+    }
+}
+@media screen and (max-width:43.75em) {
+    .inspiration_content h2 {
+        width: 55%;
+    }
+}
+@media screen and (min-width:56.25em) {
+    .sub-menu-box {
+        display: flex !important;
+        align-items: flex-start;
+        padding: 0em 1.8em;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    .sub-menu-left .left_column-count {
+        column-count: 3;
+        display: inline-block !important;
+        column-gap: 30px;
+    }
+
+        .sub-menu-left .left_column-count li {
+            width: 100% !important;
+            break-inside: avoid;
+            max-width: 140px;
+        }
+}
+.beforeyourtriptab {
+  display: grid;
+  column-gap: 20px;
+  row-gap: 10px;
+  margin-bottom: 2em;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+  .beforeyourtriptab a {
+    color: #242424;
+    line-height: 22px;
+    text-align: center;
+    border: 1px solid #ececec;
+    padding: 5px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: capitalize;
+    text-decoration: none;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+@media screen and (max-width: 43.75em) {
+  .beforeyourtriptab {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}

@@ -1,0 +1,336 @@
+*{
+    margin: 0%;
+    padding:0%;
+}
+body{
+    background-color:rgb(247, 242, 242);
+}
+/* nav tag */
+nav{
+     display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    /* border: 2px solid red; */
+    align-items: center;
+    padding: 15px;
+    /* position: fixed; */
+    /* width: 100%; */
+}
+nav h3{
+    /* border: 2px solid red; */
+    /* margin-right: 30px;
+    padding: 5px;
+    font-weight: lighter; */
+}
+nav h1 {
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: normal;
+  /* border: 2px solid red; */
+  /* margin-left: 30px;
+  padding: 5px; */
+}
+/* center heading */
+small{
+    /* border: 2px solid red; */
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    padding: 10px;
+    /* width: 100%; */
+}
+/* 1st img box */
+.parent{
+    /* border: 2px solid black; */
+    margin-top: 0px;
+    /* margin: 40px; */
+    margin-left: 0px;
+    margin-bottom: 0px;
+    padding: 50px;
+    display: flex;
+    justify-content:flex-start;
+    gap: 40px;
+    animation: floatimg 3s ease-in-out infinite;
+}
+@keyframes floatimg{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-15px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+ .img1{
+    border: 12px solid white;
+    border-radius: 5px;
+    border-bottom: 40px solid white;
+    transform: skewX(-8deg);
+}
+ .img2{
+    border: 12px solid white;
+    border-radius: 5px;
+    border-bottom: 40px solid white;
+    position: relative;
+    top: 40px;
+    /* margin-bottom: -50px; */
+    transform: skewX(10deg);
+    
+}
+.img3{
+    border: 12px solid white;
+    border-radius: 5px;
+    border-bottom: 40px solid white;
+    transform: skewX(-5deg);
+}
+/* cursive heading */
+.headings{
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: normal;
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+  font-size:200px;
+  color: rgb(78, 58, 32);
+  /* margin-top: -80px; */
+  position: relative;
+  top: -50px;
+  animation: text-focus-in 3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  /* bottom: 50px; */
+  /* transform: scaleX(1.2); */
+}
+@keyframes text-focus-in{
+    0%{
+        opacity: 0;
+        filter: blur(12px);key
+    }
+    100%{
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+main{
+    /* border: 2px ridge red; */
+    height: 800px;
+}
+/* 2nd img box */
+.parent2{
+    /* border: 2px solid black; */
+    padding: 50px;
+    display: flex;
+    justify-content:flex-end;
+    gap: 40px;
+    position: relative;
+    bottom: 140px;
+    animation: floatimg 3s ease-in-out infinite;
+    
+}
+@keyframes floatimg{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-15px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+ .img4{
+    border: 12px solid white;
+    border-radius: 5px;
+    border-bottom: 40px solid white;
+    transform: skewX(-3deg);
+}
+ .img5{
+    border: 12px solid white;
+    border-radius: 5px;
+    border-bottom: 40px solid white;
+    position: relative;
+    top: 40px;
+    transform: skewX(6deg);
+ }
+ .img6{
+    border: 12px solid white;
+    border-radius: 5px;
+    border-bottom: 40px solid white;
+    transform: skewX(-5deg);
+    
+}
+/* marque tag */
+.marque{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-left: 20px;
+    gap: 25px;
+    word-spacing: 3px;
+    letter-spacing:2px;
+    font-size: 20px;
+    padding: 20px;
+    animation: let 10s linear infinite;
+}
+@keyframes let{
+    0%{
+        transform: translateX(-50%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+/* again nessasary tag */
+ .got {
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: normal;
+  /* border: 2px solid red; */
+  margin-left: 30px;
+  padding: 5px;
+  margin-top: 30px;
+ }
+ /* 3rd content box */
+  .parent3{
+    /* border: 2px solid black; */
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    margin-top: 80px;
+    padding:20px;
+  }
+  .child1{
+    /* border: 2px solid red; */
+    width: 450px;
+    height: 400px;
+    /* margin-left: 20px; */
+    /* padding: 50px; */
+  }
+  .got2{
+    margin-bottom: 30px;
+    /* border: 2px solid red; */
+    padding: 10PX;
+  }
+input{
+    border:none;
+    border-bottom: 2px solid grey;
+    background-color: transparent;
+}
+
+/* marquee{ */
+    /* margin-left: 20px;
+    margin-right: 20px; */
+/* } */
+.label1{
+   font-size:20px;
+   font-weight: lighter;
+   margin-top: 40px;
+   /* border: 2px solid red; */
+}
+.label2{
+ font-size:20px;
+   font-weight: lighter;
+   margin-left: 100px;
+}
+.label3{
+ font-size:20px;
+   font-weight: lighter;
+   margin-top: 20px;
+   /* border: 2px solid red; */
+}
+.int1{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+.int3{
+    margin-top: 40px;
+    width: 100%;
+}
+.int2{
+    margin-left: 40px;
+}
+.int4{
+    margin-top: 30px;
+    letter-spacing: 5px;
+    word-spacing: 8px;
+    display:flex;
+    flex-direction: row;
+}
+h2{
+    width: 450px;
+    height: 40px;
+    margin-top: 20px;
+    border-radius: 30px;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(78, 49, 12);
+    color: white;
+}
+/* 3rd content box 2nd child */
+.child2{
+    /* border: 2px solid red; */
+    width: 450px;
+    height: 350px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 30px;
+    margin-top: 80px;
+}
+address{
+  font-family: "Gideon Roman", serif;
+  font-weight: 400;
+  font-style: normal;
+   /* border: 2px solid red; */
+    font-size: 20px;
+    word-spacing: 8px;
+}
+ins{
+     font-family: "Gideon Roman", serif;
+  font-weight: 400;
+  font-style: normal;
+   /* border: 2px solid red; */
+    font-size: 20px;
+    word-spacing: 8px;
+}
+footer{
+     font-family: "Gideon Roman", serif;
+  font-weight: 400;
+  font-style: normal;
+   /* border: 2px solid red; */
+    font-size: 20px;
+    word-spacing: 8px;
+}
+
+.img1:hover{
+    animation: ani 3s infinite;
+}
+
+
+@keyframes ani
+ {
+
+    0% {
+        transform: skewX(-8deg);
+
+    }
+    50%{
+        transform: skewX(10deg);
+
+}
+    100%{
+        transform: skewX(-8deg);
+    }
+
+    
+}

@@ -1,0 +1,287 @@
+﻿const FormValidation = {
+    // Checks if a value is empty:
+    // - Returns true for null, undefined, or strings with only whitespace
+    isEmpty: function (value) {
+        return value === null || typeof value === 'undefined' || String(value).trim().length === 0;
+    },
+
+    // Validates a name string: 
+    // - Allows letters, spaces, and hyphens
+    // - Disallows consecutive spaces or hyphens, and spaces/hyphens next to each other
+    isValidName: function (name, inputId, errorElementId) {
+        const performValidation = (valueToValidate) => {
+            if (this.isEmpty(valueToValidate)) return false;
+
+            const nameStr = String(valueToValidate).trim();
+            if (/[^a-zA-Z\s-]/.test(nameStr)) return false;
+
+            if (/( {2,})|(-{2,})|(- )|( -)/.test(nameStr)) return false;
+
+            if (errorElementId) this.clearError(errorElementId); 
+            return true;
+        };
+
+        return performValidation(name);
+    },
+
+    // Validates email string:
+    // - Allows letters, numbers, and special characters
+    // - Disallows empty
+    isValidEmail: function (email, inputId, errorElementId) {
+        const performEmailValidation = (valueToValidate) => {
+            if (this.isEmpty(valueToValidate)) return false;
+
+            const emailStr = String(valueToValidate).trim();
+            if (emailStr.length > 254) return false;
+            if (emailStr.indexOf('@') === -1) return false;
+
+            const parts = emailStr.split('@');
+            if (parts.length !== 2) return false;
+
+            const [localPart, domainPart] = parts;
+            if (!localPart || localPart.length > 64) return false;
+            if (localPart.startsWith('.') || localPart.endsWith('.')) return false;
+            if (/[^\w.!#$%&'*+/=?^`{|}~-]/.test(localPart)) return false;
+            if (/\.\./.test(localPart)) return false;
+
+            if (!domainPart || domainPart.length > 253) return false;
+            if (/[^a-zA-Z0-9.-]/.test(domainPart)) return false;
+            if (/\.\./.test(domainPart)) return false;
+
+            const domainParts = domainPart.split('.');
+            if (domainParts.length < 2) return false;
+            if (domainParts.some(part => !part.length)) return false;
+            if (domainParts[domainParts.length - 1].length < 2) return false;
+
+            if (errorElementId) this.clearError(errorElementId);
+            return true;
+        };
+
+        return performEmailValidation(email);
+    },
+
+    // Validate if a phone number
+    isValidUSPhoneNum: function (phoneNum, inputId, errorElementId) {
+        const performPhoneValidation = (valueToValidate) => {
+            if (this.isEmpty(valueToValidate)) {
+                return false; // Empty check
+            }
+
+            const justDigits = String(valueToValidate).replace(/\D/g, ''); // Remove all non-digits
+
+            if (justDigits.length !== 10) {
+                return false; // Must be 10 digits
+            }
+
+            // If all checks passed and validation is successful
+            if (errorElementId) {
+                this.clearError(errorElementId); // Clear error as per existing pattern
+            }
+            return true;
+        };
+
+        return performPhoneValidation(phoneNum);
+    },
+
+    isValidDepartureMonth: function(month, inputId, errorElementId){
+        const performMonthValidation = (valueToValidate) => {
+            if(this.isEmpty(valueToValidate)){
+                return false;
+            }
+
+            const monthNum = parseInt(String(valueToValidate).trim(),10);
+
+            if(isNaN(monthNum) || monthNum < 1 || monthNum > 12){
+                return false;
+            }
+
+            if(errorElementId){
+                this.clearError(errorElementId);
+            }
+
+            return true;
+        };
+
+        return performMonthValidation(month);
+    },
+
+    // Check adult number select
+    isValidDepartureYear: function (year, inputId, errorElementId) {
+        const performYearValidation = (valueToValidate) => {
+            if (this.isEmpty(valueToValidate)) {
+                return false; // Empty check
+            }
+
+            const yearNum = parseInt(String(valueToValidate).trim(), 10);
+            const currentYear = new Date().getFullYear();
+        
+            // Check if it's a valid number and within reasonable range (current year to 10 years in future)
+            if (isNaN(yearNum) || yearNum < currentYear || yearNum > (currentYear + 1)) {
+                return false;
+            }
+
+            // If all checks passed and validation is successful
+            if (errorElementId) {
+                this.clearError(errorElementId); // Clear error as per existing pattern
+            }
+            return true;
+        };
+
+        return performYearValidation(year);
+    },
+
+    // Check departure city select
+    isValidDeparuterCity: function (departureCitySelectValue) {
+        return !this.isEmpty(departureCitySelectValue);
+    },
+
+    // Check adult number select
+    isValidAdultPassengers: function (adultPassengerSelectValue) {
+        return !this.isEmpty(adultPassengerSelectValue) && String(adultPassengerSelectValue).trim() !== "0";
+    },
+
+    // Initialize event listeners for input validation
+    initializeValidationListeners: function () {
+        const fields = [
+            {
+                inputId: 'firstName',
+                errorElementId: 'divFirstNameErr',
+                validate: this.isValidName,
+                errorMessage: 'Please input the valid first name.'
+            },
+            {
+                inputId: 'lastName',
+                errorElementId: 'divLastNameErr',
+                validate: this.isValidName,
+                errorMessage: 'Please input the valid last name.'
+            },
+            {
+                inputId: 'email',
+                errorElementId: 'divEmailErr',
+                validate: this.isValidEmail,
+                errorMessage: 'Please input valid email.'
+            },
+            {
+                inputId: 'phoneNumb',
+                errorElementId: 'phoneError',
+                validate: this.isValidUSPhoneNum,
+                errorMessage: 'Please input valid phone number.'
+            },
+            {
+                inputId: 'departureMonth',
+                errorElementId: 'departureMonthError',
+                validate: this.isValidDepartureMonth,
+                errorMessage: 'Please input valid month.'
+            },            {
+                inputId: 'departureYear',
+                errorElementId: 'departureYearError',
+                validate: this.isValidDepartureYear,
+                errorMessage: 'Please input valid year.'
+            }
+        ];
+
+        fields.forEach(field => {
+            const input = document.getElementById(field.inputId);
+            if (input) {
+                const handleEventValidation = () => {
+                    const isValid = field.validate.call(this, input.value, field.inputId, field.errorElementId);
+                    if (!isValid) {
+                        this.showError(field.errorElementId, field.errorMessage);
+                    }
+                };
+                // Remove existing listeners to prevent duplicates (in case of reinitialization)
+                input.removeEventListener('input', input._validationHandler);
+                input.removeEventListener('blur', input._validationHandler);
+                // Store handler for future removal
+                input._validationHandler = handleEventValidation;
+                // Add listeners
+                input.addEventListener('input', handleEventValidation);
+                input.addEventListener('blur', handleEventValidation);
+            }
+        });
+    },
+
+    // Checks if a string contains any numeric digits
+    containsNoNumbers: function (value) {
+        if (this.isEmpty(value)) return true;
+        const numberRegex = /\d/;
+        return !numberRegex.test(String(value));
+    },
+
+    // Display an error message
+    showError: function (elementId, message) {
+        const errorDiv = document.getElementById(elementId);
+        if (errorDiv) {
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+    },
+
+    // Clear the specific error message
+    clearError: function (elementId) {
+        const errorDiv = document.getElementById(elementId);
+        if (errorDiv) {
+            errorDiv.textContent = '';
+            errorDiv.style.display = 'none';
+        }
+    },
+
+    // Clear all the error messages
+    clearAllErrors: function (containerOrStepNum) {
+        let container = null;
+        if (containerOrStepNum instanceof HTMLElement) {
+            container = containerOrStepNum;
+        } else if (typeof containerOrStepNum === 'number' || typeof containerOrStepNum === 'string') {
+            container = document.getElementById(`step${containerOrStepNum}`);
+        }
+
+        if (container) {
+            container.querySelectorAll('[id$="Error"].error-message').forEach(el => {
+                this.clearError(el.id);
+            });
+            container.querySelectorAll('.input-error').forEach(el => {
+                el.classList.remove('input-error');
+                el.removeAttribute('aria-invalid');
+            });
+        }
+    },
+
+    // Radio Button Group Logic
+    isOptionSelected: function (groupSelector, activeClass = 'active') {
+        const group = document.querySelector(groupSelector);
+        if (!group) return false;
+        return group.querySelector(`button.${activeClass}, .${activeClass}`) !== null;
+    },
+
+    getSelectedOptionValue: function (groupSelector, activeClass = 'active') {
+        const group = document.querySelector(groupSelector);
+        if (!group) return null;
+        const activeOption = group.querySelector(`button.${activeClass}, .${activeClass}`);
+        return activeOption ? activeOption.dataset.value : null;
+    },
+
+    initializeOptionGroupsAsRadio: function (groupSelector = '.option-group', activeClass = 'active') {
+        const groups = document.querySelectorAll(groupSelector);
+        const self = this;
+
+        groups.forEach(group => {
+            group.addEventListener('click', function (event) {
+                const clickedOption = event.target.closest('button');
+                if (!clickedOption || !group.contains(clickedOption)) return;
+                if (clickedOption.classList.contains(activeClass)) return;
+
+                const optionsInGroup = group.querySelectorAll('button');
+                optionsInGroup.forEach(opt => opt.classList.remove(activeClass));
+                clickedOption.classList.add(activeClass);
+
+                const errorElementId = group.dataset.errorTargetId;
+                if (errorElementId) { self.clearError(errorElementId); }
+
+                group.dispatchEvent(new CustomEvent('change', {
+                    bubbles: true,
+                    detail: { value: clickedOption.dataset.value, selectedElement: clickedOption }
+                }));
+            });
+        });
+    },
+};

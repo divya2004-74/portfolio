@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 160px;
+            height: 150px;
+            background-color: aqua;
+            margin: 30px;
+            cursor: pointer;
+            transition: all 0.5 ease;
+            animation: anime;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+
+        }
+        .box:hover{
+            transform: scale(1.1) translatey(-10);
+            background-color: blue;
+            border-radius: 20px;
+        }
+        @keyframes anime{
+            50%{
+                background-color: yellow;
+                transform: translate(250px);
+                transform: rotate(250deg);
+                transform: scaleX(1.2);
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

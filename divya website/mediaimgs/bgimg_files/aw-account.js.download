@@ -1,0 +1,144 @@
+$('[data-expand]').on('click', function(ev) {
+  var $this = $(this);
+  var $panel = $($this.data('expand'));
+  if (!$panel.length) {
+    return;
+  }
+  ev.preventDefault();
+  $panel.toggleClass('state--show');
+});
+
+$("#menu-toggle").click(function () {
+    $("#rightDiv").css("position", "relative");
+})
+$("#close-menu").click(function () {
+    $("#rightDiv").css("position", "fixed");
+})
+
+$('[data-expand-change]').each(function() {
+  // console.log();
+  var $toggle = $(this);
+  var $panel = $($toggle.data('expand-change'));
+  $('input[type="radio"][name="' + $toggle.attr('name') + '"]').on(
+    'change',
+    function(ev) {
+      $panel.toggleClass(
+        'state--show',
+        this.hasAttribute('data-expand-change')
+      );
+    }
+  );
+});
+
+// });on('change', function(ev) {
+//   console.log(this);
+// });
+
+$('.back-to-top').on('click', function(ev) {
+  var href = $(this).attr('href');
+  var $target = $(href);
+  if (!$target.length || !$target[0].scrollIntoView) {
+    return;
+  }
+  ev.preventDefault();
+  $target[0].scrollIntoView({
+    block: 'start',
+    behavior: 'smooth'
+  });
+});
+//�˳���¼
+function SignOut() {
+    //window.location.href = "/";
+    $.ajax({
+        type: "post",
+        url: "/Account/ClearCookie",
+        data: {},
+        success: function (result) {
+            window.location.href = "/";
+        },
+        error: function (e) {
+            alert(e.statusText)
+        }
+    });
+}
+
+$("#continueDiv").on('click', '.accountcontinuebtn a', function (e) {
+
+    // 有 etaCheck 才校验
+    if ($(".etaCheck").length > 0 && !$(".etaCheck").prop("checked")) {
+
+        e.preventDefault(); //阻止跳转
+
+        var $err = $("#etaCheckError");
+
+        $err.show();
+
+        // 滚动到提示位置
+        $('html, body').animate({
+            scrollTop: $err.offset().top - 200
+        }, 300);
+
+        return false;
+    }
+    
+    debugger;
+    var $transfers = $('[name^="transfers_"]');
+    var isTransferChecked = true;
+
+    // �ֱ��ȡ���ǵ� name ֵ
+    $transfers.each(function (index, element) {
+        debugger;
+        var transferName = $(element).attr("name");
+        var $isTransfer = $('input[name="' + transferName + '"]'); // ��ȡ���н��ͻ���ѡ�������Ƿ����
+        var $checkedIsTransfer = $('input[name="' + transferName + '"]:checked'); // ��ȡ���н��ͻ���ѡ�򣬴����Ƿ��б�ѡ��
+
+        if ($isTransfer.length !== 0) { // ����ǽ��ͻ�ҳ���ֹ��ס���жϴ治����
+            if ($checkedIsTransfer.length === 0) {
+                e.preventDefault(); // ��ֹ������ת
+                var $alert = $('#alertairtransfer');
+                $alert.show();
+
+                $('html, body').animate({
+                    scrollTop: $alert.offset().top - 150
+                }, 500);
+                setTimeout(function () { $alert.hide(500); }, 5000);
+                isTransferChecked = false;
+                return false;
+            }
+        }
+    });
+
+    $.ajax({
+        type: "post",
+        url: "/AccountAjax/IsSecondChoosedAirTransfer",
+        data: { 'key': getQueryString("UniqueKey"), "isTransferChecked": isTransferChecked },
+        success: function (result) {
+            $("#divExtension").html(result);
+            //$('#loading_' + loading).hide();
+            $("#divcover").hide();
+            saveTourOrder();
+        },
+    });
+
+    // ���ͻ���֤�ɹ���׼��������ת
+    //if (isTransferChecked) {
+    //    $("#divcover").show();
+    //}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

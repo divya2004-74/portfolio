@@ -1,0 +1,1579 @@
+'use strict';
+
+
+/*!
+  * Stickyfill – `position: sticky` polyfill
+  * v. 2.0.5 | https://github.com/wilddeer/stickyfill
+  * MIT License
+  */
+
+!function (a, b) { "use strict"; function c(a, b) { if (!(a instanceof b)) throw new TypeError("Cannot call a class as a function") } function d(a, b) { for (var c in b) b.hasOwnProperty(c) && (a[c] = b[c]) } function e(a) { return parseFloat(a) || 0 } function f(a) { for (var b = 0; a;)b += a.offsetTop, a = a.offsetParent; return b } var g = function () { function a(a, b) { for (var c = 0; c < b.length; c++) { var d = b[c]; d.enumerable = d.enumerable || !1, d.configurable = !0, "value" in d && (d.writable = !0), Object.defineProperty(a, d.key, d) } } return function (b, c, d) { return c && a(b.prototype, c), d && a(b, d), b } }(), h = !1; if (a.getComputedStyle) { var i = b.createElement("div");["", "-webkit-", "-moz-", "-ms-"].some(function (a) { try { i.style.position = a + "sticky" } catch (a) { } return "" != i.style.position }) && (h = !0) } else h = !0; var j = "undefined" != typeof ShadowRoot, k = { top: null, left: null }, l = [], m = function () { function i(a) { if (c(this, i), !(a instanceof HTMLElement)) throw new Error("First argument must be HTMLElement"); if (l.some(function (b) { return b._node === a })) throw new Error("Stickyfill is already applied to this node"); this._node = a, this._stickyMode = null, this._active = !1, l.push(this), this.refresh() } return g(i, [{ key: "refresh", value: function () { if (!h && !this._removed) { this._active && this._deactivate(); var c = this._node, g = getComputedStyle(c), i = { top: g.top, display: g.display, marginTop: g.marginTop, marginBottom: g.marginBottom, marginLeft: g.marginLeft, marginRight: g.marginRight, cssFloat: g.cssFloat }; if (!isNaN(parseFloat(i.top)) && "table-cell" != i.display && "none" != i.display) { this._active = !0; var k = c.parentNode, l = j && k instanceof ShadowRoot ? k.host : k, m = c.getBoundingClientRect(), n = l.getBoundingClientRect(), o = getComputedStyle(l); this._parent = { node: l, styles: { position: l.style.position }, offsetHeight: l.offsetHeight }, this._offsetToWindow = { left: m.left, right: b.documentElement.clientWidth - m.right }, this._offsetToParent = { top: m.top - n.top - e(o.borderTopWidth), left: m.left - n.left - e(o.borderLeftWidth), right: -m.right + n.right - e(o.borderRightWidth) }, this._styles = { position: c.style.position, top: c.style.top, bottom: c.style.bottom, left: c.style.left, right: c.style.right, width: c.style.width, marginTop: c.style.marginTop, marginLeft: c.style.marginLeft, marginRight: c.style.marginRight }; var p = e(i.top); this._limits = { start: m.top + a.pageYOffset - p, end: n.top + a.pageYOffset + l.offsetHeight - e(o.borderBottomWidth) - c.offsetHeight - p - e(i.marginBottom) }; var q = o.position; "absolute" != q && "relative" != q && (l.style.position = "relative"), this._recalcPosition(); var r = this._clone = {}; r.node = b.createElement("div"), d(r.node.style, { width: m.right - m.left + "px", height: m.bottom - m.top + "px", marginTop: i.marginTop, marginBottom: i.marginBottom, marginLeft: i.marginLeft, marginRight: i.marginRight, cssFloat: i.cssFloat, padding: 0, border: 0, borderSpacing: 0, fontSize: "1em", position: "static" }), k.insertBefore(r.node, c), r.docOffsetTop = f(r.node) } } } }, { key: "_recalcPosition", value: function () { if (this._active && !this._removed) { var a = k.top <= this._limits.start ? "start" : k.top >= this._limits.end ? "end" : "middle"; if (this._stickyMode != a) { switch (a) { case "start": d(this._node.style, { position: "absolute", left: this._offsetToParent.left + "px", right: this._offsetToParent.right + "px", top: this._offsetToParent.top + "px", bottom: "auto", width: "auto", marginLeft: 0, marginRight: 0, marginTop: 0 }); break; case "middle": d(this._node.style, { position: "fixed", left: this._offsetToWindow.left + "px", right: this._offsetToWindow.right + "px", top: this._styles.top, bottom: "auto", width: "auto", marginLeft: 0, marginRight: 0, marginTop: 0 }); break; case "end": d(this._node.style, { position: "absolute", left: this._offsetToParent.left + "px", right: this._offsetToParent.right + "px", top: "auto", bottom: 0, width: "auto", marginLeft: 0, marginRight: 0 }) }this._stickyMode = a } } } }, { key: "_fastCheck", value: function () { this._active && !this._removed && (Math.abs(f(this._clone.node) - this._clone.docOffsetTop) > 1 || Math.abs(this._parent.node.offsetHeight - this._parent.offsetHeight) > 1) && this.refresh() } }, { key: "_deactivate", value: function () { var a = this; this._active && !this._removed && (this._clone.node.parentNode.removeChild(this._clone.node), delete this._clone, d(this._node.style, this._styles), delete this._styles, l.some(function (b) { return b !== a && b._parent && b._parent.node === a._parent.node }) || d(this._parent.node.style, this._parent.styles), delete this._parent, this._stickyMode = null, this._active = !1, delete this._offsetToWindow, delete this._offsetToParent, delete this._limits) } }, { key: "remove", value: function () { var a = this; this._deactivate(), l.some(function (b, c) { if (b._node === a._node) return l.splice(c, 1), !0 }), this._removed = !0 } }]), i }(), n = { stickies: l, Sticky: m, addOne: function (a) { if (!(a instanceof HTMLElement)) { if (!a.length || !a[0]) return; a = a[0] } for (var b = 0; b < l.length; b++)if (l[b]._node === a) return l[b]; return new m(a) }, add: function (a) { if (a instanceof HTMLElement && (a = [a]), a.length) { for (var b = [], c = 0; c < a.length; c++) { (function (c) { var d = a[c]; d instanceof HTMLElement ? l.some(function (a) { if (a._node === d) return b.push(a), !0 }) || b.push(new m(d)) : b.push(void 0) })(c) } return b } }, refreshAll: function () { l.forEach(function (a) { return a.refresh() }) }, removeOne: function (a) { if (!(a instanceof HTMLElement)) { if (!a.length || !a[0]) return; a = a[0] } l.some(function (b) { if (b._node === a) return b.remove(), !0 }) }, remove: function (a) { if (a instanceof HTMLElement && (a = [a]), a.length) for (var b = 0; b < a.length; b++)!function (b) { var c = a[b]; l.some(function (a) { if (a._node === c) return a.remove(), !0 }) }(b) }, removeAll: function () { for (; l.length;)l[0].remove() } }; h || function () { function c() { a.pageXOffset != k.left ? (k.top = a.pageYOffset, k.left = a.pageXOffset, n.refreshAll()) : a.pageYOffset != k.top && (k.top = a.pageYOffset, k.left = a.pageXOffset, l.forEach(function (a) { return a._recalcPosition() })) } function d() { f = setInterval(function () { l.forEach(function (a) { return a._fastCheck() }) }, 500) } function e() { clearInterval(f) } c(), a.addEventListener("scroll", c), a.addEventListener("resize", n.refreshAll), a.addEventListener("orientationchange", n.refreshAll); var f = void 0, g = void 0, h = void 0; "hidden" in b ? (g = "hidden", h = "visibilitychange") : "webkitHidden" in b && (g = "webkitHidden", h = "webkitvisibilitychange"), h ? (b[g] || d(), b.addEventListener(h, function () { b[g] ? e() : d() })) : d() }(), "undefined" != typeof module && module.exports ? module.exports = n : a.Stickyfill = n }(window, document);
+
+const $menuToggle = $('#menu-toggle'),
+    $closeMenu = $('#close-menu'),
+    $html = $('html'),
+    $body = $('body'),
+    $bookingTab = $('.booking-summary-tab'),
+    $bookingPage = $('.booking-page'),
+    $bookingSidebar = $('.booking-sidebar'),
+    $sidebarClose = $('.sidebar-close'),
+    browserHash = window.location.hash,
+    $window = $(window),
+    $document = $(document);
+
+
+// add this code
+Flickity.prototype._createResizeClass = function () {
+    this.element.classList.add('flickity-resize');
+};
+
+Flickity.createMethods.push('_createResizeClass');
+
+var resize = Flickity.prototype.resize;
+Flickity.prototype.resize = function () {
+    this.element.classList.remove('flickity-resize');
+    resize.call(this);
+    this.element.classList.add('flickity-resize');
+};
+
+
+
+
+(function ($) {
+    $(function () {
+
+        $html.addClass('js');
+
+
+        // mobile menu toggle
+        $menuToggle.on('click', function (e) {
+            $html.toggleClass('menu-visible');
+            e.preventDefault();
+        });
+        $closeMenu.on('click', function (e) {
+            $html.removeClass('menu-visible');
+            e.preventDefault();
+        });
+
+
+
+        $bookingTab.on('click', function (e) {
+            $bookingPage.toggleClass('state--open');
+            $html.toggleClass('summary--open');
+            e.preventDefault();
+        });
+
+        $('#rightDiv').on('click', $sidebarClose, function (e) {
+            $bookingPage.toggleClass('state--open');
+            $html.toggleClass('summary--open');
+            $body.css('overflow-y', 'auto');
+            e.preventDefault();
+        });
+
+
+        $('[data-toggle="toggle-fixed-search"]').on('click', function (e) {
+            $html.toggleClass('search-visible');
+
+            e.preventDefault();
+        });
+        $('#close-fixed-search').on('click', function (e) {
+            $html.removeClass('search-visible');
+            e.preventDefault();
+        });
+        var headerwidth = $(window).width();
+        if (headerwidth < 900) {
+            //.not('.current-item > a')
+            $('.has-sub > a').on('click', function (e) {
+                var el = e.currentTarget;
+                $(el).toggleClass('sub-open')
+                e.preventDefault();
+            });
+        }
+
+
+        $('body').on('click', '.accordion__trigger', function (e) {
+            var el = e.currentTarget;
+
+            var $accordion = $(el).parents('.accordion');
+            var $accContainer = $accordion.parent('div');
+            var divType = $accordion.attr('name');
+
+            if (divType !== 'branch') {
+                $('.accordion[name="' + divType + '"]', $accContainer).not($accordion).attr('data-state', 'close');
+            } else {
+                $('.accordion', $accContainer).not($accordion).attr('data-state', 'close');
+            }
+
+            // $('.accordion', $accContainer).not($accordion).attr('data-state', 'close');
+
+            $accordion.attr('data-state', $accordion.attr('data-state') == 'open' ? 'close' : 'open');
+
+            e.preventDefault();
+        });
+
+        $('#date-price-toggle').on('click', function (e) {
+            var el = e.currentTarget;
+            $html.toggleClass('show-date-price');
+            datePriceFlickity();
+            e.preventDefault();
+        });
+        //
+        $('.close-dates-prices').on('click', function (e) {
+            var el = e.currentTarget;
+            $html.removeClass('show-date-price');
+            e.preventDefault();
+        });
+
+
+        // close filter drop down if click anywhere else
+        $(document).on('click', '*:not(#date-price-toggle,.sciondatapricepop *,.dates-prices-overlay *)', function () {
+
+            if ($html.hasClass('show-date-price')) {
+                $html.removeClass('show-date-price');
+            }
+        });
+
+
+        // stop any click within bubbling up and closing via the above
+        $(document).on('click', '.dates-prices-overlay *,.sciondatapricepop *,#date-price-toggle', function (e) {
+
+            e.stopPropagation();
+        });
+
+
+
+        function resizeInput() {
+            $(this).attr('size', $(this).val().length);
+        }
+
+        $('input.cloaked-input')
+            // event handler
+            .keyup(resizeInput)
+            // resize on page load
+            .each(resizeInput);
+
+
+
+        // mobile sibling page navigation
+        if ($('.sidebar-primary').length) {
+            if ($('.current-item .sub-menu').length) {
+
+                $('<div class="sibling-page-selector"><select class="sibling-page-select"></select></div>').insertAfter('.content-page__content .section-heading:eq(0)');
+
+                $('.current-item .sub-menu a').each(function () {
+                    var siblingLink = $(this).attr('href');
+                    var siblingText = $(this).text();
+                    var current = $(this).closest('ul').data('currenttab');
+                    if (current === siblingText) {
+                        $('<option value="' + siblingLink + '" data-hash="' + siblingText + '" selected>' + siblingText + '</option>').appendTo('.sibling-page-select');
+                    } else {
+                        $('<option value="' + siblingLink + '" data-hash="' + siblingText + '">' + siblingText + '</option>').appendTo('.sibling-page-select');
+                    }
+                });
+
+                $('.sibling-page-select').on('change', function () {
+                    var goTo = $('option:selected', this).attr('value');
+                    window.location.href = goTo;
+                });
+            }
+        }
+
+
+
+
+        $('[data-expand-trigger]').on('change', function () {
+
+            var $this = $(this);
+            var expandPanel = $('[data-expand-panel="' + $this.attr('data-expand-trigger') + '"]');
+            var elTag = $this.get(0).tagName;
+
+            if (elTag == 'SELECT' && $this.val() || elTag == 'INPUT' && $this.is(':checked')) {
+                expandPanel.addClass('state--show');
+                $this.addClass('state--expanded');
+            } else {
+                expandPanel.removeClass('state--show');
+                $this.removeClass('state--expanded');
+            }
+            datePriceFlickity();
+        });
+
+
+        $('[data-radio-panel]').hide();
+        $('[data-radio-trigger]').on('change', function () {
+            var $this = $(this);
+            var trigger = $this.attr('data-radio-trigger');
+            var showPanel = $('[data-radio-panel="' + trigger + '"]');
+
+            console.log(trigger)
+
+            if ($('[data-radio-trigger="' + trigger + '"].show-panel').is(':checked')) {
+                showPanel.show();
+            } else {
+                showPanel.hide();
+            }
+
+        });
+
+        //$('[data-select-all]').on('change', function(e) {
+        //	var $this = $(e.currentTarget),
+        //		targetGroup = $this.attr('data-select-all'),
+        //		checked = $this.is(':checked');
+
+        //	if (checked){
+        //		$('[data-select="'+targetGroup+'"]').attr('checked', 'checked');
+        //	} else {
+        //		$('[data-select="'+targetGroup+'"]').removeAttr('checked');
+        //	}
+
+        //});
+
+
+
+        /* - - - - - FLICKITY - - - - - - */
+        var $cardSlider = $('.card-slider').flickity({
+            pageDots: false,
+            prevNextButtons: true,
+            cellAlign: 'left',
+            imagesLoaded: true,
+            //freeScroll:true,
+            //count: 2,
+            arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z"
+
+        });
+
+        //$(".card-slider").on('touchstart', function (e) {
+        //    e.preventDefault();
+        //    var $cardSlider = $('.card-slider').flickity({
+        //        pageDots: false,
+        //        prevNextButtons: true,
+        //        cellAlign: 'left',
+        //        imagesLoaded: true,
+        //        //freeScroll:true,
+        //        //count: 2,
+        //        arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z"
+
+        //    });
+        //})
+
+
+
+
+
+        if ($('.date-picker').length) {
+            debugger;
+
+            //$('.date-picker').pikaday({
+            //	firstDay: 1,
+            //    format: 'ddd, MMM DD, YYYY',
+            //	//format: 'MM/DD/YYYY',
+            //	minDate: mindate,
+            //	defaultDate: mindate,
+
+            //});
+
+
+
+
+        }
+
+        // start with month that is 21 days after current date
+        //How to reset/ clear search?
+        // Please use the same arrow icon / style for the drop down boxes
+
+
+        var $reviewSlider, $gallery, $hometypebanner, $scionhometypebanner,
+            $goprivatetourslunbobox, $upgradesbannerbox, $itinerarylunboimg, $upgradetriplunbo, $tripimglunbo, $blogdetail_lunbo;
+
+        for (var i = 0; i < $(".upgradettrip").length; i++) {
+            if ($(".upgradettrip").eq(i).find('.tripimglunbo img').length > 1) {
+                var $tripimglunbo = $(".upgradettrip").eq(i).find('.tripimglunbo').flickity({
+                    pageDots: true,
+                    prevNextButtons: true,
+                    cellAlign: 'left',
+                    imagesLoaded: true,
+                    draggable: false
+                });
+            }
+        }
+
+        if ($('.blogdetail_lunbo img').length > 1) {
+            var $blogdetail_lunbo = $('.blogdetail_lunbo').flickity({
+                pageDots: false,
+                prevNextButtons: true,
+                cellAlign: 'center',
+                imagesLoaded: true,
+                wrapAround: true,
+            });
+        }
+
+
+        setTimeout(function () {
+            var scionwinwidth = $(window).width();
+            if (scionwinwidth < 1153) {
+                var $upgradetriplunbo = $('.upgradetriplunbo').flickity({
+                    pageDots: false,
+                    prevNextButtons: true,
+                    cellAlign: 'left',
+                    imagesLoaded: true,
+                    draggable: true
+                });
+
+            } else {
+                var $upgradetriplunbo = $('.upgradetriplunbo').flickity({
+                    pageDots: false,
+                    prevNextButtons: true,
+                    cellAlign: 'left',
+                    imagesLoaded: true,
+                    draggable: false
+                });
+            }
+        }, 6000)
+
+        $('.videoslider').flickity({
+            pageDots: false,
+            prevNextButtons: true,
+            cellAlign: 'left',
+            imagesLoaded: true,
+            //count: 2,
+            arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z"
+        });
+
+        var $goprivatetourslunbobox = $('.goprivatetourslunbobox').flickity({
+            pageDots: true,
+            prevNextButtons: false,
+            cellAlign: 'left',
+            imagesLoaded: true,
+            arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z"
+        });
+
+
+
+        var $hometypebanner = $('.scionhometypebanner').flickity({
+            pageDots: false,
+            prevNextButtons: false,
+            cellAlign: 'left',
+            imagesLoaded: true,
+            arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z"
+        });
+
+        //$(".scionhometypebanner").on('touchstart', function (e) {
+        //    e.preventDefault();
+        //    var $hometypebanner = $('.scionhometypebanner').flickity({
+        //        pageDots: false,
+        //        prevNextButtons: false,
+        //        cellAlign: 'left',
+        //        imagesLoaded: true,
+        //        arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z"
+        //    });
+        //})
+
+
+
+        for (var i = 0; i < $(".itinerarylunbobox").length; i++) {
+            if ($(".itinerarylunbobox").eq(i).find('.itinerarylunboimg img').length > 1) {
+                var $itinerarylunboimg = $(".itinerarylunbobox").eq(i).find('.itinerarylunboimg').flickity({
+                    pageDots: true,
+                    prevNextButtons: false,
+                    wrapAround: true
+                });
+            }
+        }
+
+        for (var i = 0; i < $(".scionupgradeslunbobox").length; i++) {
+            if ($(".scionupgradeslunbobox").eq(i).find('.upgradesbannerbox img').length > 1) {
+                var $upgradesbannerbox = $(".scionupgradeslunbobox").eq(i).find('.upgradesbannerbox').flickity({
+                    pageDots: true,
+                    prevNextButtons: false,
+                    wrapAround: true,
+                    imagesLoaded: true
+                });
+            }
+        }
+
+
+        if ($('.hometypebanner').length) {
+            var $hometypebanner = $('.hometypebanner').flickity({
+                pageDots: true,
+                prevNextButtons: false,
+                cellAlign: 'left',
+                imagesLoaded: true,
+                arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z"
+            });
+        }
+
+        if ($('.reviews').length) {
+            var $reviewSlider = $('.reviews').flickity({
+                pageDots: true,
+                prevNextButtons: true,
+                cellAlign: 'left',
+                imagesLoaded: true,
+                //count: 1,
+                arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z"
+            });
+        }
+
+
+
+        var $gallery = $('.gallery').flickity({
+            pageDots: true,
+            prevNextButtons: true,
+            cellAlign: 'left',
+            imagesLoaded: true,
+            //count: 1,
+            arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z"
+        });
+
+        window.addEventListener('resize', function () {
+            $gallery.resize(); 
+        });
+
+
+
+        var $priceSlider;
+
+        function datePriceFlickity() {
+            if ($('.date-price-list').length) {
+                if ($priceSlider) {
+                    $priceSlider.flickity('destroy');
+                }
+
+                $('.date-price-list').each(function (i, priceList) {
+
+                    var $priceList = $(priceList),
+                        datePriceWidth = $priceList.css('width').replace('px', ''),
+                        dateItem = $priceList.find('.date-price-list__item'),
+                        dateItemWidth = dateItem.css('width').replace('px', ''),
+                        dateItems = dateItem.length;
+
+                    if ((dateItemWidth * dateItems) > datePriceWidth) {
+
+                        $priceSlider = $priceList.flickity({
+                            pageDots: false,
+                            prevNextButtons: true,
+                            cellAlign: 'left',
+                            imagesLoaded: true,
+                            groupCells: 1,
+                            initialIndex: $('a.date-price[data-yearid="2019"]').length,
+                            //count: Math.floor(datePriceWidth / dateItemWidth),
+                            // need to group cells
+                            arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z"
+                        });
+                    }
+
+                });
+
+
+            }
+        };
+
+
+        if ($('.hero__item').length > 1) {
+            var $reviewSlider = $('.hero').flickity({
+                pageDots: true,
+                prevNextButtons: true,
+                cellAlign: 'left',
+                imagesLoaded: true,
+                wrapAround: true,
+                //count: 1,
+                arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z",
+                autoPlay: 6000
+            });
+        } else {
+            $(".sciononeimgshow").css("display", "block")
+        }
+
+        var direction;
+        var move = {};
+        $('.hero').on('touchstart', function (e) {
+            //获取接触屏幕时的X和Y
+            move.startX = e.originalEvent.changedTouches[0].pageX;
+            move.startY = e.originalEvent.changedTouches[0].pageY;
+        });
+        $('.hero').on('touchmove', function (e) {
+            //获取滑动屏幕时的X,Y
+            move.endX = e.originalEvent.changedTouches[0].pageX;
+            move.endY = e.originalEvent.changedTouches[0].pageY;
+        });
+        $('.hero').on('touchmove', function (e) {
+            //获取滑动屏幕时的X,Y
+            var distanceX = move.endX - move.startX;
+            var distanceY = move.endY - move.startY;
+            if (Math.abs(distanceX) > Math.abs(distanceY) && distanceX > 0) {
+                direction = 'right';
+                e.preventDefault();
+            }
+            else if (Math.abs(distanceX) > Math.abs(distanceY) && distanceX < 0) {
+                direction = 'left';
+                e.preventDefault();
+            }
+            else if (Math.abs(distanceX) < Math.abs(distanceY) && distanceY > 0) {
+                direction = 'down';
+            }
+            else if (Math.abs(distanceX) < Math.abs(distanceY) && distanceY < 0) {
+                direction = 'up';
+            }
+
+            //console.log(direction);
+        });
+
+
+
+        // __ _ _ _ _ __
+
+
+
+        // tabs
+        // - what to do for nested tabs here? IE if hash is a tab that's nested.
+        function selectTabNoHash() {
+            $('[data-tab="control"]').not('.triggered').each(function () {
+
+                var thisSet = $(this).attr('data-tab-set');
+
+                $('[data-tab="control"][data-tab-set="' + thisSet + '"] [data-tab="trigger"]').attr('aria-selected', false);
+                $('[data-tab="control"][data-tab-set="' + thisSet + '"] li:eq(0) [data-tab="trigger"]').attr('aria-selected', true);
+
+                //$('[data-tab-set="' + thisSet + '"] > [data-tab-panel]').not(':eq(0)').attr('aria-hidden', true).hide();
+                //$('[data-tab-set="' + thisSet + '"] > [data-tab-panel]:eq(0)').attr('aria-hidden', false).show();
+            });
+        }
+
+
+        // NEED TO ADD ARIA controls and
+        $('[data-tab="control"]').attr('role', 'tablist');
+        $('[data-tab="trigger"]').each(function () {
+            var $this = $(this);
+            var controls = $this.attr('href').replace('#', '');
+            $this.attr('aria-controls', controls);
+        })
+
+
+
+
+        if ($('[data-tab="control"]').length) {
+
+            if (browserHash && $('[href="' + browserHash + '"]').length) {
+                var $tabTrigger = $('[href="' + browserHash + '"]');
+                setTabs($tabTrigger);
+                $('[href="' + browserHash + '"]').parents('[data-tab="control"]').addClass('triggered');
+            } else {
+                selectTabNoHash();
+            }
+
+
+            $(document).on('click', '[data-tab="trigger"]', function (e) {
+
+                var $tabTrigger = $(e.currentTarget);
+                setTabs($tabTrigger);
+
+                e.preventDefault();
+            });
+
+
+            function setTabs($tabTrigger) {
+                var $toggleControl = $tabTrigger.parents('.toggle-control');
+                var tabSet = $tabTrigger.closest('[data-tab="control"]').attr('data-tab-set');
+                var tabTargetID = $tabTrigger.attr('href');
+
+
+                if ($tabTrigger.parents('[data-tab-set]').length > 1) {
+
+                    $tabTrigger.parents('[data-tab-panel]').each(function () {
+                        var parentTabSet = $(this).parents('[data-tab-set]').attr('data-tab-set');
+                        var parentID = $(this).attr('id');
+
+                        $('[data-tab-set="' + parentTabSet + '"] > [data-tab-panel]').attr('aria-hidden', true).hide();
+                        $('#' + parentID).attr('aria-hidden', false).show();
+                        // tabs
+                        $('.tab-control[data-tab-set="' + parentTabSet + '"] [aria-controls]').attr('aria-selected', false);
+                        $('.tab-control[data-tab-set="' + parentTabSet + '"] li').removeClass('is-active');
+                        // control
+                        $('[href="#' + parentID + '"]').attr('aria-selected', true);
+                        $('[href="#' + parentID + '"]').parent('li').addClass('is-active');
+
+                    });
+                }
+                // _ _ _
+
+
+                //$('html, body').stop().animate({
+                //	'scrollTop': $('[data-tab-set="package-tabs"]:eq(0)').offset().top
+                //}, 100, function () {
+                ////	window.location.hash = target;
+                //});
+
+
+
+
+                //panels
+                $('[data-tab-set="' + tabSet + '"] > [data-tab-panel]').attr('aria-hidden', true).hide();
+                $(tabTargetID).attr('aria-hidden', false).show();
+                $(tabTargetID + '>*').focus(); // focus first element in show tab
+
+                // controls
+                $('[data-tab="control"][data-tab-set="' + tabSet + '"] [aria-controls]').attr('aria-selected', false);
+                $('[data-tab="control"][data-tab-set="' + tabSet + '"] li').removeClass('is-active');
+                // control wrapper (for styling needs)
+                $tabTrigger.attr('aria-selected', true);
+                $tabTrigger.parent('li').addClass('is-active');
+                // update browser histroy so URL can be copy/pasted
+                history.replaceState({}, '', tabTargetID);
+            }
+
+        }
+
+
+
+
+        // MODAL
+        var $modalOverlay = $('.modal-overlay');
+        function openModal($modal) {
+            if ($modal.hasClass('video')) {
+                var video = $modal.find('iframe');
+                video.attr('src', video.attr('data-src'));
+                $('.modal--video').fitVids();
+            }
+
+
+
+
+            $('html').addClass('modal--open');
+            $modalOverlay.css('display', 'block');
+
+            $modalOverlay.css({
+                'opacity': '1',
+                'width': '100%'
+            });
+
+            $modal.addClass('show-modal');
+
+            if ($('.gallery').length) {
+                $gallery.flickity('resize');
+            }
+        }
+
+        function closeModal($trigger) {
+
+            if ($modal.hasClass('video')) {
+                var video = $modal.find('iframe');
+                video.attr('src', '');
+            }
+
+            $modal.hide().removeClass('show-modal');
+            $(".secondpopback").css("display", "none");
+            //	$modalOverlay.delay(800, function(){
+            $modal.attr('style', '');
+            $modalOverlay.attr('style', '');
+            $('html').removeClass('modal--open');
+            //	});
+        }
+
+        var modalTarget,
+            $modal;
+
+
+
+        $(document).on('click', '[data-modal-target]', function (e) {
+            modalTarget = $(this).attr('data-modal-target');
+
+            $modal = $('[data-modal-target-id="' + modalTarget + '"]');
+            openModal($modal);
+            e.preventDefault();
+
+            if ($(".modal-overlay").attr("style")) {
+                //console.log("有style");
+
+            } else {
+                //console.log("没有style");
+                $(".secondpopback").css("display", "block");
+            }
+        });
+
+
+        $(document).on('click', '[data-trigger="close-modal"]', function (e) {
+            var $trigger = $(this);
+            // if $modal is not set try and find the parent modal
+            if (!$modal || !$modal.length) {
+                $modal = $(e.target).parents('[data-modal-target-id]').first();
+            }
+            closeModal($trigger);
+            e.preventDefault();
+        });
+
+        $(".modal-outer").on('click', '[data-trigger="close-modal"]', function (e) {
+            var $trigger = $(this);
+            closeModal($trigger);
+            e.preventDefault();
+        });
+
+        // close filter drop down if click anywhere else
+        $(document).on('click', '.modal-outer', function () {
+            var $closeTrigger = $('.show-modal').find('.close-modal');
+            closeModal($closeTrigger);
+        });
+
+
+        // stop any click within bubbling up and closing via the above
+        $(document).on('click', '.modal *', function (e) {
+            e.stopPropagation();
+        });
+
+
+
+        // lock table header to the top of the screen
+        var $datePriceOverlay = $('.dates-prices-overlay');
+        var $bookingContent = $('.booking-content');
+        var resized = false;
+
+
+        if ($bookingContent.length) {
+
+            var footerOffset = $('.page-footer--booking').offset().top,
+                scrolled = $window.scrollTop(),
+                $footer = $('.page-footer--booking'),
+                $bookingSummary = $('.booking-summary'),
+                $bookingSidebar = $('.booking-sidebar'),
+
+                $sidebarInner = $('.booking-sidebar__inner'),
+                $bookingHeader = $('.booking-header'),
+                $bookingTotal = $('.booking-total'),
+                headerHeight = $bookingHeader.outerHeight();
+
+            var elements = document.querySelectorAll('.booking-sidebar__inner, .booking-summary-tab');
+            Stickyfill.add(elements);
+
+
+
+            function setBookingPadding() {
+                $bookingSummary.css('padding-bottom', $('.booking-total').outerHeight() + 'px');
+            }
+
+            $('.booking-total .accordion__trigger').on('click', function () {
+                setBookingPadding();
+            });
+
+            var $bookingHeaderHeight = $('.booking-header').outerHeight();
+
+            $(window).on('resize', function () {
+                footerOffset = $('.page-footer--booking').offset().top;
+                scrolled = $document.scrollTop();
+                headerHeight = $bookingHeader.outerHeight();
+
+                datePriceFlickity();
+                setBookingPadding();
+                setBookingTabPos();
+            });
+
+            $bookingTab.removeAttr('style');
+            datePriceFlickity();
+            setBookingPadding();
+
+
+            function setBookingTabPos() {
+                // adjust position of bookig tab control
+                if (scrolled < headerHeight) {
+                    $bookingTab.css({
+                        'margin-top': headerHeight - scrolled + 'px'
+                    });
+                } else {
+                    $bookingTab.removeAttr('style');
+                }
+            }
+
+
+            function bookingTotalFix() {
+                function elementScrolled(elem) {
+                    var docViewTop = $window.scrollTop();
+                    var docViewBottom = docViewTop + $window.height();
+                    var elemTop = $(elem).offset().top;
+                    return ((elemTop <= docViewBottom) && (elemTop >= docViewTop));
+                }
+
+                if (scrolled > headerHeight) {
+                    $sidebarInner.addClass('state--noheader')
+                }
+
+                // adjust position of bottom box when footer comes into view
+                if (elementScrolled($footer)) {
+                    var footerViewHeight = scrolled - ($footer.offset().top - $window.height());
+                    footerViewHeight = Math.round(footerViewHeight);
+                    $bookingTotal.css({
+                        'bottom': footerViewHeight + 'px'
+                    });
+                } else {
+                    $bookingTotal.css({
+                        'bottom': 0
+                    });
+                }
+                setBookingTabPos();
+            }
+            bookingTotalFix();
+
+            $window.on('scroll', function () {
+                scrolled = $document.scrollTop();
+                bookingTotalFix();
+
+            });
+
+
+        }
+
+
+        if ($datePriceOverlay.length) {
+
+            var $priceTable = $('.date-price-table'),
+                compensateContainerScroll = $datePriceOverlay.scrollTop(),
+                $tableHead = $priceTable.find('thead'),
+                tableTop = $priceTable.offset().top - $datePriceOverlay.offset().top + compensateContainerScroll,
+                tableHeight = $priceTable.outerHeight(),
+                tableBottom = (tableTop + tableHeight) - $tableHead.outerHeight(),
+                overlayScroll = $datePriceOverlay.scrollTop();
+
+
+            $(window).on('resize', function () {
+
+                $tableHead.attr('style', ''),
+                    resized = true;
+                datePriceFlickity();
+
+                compensateContainerScroll = $datePriceOverlay.scrollTop();
+                // has been resized BUST cache/vars
+                tableTop = $priceTable.offset().top - $datePriceOverlay.offset().top + compensateContainerScroll,
+                    tableHeight = $priceTable.outerHeight(),
+                    tableBottom = (tableTop + tableHeight) - $tableHead.outerHeight(),
+                    overlayScroll = $datePriceOverlay.scrollTop();
+            });
+
+
+
+
+            $datePriceOverlay.scroll(function () {
+                if (resized == true) {
+                    resized = false;
+                }
+
+                overlayScroll = $datePriceOverlay.scrollTop();
+
+                if (overlayScroll >= tableTop && overlayScroll <= tableBottom) {
+                    var transformThead = overlayScroll - tableTop;
+                    $tableHead.css({
+                        '-webkit-transform': 'translateY(' + transformThead + 'px)',
+                        '-moz-transform': 'translateY(' + transformThead + 'px)',
+                        '-ms-transform': 'translateY(' + transformThead + 'px)',
+                        '-o-transform': 'translateY(' + transformThead + 'px)',
+                        'transform': 'translateY(' + transformThead + 'px)'
+                    });
+                    //$('td em[data-tooltip]').addClass('no-tip');
+                } else {
+                    //$('td em[data-tooltip]').removeClass('no-tip');
+                    $tableHead.attr('style', '');
+                }
+            });
+        }
+
+        // phone input
+        $('input[name="phone"]').keyup(function () {
+            var phoneNum = $(this).val().replace("(", "").replace(")", "").replace("-", "");
+            if (phoneNum.length > 10) {
+                $(this).val(phoneNum.substring(0, 10));
+            }
+            $(this).val($(this).val().replace(/^(\d{3})(\d{3})(\d{4})+$/, "($1)$2-$3"));
+        });
+
+        // private tours
+
+        // convert to standard text input when using date picker
+        $('.ptf__dates').find('input[type="date"]').attr('type', 'text');
+
+        // hide select if no flights are included
+        $('.ptf__flights').on('change', function (ev) {
+            $('.ptf__flights_select').toggle(parseInt(ev.target.value, 10) !== 0);
+        });
+
+        function updatePTFDestination($destination) {
+            if (!$destination.length) return;
+            var $region = $destination.find('.ptf__region');
+            var $country = $destination.find('.ptf__country');
+            var $cities = $destination.find('.ptf__cities');
+            // select values and disabled status
+            if ($region.val() === '') {
+                $country.val('');
+                $country.prop('disabled', true);
+                $cities.hide();
+            } else {
+                $country.prop('disabled', false);
+            }
+            // toggle cities visibility
+            if ($country.val() !== '') {
+                $cities.show();
+            } else {
+                $cities.hide();
+            }
+        }
+
+        var destTemplate;
+
+        // setup on page load
+        $('.ptf__destination').each(function () {
+            if (!destTemplate) {
+                destTemplate = $(this)[0].outerHTML;
+            }
+            updatePTFDestination($(this));
+        });
+
+        // configure on select change event
+        $('.ptf').on('change', 'select', function (ev) {
+            updatePTFDestination($(this).closest('.ptf__destination'));
+        });
+
+        // append new destination template with button
+        $('.ptf__add').on('click', function (ev) {
+            var $newDest = $(destTemplate);
+            updatePTFDestination($newDest);
+            $(this).before($newDest);
+        });
+
+    });
+})(jQuery);
+
+
+
+setTimeout(function () {
+    var $divClass = $('.lunboheight');
+    var height = 0;
+    $divClass.each(function () {
+        if ($(this).height() > height) {
+            height = $(this).height();
+        }
+    });
+    $divClass.height(height)
+}, 10000);
+
+
+//分享团行程邮件 Booking 按钮跳转团详情页面时价格和日期默认打开
+$(function () {
+    var isShowDatePrice = getQueryString("isShowDatePrice");
+    if (isShowDatePrice != undefined && isShowDatePrice != null && isShowDatePrice != "") {
+        if (isShowDatePrice.toLowerCase() == "true") {
+            $("#date-price-toggle").click();
+        }
+    }
+    var op2 = getQueryString("op2");
+    if (op2 != undefined && op2 != null && op2 != "" && op2.toLocaleLowerCase() == "open") {
+        $("#date-price-toggle").click(function () {
+            OptionTour2Check();
+        });
+    }
+});
+
+$(document).ready(function () {
+    $(".onpageselect_txt").click(function (event) {
+        event.stopPropagation();
+
+
+        if ($(this).next(".option").is(":hidden")) {
+            $(".onpageselect_txt").next('.option').hide();
+            $(this).next(".option").show();
+        }
+        else {
+            $(".onpageselect_txt").next('.option').hide();
+            $(this).next(".option").hide();
+        }
+    });
+    $(document).click(function (event) {
+        var eo = $(event.target);
+        if (eo.closest(".onpageselect_box").length === 0) {
+            $(".option").hide();
+        }
+    });
+    /*赋值给文本框*/
+    $(".option a").click(function () {
+        var value = $(this).text();
+        $(this).parent().siblings(".onpageselect_txt").text(value);
+        $("#select_value").val(value)
+    })
+})
+
+$(".deslist_box").click(function () {
+    var bool = $(this).find(".deslistmap").is(".mapactive");
+    $(".deslist_box").find(".deslistmap").removeClass("mapactive");
+    $(this).css({ "pointer-events": "none" })
+    $(".deslist_box").css({ "pointer-events": "none" });
+    if (!bool) {
+        $(this).find(".deslistmap").addClass("mapactive");
+        var region = $(this).find(".deslistmap").data("id");
+        $(this).parents("form").find(".option_countrybox").show();
+        $.ajax({
+            type: 'POST',
+            url: "/Home/ChangeCountryByRegion",
+            data: { "region": region },
+            beforeSend: function () {
+                //$("#divcover").show();
+                $('.option_countrylist').html('<img style="width:30px;height:30px;margin:auto;margin-top: 10%; opacity:1 !important" src="/asset/img/ajax-loader.gif"/>');
+
+            },
+            complete: function () {
+                //$("#divcover").hide();
+                $('.option_countrylist').find("img").remove();
+                $(".deslist_box").css({ "pointer-events": "all" })
+
+            },
+            success: function (data) {
+
+                bindData1(data);
+            },
+            error: function () { }
+        });
+    } else {
+        $(this).find(".deslistmap").removeClass("mapactive");
+        $('.option_countrylist').html("");
+        $("input[name='country']").val("");
+        $("input[name='region']").val("");
+        $(".deslist_box").css({ "pointer-events": "all" });
+        $(this).parents("form").find(".option_countrybox").hide();
+    }
+
+
+})
+
+
+$(".option_countrylist span").click(function () {
+    $(this).toggleClass('countryactive');
+})
+
+$(".option_yearlist span").click(function () {
+
+    var bool = $(this).is(".countryactive");
+    var _this = $(this);
+    $(".option_yearlist span").removeClass("countryactive");
+    $(".option_monthlist span").removeClass('countryactive');
+    var year = $(this).text();
+    if (!bool) {
+        $(this).addClass("countryactive");
+        $.ajax({
+            type: "post",
+            url: "/Home/GetSearchDateTime",
+            data: { datatime: year },
+            success: function (res) {
+
+                var currentDate = new Date();
+                var newYear = currentDate.getFullYear();
+                var month = currentDate.getMonth() + 1;
+                $.each(_this.parents(".dataoption").find(".option_monthbox .option_monthlist span"), function () {
+                    var day = $(this).data("days");
+                    var calssThis = $(this);
+
+                    if (res.SearchDate.length > 0) {
+                        $.each(res.SearchDate, function (index, value) {
+                            if (day == value) {
+                                if (newYear == year) {
+                                    if (day >= month) {
+                                        calssThis.removeClass("monthdisable");
+                                        return false;
+                                    } else {
+                                        calssThis.addClass("monthdisable");
+                                        return false;
+                                    }
+                                  
+                                }
+                                else {
+                                    calssThis.removeClass("monthdisable");
+                                    return false;
+                                }
+                               
+                            } else {
+                                calssThis.addClass("monthdisable");
+                            }
+
+                        })
+                    } else {
+                        calssThis.addClass("monthdisable");
+                    }
+
+
+                })
+                _this.parents(".dataoption").find(".option_monthbox").show();
+
+            },
+            error: function () { }
+        });
+
+
+    } else {
+        $(this).removeClass("countryactive");
+        $(this).parents(".dataoption").find(".option_monthbox").hide();
+    }
+
+})
+$(".option_monthlist span").click(function () {
+    if ($(".option_yearlist .countryactive").length > 0) {
+        if ($(this).hasClass("monthdisable")) {
+
+        } else {
+            $(this).toggleClass('countryactive');
+        }
+    }
+
+})
+function bindData1(data) {
+    var list = eval(data);
+    var htmlStr = "";//"<option value=''>Select Country</option>";
+    for (var mod in list) {
+        if (list[mod].Id != "88253") {
+            //   htmlStr += "<option data-country='" + list[mod].Name + "'value='" + list[mod].Id + "'>" + list[mod].Name + "</option>";
+            // htmlStr += "<span data-country='" + list[mod].Name + "'value='" + list[mod].Id + "'>" + list[mod].Name + "</span >";
+            htmlStr += "<span data-id='" + list[mod].CountryId + "'>" + list[mod].CountryName + "</span >";
+
+        }
+    }
+
+    $('.option_countrylist').html(htmlStr);
+    $(".option_countrylist span").click(function () {
+
+        $(this).toggleClass('countryactive');
+
+    })
+}
+ function newshowOptionalTourInfo(opId, day, price, userIsFrom) {
+     $.get('/Home/GetItineraryOptionalTourModal?optionalTourId=' + opId + '&day=' + day, function (result) {
+        $('[name="opPrice"]').html('');
+        $('[name="opPriceOnSite"]').html('');
+        $('[name="opCode"]').html('');
+        $('[name="opTime"]').html('');
+        $('[name="opDuration"]').html('');
+        $('[name="optionalRating"]').html('');
+        $('[name="cityName"]').html('');
+        $('[name="day"]').html('');
+        $('[name="optionalDescription"]').html('');
+        $('[name="optionalActivity"]').html('');
+        $('[name="optionalMeal"]').html('');
+        $('[name="optionalAttractions"]').html('');
+
+        $('.modal__body').scrollTop(0);
+        var hotelwindowwidth = $("body").width();
+        var $article = $('div[data-modal-target-id="optional"]').find('article');
+        $article.removeClass('card card--best-seller card--pre-book');
+        debugger;
+        var optionalTour = result.OptionalTour;
+        $('#opName').text(optionalTour.OptionTourName);
+         if (result.OptionalTour.ImageUrl != "") {
+            $('[name="opGallery"]').find('img').remove();
+           /* $(result.OptionalTour.ImageUrl).each(function (i) {*/
+                if (hotelwindowwidth > 700) {
+                    $('[name="opGallery"]').append('<img src="' + result.OptionalTour.ImageUrl + '"style="width: 800px;"/>');
+                } else {
+                    $('[name="opGallery"]').append('<img src="' + result.OptionalTour.ImageUrl+ '"style="width: 800px;"/>');
+                }
+            /*});*/
+
+            $('[name="opGallery"]').flickity({}).flickity('destroy');
+
+            $('[name="opGallery"]').flickity({
+                pageDots: true,
+                prevNextButtons: true,
+                cellAlign: 'left',
+                imagesLoaded: true,
+                arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z"
+            });
+        } else {
+
+            $('[name="opGallery"]').find('img').remove();
+
+            if (hotelwindowwidth > 700) {
+                $('[name="opGallery"]').append('<img src="' + "/Image/defaultLogo/hotelmoren.png" + '"style="width: 800px;"/>');
+            } else {
+                $('[name="opGallery"]').append('<img src="' + "/Image/defaultLogo/hotelmoren.png" + '"style="width: 800px;"/>');
+            }
+
+            $('[name="opGallery"]').flickity({}).flickity('destroy');
+
+            $('[name="opGallery"]').flickity({
+                pageDots: true,
+                prevNextButtons: true,
+                cellAlign: 'left',
+                imagesLoaded: true,
+                arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z"
+            });
+        }
+
+        if (result.OptionalTour.ImageUrl != "") {
+            // 0 情况下隐藏，因为会有默认图片替换进去
+            //1 情况下隐藏
+           /* if (result.OptionalTour.ImageUrl.length == 0 || result.OptionalTour.ImageUrl.length == 1) {*/
+                $('[name="opGallery"]').find("button").css("display", "none");
+                $('[name="opGallery"]').find("ol").css("display", "none");
+            //}
+
+        } else {
+            $('[name="opGallery"]').find("button").css("display", "none");
+            $('[name="opGallery"]').find("ol").css("display", "none");
+        }
+
+
+        var devFee = 0;//差价
+        if (price != undefined && price > 0) {
+            devFee = price - optionalTour.Price;
+        }
+        if (optionalTour.Price !== 0) {
+            if (optionalTour.IsFrom && userIsFrom != undefined && userIsFrom == true) {
+                $('[name="opPrice"]').html('From $' + (optionalTour.Price + devFee) + ' per person');
+            } else {
+                $('[name="opPrice"]').html('$' + (optionalTour.Price + devFee) + ' per person');
+            }
+
+        }
+        debugger;
+        if (optionalTour.PriceOnSite) {
+            if (!optionalTour.IsPreBooking) {
+                $('[name="opPriceOnSite"]').html('$' + (optionalTour.PriceOnSite + devFee) + ' per person if purchased on site (cash only)');
+                $('[name="opPriceOnSite"]').show();
+            } else {
+                $('[name="opPriceOnSite"]').hide();
+            }
+
+        } else {
+            $('[name="opPriceOnSite"]').hide();
+        }
+
+        $('[name="opCode"]').html('Tour Code: ' + optionalTour.OptionalTourCode);
+
+        $('[name="cityName"]').html(optionalTour.CityName);
+        $('[name="day"]').html("Day " + optionalTour.Day);
+
+
+        if (optionalTour.Duration !== '') {
+            $('[name="extra-time"]').show();
+            $('[name="opTime"]').html(optionalTour.TimeStart + ' - ' + optionalTour.TimeEnd);
+            $('[name="opDuration"]').html(optionalTour.Duration.toLowerCase().trim());
+        }
+        else {
+            $('[name="extra-time"]').hide();
+        }
+
+        if (!optionalTour.AllowOnlineBooking) {
+            $('#optionAvailableOnSite').hide();
+        }
+
+        //if (optionalTour.Rating !== '') {
+        //    $('[name="optionalRating"]').html('<b style="color: #1D2E37;">Rating: </b>' + optionalTour.Rating);            
+        //}
+
+        if (optionalTour.Description !== '') {
+            $('[name="optionalDescription"]').html(optionalTour.Description);
+            //if (optionalTour.Type != "AMBPackageUpgrades")//如果是Package Upgrades类型optional tours, pop-up窗口里的"itinerary"文字不显示
+            //    $('[name="optionalDescription"]').prepend('<p>Itinerary: </p>');
+        }
+
+        if (optionalTour.Activities.length > 0) {
+            var activityHtml = '';
+            $.each(optionalTour.Activities, function (i) {
+                activityHtml += optionalTour.Activities[i].Activity + '<br/>';
+            });
+            if (activityHtml !== '') {
+                $('[name="optionalActivity"]').html(activityHtml);
+                $('[name="optionalActivity"]').prepend('<p>Activity Includes: </p>');
+            }
+
+        }
+
+
+        if (optionalTour.Meals.length > 0) {
+            var mealHtml = '';
+            $.each(optionalTour.Meals, function (i) {
+                mealHtml += optionalTour.Meals[i].Meal + '<br/>';
+            });
+            if (mealHtml !== '') {
+                $('[name="optionalMeal"]').html(mealHtml);
+                $('[name="optionalMeal"]').prepend('<p>Meals: </p>');
+            }
+
+        }
+
+
+
+        var attractions = optionalTour.Attractions;
+        if (attractions.length > 0) {
+            var attractionHtml = '';
+            $.each(attractions, function (i) {
+                var eachAttraction = attractions[i];
+                attractionHtml += '<h2 class="sub-section-heading" style="font-size: 17px;">' + eachAttraction.AttractionName + '</h2>';
+                if (eachAttraction.ImageUrl !== '') {
+                    attractionHtml += '<img src="' + eachAttraction.ImageUrl + '" class="align-right" width="300" alt=" " />';
+                }
+                attractionHtml += '<p style="font-size: 13px;">' + eachAttraction.AttractionDescription + '</p>';
+            });
+            $('[name="optionalAttractions"]').html(attractionHtml);
+        }
+    });
+};
+var modalhotellist = [];
+ function seeHotelDetails (hotelId, isUpgradeHotel, hotelRoomId, dayString) {
+    var hotelType = 1;
+    if (hotelId > 0 && hotelRoomId > 0) {
+        $.get('/Home/SeeHotelRoomDescription?hotelId=' + hotelId + '&isUpgradeHotel=' + isUpgradeHotel + '&roomId=' + hotelRoomId, function (result) {
+            $('#hotelstitle').html(result.HotelName);
+            $(".arrowIvyotfL").val(hotelType);
+            $(".arrowIvyotfR").val(hotelType);
+            if (hotelType != undefined && hotelType != 0) {
+                $(".cityhotels").show();
+                var hotels = result.cityHotels;
+                if (hotels == undefined) {
+                    hotels = modalhotellist;
+                }
+                $('#amountHotels').html(hotels.length);
+                if (hotels.length == 1) {
+                    $(".cityhotels").hide();
+                }
+                //var indexOf = hotels.map(h => h.HotelId).indexOf(hotelId);//报错  但是方法是正确的
+                var indexOf = -1;
+                for (var i = 0; i < hotels.length; i++) {
+                    if (night != undefined && night != 0) {
+                        if (hotels[i].HotelId == hotelId && hotels[i].HotelRoomId == hotelRoomId && hotels[i].Night == night) {
+                            indexOf = i;
+                        }
+                    } else {
+                        if (hotels[i].HotelId == hotelId && hotels[i].HotelRoomId == hotelRoomId) {
+                            indexOf = i;
+                        }
+                    }
+
+                }
+                if (indexOf == -1) {
+                    $(".cityhotels").hide();
+                }
+                $(".arrowIvyotfL").css("opacity", ".7");
+                $(".arrowIvyotfR").css("opacity", ".7");
+                if (indexOf == 0) {
+                    $(".arrowIvyotfL").css("opacity", ".3");
+                    $(".arrowIvyotfR").css("opacity", ".7");
+                }
+                if (indexOf == (hotels.length - 1)) {
+                    $(".arrowIvyotfL").css("opacity", ".7");
+                    $(".arrowIvyotfR").css("opacity", ".3");
+                }
+
+                var olhtml = "";
+                for (var i = 0; i < hotels.length; i++) {
+                    if (i == indexOf) {
+                        olhtml += '<li class="dot is-selected"></li>';
+                    } else {
+                        olhtml += '<li class="dot"></li>'
+                    }
+
+                }
+                $(".flickity-page-dotsIvyotfL").html(olhtml);
+                $('#nowHotels').html(indexOf + 1);
+                modalhotellist = hotels;
+            } else {
+                $(".cityhotels").hide();
+            }
+
+            var hotelwindowwidth = $("body").width();
+
+            if (result.HotelImages != null && result.HotelImages.length > 0) {
+                var galleryOptions = {
+                    pageDots: true,
+                    prevNextButtons: true,
+                    cellAlign: 'left',
+                    imagesLoaded: true,
+                    arrowShape: "M47.1,99.9 L1.5,53.6 C0.1,52.1 0.1,49.8 1.5,48.3 L47.1,2.1 C48.6,0.6 50.9,0.6 52.4,2.1 C53.9,3.6 53.9,5.9 52.4,7.4 L9.5,51 L52.5,94.6 C54,96.1 53.9,98.4 52.5,99.9 C51.8,100.6 50.8,101 49.9,101 C48.8,101 47.9,100.6 47.1,99.9 Z"
+                };
+
+                $('[name="hotelsGallery"]').find('img').remove();
+                $(result.HotelImages).each(function (i) {
+                    if (hotelwindowwidth > 700) {
+                        $('[name="hotelsGallery"]').append('<img src="' + result.HotelImages[i].ImageUrl + '"style=""/>');
+                    } else {
+                        $('[name="hotelsGallery"]').append('<img src="' + result.HotelImages[i].ImageUrl + '"style=""/>');
+                    }
+                });
+
+                $('[name="hotelsGallery"]').flickity({}).flickity('destroy');
+
+                
+                var $gallery = $('[name="hotelsGallery"]').flickity(galleryOptions);
+
+                // 获取实例并立刻 resize 一次，防止初次偏移
+                var flkty = $gallery.data('flickity');
+                flkty.resize();
+
+                
+                
+                // 窗口变化时再 resize
+                window.addEventListener('resize', function () {
+                    flkty.resize();
+                });
+
+            }
+
+
+
+            if (result.HotelImages != null && result.HotelImages.length == 1) {
+                $('[name="hotelsGallery"]').find("button").css("display", "none");
+                $('[name="hotelsGallery"]').find("ol").css("display", "none");
+            }
+            if (result.HotelImages == null) {
+                $('[name="hotelsGallery"]').find("button").css("display", "none");
+                $('[name="hotelsGallery"]').find("ol").css("display", "none");
+            }
+            var starhtml = "";
+            for (var i = 0; i < result.Star; i++) {
+                starhtml += "&#9733;";
+            }
+            //if (isUpgradeHotel === 1 || isUpgradeHotel === 2) {
+            //    if (clickhotel.Lowest != undefined && clickhotel.Lowest > 0) {
+            //        $('#hotelPrices').html(clickhotel.Lowest);
+            //    } else {
+            //       // $('#hotelPrices').html(lowest);
+            //    }
+            //    $('#hotelLowestPrices').show();
+            //} else {
+            //    $('#hotelPrices').html('');
+            //    $('#hotelLowestPrices').hide();
+            //}
+
+
+
+            $('#hotelsstar').html(starhtml);
+            $('#hotelsRoomDescription').html(result.Content);
+            $('#hotelsaddress').html(result.Address);
+            $('#hotelstel').html(result.Tel);
+            if (dayString != "") {
+                $('#dayNights').html(dayString);
+            }
+
+            $('#cityNames').html(result.CityName);
+            if (result.IsdoubleOnly) {
+                $("#DoubleRoom").show();
+            } else {
+                $("#DoubleRoom").hide();
+            }
+
+            //用这个
+            //if (result.IsOnlineBooking && isUpgradeHotel != 0) {
+            //    $('#hotelsAvailableOnSite').show();
+            //} else {
+            //    $('#hotelsAvailableOnSite').hide();
+            //}
+            var websiteHtml = "<a target='_blank' style='font-family: basis-grotesque-regular;color:#2D6497;font-size: 14px;font-weight: 400;line-height: 22px;' href='" + result.Website + "'>View this hotel's website</a>"
+            $('#hotelsWebsite').html(websiteHtml);
+        });
+    }
+
+};
+$(document).ready(function () {
+    //防止用户多次点击
+    function throttle(func, delay) {
+        let lastCall = 0;
+        return function (...args) {
+            const now = new Date().getTime();
+            if (now - lastCall >= delay) {
+                lastCall = now;
+                func(...args);
+            }
+        };
+    }
+    // Function to handle the redirect
+    function redirectTo(url) {
+        window.location.href = url;
+    }
+
+    const throttledRedirect = throttle(redirectTo, 4000);
+
+    var lastClickedLink = null; // 用于存储上一次点击的链接
+
+    $('a').click(function (event) {
+        var link = $(this).attr('href'); // 获取链接地址
+        if (link === lastClickedLink) {
+            //console.log('你点击了相同的链接！');
+            if ($(this).attr('href')) {
+                if (!$(this).attr("target")) {
+                    //console.log("click");
+                    event.preventDefault();
+                    const url = $(this).attr('href');
+                    throttledRedirect(url);
+                }
+            }
+        } else {
+            lastClickedLink = link; // 更新上一次点击的链接
+            //console.log('新链接！');
+        }
+    });
+})
+var hotelListSwiper = new Swiper('.hotels_swiperlist', {
+    slidesPerView: 1.1,
+    spaceBetween: 20,
+    navigation: {
+        nextEl: '.hotels_swiperlist_next',  
+        prevEl: '.hotels_swiperlist_prev', 
+    },
+    pagination: {
+        el: '.swiper-pagination',
+    },
+    breakpoints: {
+        700: {
+            slidesPerView: 2,  
+            spaceBetween: 40,   
+        }
+    }
+});
+var imageSwiper = new Swiper('.hotelsimg_swiper', {
+    slidesPerView: 1,
+    disableSwipe: false,
+    navigation: {
+        nextEl: '.hotels_imgswiperlist_next',  
+        prevEl: '.hotels_imgswiperlist_prev', 
+    },
+});
+
+
+
+var optionalSwiper = new Swiper('.optional_swiper', {
+    slidesPerView: 1.1,         // 默认显示2个
+    spaceBetween: 20,         // 间距
+    navigation: {
+        nextEl: '.optional_swiperbtn_next',  // 下一张按钮
+        prevEl: '.optional_swiperbtn_prev',  // 上一张按钮
+    },
+    pagination: {
+        el: '.swiper-pagination',
+    },
+    breakpoints: {
+        700: {
+            slidesPerView: 2,  // 小于600时，显示一个
+            spaceBetween: 40,
+        }
+        
+    }
+});
+
+let maxHeight = 0;
+setTimeout(function () {
+    $('.optional_swiperlist').each(function () {
+        const height = $(this).outerHeight();
+        if (height > maxHeight) maxHeight = height;
+    });
+    $('.optional_swiperlist').height(maxHeight);
+}, 8000);
+
+setTimeout(function () {
+    $('.hotels_swiperlist').each(function () {
+        const height = $(this).outerHeight();
+        if (height > maxHeight) maxHeight = height;
+    });
+    $('.hotels_swiperlist').height(maxHeight);
+}, 8000);
+//dateprice手机端换行
+function handleDateLineBreak() {
+    if (window.innerWidth <= 600) {
+        $('.scionphoneprice tr td:first-child').each(function () {
+            $(this).html($(this).html().replace(' - ', ' -<br>'));
+        });
+    } else {
+        $('.scionphoneprice tr td:first-child').each(function () {
+            $(this).html($(this).html().replace(' -<br>', ' - '));
+        });
+    }
+}
+
+$(window).on('load', handleDateLineBreak);
+$(window).on('resize', handleDateLineBreak);

@@ -1,0 +1,162 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyFrames ANIMATIONS</title>
+    <style>
+        body{
+            background-color: gray;
+        }
+        /* .box1{
+            width:200px;
+            height:150px;
+            background-color: blue;
+            margin:15px;
+            animation-name: anim;
+            animation-duration: 6s;
+            animation-iteration-count: 4;
+            display: block;
+        } 
+            
+        /* keyframes rules
+          => from 0% to 100%
+          
+
+          .box2{
+            width:150px;
+            height:150px;
+            background-color: magenta;
+            margin:15px;
+             /* animation-name and animation-duration--> mandatory 
+            animation-name: box-anim;
+            animation-duration: 6s;
+            position:relative;
+            left:20px;
+            top:20px; 
+    } 
+            
+         .box3{
+            width:150px;
+            height:150px;
+            background-color: powderblue;
+            margin:15px;
+            /* animation-name and animation-duration--> mandatory 
+            animation-name: box-anim;
+            animation-duration: 6s;
+            /* no of times animation takes place 
+            animation-iteration-count: infinite;
+            /* animation delay 
+            animation-delay: 1s;
+            position:relative;
+            left:20px;
+            top:20px;
+        }  
+       
+        .box4{
+            width:150px;
+            height:150px;
+            background-color: powderblue;
+            margin:15px;
+            /* animation-name and animation-duration--> mandatory 
+            animation-name: box-anim;
+            animation-duration: 6s;
+            /* no of times animation takes place
+            animation-iteration-count:4;
+            /* animation delay 
+            animation-delay: 2s;
+            /* animation-direction 
+            animation-direction:reverse;
+            /* animation-timing function 
+            animation-timing-function:cubic-bezier(0.755, 0.05, 0.855, 0.06);
+            /* animation-fill mode 
+            animation-fill-mode:both;
+            position:relative;
+            left:20px;
+            top:20px;
+        } 
+        */
+        /*
+         .shorthand{
+            width:100px;
+            height:100px;
+            background-color: palevioletred;
+            margin:15px;
+            position: relative;
+            top:20px;
+            left:30px;
+            animation: box-anim 6s linear  2s  infinite reverse backwards;
+             
+        }
+            */
+
+        /* box1 animation */
+        @keyframes anim {
+            from {
+                background-color: brown;
+            }
+            to{
+                background-color: green;
+            }
+        }
+        /* box2 animation  */
+        @keyframes box-anim{
+            0%{background-color: gold;left:20px;top:20px;}
+            25%{background-color: aqua;left:220px;top:20px;}
+            50%{background-color: orange;left:220px;top:220px;}
+            75%{background-color: indigo;left:20px;top:220px;}
+            100%{background-color: purple;left:20px;top:20px;}
+        }
+            
+
+    </style>
+ </head>
+ <body>
+    <!-- keyframes animations in css -->
+
+     <!-- @keyframes - set of rules
+      1.animation-name
+      2.animation-delay
+      3.animation-iteration-count
+      4.animation-duration
+      5.animation-direction
+      6.animation-timing-function
+      7.animation-fill-mode
+      8.animation
+     -->
+
+     <!-- animation-direction:
+      1.normal - animation played as normal(forwards) - it is default
+      2.reverse -  animation played as reverse direction
+      3.alternate -animation played forward first, then backwards
+      4.alternate-reverse - animation played backward first, then forwards-->
+
+      <!-- animation-timing-function:
+       [similar to transition effect properties like
+       ease,ease-in,ease-out.ease-in-out,linear,cubic bezier] 
+       -->
+
+      <!-- animation-fillmode:
+       1.none - default value[no change]
+       2.forwards- element will retain style values that is set by last keyframe
+       [depends on animation-direction and animation-iteration-count]
+       3.backwards -element will retain style values that is set by first keyframe 
+       [depends on animation-direction and retains during animation-delay period]
+       4.both- follows rules of backwards and forwards
+       [extending animation properties in both direction]-->
+
+
+       <!-- finally animation shorthand:
+        animation: animation-name animation-duration animation-timing-function
+                    animation-delay animation-iteration-count animation-direction
+                    animation-fill-mode;-->
+
+
+      <div class="box1"></div>
+      <div class="box2"></div>
+      <div class="box3"></div>
+      <div class="box4"></div>
+      <div class="shorthand"></div>
+    
+ </body>
+ </html>

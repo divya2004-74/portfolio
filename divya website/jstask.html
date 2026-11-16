@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        // 1) Find the number is positive or negative 
+        let a=0
+        if(a>0){
+            console.log("positive")
+        }
+        else{
+            console.log("negative")
+        }
+        
+        // 2)Find the number is positive,negative or zero
+         let a=0
+        if(a>0){
+            console.log("positive")
+        }
+        else if(a<0){
+            console.log("negative")
+        }
+        else{
+            console.log("zero")
+        }
+        // 3) Eligibility to vote
+        let name="santhi"
+        let age=16
+        if(name=="santhi" && age>=18){
+          console.log("eligibility to vote")
+        }
+        else{
+            console.log("not eligibility to vote")
+        }
+        // 4)Eligibility to donate blood
+        let name="Anisha"
+        let blood_group="A+"
+        if(name=="Ahanya" || blood_group=="A+"){
+          console.log(" eligibility to donate blood")
+        }
+        else if(name=="Ayisha"  || blood_group=="A-"){
+            console.log(" not eligibility to donate blood")
+        }
+        // 5)Odd number or Even  number 
+        let n=889663
+        if(n%2==0){
+            console.log("even")
+        }
+        else{
+           console.log("odd")
+        }
+        // 6) Leap number 
+                
+         let e=Number(prompt("enter a year"))
+        // leap  year condition
+        if((e%4===0 && e%100 !==0)||(e%400===0)){
+            console.log(e+"is a leap year"); 
+        }
+        else{
+            console.log(e+"is not a leap year");   
+        }
+
+        //  7) get the total marks and fing the average 
+        let name=("Nivi")
+        let Tamil_mark=80
+        let English_mark=90
+        let maths_mark=70
+        let science_mark=70
+        let social_mark=70
+
+        let total=Tamil_mark+English_mark+maths_mark+science_mark+social_mark;
+        let avg=total/5
+        console.log("Average Marks: "+avg);
+
+        // 8) write a program to convert farenheit to centigrade and viceversa  (c=(5/9)f-32)
+
+        let f=Number(prompt("enter farenheit value:"))
+        let c=((5/9)*f-32)
+        console.log("farenheit value "+Math.round (c))
+         let c1=Number(prompt("enter centigrade value:"))
+        let f1=((9/5)*c1-32)
+        console.log("centigrade value "+Math.round (c1))
+
+        //  9)swap two nos without using third variable
+
+         let a=25
+        let b=10
+          a=a+b 
+        //   a=25+10=35 a=35
+          b=a-b
+        //   b=35-10=25 b=25
+          a=a-b
+        //   a=35-25=10
+          console.log("a value="+a)
+          console.log("b value="+b)
+        
+        //   10)find out whether the number is single digit or not 
+          let a=Number(prompt("enter a number:"))
+        if(a>=0 && a<=9){
+            console.log("it is a single digit number")
+        }
+
+        else{
+            console.log("it is not a singlr digit number")
+        }
+
+        // 11)find the largest of three numbers
+
+        let a=Number(prompt("Enter a value  of a:"))
+        let b=Number(prompt("Enter a value  of b:"))
+        let c=Number(prompt("Enter a value  of c:"))
+        if(a>=b && a>=c){
+            console.log("a is the largest number")
+        }
+        // a should be greater than b and c
+        else if(b>=a && b>=c){
+            console.log("b is the largest number")
+        }
+        //  b should be greater than a and c
+        else{
+            console.log("c is the largest number")
+        }
+        // c should be greater than a and b
+        
+        // 12)using if ,elif,else statement , frame a calculator program 
+
+         let a=Number(prompt("Enter a first number:"))
+        let condition=prompt("Symbol(+,-,*,/)")
+        let b=Number(prompt("Enter a second number:"))
+        if  (condition=="+"){
+            result = a+b
+        }
+        else if(condition=="-"){
+            result=a-b
+        }
+        else if(condition=="*"){
+            result=a*b
+        }
+        else{
+          result=a/b
+        }
+
+        console.log("result"+result)
+
+        // 13)check whether the number is single digit or not..if the given number is single digit then display them in words.
+        
+    let a=Number(prompt("Enter a number"))
+    if (a>=0 && a<=9){
+        // console.log("it is a single digit number"+a)
+     if(a==0){
+  console.log(a+"zero")
+    }
+    else if(a==1){
+        console.log(a+"one")
+    }
+     else if(a==2){
+        console.log(a+"two")
+    }
+     else if(a==3){
+        console.log(a+"three")
+    }
+     else if(a==4){
+        console.log(a+"four")
+    }
+     else if(a==5){
+        console.log(a+"five")
+    }
+     else if(a==6){
+        console.log(a+"six")
+    }
+     else if(a==7){
+        console.log(a+"seven")
+    }
+     else if(a==8){
+        console.log(a+"eight")
+    }
+     else if(a==9){
+        console.log(a+"nine")
+    }
+}
+    else{
+        console.log("it is not a single  digit number")
+    }
+     
+
+    //  14)get the subject marks for a single student program to get total and average and percentage if %>=80   grade 1 % 60 to 80 grade 2 % <60   grade 3
+
+     let name="Aarya"
+        let m1=Number(prompt("enter a tamil mark"))
+        let m2=Number(prompt("enter a english mark"))
+        let m3=Number(prompt("enter a maths mark"))
+        let m4=Number(prompt("enter a science mark"))
+        let m5=Number(prompt("enter a social mark"))
+        let total=m1+m2+m3+m4+m5
+        let percentage=total/5
+        console.log(percentage)
+        if(percentage>=80){
+            console.log(name+"grade-1")
+        }
+        else if(percentage>=60){
+            console.log(name+"grade-2")
+        }
+        else{
+            console.log(name+"grade-3")
+        }
+
+        //  15)calculate the energy bill units consumed          rate 200-300                    100-200                   <100                         3.50 2.50 1.50 
+         
+        let e=Number(prompt("enter a unit"))
+        if(e>=200 && e<=300){
+            bill=e*3.50
+        }
+        else if(e>=100 && e<=200 ){
+            bill=e*2.50
+        }
+        else if(e<=100){
+            bill=e*1.50
+        }
+        else{
+            console.log("invalid uint")
+        }
+        console.log("total bill amount:"+bill)
+        
+
+        // 16) get a two digit number: print the digits of number seperately
+        
+        let a=Number(prompt("entet a number"))
+        if(a>=10 && a<=99){
+         let firstdigit=Math.floor(a/10)
+         let seconddigit=a%10
+        console.log("first digit:"+firstdigit)
+        console.log("second digit:"+seconddigit)
+        }
+        else{
+            console.log("it is not a two digit number")
+        }
+
+        // 17) Get theory score and practical score and check whether it is validProvided: theory total=50 practical total=50 total score=100
+
+     let a=Number(prompt("enter a theory marks"))
+     let b=Number(prompt("enter a practical marks"))
+     let total=a+b
+     if(a<=50 && b<=50){
+        console.log("valid score")
+     }
+     else(
+        console.log("invalid score")
+     )
+     console.log("Total score"+total)
+
+    //  17)Get  name list get the subjects name for language subjects ,maths and social only theory marks for science include both theory and practical find the total and perentage of their score rank them based on their mark
+        
+      // student 1 data
+        let name1="priya"
+        let tamil1=60
+        let english1=70
+        let maths1=50
+        let sci_theory1=55
+        let sci_practical1=35
+        let socil1=56
+        let sci_total1=sci_theory1+sci_practical1
+        let average1=tamil1+english1+maths1+sci_total1+socil1
+        let percentage1=average1/5
+    //    student 2 data
+     let name2="divya"
+        let tamil2=80
+        let english2=75
+        let maths2=40
+        let sci_theory2=45
+        let sci_practical2=40
+        let socil2=60
+        let sci_total2=sci_theory2+sci_practical2
+        let average2=tamil2+english2+maths2+sci_total2+socil2
+        let percentage2=average2/5
+      if(average1 > average2){
+        console.log("1st rank:" +name1)
+        console.log("2nd rank:"+name2)
+      }
+      else if(average2 > average1){
+        console.log("1st rank" +name2)
+        console.log("2nd rank"+name1)
+      }
+      else{
+        console.log("both student got the same mark!");
+        
+      }
+
+*/
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

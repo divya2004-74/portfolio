@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Project</title>
+    <script src="cal.js"></script>
+    <link rel="stylesheet" href="./cal.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js"
+        integrity="sha512-8LENNbXmzI/Gbj+OwXmqR6V4QaUAw0/porPzy1+dQoJqC0JPHedWoe0DDOTL2uHA5XXJyIsPtiMHH86pVlay6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body class="bodyy">
+    <div class="calculator">
+        <!-- theme-switch -->
+        <div class="box1">
+            <div class="theme-switch">
+                <button class="theme" id="dark1">Dark</button>
+                <button class="theme" id="dark2">light</button>
+                <button class="theme" id="dark3">retro</button>
+            </div>
+            <br>
+            <!-- display screen -->
+            <div class="in">
+                <input id="display" type="text" readonly value="">
+            </div>
+            <br>
+            <!-- calculator button -->
+            <div class="box">
+                <button class="addvalue" onclick="allclear('AC')">AC</button>
+                <button class="addvalue" onclick="del('DEL')">DEL</button>
+                <button class="addoperator" onclick="operator('/')">/</button>
+                <button class="addoperator" onclick="operator('*')">*</button>
+            </div>
+            <br>
+            <div class="box">
+                <button class="addvalue" onclick="addvalue('7')">7</button>
+                <button class="addvalue" onclick="addvalue('8')">8</button>
+                <button class="addvalue" onclick="addvalue('9')">9</button>
+                <button class="addoperator" onclick="operator('-')">-</button>
+            </div>
+            <br>
+            <div class="box">
+                <button class="addvalue" onclick="addvalue('4')">4</button>
+                <button class="addvalue" onclick="addvalue('5')">5</button>
+                <button class="addvalue" onclick="addvalue('6')">6</button>
+                <button class="addoperator" onclick="operator('+')">+</button>
+            </div>
+            <br>
+            <div class="box">
+                <button class="addvalue" onclick="addvalue('1')">1</button>
+                <button class="addvalue" onclick="addvalue('2')">2</button>
+                <button class="addvalue" onclick="addvalue('3')">3</button>
+                <button id="addcalc" onclick="calc('=')">=</button>
+            </div>
+            <br>
+            <div class="box">
+                <button class="addvalue" onclick="addvalue('0')">0</button>
+                <button class="addvalue" onclick="addvalue('00')">00</button>
+                <button class="addvalue" onclick="addvalue('.')">.</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        // jquery
+
+        //  dark theme
+        $("document").ready(function () {
+            $("#dark1").click(function () {
+                $("body").css('background', 'linear-gradient(290deg,#060a0d,#35444f)')
+            })
+            $("#dark1").click(function () {
+                $("button").css('background', 'linear-gradient(290deg,#060a0d,#35444f)')
+            })
+            $("#dark1").click(function () {
+                $(".calculator").css('background', 'linear-gradient(290deg,#060a0d,#35444f)')
+            })
+            $("#dark1").click(function () {
+                $("#display").css('background', 'linear-gradient(290deg,#060a0d,#35444f)')
+            })
+            $("#dark1").hover(function () {
+                $(".addvalue").css('color', 'white')
+            })
+            $("#dark1").hover(function () {
+                $(".addoperator").css('color', 'white')
+            })
+            $("#dark1").hover(function () {
+                $("#addcalc").css('color', 'white')
+            })
+
+            // light theme
+            $("#dark2").click(function () {
+                $("body").css('background', 'linear-gradient(290deg,#e4ecf5,#eceff0)')
+            })
+            $("#dark2").click(function () {
+                $("button").css('background', 'linear-gradient(290deg,#e4ecf5,#4f5457)')
+            })
+            $("#dark2").click(function () {
+                $(".calculator").css('background', 'linear-gradient(290deg,#e4ecf5,#4f5457)')
+            })
+            $("#dark2").click(function () {
+                $("#display").css('background', 'linear-gradient(290deg,#e4ecf5,#4f5457)')
+            })
+
+            //retro mood
+            $("#dark3").click(function () {
+                $("body").css('background', 'linear-gradient(135deg,#2b211b,#4a3525,#1a120c)')
+            })
+            $("#dark3").click(function () {
+                $("button").css('background', 'linear-gradient(135deg,#eab308,#ca8a04)')
+            })
+            $("#dark3").click(function () {
+                $(".calculator").css('background', 'linear-gradient(160deg,#1e1b4b,#311042)')
+            })
+            $("#dark3").click(function () {
+                $("#display").css('background', 'linear-gradient(120deg,#eec47b,#f8e02ec3)')
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//          1.Print Numbers: Write a JavaScript program that uses a for loop
+// to print numbers from 1 to 20.
+      /*
+        let a=20
+       for(let i=1; i<=a; i++)
+       {
+        console.log(i)
+       }
+        let b=20
+        for(let i=20; i>=1; i--)
+       {
+        console.log(i)
+       }
+    */
+
+//        2. Even Numbers: Write a JavaScript program that accepts a number n and
+// uses a for loop to print all even numbers from 1 to n.
+          /*
+           let n=Number(prompt("enter a number"))
+           console.log("User entered:"+n)
+           for (let i=1; i<=n; i++){
+               if(i%2==0){
+                console.log(i)
+               }
+            //    else{
+            //     console.log("it is a odd number")
+            //    }
+           }
+            */
+
+//            3. Multiplication Table: Write a JavaScript program that accepts a number and 
+// uses a for loop to display its multiplication table from 1 to 10.
+          
+            /*let v=Number(prompt("enter a number"))
+             console.log("user enterd:"+v)
+           for (let i=1; i<=10; i++ )
+           {
+            //1x4=4
+              console.log(i+"x"+v+"="+i*v)
+           }
+          
+
+//            4. Sum of Numbers: Write a JavaScript program that accepts a number n
+// and uses a for loop to calculate and display the sum of numbers from 1 to n.
+
+        let n=Number(prompt("enter a number"))
+        let sum=0
+        console.log("user enterd:"+n)
+        for(let i=0; i<=n; i++){
+
+            // console.log(i)
+            sum=sum+i//0+0+1+2+..
+        }
+ 
+        console.log(sum);
+        */
+
+
+//         5. Reverse Counting: Write a JavaScript program that accepts a number n
+// and uses a for loop to print numbers from n down to 1.
+        //  let a=Number(prompt("enter a number"))
+        //  console.log("user enterd:"+a);
+        //  for(let i=a; i>=1; i--){
+        //     console.log(i)
+        //  }
+
+
+//         6. Count Digits: Write a JavaScript program that accepts a positive integer and
+// uses a while loop to count and display the number of digits in the given number.
+/*
+let a=Number(prompt("enter a number"))
+let count=0
+
+let b=Math.abs(a)//to make num positive  //678
+if(a==0){
+
+    count=1
+}
+else{
+    while(b>0){//678>0
+        b=Math.floor(b/10)
+        count=count+1
+
+    }
+    console.log(count)
+}
+*/
+
+// 8. Number Guessing: Write a JavaScript program that stores a secret number and 
+// uses a while loop to repeatedly accept guesses until the user enters the correct number, displaying "Correct" when successful.
+/* 
+let a= Math.floor(Math.random()*10) //secret number
+let b=0 //user number
+console.log(a);
+while(a!=b){
+    b=Number(prompt("enter a number"))
+    console.log("You got a secret number")
+    if(b>a){
+        alert("guess number is too high")
+    }
+    else if(b<a){
+        alert("guess number is low")
+    }
+    else{
+        console.log("you got a secret number");
+        
+    }
+}
+*/
+//  9. User Input Until Zero: Write a JavaScript program that repeatedly accepts numbers
+// using a do...while loop, calculates their sum, and stops when the user enters 0, then displays the final sum.
+ /*
+let a;
+console.log("User entered:")
+let sum=0
+do{
+   a=parseInt(prompt("enter a number"))
+    sum+=a
+}while(a!=0){
+console.log(sum)
+}
+*/
+
+// 10. Menu-Driven Program: Write a JavaScript program using a do...while loop to 
+// repeatedly display a menu with options 1. Add, 2. Subtract, 3. Exit, perform the
+// selected operation, and continue until the user chooses Exit.
+
+/*
+let choice;
+do{
+choice=parseInt(prompt("enter a number"))
+switch(choice){
+    case 1:
+    a=parseInt(prompt("enter a number"))
+    b=parseInt(prompt("enter a number"))
+    console.log("Sum"+(a+b))
+    break
+    case 2:
+    a=parseInt(prompt("enter a number"))
+    b=parseInt(prompt("enter a number"))
+    console.log(a-b)
+    break
+    case 3:
+
+    console.log("exit a loop");
+    
+    choice=3
+
+     break
+
+}
+}while(choice!=3)
+/*
+
+
+
+
+    
+
+// let a=Number(prompt("enter a number (0-9)"))
+// switch(a){
+//     case 0:
+//         console.log("Zero"+a);
+//         break
+//         case 1:
+//             console.log("One"+a);
+//             break
+//          case 2:
+//             console.log("Two"+a);
+//             break
+//              case 3:
+//             console.log("Three"+a);
+//             break
+//              case 4:
+//             console.log("Four"+a);
+//             break
+//              case 5:
+//             console.log("Five"+a);
+//             break
+//              case 6:
+//             console.log("six"+a);
+//             break
+//              case 7:
+//             console.log("seven"+a);
+//             break
+//              case 8:
+//             console.log("eight"+a);
+//             break
+//              case 9:
+//             console.log("nine"+a);
+//             default:
+//                 console.log("invalid number")
+            
+            
+        
+// }
+
+
+
+
+
+
+
+
+        
+
+    </script>
+</body>
+</html>

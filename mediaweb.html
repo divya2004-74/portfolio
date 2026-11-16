@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>trippy experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Gloock&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Tapestry&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Gloock&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Sofia&family=Tapestry&display=swap" rel="stylesheet">
+  <!-- css link -->
+  <link rel="stylesheet" href="./mediaweb.css">
+  <!-- google icons link -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+   <!-- <i class="fa-solid fa-phone"></i> -->
+   <!-- jquery link  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js" integrity="sha512-8LENNbXmzI/Gbj+OwXmqR6V4QaUAw0/porPzy1+dQoJqC0JPHedWoe0DDOTL2uHA5XXJyIsPtiMHH86pVlay6A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+   <nav class="customnav">
+    <div class="content">
+      <h2 class="logo">Trippy Experience 🛩️</h2>
+      <div id="hambergar">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <ul class="navpage" id="navpage">
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#Search">Search</a></li>
+        <li><a href="#Review">Review</a></li>
+        <li><a href="#About us">About us</a></li>
+        <li><a href="#Destination">Destination</a></li>
+        <li><a href="#Booking-form">Booking-form</a></li>
+      </ul>
+    </div>
+  </nav>
+       <div class="bgimg" id="Home">
+        <div class="heading" id="Home">
+          <h1>Escape the Ordinary Explore the World</h1>
+          <p>Your ultimate guide to unforgettable adventures </p>
+        </div>
+       </div>
+       <!-- Search for a Trip Section -->
+        <div class="box2" >
+     <div class="search-section" id="Search">
+      <h3>Search for a trip</h3>
+  <form class="search-form">
+    <input type="text" placeholder="Where to go?" />
+    <input type="date" />
+    <button type="submit">Find my trip</button>
+  </form>
+</div>
+
+<!-- Vacation Section -->
+  <section class="main-title" id="Destination">
+    <h2>Find your dream vacation</h2>
+    <p>Explore amazing places around the world with our customized travel packages.</p>
+  </section>
+
+  <!-- Destination Cards Section -->
+  <section class="destination">
+    
+    <!-- Card 1 -->
+    <div class="box" onclick="showImage('./mediaimgs/china.jpg')">
+      <div class="img-box">
+        <img src="./mediaimgs/china.jpg" alt="China">
+        <div class="info">
+          <h3>China</h3>
+          <p>Explore the iconic Great Wall and ancient culture.</p>
+          <span class="rate">From $1,200</span>
+        </div>
+      </div>
+      <h4>China</h4>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="box" onclick="showImage('./mediaimgs/jappan.jpg')">
+      <div class="img-box">
+        <img src="./mediaimgs/jappan.jpg" alt="Japan">
+        <div class="info">
+          <h3>Japan</h3>
+          <p>Experience Mount Fuji and cherry blossoms.</p>
+          <span class="rate">From $1,500</span>
+        </div>
+      </div>
+      <h4>Japan</h4>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="box" onclick="showImage('./mediaimgs/singapour.jpg')">
+      <div class="img-box">
+        <img src="./mediaimgs/singapour.jpg">
+        <div class="info">
+          <h3>Singapore</h3>
+          <p>Discover Marina Bay Sands and modern gardens.</p>
+          <span class="rate">From $990</span>
+        </div>
+      </div>
+      <h4>Singapore</h4>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="box" onclick="showImage('./mediaimgs/maldives.jpg')">
+      <div class="img-box">
+        <img src="./mediaimgs/maldives.jpg">
+        <div class="info">
+          <h3>Maldives</h3>
+          <p>Relax in ocean waters and luxury villas.</p>
+          <span class="rate">From $1,800</span>
+        </div>
+      </div>
+      <h4>Maldives</h4>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="box" onclick="showImage('./mediaimgs/paris.jpg')">
+      <div class="img-box">
+        <img src="./mediaimgs/paris.jpg" alt="Paris">
+        <div class="info">
+          <h3>Paris</h3>
+          <p>Visit Eiffel Tower, museums, and cafes.</p>
+          <span class="rate">From $1,400</span>
+        </div>
+      </div>
+      <h4>Paris</h4>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="box" onclick="showImage('./mediaimgs/switz.jpg')">
+      <div class="img-box">
+        <img src="./mediaimgs/switz.jpg">
+        <div class="info">
+          <h3>Switzerland</h3>
+          <p>Enjoy Alpine mountains and scenic views.</p>
+          <span class="rate">From $2,100</span>
+        </div>
+      </div>
+      <h4>Switzerland</h4>
+    </div>
+
+    <!-- card7 -->
+     <div class="box" onclick="showImage('./mediaimgs/dubai.jpg')">
+      <div class="img-box">
+        <img src="./mediaimgs/dubai.jpg">
+        <div class="info">
+          <h3>Dubai</h3>
+          <p>Experience the world's tallest burj khalifa,thrilling desert safaris,theme parksnand grand shopping malls</p>
+          <span class="rate">From $4,100</span>
+        </div>
+      </div>
+      <h4>Dubai</h4>
+    </div>
+    <!-- card8 -->
+     <div class="box" onclick="showImage('./mediaimgs/th.jpg')">
+      <div class="img-box">
+        <img src="./mediaimgs/th.jpg">
+        <div class="info">
+          <h3>Thailand</h3>
+          <p>Explore stunning island,crystal-clear blue waters and ancient temples </p>
+          <span class="rate">From $3,100</span>
+        </div>
+      </div>
+      <h4>Thailand</h4>
+    </div>
+    
+  </section>
+
+  <!-- Customer Reviews Section -->
+  <section class="reviews-box" id="Review">
+    <h2>What Our Travelers Say</h2>
+    <div class="reviews">
+
+        <div class="review-card">
+          <img src="./mediaimgs/review1.jpg" alt="">
+        <p>"Trippy Experience made our Paris trip absolutely magical! Everything was perfectly organized."</p>
+        <h4>- Priya Sharma</h4>
+      </div>
+        
+      <div class="review-card">
+        <img src="./mediaimgs/review2.jpg" alt="">
+        <p>"Best travel agency! The Japan tour package was smooth, hassle-free, and very affordable."</p>
+        <h4>- Rahul Verma</h4>
+      </div>
+
+      <div class="review-card">
+        <img src="./mediaimgs/review3.jpg" alt="">
+        <p>"Unforgettable Maldives vacation! The customer service team was always helpful throughout."</p>
+        <h4>- Anitha Raman</h4>
+      </div>
+    </div>
+  </section>
+
+<!-- Popup Modal -->
+  <div class="popup" id="imgPopup" onclick="hideImage()">
+    <img id="popupImg" src="" alt="Full View">
+  </div> 
+
+  <!-- Booking Form Section -->
+  <section class="booking-box" id="Booking-form" >
+    <h2>Book Your Trip</h2>
+    <form class="booking-form"  onsubmit="event.preventDefault(); alert('Booking request submitted!');">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <select required>
+        <option value="" disabled selected>Select Destination</option>
+        <option value="china">China</option>
+        <option value="japan">Japan</option>
+        <option value="singapore">Singapore</option>
+        <option value="maldives">Maldives</option>
+        <option value="paris">Paris</option>
+        <option value="dubai">Dubai</option>
+        <option value="Thailand">Thailand</option>
+        <option value="switzerland">Switzerland</option>
+      </select>
+      <input type="number" placeholder="Number of Guests" min="1" required>
+      <button type="submit">Book Now</button>
+    </form>
+  </section>
+
+<!-- about us section -->
+<section class="about-box" id="About us">
+    <h2>About Us</h2>
+    <p>Welcome to Trippy Experience! We are dedicated to creating unforgettable travel experiences for wanderers around the world. From luxury stays to budget-friendly adventures, our customized packages ensure your dream vacation becomes a reality with seamless planning and 24/7 support.</p>
+  </section>
+  <br>
+<!-- Contact Us Section -->
+<div class="contact-section">
+  <h3>Contact Us</h3>
+  <p>Email: info@trippyexperience.com | Phone: 6756793906</p>
+</div>
+</div>
+
+
+
+  
+  <script>
+     
+    //  jquerry
+     $(document).ready(function(){
+      $("#hambergar").click(function(){
+         $(".navpage").toggle("active")
+      })  
+     })
+      // js
+      function showImage(src) {
+  var popup = document.getElementById('imgPopup');
+  var popupImg = document.getElementById('popupImg');
+  
+  popup.style.display = 'flex';
+  popupImg.src = src;
+}
+
+function hideImage() {
+  document.getElementById('imgPopup').style.display = 'none';
+}
+
+  </script>
+</body>
+</html>

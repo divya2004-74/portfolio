@@ -1,0 +1,64 @@
+*{
+   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background:linear-gradient(120deg,rgb(2, 2, 112),rgb(14, 190, 248));
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* nav css */
+.top-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.brand{
+   font-size: 26px;
+  font-weight: 700;
+  color: #00f2fe;
+  letter-spacing: 1px;
+}
+.nav-links{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: space-between;
+    /* border: 2px solid red; */
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+/* nav link anime */
+.nav-links a::after {
+  content: '';
+  /* position: absolute;
+  width: 0;  */
+  height: 2px;
+  bottom: -4px;
+  /* left: 0;  */
+  background-color: #ffb703;
+  transition: width 0.3s ease-in-out;
+}
+.nav-links a:hover {
+  color: #ffb703;
+}
+.nav-links a:hover::after {
+  width: 100%;
+}
+.nav-links a{
+    color: white;
+    text-decoration: none;
+}
+/* heading */
+.hero-info h1{
+  
+}
+.hero-info p{
+ 
+}

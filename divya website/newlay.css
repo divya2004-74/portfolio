@@ -1,0 +1,21 @@
+.parent
+{
+    height: 500px;
+    border: 2px ridge red;
+    display: flex;
+    flex-direction: row;
+    /* flex axis 
+    primary axis---
+    cross axis
+    */
+
+    justify-content: space-evenly;    /* move child through primary axis */
+    align-items: start; /* move child through cross axis */
+
+}
+
+.ch{
+    border: 2px ridge black; 
+    width: 100px;
+    height: 100px;
+}

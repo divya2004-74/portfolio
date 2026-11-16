@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive BMI Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f9; color: #333; }
+        .calculator { max-width: 400px; margin: auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select { width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        button { width: 100%; padding: 10px; background: #007BFF; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .result { margin-top: 20px; padding: 15px; background: #eef; border-radius: 4px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <h2>BMI Calculator</h2>
+    
+    <!-- Unit Selection -->
+    <div class="group">
+        <label for="unitSystem">Unit System</label>
+        <select id="unitSystem" onchange="toggleUnits()">
+            <option value="metric">Metric (kg / cm)</option>
+            <option value="imperial">Imperial (lb / inches)</option>
+        </select>
+    </div>
+
+    <!-- Age Input -->
+    <div class="group">
+        <label for="age">Age (Years)</label>
+        <input type="number" id="age" min="2" max="120" placeholder="e.g., 25">
+    </div>
+
+    <!-- Weight Input -->
+    <div class="group">
+        <label id="weightLabel" for="weight">Weight (kg)</label>
+        <input type="number" id="weight" step="0.1" placeholder="e.g., 50">
+    </div>
+
+    <!-- Height Input -->
+    <div class="group">
+        <label id="heightLabel" for="height">Height (cm)</label>
+        <input type="number" id="height" step="0.1" placeholder="e.g., 157">
+    </div>
+
+    <button onclick="calculateBMI()">Calculate BMI</button>
+
+    <div id="resultBox" class="result" style="display:none;"></div>
+</div>
+
+<script>
+function toggleUnits() {
+    const system = document.getElementById("unitSystem").value;
+    const weightLabel = document.getElementById("weightLabel");
+    const heightLabel = document.getElementById("heightLabel");
+    const weightInput = document.getElementById("weight");
+    const heightInput = document.getElementById("height");
+
+    if (system === "metric") {
+        weightLabel.innerText = "Weight (kg)";
+        heightLabel.innerText = "Height (cm)";
+        weightInput.placeholder = "e.g., 50";
+        heightInput.placeholder = "e.g., 157";
+    } else {
+        weightLabel.innerText = "Weight (lbs)";
+        heightLabel.innerText = "Height (inches)";
+        weightInput.placeholder = "e.g., 110";
+        heightInput.placeholder = "e.g., 62";
+    }
+}
+
+function calculateBMI() {
+    const system = document.getElementById("unitSystem").value;
+    const age = parseInt(document.getElementById("age").value);
+    const weight = parseFloat(document.getElementById("weight").value);
+    const height = parseFloat(document.getElementById("height").value);
+    const resultBox = document.getElementById("resultBox");
+
+    // Validation
+    if (isNaN(age) || isNaN(weight) || isNaN(height) || age <= 0 || weight <= 0 || height <= 0) {
+        resultBox.style.display = "block";
+        resultBox.innerHTML = "Please enter valid numbers for all fields.";
+        return;
+    }
+
+    let bmi = 0;
+
+    // Core Calculation Logic
+    if (system === "metric") {
+        // height converted from cm to meters
+        const heightInMeters = height / 100;
+        bmi = weight / (heightInMeters * heightInMeters);
+    } else {
+        // Imperial formula: (weight_lbs / height_inches^2) * 703
+        bmi = (weight / (height * height)) * 703;
+    }
+
+    bmi = Math.round(bmi * 10) / 10; // Round to 1 decimal place
+
+    // Age Classification Logic
+    let classification = "";
+    if (age < 20) {
+        // Under 20 requires standardized CDC percentile charts for an exact assessment.
+        // This is a placeholder showing the logical path branch needed for minors.
+        classification = `Child/Teenager (Age ${age}). BMI scores for minors must be cross-checked against pediatric growth percentiles rather than rigid adult scales.`;
+    } else {
+        // Standard static WHO/CDC Adult thresholds
+        if (bmi < 18.5) classification = "Underweight";
+        else if (bmi >= 18.5 && bmi <= 24.9) classification = "Normal / Healthy Weight";
+        else if (bmi >= 25.0 && bmi <= 29.9) classification = "Overweight";
+        else classification = "Obese";
+    }
+
+    // Output rendering
+    resultBox.style.display = "block";
+    resultBox.innerHTML = `Your BMI is: ${bmi}<br>Status: ${classification}`;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.nav{
+    /* border: 2px ridge red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: bisque;
+    height: 100px;
+}
+
+.nav h1{
+    background-color: brown;
+}
+
+.nav-bar{
+    display: flex;
+    /* border: 2px ridge red; */
+    width: 300px;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.nav ul li{
+    background-color: chocolate;
+    padding: 10px;
+}
+
+.nav ul .f{
+    background-color: skyblue;
+    border-radius: 20px;
+}
+
+/* .sec li{
+    background-color: cornflowerblue;
+} */

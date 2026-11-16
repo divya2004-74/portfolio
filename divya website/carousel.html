@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .carousel{
+            position: relative;
+            width: 400px;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .slides{
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+        }
+        .slides img{
+            width: 400px;
+            height: 250px;
+            object-fit: cover;
+        }
+        .btn{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.6);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        .prev {
+            left:10px
+        }
+        .next{
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <div class="slides" id="slidebox">
+            <img src="./mediaimgs/dubai.jpg" alt="">
+            <img src="./mediaimgs/chinawall.jpg" alt="">
+            <img src="./mediaimgs/bd img5.jpg" alt="">
+        </div>
+        <button class="btn prev" onclick="changeSlide(-1)"></button>
+        <button class="btn next" onclick="changeSlide(1)">></button>
+    </div>
+    <script>
+       let index = 0;
+
+function changeSlide(step) {
+  const slides = document.querySelectorAll('#slideBox img');
+  const total = slides.length;
+  index = index + step;
+
+  if (index >= total) {
+    index = 0;
+  }
+  if (index < 0) {
+    index = total - 1;
+  }
+
+  document.getElementById('slideBox').style.transform = `translateX(-${index * 400}px)`;
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: cursive;
+}   
+
+   /* body styling */
+body{
+    background:linear-gradient(290deg,#5da2d0,#ff6af7);
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  
+}
+#display{
+     background:linear-gradient(220deg,#0bd5f8,#ff6af7);
+     text-align: end;
+    width: 400px;
+    padding: 20px;
+    /* margin: 20px; */
+    border: 2px solid rgb(255, 42, 248);
+    height: 60px;
+    font-size: 30px;
+    color: beige;
+    border-radius: 50px;
+    box-shadow: 3px 5px 8px rgba(19, 200, 241, 0.9);
+}
+/* calculator styling */
+.box1{
+    /* border: 2px solid navy; */
+    padding: 10px;
+}
+.calculator{
+    background:linear-gradient(120deg,#0bd5f8,#ff6af7)wheat;
+    border: 2px solid rgb(31, 200, 234);
+    padding: 25px;
+    box-shadow: 3px 5px 8px rgba(31, 206, 255, 0.9);
+    border-radius: 20px;
+    height: 500px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* button styling */
+.in{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.theme{
+    border: 2px solid rgb(255, 42, 248);
+    height: 40px;
+    width: 100px;
+    font-size: 20px;
+    border-radius:50px;
+    color: white;
+    background:linear-gradient(150deg,#0bd5f8,#ff6af7)wheat ;
+    box-shadow: 3px 5px 8px #24c8dd;
+    cursor: pointer;
+}
+.theme-switch{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-around;
+     gap: 20px;
+     
+}
+.addvalue:hover{
+    color: black;
+    transform: translateY(-2px);
+    box-shadow: 3px 5px 8px hsl(186, 27%, 42%);
+} 
+.addoperator:hover{
+    color: black;
+    transform: translateY(-2px);
+    box-shadow: 3px 5px 8px hsl(186, 27%, 42%) ;
+}
+#addcalc:hover{
+    color: black;
+    transform: translateY(-2px);
+    box-shadow: 3px 5px 8px hsl(186, 27%, 42%) ;
+}
+.addvalue{
+     border: 2px solid rgb(255, 42, 248);
+    height: 40px;
+    width: 80px;
+    font-size: 20px;
+    border-radius:20px;
+    color: white;
+    background:linear-gradient(150deg,#0bd5f8,#ff6af7)wheat ;
+    box-shadow: 3px 5px 8px #24c8dd;
+}
+.addoperator{
+     border: 2px solid rgb(255, 42, 248);
+     height: 40px;
+     font-size: 20px;
+    width: 80px;
+    border-radius:20px;
+    color: white;
+    background:linear-gradient(150deg,#0bd5f8,#ff6af7)wheat ;
+    box-shadow: 3px 5px 8px #24c8dd;
+    
+}
+#addcalc{
+     border: 2px solid rgb(255, 42, 248);
+     box-shadow: 3px 5px 8px #24c8dd;
+     height: 40px;
+     font-size: 20px;
+     border-radius:20px;
+    width: 80px;
+    color: white;
+    /* background-color: magenta; */
+    background:linear-gradient(150deg,#0bd5f8,#ff6af7)wheat ;
+    box-shadow: 3px 5px 8px #24c8dd;
+}
+ .box{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    /* border: 2px solid  red; */
+    justify-content: center;
+}
+   /* dark-theme  */
+      /* .bodyy{ 
+     background:linear-gradient(120deg,rgb(255, 251, 251),rgb(235, 227, 211));
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  
+  }     */

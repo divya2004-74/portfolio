@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculator website</h1>
+    <br>
+  <input id="display"  type="text" readonly>
+  <br>
+  <button onclick="addvalue('1')">1</button>
+  <button onclick="addvalue('2')">2</button>
+  <button onclick="addvalue('3')">3</button>
+  <button onclick="addoperator('+')">+</button>
+  <br>
+  <button onclick="addvalue('4')">4</button>
+  <button onclick="addvalue('5')">5</button>
+  <button onclick="addvalue('6')">6</button>
+  <button onclick="addoperator('-')">-</button>
+  <br>
+  
+  <button onclick="addvalue('7')">7</button>
+  <button onclick="addvalue('8')">8</button>
+  <button onclick="addvalue('9')">9</button>
+  <button onclick="addoperator('*')">*</button>
+  <br>
+  
+  <button onclick="del('del')">Del</button>
+  <button onclick="addvalue('.')">.</button>
+  <button onclick="calc('=')">=</button>
+  <button onclick="addoperator('/')">/</button>
+  <br>
+  <button onclick="allclear()">AC</button>
+  <br>
+
+  <script>
+    function addvalue(num){
+     document.getElementById("display").value+=num
+
+    }
+    function addoperator(num){
+    document.getElementById("display").value+=num
+
+    }
+    function allclear() {
+        document.getElementById("display").value=" "
+    }
+    function del(){
+   let del=document.getElementById("display")
+   del.value=del.value.slice(0,-1)//trigers last value
+    }
+
+    function calc(){
+        let cal=document.getElementById("display").value//'20+40'
+        let exp=eval(cal)//'eval(20+40)=60'
+        document.getElementById("display").value=exp
+    }
+  </script> 
+
+
+</body>
+</html>

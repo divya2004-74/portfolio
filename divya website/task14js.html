@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let e=Number(prompt("enter a unit"))
+        if(e>=200 && e<=300){
+            bill=e*3.50
+        }
+        else if(e>=100 && e<=200 ){
+            bill=e*2.50
+        }
+        else if(e<=100){
+            bill=e*1.50
+        }
+        else{
+            console.log("invalid uint")
+        }
+        console.log("total bill amount:"+bill)
+
+    </script>
+</body>
+</html>

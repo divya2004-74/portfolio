@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .maxparent{
+            border: 2px solid red;
+           display:flex;
+           flex-wrap:wrap;
+           gap: 40px;
+        }
+        .parent{
+            height: 150px;
+            flex-basis: 35px;
+            margin: 15px;
+            flex-wrap:wrap;
+            /* gap: 40px; */
+        }
+        img{
+            height: 150px;
+            flex-basis: 35%;
+        }
+        @media screen and  (max-width:1200px){
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="maxparent">
+        <div class=" parent parent1">
+         <img src="./cloud.jpg">
+         <img src="./cloud.jpg">
+         </div>
+         <div class=" parent parent2">
+         <img src="./beauty6.jpg">
+         <img src="./beauty6.jpg">
+         <img src="./beauty6.jpg">
+        </div>
+        <div class=" parent parent3">
+            <img src="./descript.jpg" >
+        </div>
+    </div>
+</body>
+</html>

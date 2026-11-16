@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="hlo">Welcome to all</h1>
+    <button onclick="show()">click now</button>
+
+    <h2 id="h2"onmouseover="disp()">hello world</h2>
+    <h2 id="h2"onmouseout="disp()">hello world</h2>
+
+    <input id="ip" onkeyup="key()">
+    <div id="res"></div>
+
+    <select id="choice" onchange="change()">
+    <option value="">salem</option>
+    <option value="">nammakal</option>
+    <option value="">thiruchi</option>
+    <option value="">chennai</option>
+    </select>
+
+    <input type="button" value="want to conform" onclick="order()" id="ip2">
+    <div id="res2"></div>
+
+    <h1 id="n">Name</h1>
+    <button onclick="update(event)">Divya</button>
+    <button onclick="update(event)">gowtham</button>
+    <button onclick="update(event)">kavinya</button>
+
+    <button onclick="add()" id="btn">Add now</button>
+    <h1 id="res3"></h1>
+
+    <script>
+        function show(){
+            let h=document.getElementById("hlo")
+            h.textContent="hello kavinya!!"
+        }
+
+
+        function disp(){
+            let s=document.getElementById("h2")
+            s.textContent="good morning"
+        }
+
+        function key(){
+            let d=document.getElementById("ip")
+            document.getElementById("res").innerHTML=d.value
+            d.style.color="red"
+        }
+
+        function change(){
+            // let c=document.getElementById("choice")
+           alert("are u sure")
+           document.getElementById("choice").onchange=change
+        }
+
+        function order(){
+            let i=document.getElementById("ip2")
+            i=confirm("are u ready to place order")
+            if (i){
+                document.getElementById("res2").innerHTML="<h2>order placed successfully</h2>"
+            }
+            else{
+                document.getElementById("res2").innerHTML="<h2>order cancelled successfully</h2>"
+            }
+        }
+        function update(event){
+            let  name=document.getElementById("n")
+            name.textContent=event.target.textContent
+        }
+        var r=document.getElementById(res3)
+        function add(){
+             let b=document.getElementById("btn")
+             let h=document.createElement("h6")
+             h.textContent="hello kavinya!!"
+             r.append(h)
+
+        }
+    </script>
+</body>
+</html>
